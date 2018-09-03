@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+
+<!-- Head tag -->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!--Description-->
+    
+        <meta name="description" content="不会搞艺术的程序员不是好设计师">
+    
+
+    <!--Author-->
+    
+        <meta name="author" content="hk">
+    
+
+    <!-- Title -->
+    
+    <title>redux入门 | HK&#39;s blog</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="//cdn.bootcss.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/style.css">
+
+    <!-- Custom Fonts -->
+    <link href="//cdn.bootcss.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href='//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+    <link href='//fonts.googleapis.com/css?family=Noto+Serif:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+
+<body>
+
+    <!-- Content -->
+    <section class="article-container">
+<!-- Back Home -->
+<a class="nav-back" href="/">
+    <i class="fa fa-puzzle-piece"></i>
+</a>
+
+<!-- Page Header -->
+<header class="intro-header">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <h1>redux入门</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+            <!-- Post Main Content -->
+            <div class="post-content col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <h2 id="Redux是什么"><a href="#Redux是什么" class="headerlink" title="Redux是什么"></a>Redux是什么</h2><p>Redux对于JavaScript应用而言是一个可预测状态的<strong>容器</strong>。换言之，它是一个应用<strong>数据流框架</strong>，而不是传统的像underscore.js或者AngularJs那样的库或者框架。</p>
+<p>Redux最主要是用作应用状态的管理。简言之，Redux用一个单独的常量状态树（对象）保存这一整个应用的状态，这个对象不能直接被改变。当一些数据变化了，一个新的对象就会被创建（使用actions和reducers）。</p>
+<p>应用中所有的 state 都以一个对象树的形式储存在一个单一的 store 中。 惟一改变 state 的办法是触发 action，一个描述发生什么的对象。 为了描述 action 如何改变 state 树，你需要编写 reducers。</p>
+<h2 id="Redux的优点"><a href="#Redux的优点" class="headerlink" title="Redux的优点"></a>Redux的优点</h2><ul>
+<li><p>预测<br>始终有一个准确的数据源，就是store, 对于如何将actions以及应用的其他部分和当前的状态同步可以做到绝不混乱。</p>
+</li>
+<li><p>维护<br>具备可预测结果的性质和严格的组织结构让代码更容易维护。</p>
+</li>
+<li><p>组织<br>对代码应该如何组织更加严苛，这使代码更加一致，对团队协作更加容易。</p>
+</li>
+<li><p>测试<br>编写可测试代码的首要准则就是编写可以仅做一件事并且独立的小函数。Redux的代码几乎全部都是这样的函数：短小、纯粹、分离</p>
+</li>
+<li><p>服务端渲染<br>可以带来更好的用户体验并且有助于搜索引擎优化，尤其是对于首次渲染。仅仅是把服务端创建的store传递给客户端就可以。</p>
+</li>
+<li><p>开发者工具<br>开发者可以实时跟踪在应用中正在发生的一切，从actions到状态的改变。</p>
+</li>
+<li><p>社区与生态圈<br>存在很多支持Redux的社区，使它能够吸引更多的人来使用。</p>
+</li>
+</ul>
+<h2 id="Redux的核心概念"><a href="#Redux的核心概念" class="headerlink" title="Redux的核心概念"></a>Redux的核心概念</h2><h3 id="1-action"><a href="#1-action" class="headerlink" title="1. action"></a>1. action</h3><p>简单地，Actions就是事件。Actions传递来自这个应用（用户接口，内部事件比如API调用和表单提交）的数据给store。store只获取来自Actions的信息。内部Actions就是简单的具有一个type属性（通常是常量）的JavaScript对象，这个对象描述了action的类型以及传递给store的负载信息。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    type: LOGIN_FORM_SUBMIT,</span><br><span class="line">    payload: &#123;username: &apos;alex&apos;, password: &apos;123456&apos;&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>Actions通过action生成器创建，它们仅仅是是返回action的函数。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">function authUser(form) &#123;</span><br><span class="line">    return &#123;</span><br><span class="line">        type: LOGIN_FORM_SUBMIT,</span><br><span class="line">        payload: form </span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>要在应用中的任何地方调用actions很容易，使用dispatch方法。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dispatch(authUser(form));</span><br></pre></td></tr></table></figure></p>
+<h3 id="2-reducers"><a href="#2-reducers" class="headerlink" title="2. reducers"></a>2. reducers</h3><p>在函数式JavaScript中reducer基于数组reduce方法，接收一个回调（reducer）让你从多个值中获得单个值，整数和，或者一个一系列值的累积。在Redux中，reducer就是获得这个应用的当前状态和事件然后返回一个新状态的函数。理解reducer是怎样工作的至关重要，因为它们完成大部分工作。这是一个非常简单的reducer，通过获取当前state和一个action作为参数，再返回下一个state：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">function handleAuth(state, action) &#123;</span><br><span class="line">    return _.assign(&#123;&#125;, state, &#123;</span><br><span class="line">        auth: action.payload  </span><br><span class="line">    &#125;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>对于更多复杂的项目，使用Redux提供的combineReducers()实例是必要的（推荐）。它把在这个应用中所有的reducer结合在一起成为单个索引reducer。每一个reducer负责它自己那部分应用的状态，这个状态参数和其他reducer的不一样。combineReducers()实例使文件结构更容易维护。</p>
+<p>如果一个对象（state）只改变一些值，Redux就创建一个新的对象，那些没有改变的值将会指向旧的对象而且新的值将会被创建。这对性能是极好的。为了让它更有效率你可以添加 Immutable.js<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">const rootReducer = combineReducers(&#123;</span><br><span class="line">    handleAuth: handleAuth,</span><br><span class="line">    editProfile: editProfile,</span><br><span class="line">    changePassword: changePassword</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></p>
+<h3 id="3-store"><a href="#3-store" class="headerlink" title="3. store"></a>3. store</h3><p>Store对象保存应用的状态并提供一些帮助方法来存取状态，分发状态以及注册监听。全部state由一个store来表示。任何action通过reducer返回一个新的状态对象。这就使得Redux非常简单以及可预测。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">import &#123; createStore &#125; from &apos;redux&apos;;</span><br><span class="line">let store = createStore(rootReducer); // 这里的rootReducer就是上面创建的</span><br><span class="line">let authInfo = &#123;username: &apos;alex&apos;, password: &apos;123456&apos;&#125;;</span><br><span class="line">store.dispatch(authUser(authInfo));</span><br></pre></td></tr></table></figure></p>
+
+ 
+                <!-- Meta -->
+                <div class="post-meta">
+                    <hr>
+                    <br>
+                    <div class="post-tags">
+                        
+                            
+
+<a href="/tags/react/">#react</a>
+
+
+                        
+                    </div>
+                    <div class="post-date">
+                        2018 年 08 月 19 日
+                    </div>
+                </div>
+            </div>
+
+            <!-- Comments -->
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <!-- Disqus Comments -->
+
+
+            </div>
+        </div>
+    </div>
+</article>
+</section>
+
+    <!-- Scripts -->
+    <!-- jQuery -->
+<script src="//cdn.bootcss.com/jquery/2.2.1/jquery.min.js"></script>
+<!-- Bootstrap -->
+<script src="//cdn.bootcss.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+<script type="text/javascript">
+	console.log('Hexo-theme-hollow designed by zchen9 🙋 © 2015-' + (new Date()).getFullYear());
+</script>
+
+    <!-- Google Analytics -->
+    
+
+</body>
+
+</html>

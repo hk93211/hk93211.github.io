@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+
+<!-- Head tag -->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!--Description-->
+    
+        <meta name="description" content="不会搞艺术的程序员不是好设计师">
+    
+
+    <!--Author-->
+    
+        <meta name="author" content="hk">
+    
+
+    <!-- Title -->
+    
+    <title>git一些命令 | HK&#39;s blog</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="//cdn.bootcss.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/style.css">
+
+    <!-- Custom Fonts -->
+    <link href="//cdn.bootcss.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href='//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+    <link href='//fonts.googleapis.com/css?family=Noto+Serif:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+
+<body>
+
+    <!-- Content -->
+    <section class="article-container">
+<!-- Back Home -->
+<a class="nav-back" href="/">
+    <i class="fa fa-puzzle-piece"></i>
+</a>
+
+<!-- Page Header -->
+<header class="intro-header">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <h1>git一些命令</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+            <!-- Post Main Content -->
+            <div class="post-content col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <h2 id="Git-diff"><a href="#Git-diff" class="headerlink" title="Git diff"></a>Git diff</h2><p>通常情况下，我们会在自己的独立分支中完成需求开发，此时就会有需求将自己的分支和其他分支进行对比。这个功能可以通过<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git diff branch1 branch2</span><br></pre></td></tr></table></figure></p>
+<p>命令来对比branch1和branch2分支的区别, 列出每一个有改动文件的具体改动.</p>
+<p>如果希望对比暂存区和当前的 HEAD，那么使用<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git diff --cached</span><br></pre></td></tr></table></figure></p>
+<p>命令会非常方便。普通的 git diff 命令默认对比的是没有加到索引中的文件。</p>
+<h2 id="恢复暂存区"><a href="#恢复暂存区" class="headerlink" title="恢复暂存区"></a>恢复暂存区</h2><p>如果已经将一些文件添加到暂存区后又后悔了，Git 提供了多个命令来实现这个功能，具体需要根据当时情况而定。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git rm path/to/file --cached</span><br></pre></td></tr></table></figure></p>
+<p>命令将文件从暂存区索引中删除，但是仍然会将文件保留在工作目录。这比直接使用<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git rm file -f</span><br></pre></td></tr></table></figure></p>
+<p>命令直接完全删除文件会安全一点</p>
+<h2 id="Git-reset"><a href="#Git-reset" class="headerlink" title="Git reset"></a>Git reset</h2><p>如果希望恢复一些已经提交的改动，我们可以使用<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git reset</span><br></pre></td></tr></table></figure></p>
+<p>命令。该命令有许多不同的行为，因此需要按照实际场景进行使用。</p>
+<p>如果希望的是去除所有修改，包括索引中的内容和工作目录中的修改，那么可以使用<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git reset --hard</span><br></pre></td></tr></table></figure></p>
+<p>如果仅仅是希望重置索引，那么可以使用<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git reset --mixed</span><br></pre></td></tr></table></figure></p>
+<p>命令，这也是 git reset 命令的默认行为。混合的重置会保留当前工作目录中的改动。最后，如果仅仅希望修改分支的 HEAD，可以通过<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git reset --soft</span><br></pre></td></tr></table></figure></p>
+<p>实现</p>
+<p>当运行 git reset 命令的时候，我们可以指定多个目标文件作为参数传入。当然可以通过<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git reset --hard COMMIT_ID</span><br></pre></td></tr></table></figure></p>
+<p>恢复到指定的提交版本。</p>
+<h2 id="Git-stash"><a href="#Git-stash" class="headerlink" title="Git stash"></a>Git stash</h2><p>大家应该对 git stash 命令并不陌生，它可以通过 git stash pop 命令方便的将之前的改动恢复回来。然而，如果工作目录中有未追踪的文件，默认情况下是不会将其存入临时储藏区的。为了能够临时保存未追踪的文件，可以使用<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git stash --include-untracked</span><br></pre></td></tr></table></figure></p>
+<p>命令。另外一个非常有用的命令是<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git stash list</span><br></pre></td></tr></table></figure></p>
+<p>它能列出临时储藏区中的内容。</p>
+<h2 id="历史记录"><a href="#历史记录" class="headerlink" title="历史记录"></a>历史记录</h2><p>Git 自带了非常强大的工具来查看项目以及特定文件的变更情况。我个人非常喜欢用其中的一个命令：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git log --graph --decorate --oneline</span><br></pre></td></tr></table></figure></p>
+<p>用以展示经过修饰的提交历史。这个命令非常冗长，因此我建议可以为它创建一个别名（这可能是所有技巧中最有用的，因为许多命令都比较难记）。git log 命令可以显示 HEAD、所有提交的 ID 以及分支信息。有了这些信息之后，我们可以使用<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git show COMMIT_ID/HEAD/BRANCH</span><br></pre></td></tr></table></figure></p>
+<p>命令来显示更详细的信息。</p>
+<p>有的时候我们需要了解谁对一个文件做了哪些改动，这正是<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git blame path/to/file</span><br></pre></td></tr></table></figure></p>
+<p>命令所提供的功能。</p>
+<p>之前提到过 git diff 命令，它也是一个查看历史的工具。例如，如果需要对比当前 HEAD 和前两个提交，可以使用<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git diff HEAD HEAD~2</span><br></pre></td></tr></table></figure></p>
+<p>为了能够展示每个提交中的更详细的更新信息，可以使用<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git log --patch</span><br></pre></td></tr></table></figure></p>
+<p>命令。如果只想要看包含关键字“apple”的提交，使用<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git log --grep apples --oneline</span><br></pre></td></tr></table></figure></p>
+<p>命令。</p>
+<p>需要查看历史提交记录中两个点之间的提交历史，我们可以用<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git log HEAD~5..HEAD^ --oneline</span><br></pre></td></tr></table></figure></p>
+<p>命令，对于分支可以使用<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git log branch_name..master --oneline</span><br></pre></td></tr></table></figure></p>
+<h2 id="修复错误提交"><a href="#修复错误提交" class="headerlink" title="修复错误提交"></a>修复错误提交</h2><p><strong>注意：以下一些命令会修改提交历史，使用前请确保了解后再执行。</strong><br>当提交出错时，我们可能会希望能够修改提交历史。我不建议修改已经推送到远程仓库的提交历史（即使 git 允许这样做），但是对于本地仓库的提交历史，我个人认为还是可以修改的。通过<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git commit --amend</span><br></pre></td></tr></table></figure></p>
+<p>命令可以删除前一次提交，并创建一个新的提交记录以替代之前的提交。</p>
+<p>另一个我最喜欢的 git 使用技巧是交互式变基 (rebase）。它可以用来编辑提交信息，或者将多个提交压缩成一个提交，这也是我最喜欢的一个功能。为了在远程仓库 origin 的 master 分支之后的所有提交上执行交互式变基，可以使用<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git rebase -i origin/master</span><br></pre></td></tr></table></figure></p>
+<p>该命令会显示提交列表和可执行操作的详细描述。例如以下操作将会把多个提交压缩成一个：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">1 pick 80f2a48 Add feature X</span><br><span class="line">2 squash 2c74ea2 Add junit tests for feature X</span><br><span class="line">3 squash 4k81nm5 Bugfix for feature X</span><br></pre></td></tr></table></figure></p>
+<p>最终的结果会是生成一个提交消息为“Add feature X”的提交。</p>
+<p>如果需要恢复一个有问题的提交，我们可以使用<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git revert COMMIT_ID</span><br></pre></td></tr></table></figure></p>
+<p>该命令会创建一个新的提交，让当前项目状态恢复到指定提交之前。</p>
+<p>如果我们在修复问题时出现了误操作，例如不小心删除了不应该删除的文件。我们还是可以从版本库中恢复回来，因为 git 保存了所有修改的版本，包括被移除的提交。git reflog 命令就是用来实现这个功能的。</p>
+<h2 id="挑拣提交（cherry-pick）"><a href="#挑拣提交（cherry-pick）" class="headerlink" title="挑拣提交（cherry-pick）"></a>挑拣提交（cherry-pick）</h2><p>假设我们和同事在各自单独的分支上进行开发，同事有一个重要的提交我们也想应用到自己的分支上来，但是不需要对方分支的其他提交。这时我们可以使用<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git cherry-pick COMMIT_ID</span><br></pre></td></tr></table></figure></p>
+<h2 id="写在最后"><a href="#写在最后" class="headerlink" title="写在最后"></a>写在最后</h2><p>以上都是我最喜欢的 git 实用技巧。希望你也能从中学到一些新知识。这些都是我在日常使用中发现非常有用的命令，它们对我的日常工作非常有用。如果你也有类似常用的 git 实用技巧或者常用命令，可以分享出来大家一起交流。</p>
+
+ 
+                <!-- Meta -->
+                <div class="post-meta">
+                    <hr>
+                    <br>
+                    <div class="post-tags">
+                        
+                            
+
+<a href="/tags/教程/">#教程</a>
+
+
+                        
+                    </div>
+                    <div class="post-date">
+                        2018 年 08 月 20 日
+                    </div>
+                </div>
+            </div>
+
+            <!-- Comments -->
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <!-- Disqus Comments -->
+
+
+            </div>
+        </div>
+    </div>
+</article>
+</section>
+
+    <!-- Scripts -->
+    <!-- jQuery -->
+<script src="//cdn.bootcss.com/jquery/2.2.1/jquery.min.js"></script>
+<!-- Bootstrap -->
+<script src="//cdn.bootcss.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+<script type="text/javascript">
+	console.log('Hexo-theme-hollow designed by zchen9 🙋 © 2015-' + (new Date()).getFullYear());
+</script>
+
+    <!-- Google Analytics -->
+    
+
+</body>
+
+</html>

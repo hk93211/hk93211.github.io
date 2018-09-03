@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+
+<!-- Head tag -->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!--Description-->
+    
+        <meta name="description" content="不会搞艺术的程序员不是好设计师">
+    
+
+    <!--Author-->
+    
+        <meta name="author" content="hk">
+    
+
+    <!-- Title -->
+    
+    <title>AngularJS复杂业务系统的代码架构探索 | HK&#39;s blog</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="//cdn.bootcss.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/style.css">
+
+    <!-- Custom Fonts -->
+    <link href="//cdn.bootcss.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href='//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+    <link href='//fonts.googleapis.com/css?family=Noto+Serif:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+
+<body>
+
+    <!-- Content -->
+    <section class="article-container">
+<!-- Back Home -->
+<a class="nav-back" href="/">
+    <i class="fa fa-puzzle-piece"></i>
+</a>
+
+<!-- Page Header -->
+<header class="intro-header">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <h1>AngularJS复杂业务系统的代码架构探索</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+            <!-- Post Main Content -->
+            <div class="post-content col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <h2 id="模型系统的前世-–-“模糊系统”"><a href="#模型系统的前世-–-“模糊系统”" class="headerlink" title="模型系统的前世 – “模糊系统”"></a>模型系统的前世 – “模糊系统”</h2><h3 id="开发阶段-controller里面的代码"><a href="#开发阶段-controller里面的代码" class="headerlink" title="开发阶段: controller里面的代码"></a>开发阶段: controller里面的代码</h3><ul>
+<li>初始化视图模型, 视图展示元素的文字及显示影藏等等属性(ng-show/ng-if)</li>
+<li>定义事件响应函数, 处理UI交互逻辑(ng-click/ng-change)</li>
+<li>定义scope中, 指令需要的配置参数</li>
+<li>指令和controller的作用域的数据传递</li>
+<li>作用域内部属性变动的监听</li>
+<li>作用域之间的数据通信</li>
+<li>业务逻辑</li>
+</ul>
+<h3 id="维护阶段"><a href="#维护阶段" class="headerlink" title="维护阶段"></a>维护阶段</h3><p>上面那样写出来的代码, 在维护的时候就是一团糟</p>
+<p>测量代码质量的标准是, 在代码reveive每分钟WTF(what the fuck)的数量</p>
+<h3 id="带来的沉思"><a href="#带来的沉思" class="headerlink" title="带来的沉思"></a>带来的沉思</h3><ul>
+<li><p>代码级别的重构解决不了问题<br>每个人开发的项目不同,思路不同,所有优化和重构的策略也不同,导致重构后的代码风格不同,甚至,重构优化过的代码在面临需求变更的时候出现反复</p>
+</li>
+<li><p>不是哪个程序员的问题<br>不是因为某个程序员或者某几个程序员故意那样写,而是因为简单项目中,使用angularjs那样写就是快,就是简单,产品经理规定的一周的工作说不定你3天就做完了</p>
+</li>
+<li><p>是发展中的问题<br>两个维度: (1)一个复杂的业务系统,从最初的0.0版本的需求到最终多次需求迭代变更之后,系统自然而然的会出现这样的问题,初期写的很简单的代码在后期需要加需求是带来很多困扰. (2)从项目组来说,这种问题存在于整个项目组的成长期,不是突然冒出来的,也不会突然消失,必须认真对待,合理规划</p>
+</li>
+<li><p>产品规模化以后是最大的问题<br>某一个项目存在这样的问题不可怕,可怕的是大部分项目都存在这样的问题,当产品规模化了以后,项目越来越多,只有最开始的开发者才能做维护,那么后期维护和需求迭代的投入只会让团队积重难返</p>
+</li>
+</ul>
+<h2 id="模型系统的初现-–-面向对象程序设计"><a href="#模型系统的初现-–-面向对象程序设计" class="headerlink" title="模型系统的初现 – 面向对象程序设计"></a>模型系统的初现 – 面向对象程序设计</h2><p>面向对象程序设计的手段(方法)是什么 ?</p>
+<ol>
+<li>继承/组合</li>
+<li>封装</li>
+<li>多态</li>
+</ol>
+<p>这些都是被说烂了的概念<br>不是因为你写了个prototype扩展一下就是面向对象了,或许真实情况是, 你仅仅是代码用了继承的写法而已<br>而是一个设计过程, 也就是说, 在写代码之前, 你设计了一套东西, 不管是框架也好, 是一个小功能也好, 是一个组件也好, 这个东西符合面向对象的思维, 然后你为了实现这套东西, 使用了继承/组合,封装,多态等等写代码的手法</p>
+<p>面向对象程序设计的精粹(预算)是什么 ?</p>
+<ol>
+<li><p>职责单一:<br> 一个类, 只承担它应该处理的职责, 其他相关的事物可以通过不同职责的类之间的组合或聚合来完成</p>
+</li>
+<li><p>开放封闭:<br> 对扩展开放, 对修改封闭, 如果你的代码在增加一个新功能的时候, 只用新增一个文件, 就能将功能加上去, 而不用去修改原有的逻辑, 就是符合开放的原则的</p>
+</li>
+<li><p>依赖倒转: (非常关键)<br> 依赖抽象, 而不是依赖实现, 抽象就是传说中的接口, 实现就是接口的具体逻辑, 改了具体的实现, 不会波及到其他模块的相关类, 这就是开放封闭原则成为可能</p>
+</li>
+<li><p>里氏替换:<br> 继承必须确保超类所拥有的性质在子类中仍然成立, 换言之, 程序中, 所有使用了超类的地方, 都可以使用子类去替代而不引发任何错误</p>
+</li>
+</ol>
+<h4 id="如何解决controller当前面临的问题-最大的问题-什么都在controller里面写"><a href="#如何解决controller当前面临的问题-最大的问题-什么都在controller里面写" class="headerlink" title="如何解决controller当前面临的问题(最大的问题, 什么都在controller里面写)"></a>如何解决controller当前面临的问题(最大的问题, 什么都在controller里面写)</h4><p>职责单一<br>controller职责梳理</p>
+<ul>
+<li>负责UI相关的数据初始化</li>
+<li>负责不同模块之间的数据通信</li>
+<li>负责UI交互的逻辑处理</li>
+<li>不负责业务逻辑</li>
+</ul>
+<p>基本行为的抽象</p>
+<ul>
+<li>可以利用模板方法模式将常用的controller初始化过程抽象为一系列标准的初始化方法, 子类根据实际类型去做不同方法的复写</li>
+</ul>
+<p>常用功能的封装</p>
+<ul>
+<li>在原有的基础上做功能行的封装</li>
+<li>提供全局事件注册, 销毁快速接口</li>
+<li>提供模型获取的快速接口等等</li>
+<li>提供内部的注册属性, 方法等机制</li>
+</ul>
+<p>不用职责和功能组件的组合</p>
+<ul>
+<li>业务组件</li>
+<li>UI组件</li>
+<li>Directive 等等</li>
+</ul>
+<h4 id="如何解决业务逻辑膨胀式增长的问题"><a href="#如何解决业务逻辑膨胀式增长的问题" class="headerlink" title="如何解决业务逻辑膨胀式增长的问题 ?"></a>如何解决业务逻辑膨胀式增长的问题 ?</h4><p>可扩展性<br>按照业务逻辑划分模块</p>
+<ul>
+<li>明确模块职责</li>
+<li>对业务模块进行建模</li>
+<li>业务模块根据配置或者运行时,自助注入controller</li>
+</ul>
+<p>通过事件机制完成模块间的数据通信和交流</p>
+<ul>
+<li>业务模块之间的业务关系及监护,尽量采用事件机制和promise配合</li>
+</ul>
+<p>业务组件的复用</p>
+<ul>
+<li>同一个系统内部多次出现的跟某个业务相关的组件可以作为公用的业务组件提取出来, 不单交互是一致的, 而且内部的业务逻辑也是一致的</li>
+</ul>
+
+ 
+                <!-- Meta -->
+                <div class="post-meta">
+                    <hr>
+                    <br>
+                    <div class="post-tags">
+                        
+                            
+
+<a href="/tags/angularjs/">#angularjs</a>
+
+
+                        
+                    </div>
+                    <div class="post-date">
+                        2018 年 08 月 19 日
+                    </div>
+                </div>
+            </div>
+
+            <!-- Comments -->
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <!-- Disqus Comments -->
+
+
+            </div>
+        </div>
+    </div>
+</article>
+</section>
+
+    <!-- Scripts -->
+    <!-- jQuery -->
+<script src="//cdn.bootcss.com/jquery/2.2.1/jquery.min.js"></script>
+<!-- Bootstrap -->
+<script src="//cdn.bootcss.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+<script type="text/javascript">
+	console.log('Hexo-theme-hollow designed by zchen9 🙋 © 2015-' + (new Date()).getFullYear());
+</script>
+
+    <!-- Google Analytics -->
+    
+
+</body>
+
+</html>

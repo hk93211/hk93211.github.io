@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+
+<!-- Head tag -->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!--Description-->
+    
+        <meta name="description" content="不会搞艺术的程序员不是好设计师">
+    
+
+    <!--Author-->
+    
+        <meta name="author" content="hk">
+    
+
+    <!-- Title -->
+    
+    <title>webpack学习之路 | HK&#39;s blog</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="//cdn.bootcss.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/style.css">
+
+    <!-- Custom Fonts -->
+    <link href="//cdn.bootcss.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href='//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+    <link href='//fonts.googleapis.com/css?family=Noto+Serif:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+
+<body>
+
+    <!-- Content -->
+    <section class="article-container">
+<!-- Back Home -->
+<a class="nav-back" href="/">
+    <i class="fa fa-puzzle-piece"></i>
+</a>
+
+<!-- Page Header -->
+<header class="intro-header">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <h1>webpack学习之路</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+            <!-- Post Main Content -->
+            <div class="post-content col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <h1 id="webpack学习之路"><a href="#webpack学习之路" class="headerlink" title="webpack学习之路"></a>webpack学习之路</h1><p>当自己在学习webpack的时候，在网上发现中文的很详细的教程很少，于是便想将自己学习webpack的笔记记录整理下来，便有了这篇文章，希望对大家有所帮助，如果有错误，欢迎大家指出。</p>
+<h3 id="在我们开始之前"><a href="#在我们开始之前" class="headerlink" title="在我们开始之前"></a>在我们开始之前</h3><ul>
+<li>webpack有多种加载器(<strong>Loader</strong>,后面会介绍),可以处理各种需要被处理的静态文件</li>
+<li>webpack支持<strong>CommonJs</strong> <strong>AMD</strong> <strong>CMD</strong>规范</li>
+<li><p>在使用webpack的项目中，默认配置文件为<code>webpack.config.js</code>, 模块文件，和Node写法一样，对外暴露接口,主要属性有:</p>
+<ul>
+<li>plugins插件项</li>
+<li>entry入口文件配置项</li>
+<li>output对应输出项配置</li>
+<li>module.loaders 最关键的配置，告知webpack不同的文件需要什么加载器进行处理</li>
+</ul>
+</li>
+<li><p>模块系统的几种类型</p>
+<ul>
+<li><p><code>&lt;script&gt;</code>标签类型</p>
+<ul>
+<li>缺点<ul>
+<li>全局作用域下造成变量的冲</li>
+<li>文件加载顺序很重要</li>
+<li>模块与模块之间的依赖要解决</li>
+<li>在大型项目中难以维护和管理</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><strong>CommonJs</strong></p>
+<ul>
+<li><p>优点</p>
+<ul>
+<li>服务端模块能够重复利用</li>
+<li>有优秀的包管理工具npm</li>
+<li>简单，上手容易</li>
+</ul>
+</li>
+<li><p>缺点</p>
+<ul>
+<li>不适合浏览器端的使用</li>
+<li>不能做到并行加载模块</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><strong>AMD</strong></p>
+<ul>
+<li><p>优点</p>
+<ul>
+<li>适合浏览器的异步加载机制</li>
+<li>并行加载模块</li>
+</ul>
+</li>
+<li>缺点<ul>
+<li>代码难以经营和维护</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><strong>ES6</strong></p>
+<ul>
+<li><p>优点</p>
+<ul>
+<li>未来的ES规范</li>
+</ul>
+</li>
+<li><p>缺点</p>
+<ul>
+<li>浏览器对ES6的支持还需要一段时间 </li>
+<li>能够依赖的现有的模块少</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="‘-转换-‘-的思想"><a href="#‘-转换-‘-的思想" class="headerlink" title="‘ 转换 ‘ 的思想"></a>‘ 转换 ‘ 的思想</h3><p> 模块要能够在客户端中去执行，则必须将它们从 server =&gt; browser</p>
+<ul>
+<li><p>极端的想法:</p>
+<ul>
+<li>一个请求一个模块 只有需要的模块会被转换，但是耗费资源，时间长</li>
+<li>所有请求都在一个模块 不需要的模块也会被转换 时间短，耗费资源少</li>
+</ul>
+</li>
+<li><p>分块转换的想法:</p>
+<ul>
+<li>将众多的模块切成许多片，在初始化时的请求不会包括完整的代码，并且在初始化时不需要的模块切片会在后续加载过程中按需加载。并且将模块化的切片方式是可以有开发人员自己定义的。</li>
+</ul>
+</li>
+</ul>
+<h3 id="wepback它的目标是是什么？"><a href="#wepback它的目标是是什么？" class="headerlink" title="wepback它的目标是是什么？"></a>wepback它的目标是是什么？</h3><p>webpack它能将依赖的模块转化成可以代表这些包的静态文件</p>
+<p>它的目标有</p>
+<ul>
+<li>将依赖的模块分片化，并且按需加载</li>
+<li>解决大型项目初始化加载慢的问题</li>
+<li>每一个静态文件都可以看成一个模块</li>
+<li>可以整合第三方库</li>
+<li>能够在大型项目中运用</li>
+<li>可以自定义切割模块的方式</li>
+</ul>
+<h3 id="webpack较之其他类似工具有什么不同？"><a href="#webpack较之其他类似工具有什么不同？" class="headerlink" title="webpack较之其他类似工具有什么不同？"></a>webpack较之其他类似工具有什么不同？</h3><ul>
+<li>有同步和异步两种不同的加载方式</li>
+<li>Loader,加载器可以将其他资源整合到JS文件中，通过这种方式，可以讲所有的源文件形成一个模块</li>
+<li>优秀的语法分析能力，支持 CommonJs AMD 规范</li>
+<li>有丰富的开源插件库，可以根据自己的需求自定义webpack的配置</li>
+</ul>
+<h3 id="webpack为什么要将所有资源放在一个文件里面？"><a href="#webpack为什么要将所有资源放在一个文件里面？" class="headerlink" title="webpack为什么要将所有资源放在一个文件里面？"></a>webpack为什么要将所有资源放在一个文件里面？</h3><p>我们知道，对于浏览器来说，加载的资源越少，响应的速度也就越快，所以有时候我们为了优化浏览器的性能，会尽可能的将资源合并到一个主文件<code>app.js</code>里面。但是这导致的很大的缺点：</p>
+<ul>
+<li>当你的项目十分庞大的时候，不同的页面不能做到按需加载，而是将所有的资源一并加载，耗费时间长，性能降低。</li>
+<li>会导致依赖库之间关系的混乱，特别是大型项目时，会变得难以维护和跟踪。比如:哪些文件是需要A模块加载完后才能执行的？哪些页面会受到多个样式表同时影响的？ 等许多问题。</li>
+</ul>
+<p>而<strong>webpack</strong>可以很好的解决以上缺点,因为它是一个十分聪明的模块打包系统，当你正确配置后，它会比你想象中的更强大，更优秀。</p>
+<h2 id="开启wbpack之旅"><a href="#开启wbpack之旅" class="headerlink" title="开启wbpack之旅"></a>开启wbpack之旅</h2><hr>
+<h3 id="安装webpack"><a href="#安装webpack" class="headerlink" title="安装webpack"></a>安装webpack</h3><ul>
+<li><p>我们可以直接使用npm进行全局安装</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install webpack -g</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>在常规项目中把webpack依赖加入到package.json</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">npm init  </span><br><span class="line">npm install webpack --save</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>更详尽的安装方法个可以参考<a href="https://webpack.github.io/docs/installation.html" target="_blank" rel="noopener">webpack安装</a></p>
+<h3 id="webpak命令行常见使用的操作"><a href="#webpak命令行常见使用的操作" class="headerlink" title="webpak命令行常见使用的操作"></a>webpak命令行常见使用的操作</h3><p> 启动<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">webpack</span><br></pre></td></tr></table></figure></p>
+<p> 如果你想当改变一个文件而让webpack实时编译<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">webpack --watch</span><br></pre></td></tr></table></figure></p>
+<p> 如果你想把默认的配置文件<code>webpack.config.js</code>改成自定义文件<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">webpack --config customconfig.js</span><br></pre></td></tr></table></figure></p>
+<h2 id="webpack的用法"><a href="#webpack的用法" class="headerlink" title="webpack的用法"></a>webpack的用法</h2><hr>
+<p>首先先贴上一个比较完整的<code>webpack.config.js</code>的代码，再详细介绍：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">// webpack.config.js</span><br><span class="line">var path = require(&apos;path&apos;)</span><br><span class="line">var webpack = require(&apos;webpack&apos;)</span><br><span class="line"></span><br><span class="line">module.exports = &#123;</span><br><span class="line">  entry: [&apos;./src/index&apos;],</span><br><span class="line">  output: &#123;</span><br><span class="line">    path: path.join(__dirname, &apos;dist&apos;),</span><br><span class="line">    filename: &apos;bundle.js&apos;</span><br><span class="line">  &#125;,</span><br><span class="line">  plugins: [</span><br><span class="line">    new webpack.optimize.UglifyJsPlugin(&#123;</span><br><span class="line">      compressor: &#123;</span><br><span class="line">        warnings: false,</span><br><span class="line">      &#125;,</span><br><span class="line">    &#125;),</span><br><span class="line">    new webpack.optimize.OccurenceOrderPlugin()</span><br><span class="line">  ],</span><br><span class="line">  module: &#123;</span><br><span class="line">    loaders: [&#123;</span><br><span class="line">      test: /\.css$/,</span><br><span class="line">      loaders: [&apos;style&apos;, &apos;css&apos;]</span><br><span class="line">    &#125;]</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>就像我在前面提到的，<code>webpack.config.js</code>的写法和在Node里的写法相同，我们主要看的就是文件中的<code>module.exports</code>里面的内容</p>
+<ul>
+<li>entry    是指入口文件的配置项，它是一个数组的原因是webpack允许多个入口点。</li>
+<li><p>output是指输出文件的配置项</p>
+<ul>
+<li>path － 表示输出文件的路径</li>
+<li>filename - 表示输出文件的文件名</li>
+</ul>
+</li>
+<li><p>plugins 顾名思义，使用插件可以给webpack添加更多的功能，使webpack更加的灵活和强大,webpack有两种类型的插件:</p>
+<ul>
+<li>webpack内置的插件</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">// 首先要先安装webpack模块</span><br><span class="line">var webpack = require(&quot;webpack&quot;);</span><br><span class="line"></span><br><span class="line">module.exports = &#123;</span><br><span class="line">    new webpack.optimize.UglifyJsPlugin(&#123;</span><br><span class="line">      compressor: &#123;</span><br><span class="line">        warnings: false,</span><br><span class="line">      &#125;,</span><br><span class="line">	&#125;)</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>webpack外置插件</li>
+</ul>
+<p>比如:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">//npm install component-webpack-plugin 先要在安装该模版</span><br><span class="line">var ComponentPlugin = require(&quot;component-webpack-plugin&quot;);</span><br><span class="line">module.exports = &#123;</span><br><span class="line">    plugins: [</span><br><span class="line">        new ComponentPlugin()</span><br><span class="line">    ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>更多的插件以及插件的用法，大家可以到<a href="https://webpack.github.io/docs/list-of-plugins.html" target="_blank" rel="noopener">webpack的插件</a>上查看。</p>
+<ul>
+<li><p>module 配置处理文件的选项</p>
+<ul>
+<li><p>loaders 一个含有wepback中能处理不同文件的加载器的数组</p>
+<ul>
+<li>test 用来匹配相对应文件的正则表达式</li>
+<li>loaders 告诉webpack要利用哪种加载器来处理test所匹配的文件</li>
+</ul>
+</li>
+<li><p>loaders 的安装方法</p>
+</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm install xxx-loader --save-dev</span><br></pre></td></tr></table></figure>
+<p>讲到这里，我相信大家都会对wepback有了更深的认识，但是却十分的松散，不能把它们串起来，那接下来我就用几个小的demo来让大家梳理梳理起来</p>
+<h3 id="举个例子"><a href="#举个例子" class="headerlink" title="举个例子"></a>举个例子</h3><p>首先请大家建立一个和我一样文件结构的文件夹，在这里我也说明下这个demo大概要做的事情，就是将css文件都打包放到一个js文件，并且对图片解压，并且要对这个js文件进行自动压缩。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">DemoOne</span><br><span class="line">|- dist</span><br><span class="line">|- src</span><br><span class="line">	|- index.js</span><br><span class="line">	|- index.html</span><br><span class="line">	|- style.css</span><br><span class="line">	|- demo.png(随便找一张图片就可以)</span><br><span class="line">|- package.json</span><br><span class="line">|- webpack.config.js</span><br></pre></td></tr></table></figure></p>
+<p> 首先看<code>index.html</code>代码<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html lang=&quot;en&quot;&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">	&lt;meta charset=&quot;UTF-8&quot;&gt;</span><br><span class="line">	&lt;title&gt;demo1&lt;/title&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">	&lt;div&gt;Hello,world&lt;/div&gt;</span><br><span class="line">	&lt;img src=&quot;./demo.png&quot; alt=&quot;&quot;&gt;</span><br><span class="line">	&lt;script src=&quot;../dist/bundlle.js&quot;&gt;&lt;/script&gt;</span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure></p>
+<p>再看<code>style.css</code><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">body&#123;</span><br><span class="line">	background:red;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>这个时候我们还没有写<code>webpack.config.js</code>,打开<code>index.html</code>,会看到<img src="/2017/05/13/webpack学习之路/../webpack学习之路/demo1.png" alt="image"></p>
+<p>  打开控制台后，你会发现<img src="/2017/05/13/webpack学习之路/../webpack学习之路/demo1_1.png" alt="image"></p>
+<p>  接下来，我们在<code>webpack.config.js</code>下加上如下代码<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line">	// webpack.config.js</span><br><span class="line">var path = require(&apos;path&apos;)</span><br><span class="line">var webpack = require(&apos;webpack&apos;);</span><br><span class="line"></span><br><span class="line">module.exports = &#123;</span><br><span class="line">  entry: [&apos;./src/index&apos;],</span><br><span class="line">  output: &#123;</span><br><span class="line">    path: path.join(__dirname, &apos;dist&apos;),</span><br><span class="line">    filename: &apos;bundle.js&apos;</span><br><span class="line">  &#125;,</span><br><span class="line">  plugins: [</span><br><span class="line">    new webpack.optimize.UglifyJsPlugin(&#123;</span><br><span class="line">      compressor: &#123;</span><br><span class="line">        warnings: false,</span><br><span class="line">      &#125;,</span><br><span class="line">    &#125;)</span><br><span class="line">  ],</span><br><span class="line">  module: &#123;</span><br><span class="line">    loaders: [&#123;</span><br><span class="line">      test: /\.css$/,</span><br><span class="line">      loaders: [&apos;style&apos;, &apos;css&apos;]</span><br><span class="line">    &#125;,</span><br><span class="line">    &#123;</span><br><span class="line">        test: /\.(png|jpg)$/,</span><br><span class="line">        loaders: [</span><br><span class="line">            &apos;file?hash=sha512&amp;digest=hex&amp;name=[hash].[ext]&apos;,</span><br><span class="line">            &apos;image-webpack?bypassOnDebug&amp;optimizationLevel=7&amp;interlaced=false&apos;</span><br><span class="line">        ]</span><br><span class="line">    &#125;]</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>  当然，在开始用webpack之前，要先安装相对应的模块，解析css文件 图片文件以及因为要对文件进行压缩，所以也要用到上文中所说的webpack自身内置的插件,所以也要导入webpack模块<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm install style-loader css-loader image-webpack-loader webpack --save-dev</span><br></pre></td></tr></table></figure></p>
+<p>  安装好之后使用<code>webpack</code>命令后会有这样的提示<img src="/2017/05/13/webpack学习之路/../webpack学习之路/demo1_2.png" alt="image"></p>
+<p>  但是这个时候你打开浏览器会发现，页面依旧没有什么效果，这是肯定的！我想大家肯定知道下一步该怎么做了，没错！在入口文件里面增加内容<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">require(&apos;./style.css&apos;);</span><br><span class="line">require(&apos;./demo.png&apos;);</span><br></pre></td></tr></table></figure></p>
+<p>再运行<code>webpack</code>,出现上图类似提示后，打开浏览器，你会发现变成了这个样子<img src="/2017/05/13/webpack学习之路/../webpack学习之路/demo1_3.png" alt="image"></p>
+<p>并且在<code>dist</code>文件夹内，多出了两个文件，一个<code>f1341ce5ea165e06ec3358441b52d5ea.png</code>（随机产生的名字）如果你想获得这个名字，可以将<code>require(&#39;./demo.png&#39;)</code>输出查看，以及还有<code>bundle.js</code>,比较图片前后的大小，</p>
+<p><img src="/2017/05/13/webpack学习之路/../webpack学习之路/demo1_4.png" alt="image"><img src="/2017/05/13/webpack学习之路/../webpack学习之路/demo1_5.png" alt="image"></p>
+<p>可以发现，文件大小发生了改变。打开<code>bundle.js</code>你会发现该文件也被压缩了。是不是感觉很神奇？！<br>还有一个比较好玩的插件<a href="https://webpack.github.io/docs/list-of-plugins.html#htmlwebpackplugin" target="_blank" rel="noopener">htmlwebpackplugin</a>可以点击这里看看，把上面的例子改变下哦。</p>
+<h2 id="最后"><a href="#最后" class="headerlink" title="最后"></a>最后</h2><p>我相信看到这里你对<code>webpack</code>一定有了一定的认识，其实<code>webpack</code>还有很多强大的功能，比如，<code>webpack-dev-server</code>可以自动生成一个小型的<code>NodeJs Express</code>服务器从而实现webpack十分实用的功能热替换(HMR) 和其它的工具<code>gulp</code> <code>grunt</code>等一起使用。。。最后值得一提的是<code>react</code>和<code>webpack</code>是一对绝佳cp啊，有木有！！</p>
+
+ 
+                <!-- Meta -->
+                <div class="post-meta">
+                    <hr>
+                    <br>
+                    <div class="post-tags">
+                        
+                            
+
+<a href="/tags/vue/">#vue</a>
+
+
+                        
+                    </div>
+                    <div class="post-date">
+                        2017 年 05 月 13 日
+                    </div>
+                </div>
+            </div>
+
+            <!-- Comments -->
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <!-- Disqus Comments -->
+
+
+            </div>
+        </div>
+    </div>
+</article>
+</section>
+
+    <!-- Scripts -->
+    <!-- jQuery -->
+<script src="//cdn.bootcss.com/jquery/2.2.1/jquery.min.js"></script>
+<!-- Bootstrap -->
+<script src="//cdn.bootcss.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+<script type="text/javascript">
+	console.log('Hexo-theme-hollow designed by zchen9 🙋 © 2015-' + (new Date()).getFullYear());
+</script>
+
+    <!-- Google Analytics -->
+    
+
+</body>
+
+</html>

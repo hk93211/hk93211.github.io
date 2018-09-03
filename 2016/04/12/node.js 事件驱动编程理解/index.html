@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+
+<!-- Head tag -->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!--Description-->
+    
+        <meta name="description" content="不会搞艺术的程序员不是好设计师">
+    
+
+    <!--Author-->
+    
+        <meta name="author" content="hk">
+    
+
+    <!-- Title -->
+    
+    <title>node.js 事件驱动编程理解 | HK&#39;s blog</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="//cdn.bootcss.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/style.css">
+
+    <!-- Custom Fonts -->
+    <link href="//cdn.bootcss.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href='//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+    <link href='//fonts.googleapis.com/css?family=Noto+Serif:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+
+<body>
+
+    <!-- Content -->
+    <section class="article-container">
+<!-- Back Home -->
+<a class="nav-back" href="/">
+    <i class="fa fa-puzzle-piece"></i>
+</a>
+
+<!-- Page Header -->
+<header class="intro-header">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <h1>node.js 事件驱动编程理解</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+            <!-- Post Main Content -->
+            <div class="post-content col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <h1 id="理解Node-js事件驱动编程"><a href="#理解Node-js事件驱动编程" class="headerlink" title="理解Node.js事件驱动编程"></a>理解Node.js事件驱动编程</h1><p>　　Node.js现在非常活跃，相关生态社区已经超过Lua（基本上比较知名的功能都有nodejs模块实现）。</p>
+<p>　　但是我们为何要使用Node.Js？相比传统的webserver服务模式，nodejs有什么优点优势？</p>
+<h3 id="Node-Js是基于javascript语言，建构在google-V8-engine以及Linux上的一个非阻塞事件驱动IO框架。nodejs是单进程单线程，但是基于V8的强大驱动力，以及事件驱动模型，nodejs的性能非常高，而且想达到多核或者多进程也不是很难（现在已经有大量的第三方module来实现这个功能）。"><a href="#Node-Js是基于javascript语言，建构在google-V8-engine以及Linux上的一个非阻塞事件驱动IO框架。nodejs是单进程单线程，但是基于V8的强大驱动力，以及事件驱动模型，nodejs的性能非常高，而且想达到多核或者多进程也不是很难（现在已经有大量的第三方module来实现这个功能）。" class="headerlink" title="Node.Js是基于javascript语言，建构在google V8 engine以及Linux上的一个非阻塞事件驱动IO框架。nodejs是单进程单线程，但是基于V8的强大驱动力，以及事件驱动模型，nodejs的性能非常高，而且想达到多核或者多进程也不是很难（现在已经有大量的第三方module来实现这个功能）。"></a>Node.Js是基于javascript语言，建构在google V8 engine以及Linux上的一个非阻塞事件驱动IO框架。nodejs是单进程单线程，但是基于V8的强大驱动力，以及事件驱动模型，nodejs的性能非常高，而且想达到多核或者多进程也不是很难（现在已经有大量的第三方module来实现这个功能）。</h3><p>　　这里主要不是介绍nodejs具体应用代码，而是想介绍一下事件驱动编程。</p>
+<h2 id="医生看病"><a href="#医生看病" class="headerlink" title="医生看病"></a>医生看病</h2><p>　　在美国去看医生，需要填写大量表格，比如保险、个人信息之类，传统的基于线程的系统（thread-based system），接待员叫到你，你需要在前台填写完成这些表格，你站着填单，而接待员坐着看你填单。你让接待员没办法接待下一个客户，除非完成你的业务。</p>
+<p>　　想让这个系统能运行的快一些，只有多加几个接待员，人力成本需要增加不少。</p>
+<p>　　基于事件的系统（event-based system）中，当你到窗口发现需要填写一些额外的表格而不仅仅是挂个号，接待员把表格和笔给你，告诉你可以找个座位填写，填完了以后再回去找他。你回去坐着填表，而接待员开始接待下一个客户。你没有阻塞接待员的服务。</p>
+<p>　　你填完表格，返回队伍中，等接待员接待完现在的客户，你把表格递给他。如果有什么问题或者需要填写额外的表格，他给你一份新的，然后重复这个过程。</p>
+<p>　　这个系统已经非常高效了，几乎大部分医生都是这么做的。如果等待的人太多，可以加入额外的接待员进行服务，但是肯定要比基于线程模式的少得多。</p>
+<h2 id="快餐店点餐"><a href="#快餐店点餐" class="headerlink" title="快餐店点餐"></a>快餐店点餐</h2><p>　　在基于线程的方式中（thread-based way）你到了柜台前，把你的点餐单给收银员或者给收银员直接点餐，然后等在那直到你要的食物准备好给你。收银员不能接待下一个人，除非你拿到食物离开。想接待更多的客户，容易！加更多的收银员！</p>
+<p>　　当然，我们知道快餐店其实不是这样工作的。他们其实就是基于事件驱动方式，这样收银员更高效。只要你把点餐单给收银员，某个人已经开始准备你的食物，而同时收银员在进行收款，当你付完钱，你就站在一边而收银员已经开始接待下一个客户。在一些餐馆，甚至会给你一个号码，如果你的食物准备好了，就呼叫你的号码让你去柜台取。关键的一点是，你没有阻塞下一个客户的订餐请求。你订餐的食物做好的事件会导致某个人做某个动作（某个服务员喊你的订单号码，你听到你的号码被喊到去取食物），在编程领域，我们称这个为回调（callback function）。</p>
+<h2 id="Node-Js做了什么工作呢"><a href="#Node-Js做了什么工作呢" class="headerlink" title="Node.Js做了什么工作呢"></a>Node.Js做了什么工作呢</h2><p>　　传统的web server多为<strong>基于线程模型</strong>。你启动Apache或者什么server，它开始等待接受连接。当收到一个连接，server保持连接连通直到页面或者什么事务请求完成。如果他需要花几微妙时间去读取磁盘或者访问数据库，web server就阻塞了IO操作（这也被称之为阻塞式IO).想提高这样的web server的性能就只有启动更多的server实例。</p>
+<p>　　相反的，Node.Js使用<strong>事件驱动模型</strong>，当web server接收到请求，就把它关闭然后进行处理，然后去服务下一个web请求。当这个请求完成，它被放回处理队列，当到达队列开头，这个结果被返回给用户。这个模型非常高效可扩展性非常强，因为webserver一直接受请求而不等待任何读写操作。（这也被称之为非阻塞式IO或者事件驱动IO）</p>
+<p>　　考虑下面这个过程：</p>
+<ul>
+<li><p>1.你用浏览器访问nodejs服务器上的”/about.html”</p>
+</li>
+<li><p>2.nodejs服务器接收到你的请求，调用一个函数从磁盘上读取这个文件。</p>
+</li>
+<li><p>3.这段时间，nodejs webserver在服务后续的web请求。</p>
+</li>
+<li><p>4.当文件读取完毕，有一个回调函数被插入到nodejs的服务队列中。</p>
+</li>
+<li><p>5.nodejs webserver运行这个函数，实际上就是渲染（render）了about.html页面返回给你的浏览器。</p>
+</li>
+</ul>
+<p>　　好像就节省了几微秒时间，但是这很重要！特别是对于需要相应大量用户的web server。</p>
+<p>　　这也就是为什么Node.Js这么热这么惹人关注。而且它还使用了一个非常通用的编程语言Javascript，也让开发者可以快速容易的编写高可扩展性服务器。</p>
+
+ 
+                <!-- Meta -->
+                <div class="post-meta">
+                    <hr>
+                    <br>
+                    <div class="post-tags">
+                        
+                            
+
+<a href="/tags/nodejs/">#nodejs</a>
+
+
+                        
+                    </div>
+                    <div class="post-date">
+                        2016 年 04 月 12 日
+                    </div>
+                </div>
+            </div>
+
+            <!-- Comments -->
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <!-- Disqus Comments -->
+
+
+            </div>
+        </div>
+    </div>
+</article>
+</section>
+
+    <!-- Scripts -->
+    <!-- jQuery -->
+<script src="//cdn.bootcss.com/jquery/2.2.1/jquery.min.js"></script>
+<!-- Bootstrap -->
+<script src="//cdn.bootcss.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+<script type="text/javascript">
+	console.log('Hexo-theme-hollow designed by zchen9 🙋 © 2015-' + (new Date()).getFullYear());
+</script>
+
+    <!-- Google Analytics -->
+    
+
+</body>
+
+</html>

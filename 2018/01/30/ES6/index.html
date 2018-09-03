@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+
+<!-- Head tag -->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!--Description-->
+    
+        <meta name="description" content="不会搞艺术的程序员不是好设计师">
+    
+
+    <!--Author-->
+    
+        <meta name="author" content="hk">
+    
+
+    <!-- Title -->
+    
+    <title>Object对象 | HK&#39;s blog</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="//cdn.bootcss.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/style.css">
+
+    <!-- Custom Fonts -->
+    <link href="//cdn.bootcss.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href='//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+    <link href='//fonts.googleapis.com/css?family=Noto+Serif:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+
+<body>
+
+    <!-- Content -->
+    <section class="article-container">
+<!-- Back Home -->
+<a class="nav-back" href="/">
+    <i class="fa fa-puzzle-piece"></i>
+</a>
+
+<!-- Page Header -->
+<header class="intro-header">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <h1>Object对象</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+            <!-- Post Main Content -->
+            <div class="post-content col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <h1 id="Object"><a href="#Object" class="headerlink" title="Object"></a>Object</h1><h2 id="描述"><a href="#描述" class="headerlink" title="描述"></a>描述</h2><p>几乎所有的 JavaScript 对象都是 Object 的实例；一个典型的对象继承了Object.prototype的属性（包括方法），尽管这些属性可能被遮蔽（也被称为覆盖）。然而，一个Object可能是故意创建的，这是不确定的（例如通过Object.create(null)），或者它可能被改变，所以这不再是准确的（例如Object.setPrototypeOf）。</p>
+<p>改变Object原型，会通过原型链，而改变所有对象；除非这些属性和方法被其他对原型链更里层的改动所覆盖。这提供了一个非常强大的、但有潜在危险的机制，来覆盖或扩展对象行为。</p>
+<h2 id="属性"><a href="#属性" class="headerlink" title="属性"></a>属性</h2><p>Object.prototype.constructor<br>特定的函数，用于创建一个对象的原型</p>
+<h2 id="方法-Object-prototype"><a href="#方法-Object-prototype" class="headerlink" title="方法 Object.prototype"></a>方法 Object.prototype</h2><p>Object.prototype.hasOwnProperty()<br>返回一个布尔值 ，表示某个对象是否含有指定的属性，而且此属性非原型链继承的。</p>
+<p>Object.prototype.isPrototypeOf()<br>返回一个布尔值，表示指定的对象是否在本对象的原型链中。</p>
+<p>Object.prototype.propertyIsEnumerable()<br>判断指定属性是否可枚举，内部属性设置参见 ECMAScript [[Enumerable]] attribute 。</p>
+<p>Object.prototype.toString()<br>返回对象的字符串表示。</p>
+<p>Object.prototype.unwatch()<br>移除对象某个属性的监听。</p>
+<p>Object.prototype.valueOf()<br>返回指定对象的原始值。</p>
+<p>Object.prototype.watch()<br>给对象的某个属性增加监听。</p>
+<h2 id="Object方法"><a href="#Object方法" class="headerlink" title="Object方法"></a>Object方法</h2><p>Object.assign(target, …sources)<br>将所有可枚举属性的值从一个或多个源对象复制到目标对象。它将返回目标对象。(注意，Object.assign 会跳过那些值为 null 或 undefined 的源对象。)<br>target: 目标对象。<br>sources: 源对象。<br>针对深拷贝，需要使用其他方法，因为 Object.assign()拷贝的是属性值。假如源对象的属性值是一个指向对象的引用，它也只拷贝那个引用值。</p>
+<p>Object.create(proto[, propertiesObject])<br>使用指定的原型对象及其属性去创建一个新的对象。</p>
+
+ 
+                <!-- Meta -->
+                <div class="post-meta">
+                    <hr>
+                    <br>
+                    <div class="post-tags">
+                        
+                            
+
+<a href="/tags/教程/">#教程</a>
+
+
+                        
+                    </div>
+                    <div class="post-date">
+                        2018 年 01 月 30 日
+                    </div>
+                </div>
+            </div>
+
+            <!-- Comments -->
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <!-- Disqus Comments -->
+
+
+            </div>
+        </div>
+    </div>
+</article>
+</section>
+
+    <!-- Scripts -->
+    <!-- jQuery -->
+<script src="//cdn.bootcss.com/jquery/2.2.1/jquery.min.js"></script>
+<!-- Bootstrap -->
+<script src="//cdn.bootcss.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+<script type="text/javascript">
+	console.log('Hexo-theme-hollow designed by zchen9 🙋 © 2015-' + (new Date()).getFullYear());
+</script>
+
+    <!-- Google Analytics -->
+    
+
+</body>
+
+</html>

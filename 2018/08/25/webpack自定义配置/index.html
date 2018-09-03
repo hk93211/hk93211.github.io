@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+
+<!-- Head tag -->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!--Description-->
+    
+        <meta name="description" content="不会搞艺术的程序员不是好设计师">
+    
+
+    <!--Author-->
+    
+        <meta name="author" content="hk">
+    
+
+    <!-- Title -->
+    
+    <title>webpack自定义配置 | HK&#39;s blog</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="//cdn.bootcss.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/style.css">
+
+    <!-- Custom Fonts -->
+    <link href="//cdn.bootcss.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href='//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+    <link href='//fonts.googleapis.com/css?family=Noto+Serif:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+
+<body>
+
+    <!-- Content -->
+    <section class="article-container">
+<!-- Back Home -->
+<a class="nav-back" href="/">
+    <i class="fa fa-puzzle-piece"></i>
+</a>
+
+<!-- Page Header -->
+<header class="intro-header">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <h1>webpack自定义配置</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+            <!-- Post Main Content -->
+            <div class="post-content col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <h3 id="webpack配置文件-webpack-config-js"><a href="#webpack配置文件-webpack-config-js" class="headerlink" title="webpack配置文件 webpack.config.js"></a>webpack配置文件 <code>webpack.config.js</code></h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> path = <span class="built_in">require</span>(<span class="string">'path'</span>);</span><br><span class="line"><span class="keyword">var</span> webpack = <span class="built_in">require</span>(<span class="string">'webpack'</span>);</span><br><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">  <span class="comment">// entry: path.join(__dirname, 'src/index.js'),</span></span><br><span class="line">  entry: [<span class="string">'./src/index'</span>],</span><br><span class="line">  output: &#123;</span><br><span class="line">    path: path.join(__dirname, <span class="string">'dist'</span>),</span><br><span class="line">    filename: <span class="string">'bundle.js'</span></span><br><span class="line">  &#125;,</span><br><span class="line">  plugins: [</span><br><span class="line">    <span class="keyword">new</span> webpack.optimize.UglifyJsPlugin(&#123;</span><br><span class="line">      compressor: &#123;</span><br><span class="line">        warnings: <span class="literal">false</span>,</span><br><span class="line">      &#125;,</span><br><span class="line">    &#125;),</span><br><span class="line">    <span class="keyword">new</span> webpack.optimize.OccurenceOrderPlugin()</span><br><span class="line">  ],</span><br><span class="line">  <span class="built_in">module</span>: &#123;</span><br><span class="line">    loaders: [&#123;</span><br><span class="line">      test: <span class="regexp">/\.css$/</span>,</span><br><span class="line">      loaders: [<span class="string">'style'</span>, <span class="string">'css'</span>]</span><br><span class="line">    &#125;]</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="四个核心概念"><a href="#四个核心概念" class="headerlink" title="四个核心概念:"></a>四个核心概念:</h4><ul>
+<li><p>入口（entry），告诉 webpack 应该使用哪个模块，来作为构建其内部依赖图的开始。 可以传入字符串, 数组, 对象, 详见官方文档<a href="https://www.webpackjs.com/concepts/entry-points/" target="_blank" rel="noopener">entry配置</a></p>
+</li>
+<li><p>出口（output），告诉 webpack 在哪里输出它所创建的 bundles，以及如何命名这些文件，默认值为 ./dist。 详见官方文档<a href="https://www.webpackjs.com/configuration/output/" target="_blank" rel="noopener">output配置</a></p>
+<ul>
+<li>path - 表示输出文件的路径</li>
+<li>filename - 表示输出文件的文件名</li>
+</ul>
+</li>
+<li><p>加载器（loader），告诉 webpack 能够去处理那些非 JavaScript 文件（webpack 自身只理解 JavaScript）。详见官方文档<a href="https://www.webpackjs.com/configuration/output/" target="_blank" rel="noopener">loader配置</a></p>
+</li>
+<li><p>插件（plugin），给 webpack 添加更多的功能，使 webpack 更加的灵活和强大，webpack 有两种类型的插件: ①内置插件  ②外置插件。 详见官方文档<a href="https://www.webpackjs.com/concepts/plugins/" target="_blank" rel="noopener">plugin配置</a></p>
+</li>
+</ul>
+<h3 id="项目依赖文件-package-json"><a href="#项目依赖文件-package-json" class="headerlink" title="项目依赖文件 package.json"></a>项目依赖文件 <code>package.json</code></h3><ul>
+<li>vue</li>
+<li>vue-loader <ul>
+<li>作用: 解析和转换 .vue 文件，提取出其中的逻辑代码 script、样式代码 style、以及 html 模版 template，再分别把它们交给对应的 Loader 去处理。</li>
+<li>依赖: vue-loader 需要 css-loader 和 vue-template-loader 作为依赖</li>
+</ul>
+</li>
+<li>css-loader<ul>
+<li>作用: 加载由 vue-loader 提取出的 CSS 代码</li>
+</ul>
+</li>
+<li>vue-template-loader<ul>
+<li>作用: 把 vue-loader 提取出的 HTML 模版编译成对应的可执行的 JavaScript 代码，这和 React 中的 JSX 语法被编译成 JavaScript 代码类似。预先编译好 HTML 模版相对于在浏览器中再去编译 HTML 模版的好处在于性能更好。</li>
+</ul>
+</li>
+<li>style-loader</li>
+<li>url-loader<ul>
+<li>url-loader 需要 file-loader 作为依赖</li>
+</ul>
+</li>
+<li>webpack</li>
+<li>webpack-dev-server</li>
+<li>cross-env</li>
+<li></li>
+</ul>
+<h3 id="项目搭建时遇到的一些坑"><a href="#项目搭建时遇到的一些坑" class="headerlink" title="项目搭建时遇到的一些坑"></a>项目搭建时遇到的一些<code>坑</code></h3><p>1.其中一个是在安装了webpack-dev-server后, 使用npm run dev 的时候报错,</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line">&gt; vue-webpack@1.0.0 dev D:\code\practice\vue-webpack</span><br><span class="line">&gt; cross-env NODE_ENV=development webpack-dev-server --config webpack.config.js</span><br><span class="line"></span><br><span class="line">The CLI moved into a separate package: webpack-cli.</span><br><span class="line">Please install &apos;webpack-cli&apos; in addition to webpack itself to use the CLI.</span><br><span class="line">-&gt; When using npm: npm install webpack-cli -D</span><br><span class="line">-&gt; When using yarn: yarn add webpack-cli -D</span><br><span class="line">module.js:529</span><br><span class="line">    throw err;</span><br><span class="line">    ^</span><br><span class="line"></span><br><span class="line">Error: Cannot find module &apos;webpack-cli/bin/config-yargs&apos;</span><br><span class="line">    at Function.Module._resolveFilename (module.js:527:15)</span><br><span class="line">    at Function.Module._load (module.js:476:23)</span><br><span class="line">    at Module.require (module.js:568:17)</span><br><span class="line">    at require (internal/module.js:11:18)</span><br><span class="line">    at Object.&lt;anonymous&gt; (D:\code\practice\vue-webpack\node_modules\webpack-dev-server\bin\webpack-dev-server.js:65:1)</span><br><span class="line">    at Module._compile (module.js:624:30)</span><br><span class="line">    at Object.Module._extensions..js (module.js:635:10)</span><br><span class="line">    at Module.load (module.js:545:32)</span><br><span class="line">    at tryModuleLoad (module.js:508:12)</span><br><span class="line">    at Function.Module._load (module.js:500:3)</span><br><span class="line">npm ERR! code ELIFECYCLE</span><br><span class="line">npm ERR! errno 1</span><br><span class="line">npm ERR! vue-webpack@1.0.0 dev: `cross-env NODE_ENV=development webpack-dev-server --config webpack.config.js`</span><br><span class="line">npm ERR! Exit status 1</span><br><span class="line">npm ERR!</span><br><span class="line">npm ERR! Failed at the vue-webpack@1.0.0 dev script.</span><br><span class="line">npm ERR! This is probably not a problem with npm. There is likely additional logging output above.</span><br><span class="line"></span><br><span class="line">npm ERR! A complete log of this run can be found in:</span><br><span class="line">npm ERR!     C:\Users\hk\AppData\Roaming\npm-cache\_logs\2018-08-25T12_43_41_250Z-debug.log</span><br></pre></td></tr></table></figure>
+<p>看报错信息以为要安装 webpack-cli, 但是安装后又报另一个错误, 遂去网上查询, 最后 webpack-dev-server的版本从 3.1.5 降到 2.9.7 解决</p>
+<p>2.在安装了 webpack-dev-server 后, 将 devServer 配置的 hot 属性设置为true 后并没有生效, 后台查询知道在plugin里面要加入 new webpack.HotModuleReplacementPlugin()</p>
+
+ 
+                <!-- Meta -->
+                <div class="post-meta">
+                    <hr>
+                    <br>
+                    <div class="post-tags">
+                        
+                            
+
+<a href="/tags/webpack/">#webpack</a>
+
+
+                        
+                    </div>
+                    <div class="post-date">
+                        2018 年 08 月 25 日
+                    </div>
+                </div>
+            </div>
+
+            <!-- Comments -->
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <!-- Disqus Comments -->
+
+
+            </div>
+        </div>
+    </div>
+</article>
+</section>
+
+    <!-- Scripts -->
+    <!-- jQuery -->
+<script src="//cdn.bootcss.com/jquery/2.2.1/jquery.min.js"></script>
+<!-- Bootstrap -->
+<script src="//cdn.bootcss.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+<script type="text/javascript">
+	console.log('Hexo-theme-hollow designed by zchen9 🙋 © 2015-' + (new Date()).getFullYear());
+</script>
+
+    <!-- Google Analytics -->
+    
+
+</body>
+
+</html>

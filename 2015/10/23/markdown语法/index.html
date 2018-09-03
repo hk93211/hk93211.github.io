@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+
+<!-- Head tag -->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!--Description-->
+    
+        <meta name="description" content="不会搞艺术的程序员不是好设计师">
+    
+
+    <!--Author-->
+    
+        <meta name="author" content="hk">
+    
+
+    <!-- Title -->
+    
+    <title>markdown语法学习 | HK&#39;s blog</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="//cdn.bootcss.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/style.css">
+
+    <!-- Custom Fonts -->
+    <link href="//cdn.bootcss.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href='//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+    <link href='//fonts.googleapis.com/css?family=Noto+Serif:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+
+<body>
+
+    <!-- Content -->
+    <section class="article-container">
+<!-- Back Home -->
+<a class="nav-back" href="/">
+    <i class="fa fa-puzzle-piece"></i>
+</a>
+
+<!-- Page Header -->
+<header class="intro-header">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <h1>markdown语法学习</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+            <!-- Post Main Content -->
+            <div class="post-content col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <p>Markdown是一种可以使用普通文本编辑器编写的标记语言，通过简单的标记语法，它可以使普通文本内容具有一定的格式。<br>Markdown的语法简洁明了、学习容易，而且功能比纯文本更强，因此有很多人用它写博客。 ——百度百科</p>
+<h2 id="0-编辑器"><a href="#0-编辑器" class="headerlink" title="0. 编辑器"></a>0. 编辑器</h2><p>有许多的Markdown编辑器,个人比较了很多款,觉得这两款不错 :<br>马克飞象 作业部落 ——可在线使用,可下载客户端使用 ; 左边书写,右边即时预览 .</p>
+<p>以下为11种基本语法:</p>
+<h2 id="1-标题"><a href="#1-标题" class="headerlink" title="1. 标题"></a>1. 标题</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">标题		// &apos;#&apos;与文字之间有个空格; 有1~6级标题，1级标题字体最大</span><br><span class="line">#    1级标题</span><br><span class="line">##   2级标题</span><br><span class="line">...以此类推</span><br></pre></td></tr></table></figure>
+<h2 id="2-粗体"><a href="#2-粗体" class="headerlink" title="2. 粗体"></a>2. 粗体</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">**粗体**		// 方式一	两个“*”包裹起来</span><br><span class="line">__粗体__		// 方式二	两个“_”包裹起来</span><br></pre></td></tr></table></figure>
+<h2 id="3-斜体"><a href="#3-斜体" class="headerlink" title="3. 斜体"></a>3. 斜体</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">*斜体*		// 方式一     一个“*”包裹起来</span><br><span class="line">_斜体_		// 方式二     一个“*”包裹起来</span><br></pre></td></tr></table></figure>
+<h2 id="4-无序列表"><a href="#4-无序列表" class="headerlink" title="4. 无序列表"></a>4. 无序列表</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">* 无序列表	// 方式一</span><br><span class="line">+ 无序列表	// 方式二</span><br><span class="line">- 无序列表	// 方式三</span><br></pre></td></tr></table></figure>
+<h2 id="5-有序列表"><a href="#5-有序列表" class="headerlink" title="5. 有序列表"></a>5. 有序列表</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">1. 有序列表</span><br><span class="line">2. 有序列表</span><br><span class="line">3. 有序列表</span><br></pre></td></tr></table></figure>
+<h2 id="6-链接"><a href="#6-链接" class="headerlink" title="6. 链接"></a>6. 链接</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">内联方式：</span><br><span class="line">[我的个人博客链接](http://www.xyue.ltd/ &quot;多多指教&quot;)</span><br><span class="line"></span><br><span class="line">引用方式：</span><br><span class="line">[Google][1]</span><br><span class="line"></span><br><span class="line">[1]: http://google.com/        &quot;Google&quot;</span><br></pre></td></tr></table></figure>
+<h2 id="7-图片"><a href="#7-图片" class="headerlink" title="7. 图片"></a>7. 图片</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">内联方式：</span><br><span class="line">![alt text](/path/img.jpg &quot;Title&quot;)		// alt text为加载失败时显示的文字, Title为鼠标悬停在图片上显示的文字</span><br><span class="line"></span><br><span class="line">引用方式：</span><br><span class="line">![alt text][id] </span><br><span class="line">[id]: /path/img.jpg &quot;Title&quot;</span><br></pre></td></tr></table></figure>
+<h2 id="8-引用框"><a href="#8-引用框" class="headerlink" title="8. 引用框"></a>8. 引用框</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&gt; 引用		// &apos;&gt;&apos;和文字之间有个空格(当&apos;&gt;&apos;和文字之间添加五个空格时，块注释的颜色会有变化)</span><br></pre></td></tr></table></figure>
+<h2 id="9-代码"><a href="#9-代码" class="headerlink" title="9. 代码"></a>9. 代码</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">代码块:	`code`</span><br><span class="line">代码框:Tab键 或 四个空格 后面写代码		// 方式一</span><br><span class="line">代码框:前后各使用三个反引号包裹.		// 方式二</span><br></pre></td></tr></table></figure>
+<h2 id="10-脚注"><a href="#10-脚注" class="headerlink" title="10. 脚注"></a>10. 脚注</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">hello[^hello]		// 文字右上角出现数字,点击可直达下面的注释</span><br><span class="line">[^hello]: hi</span><br></pre></td></tr></table></figure>
+<h2 id="11-分割线"><a href="#11-分割线" class="headerlink" title="11. 分割线"></a>11. 分割线</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">---		// 在空白行下方添加三条&apos;-&apos;横线。</span><br></pre></td></tr></table></figure>
+<h2 id="另-下划线"><a href="#另-下划线" class="headerlink" title="另. 下划线"></a>另. 下划线</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;ins&gt;文字底部下划线&lt;/ins&gt;		// html5的&apos;&lt;ins&gt;&apos;标签</span><br></pre></td></tr></table></figure>
+<h2 id="另外-转义字符-——斜杠"><a href="#另外-转义字符-——斜杠" class="headerlink" title="另外. 转义字符 ——斜杠"></a>另外. 转义字符 ——斜杠</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">\\ 反斜杠		// 使用&apos;\&apos;</span><br><span class="line">\` 反引号</span><br><span class="line">\* 星号</span><br><span class="line">\_ 下划线</span><br><span class="line">\&#123;\&#125; 大括号</span><br><span class="line">\[\] 中括号</span><br><span class="line">\(\) 小括号</span><br><span class="line">\# 井号</span><br><span class="line">\+ 加号</span><br><span class="line">\- 减号</span><br><span class="line">\. 英文句号</span><br><span class="line">\! 感叹号</span><br></pre></td></tr></table></figure>
+ 
+                <!-- Meta -->
+                <div class="post-meta">
+                    <hr>
+                    <br>
+                    <div class="post-tags">
+                        
+                            
+
+<a href="/tags/教程/">#教程</a>
+
+
+                        
+                    </div>
+                    <div class="post-date">
+                        2015 年 10 月 23 日
+                    </div>
+                </div>
+            </div>
+
+            <!-- Comments -->
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <!-- Disqus Comments -->
+
+
+            </div>
+        </div>
+    </div>
+</article>
+</section>
+
+    <!-- Scripts -->
+    <!-- jQuery -->
+<script src="//cdn.bootcss.com/jquery/2.2.1/jquery.min.js"></script>
+<!-- Bootstrap -->
+<script src="//cdn.bootcss.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+<script type="text/javascript">
+	console.log('Hexo-theme-hollow designed by zchen9 🙋 © 2015-' + (new Date()).getFullYear());
+</script>
+
+    <!-- Google Analytics -->
+    
+
+</body>
+
+</html>
