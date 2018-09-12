@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+
+<!-- Head tag -->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!--Description-->
+    
+        <meta name="description" content="不会搞艺术的程序员不是好设计师">
+    
+
+    <!--Author-->
+    
+        <meta name="author" content="hk">
+    
+
+    <!-- Title -->
+    
+    <title>redux-saga | HK&#39;s blog</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="//cdn.bootcss.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/style.css">
+
+    <!-- Custom Fonts -->
+    <link href="//cdn.bootcss.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href='//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+    <link href='//fonts.googleapis.com/css?family=Noto+Serif:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+
+<body>
+
+    <!-- Content -->
+    <section class="article-container">
+<!-- Back Home -->
+<a class="nav-back" href="/">
+    <i class="fa fa-puzzle-piece"></i>
+</a>
+
+<!-- Page Header -->
+<header class="intro-header">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <h1>redux-saga</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+            <!-- Post Main Content -->
+            <div class="post-content col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><p>redux-saga是一个用于管理redux应用异步操作的中间件，redux-saga通过创建sagas将所有异步操作逻辑收集在一个地方集中处理，可以用来代替redux-thunk中间件</p>
+<ul>
+<li><p>这意味着应用的逻辑会存在两个地方<br>(1) reducer负责处理action的stage更新<br>(2) sagas负责协调那些复杂或者异步的操作</p>
+</li>
+<li><p>sagas是通过generator函数来创建的</p>
+</li>
+<li>sagas可以被看作是在后台运行的进程。sagas监听发起的action，然后决定基于这个action来做什么 (比如：是发起一个异步请求，还是发起其他的action到store，还是调用其他的sagas 等 )</li>
+<li>在redux-saga的世界里，所有的任务都通过用 yield Effects 来完成 ( effect可以看作是redux-saga的任务单元 )</li>
+<li>Effects 都是简单的 javascript对象，包含了要被 saga middleware 执行的信息</li>
+<li>redux-saga 为各项任务提供了各种 （ Effects创建器 )</li>
+<li>因为使用了generator函数，redux-saga让你可以用 同步的方式来写异步代码</li>
+<li>redux-saga启动的任务可以在任何时候通过手动来取消，也可以把任务和其他的Effects放到 race 方法里以自动取消</li>
+<li>produce: 生产</li>
+<li>flow: 流动，排出</li>
+<li>整个流程：ui组件触发action创建函数 —&gt; action创建函数返回一个action ——&gt; action被传入redux中间件(被 saga等中间件处理) ，产生新的action，传入reducer——-&gt; reducer把数据传给ui组件显示 —–&gt; mapStateToProps ——&gt; ui组件显示</li>
+</ul>
+<h2 id="名词解释"><a href="#名词解释" class="headerlink" title="名词解释"></a>名词解释</h2><h3 id="Effect"><a href="#Effect" class="headerlink" title="Effect"></a>Effect</h3><p>一个effect就是一个纯文本javascript对象，包含一些将被saga middleware执行的指令。</p>
+<ul>
+<li>如何创建 effect ?<br>使用redux-saga提供的 工厂函数 来创建effect</li>
+</ul>
+<p>比如：</p>
+<p>你可以使用  call(myfunc,  ‘arg1’, ‘arg2’)  指示middleware调用  myfunc(‘arg1’, ‘arg2’)</p>
+<p>并将结果返回给 yield 了 effect  的那个  generator</p>
+<h3 id="Task"><a href="#Task" class="headerlink" title="Task"></a>Task</h3><p>一个 task 就像是一个在后台运行的进程，在基于redux-saga的应用程序中，可以同时运行多个task</p>
+<ul>
+<li>通过 fork 函数来创建 task</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span>* <span class="title">saga</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  ...</span><br><span class="line">  <span class="keyword">const</span> task = <span class="keyword">yield</span> fork(otherSaga, ...args)</span><br><span class="line">  ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="阻塞调用-和-非阻塞调用"><a href="#阻塞调用-和-非阻塞调用" class="headerlink" title="阻塞调用 和 非阻塞调用"></a>阻塞调用 和 非阻塞调用</h3><ul>
+<li><p>阻塞调用<br>阻塞调用的意思是： saga 会在 yield 了 effect 后会等待其执行结果返回，结果返回后才恢复执行 generator 中的下一个指令</p>
+</li>
+<li><p>非阻塞调用<br>非阻塞调用的意思是： saga 会在 yield effect 之后立即恢复执行</p>
+</li>
+</ul>
+<h3 id="watcher-和-worker"><a href="#watcher-和-worker" class="headerlink" title="watcher 和 worker"></a>watcher 和 worker</h3><p>指的是一种使用两个单独的saga来组织控制流的方式</p>
+<ul>
+<li>watcher：监听发起的action 并在每次接收到action时 fork 一个 work</li>
+<li>worker： 处理action，并结束它</li>
+</ul>
+<h2 id="api"><a href="#api" class="headerlink" title="api"></a>api</h2><h3 id="createSagaMiddleware-…sagas"><a href="#createSagaMiddleware-…sagas" class="headerlink" title="createSagaMiddleware(…sagas)"></a>createSagaMiddleware(…sagas)</h3><p>createSagaMiddleware的作用是创建一个redux中间件，并将sagas与Redux store建立链接</p>
+<ul>
+<li>参数是一个数组，里面是generator函数列表</li>
+<li>sagas: Array —- ( generator函数列表 )</li>
+</ul>
+<h3 id="middleware-run-saga-…args"><a href="#middleware-run-saga-…args" class="headerlink" title="middleware.run(saga, …args)"></a>middleware.run(saga, …args)</h3><p>动态执行 saga。用于 applyMiddleware 阶段之后执行 Sagas。这个方法返回一个<br>Task 描述对象。</p>
+<ul>
+<li>saga: Function: 一个 Generator 函数</li>
+<li>args: Array: 提供给 saga 的参数 (除了 Store 的 getState 方法)</li>
+</ul>
+<h3 id="take-pattern"><a href="#take-pattern" class="headerlink" title="take(pattern)"></a>take(pattern)</h3><p>—– 暂停Generator，匹配的action被发起时，恢复执行</p>
+<p>创建一条 Effect 描述信息，指示 middleware 等待 Store 上指定的 action。 Generator 会暂停，直到一个与 pattern 匹配的 action 被发起。<br>pattern的规则<br>(1) pattern为空 或者 * ，将会匹配所有发起的action</p>
+<p>(2) pattern是一个函数，action 会在 pattern(action) 返回为 true 时被匹配<br>（例如，take(action =&gt; action.entities) 会匹配那些 entities 字段为真的 action）。</p>
+<p>(3) pattern是一个字符串，action 会在 action.type === pattern 时被匹配</p>
+<p>(4) pattern是一个数组，会针对数组所有项，匹配与 action.type 相等的 action<br>（例如，take([INCREMENT, DECREMENT]) 会匹配 INCREMENT 或 DECREMENT 类型的 action）</p>
+<h3 id="fork-fn-…args"><a href="#fork-fn-…args" class="headerlink" title="fork(fn, …args)"></a>fork(fn, …args)</h3><p>—– 无阻塞的执行fn，执行fn时，不会暂停Generator<br>—– yield fork(fn …args)的结果是一个 Task 对象</p>
+<p>task对象 ———- 一个具备某些有用的方法和属性的对象</p>
+<p>创建一条 Effect 描述信息，指示 middleware 以 无阻塞调用 方式执行 fn。</p>
+<ul>
+<li><p>fn: Function - 一个 Generator 函数, 或者返回 Promise 的普通函数</p>
+</li>
+<li><p>args: Array - 一个数组，作为 fn 的参数</p>
+</li>
+<li><p>fork 类似于 call，可以用来调用普通函数和 Generator 函数。但 fork 的调用是无阻塞的，在等待 fn 返回结果时，middleware 不会暂停 Generator。 相反，一旦 fn 被调用，Generator 立即恢复执行。</p>
+</li>
+<li><p>fork 与 race 类似，是一个中心化的 Effect，管理 Sagas 间的并发。 yield fork(fn …args) 的结果是一个 Task 对象 —— 一个具备某些有用的方法和属性的对象。</p>
+</li>
+<li><p>fork: 是分叉，岔路的意思 ( 并发 )</p>
+</li>
+</ul>
+<h3 id="join-task"><a href="#join-task" class="headerlink" title="join(task)"></a>join(task)</h3><p>—– 等待fork任务返回结果(task对象)</p>
+<p>创建一条 Effect 描述信息，指示 middleware 等待之前的 fork 任务返回结果。</p>
+<ul>
+<li>task: Task - 之前的 fork 指令返回的 Task 对象</li>
+<li>yield fork(fn, …args) 返回的是一个 task 对象</li>
+</ul>
+<h3 id="cancel-task"><a href="#cancel-task" class="headerlink" title="cancel(task)"></a>cancel(task)</h3><p>创建一条 Effect 描述信息，指示 middleware 取消之前的 fork 任务。</p>
+<ul>
+<li>task: Task - 之前的 fork 指令返回的 Task 对象</li>
+<li>cancel 是一个无阻塞 Effect。也就是说，Generator 将在取消异常被抛出后立即恢复。</li>
+</ul>
+<h3 id="select-selector-…args"><a href="#select-selector-…args" class="headerlink" title="select(selector, …args)"></a>select(selector, …args)</h3><p>—– 得到 Store 中的 state 中的数据<br>创建一条 Effect 描述信息，指示 middleware 调用提供的选择器获取 Store state 上的数据（例如，返回 selector(getState(), …args) 的结果）。</p>
+<ul>
+<li><p>selector: Function - 一个 (state, …args) =&gt; args 函数. 通过当前 state 和一些可选参数，返回当前 Store state 上的部分数据。</p>
+</li>
+<li><p>args: Array - 可选参数，传递给选择器（附加在 getState 后）</p>
+</li>
+<li><p>如果 select 调用时参数为空( — 即 yield select() — )，那 effect 会取得整个的 state （和调用 getState() 的结果一样）</p>
+</li>
+</ul>
+<p>重要提醒：在发起 action 到 store 时，middleware 首先会转发 action 到 reducers 然后通知 Sagas。这意味着，当你查询 Store 的 state， 你获取的是 action 被处理之后的 state。</p>
+<h3 id="put-action"><a href="#put-action" class="headerlink" title="put(action)"></a>put(action)</h3><p>—– 发起一个 action 到 store<br>创建一条 Effect 描述信息，指示 middleware 发起一个 action 到 Store。</p>
+<ul>
+<li>action: Object - 完整信息可查看 Redux 的 dispatch 文档</li>
+<li>put 是异步的，不会立即发生</li>
+</ul>
+<h3 id="call-fn-…args-阻塞执行，call-执行完，才会往下执行"><a href="#call-fn-…args-阻塞执行，call-执行完，才会往下执行" class="headerlink" title="call(fn, …args) 阻塞执行，call()执行完，才会往下执行"></a>call(fn, …args) 阻塞执行，call()执行完，才会往下执行</h3><p>—– 执行 fn(…args)<br>—– 对比 fork(fn, …args) 无阻塞执行<br>创建一条 Effect 描述信息，指示 middleware 调用 fn 函数并以 args 为参数。</p>
+<ul>
+<li><p>fn: Function - 一个 Generator 函数, 或者返回 Promise 的普通函数</p>
+</li>
+<li><p>args: Array - 一个数组，作为 fn 的参数</p>
+</li>
+<li><p>fn 既可以是一个普通函数，也可以是一个 Generator 函数</p>
+</li>
+</ul>
+<h3 id="race-effects"><a href="#race-effects" class="headerlink" title="race(effects)"></a>race(effects)</h3><p>effects: Object : 一个{label: effect, …}形式的字典对象</p>
+<h4 id="同时执行多个任务"><a href="#同时执行多个任务" class="headerlink" title="同时执行多个任务"></a>同时执行多个任务</h4><p>当我们需要 yield 一个包含 effects 的数组， generator 会被阻塞直到所有的 effects 都执行完毕，或者当一个 effect 被拒绝 （就像 Promise.all 的行为）时，才会恢复执行Generator函数 ( yield后面的语句 )。</p>
+
+ 
+                <!-- Meta -->
+                <div class="post-meta">
+                    <hr>
+                    <br>
+                    <div class="post-tags">
+                        
+                            
+
+<a href="/tags/react/">#react</a>
+
+
+                        
+                    </div>
+                    <div class="post-date">
+                        2018 年 09 月 11 日
+                    </div>
+                </div>
+            </div>
+
+            <!-- Comments -->
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <!-- Disqus Comments -->
+
+
+            </div>
+        </div>
+    </div>
+</article>
+</section>
+
+    <!-- Scripts -->
+    <!-- jQuery -->
+<script src="//cdn.bootcss.com/jquery/2.2.1/jquery.min.js"></script>
+<!-- Bootstrap -->
+<script src="//cdn.bootcss.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+<script type="text/javascript">
+	console.log('Hexo-theme-hollow designed by zchen9 🙋 © 2015-' + (new Date()).getFullYear());
+</script>
+
+    <!-- Google Analytics -->
+    
+
+</body>
+
+</html>
