@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+
+<!-- Head tag -->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!--Description-->
+    
+        <meta name="description" content="不会搞艺术的程序员不是好设计师">
+    
+
+    <!--Author-->
+    
+        <meta name="author" content="hk">
+    
+
+    <!-- Title -->
+    
+    <title>封装 | HK&#39;s blog</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="//cdn.bootcss.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/style.css">
+
+    <!-- Custom Fonts -->
+    <link href="//cdn.bootcss.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href='//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+    <link href='//fonts.googleapis.com/css?family=Noto+Serif:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+
+<body>
+
+    <!-- Content -->
+    <section class="article-container">
+<!-- Back Home -->
+<a class="nav-back" href="/">
+    <i class="fa fa-puzzle-piece"></i>
+</a>
+
+<!-- Page Header -->
+<header class="intro-header">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <h1>封装</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+            <!-- Post Main Content -->
+            <div class="post-content col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <h2 id="创建一个类"><a href="#创建一个类" class="headerlink" title="创建一个类"></a>创建一个类</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> Book = <span class="function"><span class="keyword">function</span>(<span class="params">name, id</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.name = name;</span><br><span class="line">    <span class="keyword">this</span>.id = id;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">Book.prototype.showName = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="keyword">this</span>.name);</span><br><span class="line">&#125;</span><br><span class="line">或者</span><br><span class="line">Book.prototype = &#123;</span><br><span class="line">    showName: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="keyword">this</span>.name);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> book = <span class="keyword">new</span> Book(<span class="string">'javascript红宝书'</span>, <span class="number">1</span>);</span><br><span class="line">book.showName();</span><br></pre></td></tr></table></figure>
+<p>平常我们说的一些对象的公有属性,私有属性,公有方法,私有方法,特权方法,静态属性,静态方法这么多的名词到底是什么<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> Book = <span class="function"><span class="keyword">function</span>(<span class="params">name, id</span>) </span>&#123;</span><br><span class="line">    <span class="comment">// 私有属性  只能在函数内部自己访问, 外界访问不到</span></span><br><span class="line">    <span class="keyword">var</span> num = <span class="number">1</span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 私有方法  只能在函数内部自己访问, 外界访问不到</span></span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">checkId</span>(<span class="params"></span>) </span>&#123;&#125;;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 特权方法  在外界能访问到类的私有属性和私有方法的方法</span></span><br><span class="line">    <span class="keyword">this</span>.getName = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;&#125;;</span><br><span class="line">    <span class="keyword">this</span>.getId = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;&#125;;</span><br><span class="line">    <span class="keyword">this</span>.setName = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;&#125;;</span><br><span class="line">    <span class="keyword">this</span>.setId = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;&#125;;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 公有属性  new关键字实例化的对象上绑定的属性</span></span><br><span class="line">    <span class="keyword">this</span>.name = name;</span><br><span class="line">    <span class="keyword">this</span>.id = id;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 公有方法  new关键字实例化的对象上绑定的方法</span></span><br><span class="line">    <span class="keyword">this</span>.show = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;&#125;;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 构造器</span></span><br><span class="line">    <span class="keyword">this</span>.setName(name);</span><br><span class="line">    <span class="keyword">this</span>.setId(id);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 静态属性  new实例化出来的对象不能访问</span></span><br><span class="line">Book.isChinese = <span class="literal">true</span>; </span><br><span class="line"></span><br><span class="line"><span class="comment">// 静态方法  new实例化出来的对象不能访问</span></span><br><span class="line">Book.resetTime = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'resetTime'</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">Book.prototype = &#123;</span><br><span class="line">    <span class="comment">// 公有属性</span></span><br><span class="line">    isJsBook: <span class="literal">true</span>,</span><br><span class="line">    <span class="comment">// 公有方法</span></span><br><span class="line">    showName: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> book = <span class="keyword">new</span> Book(<span class="string">'javascript红宝书'</span>, <span class="number">1</span>);</span><br><span class="line">book.showName();</span><br></pre></td></tr></table></figure></p>
+<p>这样一个Book 的类就创建好了, 但是从开始定义Book = function…开始到最后感觉整个类的相关的定义是分开的, 不是一个整体, 所以一般就用闭包来将代码封装到一块:</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> Book = (<span class="function"><span class="keyword">function</span> (<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="comment">// 静态私有属性</span></span><br><span class="line">    <span class="keyword">var</span> bookNum = <span class="number">0</span>;</span><br><span class="line">    <span class="comment">// 静态私有方法</span></span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">checkBook</span>(<span class="params">name</span>) </span>&#123;&#125;;</span><br><span class="line">    <span class="comment">// 创建类</span></span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">_book</span>(<span class="params">name, id</span>) </span>&#123;</span><br><span class="line">        <span class="comment">// 私有变量</span></span><br><span class="line">        <span class="keyword">var</span> name, id;</span><br><span class="line">        <span class="comment">// 私有方法</span></span><br><span class="line">        <span class="function"><span class="keyword">function</span> <span class="title">checkId</span>(<span class="params">id</span>) </span>&#123;&#125;;</span><br><span class="line">        <span class="comment">// 特权方法</span></span><br><span class="line">        <span class="keyword">this</span>.getName = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;&#125;;</span><br><span class="line">        <span class="keyword">this</span>.getId = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;&#125;;</span><br><span class="line">        <span class="keyword">this</span>.setName = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;&#125;;</span><br><span class="line">        <span class="keyword">this</span>.setId = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;&#125;;</span><br><span class="line">        <span class="comment">// 公有属性</span></span><br><span class="line">        <span class="keyword">this</span>.name = name;</span><br><span class="line">        <span class="keyword">this</span>.id = id;</span><br><span class="line">        <span class="comment">// 公有方法</span></span><br><span class="line">        <span class="keyword">this</span>.show = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;&#125;;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 构造原型</span></span><br><span class="line">    _book.prototype = &#123;</span><br><span class="line">        <span class="comment">// 静态公有属性</span></span><br><span class="line">        isJSBook: <span class="literal">false</span>,</span><br><span class="line">        <span class="comment">// 静态公有方法</span></span><br><span class="line">        display: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;&#125; </span><br><span class="line">    &#125;;</span><br><span class="line">    <span class="comment">// 返回类</span></span><br><span class="line">    <span class="keyword">return</span> _book;</span><br><span class="line">&#125;)()</span><br></pre></td></tr></table></figure>
+ 
+                <!-- Meta -->
+                <div class="post-meta">
+                    <hr>
+                    <br>
+                    <div class="post-tags">
+                        
+                            
+
+<a href="/tags/教程/">#教程</a>
+
+
+                        
+                    </div>
+                    <div class="post-date">
+                        2018 年 09 月 17 日
+                    </div>
+                </div>
+            </div>
+
+            <!-- Comments -->
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <!-- Disqus Comments -->
+
+
+            </div>
+        </div>
+    </div>
+</article>
+</section>
+
+    <!-- Scripts -->
+    <!-- jQuery -->
+<script src="//cdn.bootcss.com/jquery/2.2.1/jquery.min.js"></script>
+<!-- Bootstrap -->
+<script src="//cdn.bootcss.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+<script type="text/javascript">
+	console.log('Hexo-theme-hollow designed by zchen9 🙋 © 2015-' + (new Date()).getFullYear());
+</script>
+
+    <!-- Google Analytics -->
+    
+
+</body>
+
+</html>
