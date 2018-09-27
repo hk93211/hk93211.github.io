@@ -19,7 +19,7 @@
 
     <!-- Title -->
     
-    <title>page | HK&#39;s blog</title>
+    <title>dva | HK&#39;s blog</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="//cdn.bootcss.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
@@ -44,87 +44,63 @@
 <body>
 
     <!-- Content -->
-    <!-- Main Content -->
-<section class="intro">
+    <section class="article-container">
+<!-- Back Home -->
+<a class="nav-back" href="/">
+    <i class="fa fa-puzzle-piece"></i>
+</a>
+
+<!-- Page Header -->
+<header class="intro-header">
     <div class="container">
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-                
-                    <div class="post-preview">
-    <a href="/2017/03/17/let和const/">
-        <h2 class="post-title">
-            let和const
-        </h2>
-        
-    </a>
-</div>
-                
-                    <div class="post-preview">
-    <a href="/2017/03/11/axios/">
-        <h2 class="post-title">
-            axios
-        </h2>
-        
-    </a>
-</div>
-                
-                    <div class="post-preview">
-    <a href="/2016/08/30/angularjs/">
-        <h2 class="post-title">
-            AngularJS
-        </h2>
-        
-    </a>
-</div>
-                
-                    <div class="post-preview">
-    <a href="/2016/04/12/node.js 事件驱动编程理解/">
-        <h2 class="post-title">
-            node.js 事件驱动编程理解
-        </h2>
-        
-    </a>
-</div>
-                
-                    <div class="post-preview">
-    <a href="/2016/03/15/node基础/">
-        <h2 class="post-title">
-            node基础
-        </h2>
-        
-    </a>
-</div>
-                
-                    <div class="post-preview">
-    <a href="/2015/10/23/markdown语法/">
-        <h2 class="post-title">
-            markdown语法学习
-        </h2>
-        
-    </a>
-</div>
-                
-                    <div class="post-preview">
-    <a href="/2015/06/23/hello-world/">
-        <h2 class="post-title">
-            Hello World
-        </h2>
-        
-    </a>
-</div>
-                
+                <div class="post-heading">
+                    <h1>dva</h1>
+                </div>
             </div>
         </div>
-        <!-- Pagination -->
-        <ul class="pagiantion">
-    
-        <li class="previous"><a href="/page/2/">上一页</a></li>
-    
-    
-</ul>
     </div>
-</section>
+</header>
 
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+            <!-- Post Main Content -->
+            <div class="post-content col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <h2 id="笔记"><a href="#笔记" class="headerlink" title="笔记"></a>笔记</h2><p>只有在 router.js 定义使用的 component 对应的 component 才能从组件的 props 中提取到 history 属性的<br>要解决这个问题的话, 对应的组件要使用react-router-dom 的高阶组件 withRouter, 导出时用 withRouter(ComponentName) 包裹, 注意点: dva中使用 withRouter 要从dva的router库导入, 路径为 ‘dva/router’</p>
+
+ 
+                <!-- Meta -->
+                <div class="post-meta">
+                    <hr>
+                    <br>
+                    <div class="post-tags">
+                        
+                            
+
+<a href="/tags/react/">#react</a>
+
+
+                        
+                    </div>
+                    <div class="post-date">
+                        2018 年 09 月 25 日
+                    </div>
+                </div>
+            </div>
+
+            <!-- Comments -->
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <!-- Disqus Comments -->
+
+
+            </div>
+        </div>
+    </div>
+</article>
+</section>
 
     <!-- Scripts -->
     <!-- jQuery -->

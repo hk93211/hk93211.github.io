@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+
+<!-- Head tag -->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!--Description-->
+    
+        <meta name="description" content="不会搞艺术的程序员不是好设计师">
+    
+
+    <!--Author-->
+    
+        <meta name="author" content="hk">
+    
+
+    <!-- Title -->
+    
+    <title>无状态组件的最佳写法 | HK&#39;s blog</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="//cdn.bootcss.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/style.css">
+
+    <!-- Custom Fonts -->
+    <link href="//cdn.bootcss.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href='//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+    <link href='//fonts.googleapis.com/css?family=Noto+Serif:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+
+<body>
+
+    <!-- Content -->
+    <section class="article-container">
+<!-- Back Home -->
+<a class="nav-back" href="/">
+    <i class="fa fa-puzzle-piece"></i>
+</a>
+
+<!-- Page Header -->
+<header class="intro-header">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <h1>无状态组件的最佳写法</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+            <!-- Post Main Content -->
+            <div class="post-content col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <h2 id="默认渲染行为的问题"><a href="#默认渲染行为的问题" class="headerlink" title="默认渲染行为的问题"></a>默认渲染行为的问题</h2><p>在React Component的生命周期中，有一个shouldComponentUpdate方法。这个方法默认返回值是true。</p>
+<p>这意味着就算没有改变组件的props或者state，也会导致组件的重绘。这就经常导致组件因为不相关数据的改变导致重绘，这极大的降低了React的渲染效率。比如下面的例子中，任何options的变化，甚至是其他数据的变化都可能导致所有cell的重绘。</p>
+<p>调用了setState方法后, 会触发组件的render方法, 并且state如果有传给子组件的话也会导致子组件的更新, 但是如果 setState前后组件的state并没有改变的话, 还是会触发组件极其子组件的更新, 这样就造成了性能的浪费, 所以可以使用react提供的 PureComponent组件.</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">import</span> React, &#123; Component, PureComponent &#125; <span class="keyword">from</span> <span class="string">'react'</span>;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Temp</span> <span class="keyword">extends</span> <span class="title">PureComponent</span> </span>&#123;</span><br><span class="line">  render() &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'render Temp'</span>);</span><br><span class="line">    <span class="keyword">return</span> (</span><br><span class="line">      &lt;div&gt;&#123; <span class="keyword">this</span>.props.val &#125;&lt;<span class="regexp">/div&gt;</span></span><br><span class="line"><span class="regexp">    );</span></span><br><span class="line"><span class="regexp">  &#125;</span></span><br><span class="line"><span class="regexp">&#125;</span></span><br><span class="line"><span class="regexp"></span></span><br><span class="line"><span class="regexp">class App extends Component &#123;</span></span><br><span class="line"><span class="regexp">  state = &#123;</span></span><br><span class="line"><span class="regexp">    val: 1</span></span><br><span class="line"><span class="regexp">  &#125;</span></span><br><span class="line"><span class="regexp"></span></span><br><span class="line"><span class="regexp">  componentDidMount() &#123;</span></span><br><span class="line"><span class="regexp">    setInterval(() =&gt; &#123;</span></span><br><span class="line"><span class="regexp">      this.setState(&#123;</span></span><br><span class="line"><span class="regexp">        val: 1</span></span><br><span class="line"><span class="regexp">      &#125;)</span></span><br><span class="line"><span class="regexp">    &#125;, 2000)</span></span><br><span class="line"><span class="regexp">  &#125;</span></span><br><span class="line"><span class="regexp"></span></span><br><span class="line"><span class="regexp">  render() &#123;</span></span><br><span class="line"><span class="regexp">    console.log('render App');</span></span><br><span class="line"><span class="regexp">    return (</span></span><br><span class="line"><span class="regexp">      &lt;div className="App"&gt;</span></span><br><span class="line"><span class="regexp">        &lt;header className="App-header"&gt;</span></span><br><span class="line"><span class="regexp">          &lt;img src=&#123;logo&#125; className="App-logo" alt="logo" /</span>&gt;</span><br><span class="line">          &lt;h1 className=<span class="string">"App-title"</span>&gt;Welcome to React&lt;<span class="regexp">/h1&gt;</span></span><br><span class="line"><span class="regexp">        &lt;/</span>header&gt;</span><br><span class="line">        &lt;p className=<span class="string">"App-intro"</span>&gt;</span><br><span class="line">          To get started, edit &lt;code&gt;src/App.js&lt;<span class="regexp">/code&gt; and save to reload.</span></span><br><span class="line"><span class="regexp">        &lt;/</span>p&gt;</span><br><span class="line">        &lt;Temp val=&#123; <span class="keyword">this</span>.state.val &#125; /&gt;</span><br><span class="line">      &lt;<span class="regexp">/div&gt;</span></span><br><span class="line"><span class="regexp">    );</span></span><br><span class="line"><span class="regexp">  &#125;</span></span><br><span class="line"><span class="regexp">&#125;</span></span><br><span class="line"><span class="regexp"></span></span><br><span class="line"><span class="regexp">export default App;</span></span><br></pre></td></tr></table></figure>
+<p>如果Temp组件不使用PureComponent组件, 而是使用普通的无状态组件的话, 当父组件的定时器在跑的时候, Temp组件也会不断的render, 造成了性能的浪费.<br>使用PureComponent后可以看到, Temp组件不会render了</p>
+<p>好处: 提升性能, 可以少写shouldComponentUpdate</p>
+<h2 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h2><p>当组件更新时，如果组件的 props 和 state 都没发生改变， render 方法就不会触发，省去 Virtual DOM 的生成和比对过程，达到提升性能的目的。具体就是 React 自动帮我们做了一层浅比较：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (<span class="keyword">this</span>._compositeType === CompositeTypes.PureClass) &#123;</span><br><span class="line">    shouldUpdate = !shallowEqual(prevProps, nextProps) || !shallowEqual(inst.state, nextState);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>而 shallowEqual 又做了什么呢？会比较 Object.keys(state | props) 的长度是否一致，每一个 key 是否两者都有，并且是否是一个引用，也就是只比较了第一层的值，确实很浅，所以深层的嵌套数据是对比不出来的。</p>
+<h2 id="易变数据不能使用一个引用"><a href="#易变数据不能使用一个引用" class="headerlink" title="易变数据不能使用一个引用"></a>易变数据不能使用一个引用</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">App</span> <span class="keyword">extends</span> <span class="title">PureComponent</span> </span>&#123;</span><br><span class="line">  state = &#123;</span><br><span class="line">    items: [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>]</span><br><span class="line">  &#125;</span><br><span class="line">  handleClick = <span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">const</span> &#123; items &#125; = <span class="keyword">this</span>.state;</span><br><span class="line">    items.pop();</span><br><span class="line">    <span class="keyword">this</span>.setState(&#123; items &#125;);</span><br><span class="line">  &#125;</span><br><span class="line">  render() &#123;</span><br><span class="line">    <span class="keyword">return</span> (&lt;div&gt;</span><br><span class="line">      &lt;ul&gt;</span><br><span class="line">        &#123;this.state.items.map(i =&gt; &lt;li key=&#123;i&#125;&gt;&#123;i&#125;&lt;/li&gt;)&#125;</span><br><span class="line">      &lt;/ul&gt;</span><br><span class="line">      &lt;button onClick=&#123;this.handleClick&#125;&gt;delete&lt;/button&gt;</span><br><span class="line">    &lt;/div&gt;)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>会发现，无论怎么点 delete 按钮， li 都不会变少，因为 items 用的是一个引用， shallowEqual 的结果为 true 。改正</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">handleClick = <span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">const</span> &#123; items &#125; = <span class="keyword">this</span>.state;</span><br><span class="line">  items.pop();</span><br><span class="line">  <span class="keyword">this</span>.setState(&#123; <span class="attr">items</span>: [].concat(items) &#125;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>这样每次改变都会产生一个新的数组，也就可以 render 了。</p>
+<h2 id="结束语"><a href="#结束语" class="headerlink" title="结束语"></a>结束语</h2><p>PureComponent 真正起作用的，只是在一些纯展示组件上，复杂组件用了也没关系，反正 shallowEqual 那一关就过不了，不过记得 props 和 state 不能使用同一个引用哦。</p>
+
+ 
+                <!-- Meta -->
+                <div class="post-meta">
+                    <hr>
+                    <br>
+                    <div class="post-tags">
+                        
+                            
+
+<a href="/tags/react/">#react</a>
+
+
+                        
+                    </div>
+                    <div class="post-date">
+                        2018 年 09 月 27 日
+                    </div>
+                </div>
+            </div>
+
+            <!-- Comments -->
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <!-- Disqus Comments -->
+
+
+            </div>
+        </div>
+    </div>
+</article>
+</section>
+
+    <!-- Scripts -->
+    <!-- jQuery -->
+<script src="//cdn.bootcss.com/jquery/2.2.1/jquery.min.js"></script>
+<!-- Bootstrap -->
+<script src="//cdn.bootcss.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+<script type="text/javascript">
+	console.log('Hexo-theme-hollow designed by zchen9 🙋 © 2015-' + (new Date()).getFullYear());
+</script>
+
+    <!-- Google Analytics -->
+    
+
+</body>
+
+</html>
