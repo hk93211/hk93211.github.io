@@ -19,7 +19,7 @@
 
     <!-- Title -->
     
-    <title>page | HK&#39;s blog</title>
+    <title>git hook | HK&#39;s blog</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="//cdn.bootcss.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
@@ -44,96 +44,65 @@
 <body>
 
     <!-- Content -->
-    <!-- Main Content -->
-<section class="intro">
+    <section class="article-container">
+<!-- Back Home -->
+<a class="nav-back" href="/">
+    <i class="fa fa-puzzle-piece"></i>
+</a>
+
+<!-- Page Header -->
+<header class="intro-header">
     <div class="container">
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-                
-                    <div class="post-preview">
-    <a href="/2017/03/22/H5/">
-        <h2 class="post-title">
-            H5规范
-        </h2>
-        
-    </a>
-</div>
-                
-                    <div class="post-preview">
-    <a href="/2017/03/17/let和const/">
-        <h2 class="post-title">
-            let和const
-        </h2>
-        
-    </a>
-</div>
-                
-                    <div class="post-preview">
-    <a href="/2017/03/11/axios/">
-        <h2 class="post-title">
-            axios
-        </h2>
-        
-    </a>
-</div>
-                
-                    <div class="post-preview">
-    <a href="/2016/08/30/angularjs/">
-        <h2 class="post-title">
-            AngularJS
-        </h2>
-        
-    </a>
-</div>
-                
-                    <div class="post-preview">
-    <a href="/2016/04/12/node.js 事件驱动编程理解/">
-        <h2 class="post-title">
-            node.js 事件驱动编程理解
-        </h2>
-        
-    </a>
-</div>
-                
-                    <div class="post-preview">
-    <a href="/2016/03/15/node基础/">
-        <h2 class="post-title">
-            node基础
-        </h2>
-        
-    </a>
-</div>
-                
-                    <div class="post-preview">
-    <a href="/2015/10/23/markdown语法/">
-        <h2 class="post-title">
-            markdown语法学习
-        </h2>
-        
-    </a>
-</div>
-                
-                    <div class="post-preview">
-    <a href="/2015/06/23/hello-world/">
-        <h2 class="post-title">
-            Hello World
-        </h2>
-        
-    </a>
-</div>
-                
+                <div class="post-heading">
+                    <h1>git hook</h1>
+                </div>
             </div>
         </div>
-        <!-- Pagination -->
-        <ul class="pagiantion">
-    
-        <li class="previous"><a href="/page/2/">上一页</a></li>
-    
-    
-</ul>
     </div>
-</section>
+</header>
 
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+            <!-- Post Main Content -->
+            <div class="post-content col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <h2 id="git-hook"><a href="#git-hook" class="headerlink" title="git hook"></a>git hook</h2><p>有时候, 在使用git提交代码的时候, 需要先用语法检查工具来检查项目中是否有不符合规范的语法, 如果有, 就不能提交代码</p>
+<p>所以就要 git hook<br>比如commit 前执行 eslint的检测操作,  如果eslint的语法检查没有校验通过则不能进行提交</p>
+<p>要安装 husky 依赖,  注意安装依赖的时候  <strong>目录一定是要初始化好的 git 仓库</strong>,  不然此依赖找不到对应的git 进行hook</p>
+
+ 
+                <!-- Meta -->
+                <div class="post-meta">
+                    <hr>
+                    <br>
+                    <div class="post-tags">
+                        
+                            
+
+<a href="/tags/git/">#git</a>
+
+
+                        
+                    </div>
+                    <div class="post-date">
+                        2018 年 09 月 25 日
+                    </div>
+                </div>
+            </div>
+
+            <!-- Comments -->
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <!-- Disqus Comments -->
+
+
+            </div>
+        </div>
+    </div>
+</article>
+</section>
 
     <!-- Scripts -->
     <!-- jQuery -->
