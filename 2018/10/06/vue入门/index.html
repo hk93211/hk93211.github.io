@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+
+<!-- Head tag -->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!--Description-->
+    
+        <meta name="description" content="不会搞艺术的程序员不是好设计师">
+    
+
+    <!--Author-->
+    
+        <meta name="author" content="hk">
+    
+
+    <!-- Title -->
+    
+    <title>vue入门 | HK&#39;s blog</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="//cdn.bootcss.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/style.css">
+
+    <!-- Custom Fonts -->
+    <link href="//cdn.bootcss.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href='//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+    <link href='//fonts.googleapis.com/css?family=Noto+Serif:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+
+<body>
+
+    <!-- Content -->
+    <section class="article-container">
+<!-- Back Home -->
+<a class="nav-back" href="/">
+    <i class="fa fa-puzzle-piece"></i>
+</a>
+
+<!-- Page Header -->
+<header class="intro-header">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <h1>vue入门</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+            <!-- Post Main Content -->
+            <div class="post-content col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <h2 id="1-vue实例"><a href="#1-vue实例" class="headerlink" title="1.vue实例"></a>1.vue实例</h2><h3 id="1-vue实例的创建和作用"><a href="#1-vue实例的创建和作用" class="headerlink" title="1.vue实例的创建和作用"></a>1.vue实例的创建和作用</h3><h3 id="2-vue实例的属性"><a href="#2-vue实例的属性" class="headerlink" title="2.vue实例的属性"></a>2.vue实例的属性</h3><h3 id="3-vue实例的方法"><a href="#3-vue实例的方法" class="headerlink" title="3.vue实例的方法"></a>3.vue实例的方法</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> app = <span class="keyword">new</span> Vue(&#123;</span><br><span class="line">  el: <span class="string">'#root'</span>,</span><br><span class="line">  template: <span class="string">'&lt;h1&gt;hello world &#123;&#123;text&#125;&#125;&lt;/h1&gt;'</span>,</span><br><span class="line">  data: &#123;</span><br><span class="line">    text: <span class="number">0</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">setInterval(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">  <span class="comment">// app.text += 1; // 有效果, 页面text的值在增加</span></span><br><span class="line">  <span class="comment">// app.$options.data.text += 1; // 无效果, 页面的text不增加</span></span><br><span class="line">  app.$data.text += <span class="number">1</span>; <span class="comment">// 有效果, 页面text的值在增加</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<h3 id="vue实例上的属性"><a href="#vue实例上的属性" class="headerlink" title="vue实例上的属性"></a>vue实例上的属性</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(app.$data); <span class="comment">// 传入new Vue 对象中的data属性</span></span><br><span class="line"><span class="built_in">console</span>.log(app.$props); <span class="comment">// 传入new Vue 对象中的props属性</span></span><br><span class="line"><span class="built_in">console</span>.log(app.$el); <span class="comment">// app对象 挂载的dom节点</span></span><br><span class="line"><span class="built_in">console</span>.log(app.$options); <span class="comment">// 传入new Vue 对象中的整个对象, 注意直接通过修改app.$options.data对象的值是没有效果的, 因为Vue 对传入的对象进行了处理,  没有直接使用传入的app.$options.data对象</span></span><br><span class="line"><span class="built_in">console</span>.log(app.$root === app); <span class="comment">// true</span></span><br><span class="line"><span class="built_in">console</span>.log(app.$children); <span class="comment">// 就是dom节点的子节点</span></span><br><span class="line"><span class="built_in">console</span>.log(app.$slots); <span class="comment">// 插槽</span></span><br><span class="line"><span class="built_in">console</span>.log(app.$scopedSlots); <span class="comment">// 插槽</span></span><br><span class="line"><span class="built_in">console</span>.log(app.$refs); <span class="comment">// 模板或者组件的引用, 可以快速定位到想取到的dom节点或者组件</span></span><br><span class="line"><span class="built_in">console</span>.log(app.$isServer); <span class="comment">// 判断是否是服务端渲染</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// $optons上有一个比较特殊的属性: render方法, 是会生效的, 待第二次调用render方法的时候, 才会生效</span></span><br><span class="line">app.$options.render = <span class="function"><span class="params">h</span> =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">return</span> h(<span class="string">'div'</span>, &#123;&#125;, <span class="string">'new render function'</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="vue实例上的方法"><a href="#vue实例上的方法" class="headerlink" title="vue实例上的方法"></a>vue实例上的方法</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 监听器:</span></span><br><span class="line"><span class="keyword">const</span> textWatch = app.$watch(<span class="string">'text'</span>, (newValue, oldValue) =&gt; &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">`<span class="subst">$&#123;newValue&#125;</span> : <span class="subst">$&#123;oldValue&#125;</span>`</span>);</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 注意在组件里的options进行声明的wtach则不需要手动进行注销, 组件上的所有wathc会跟随组件的注销自动销毁 </span></span><br><span class="line"><span class="comment">// 注意组件销毁的时候要将不再使用的watch给注销掉, 直接调用 xxx.$watch() 的返回值就行</span></span><br><span class="line">textWatch();</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">// 事件:</span></span><br><span class="line">app.$emit(<span class="string">'text'</span>, <span class="string">'1'</span>, <span class="string">'2'</span>);</span><br><span class="line"></span><br><span class="line">app.$on(<span class="string">'text'</span>, (a, b) =&gt; &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">`text emit <span class="subst">$&#123;a&#125;</span>, <span class="subst">$&#123;b&#125;</span>`</span>);</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="comment">// $once只会触发一次, 其他的跟$on一样</span></span><br><span class="line">app.$once(<span class="string">'text'</span>, (a, b) =&gt; &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">`text emit <span class="subst">$&#123;a&#125;</span>, <span class="subst">$&#123;b&#125;</span>`</span>);</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="comment">// $forceUpdate(), 使组件强制重新渲染, </span></span><br><span class="line">app.$forceUpdate();</span><br></pre></td></tr></table></figure>
+<h2 id="2-vue的生命周期"><a href="#2-vue的生命周期" class="headerlink" title="2.vue的生命周期"></a>2.vue的生命周期</h2>
+ 
+                <!-- Meta -->
+                <div class="post-meta">
+                    <hr>
+                    <br>
+                    <div class="post-tags">
+                        
+                            
+
+<a href="/tags/vue/">#vue</a>
+
+
+                        
+                    </div>
+                    <div class="post-date">
+                        2018 年 10 月 06 日
+                    </div>
+                </div>
+            </div>
+
+            <!-- Comments -->
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <!-- Disqus Comments -->
+
+
+            </div>
+        </div>
+    </div>
+</article>
+</section>
+
+    <!-- Scripts -->
+    <!-- jQuery -->
+<script src="//cdn.bootcss.com/jquery/2.2.1/jquery.min.js"></script>
+<!-- Bootstrap -->
+<script src="//cdn.bootcss.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+<script type="text/javascript">
+	console.log('Hexo-theme-hollow designed by zchen9 🙋 © 2015-' + (new Date()).getFullYear());
+</script>
+
+    <!-- Google Analytics -->
+    
+
+</body>
+
+</html>
