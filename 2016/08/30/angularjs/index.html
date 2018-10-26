@@ -1,75 +1,262 @@
 <!DOCTYPE html>
 <html lang="zh-Hans">
-
-<!-- Head tag -->
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <!--Description-->
+  <head>
     
-        <meta name="description" content="不会搞艺术的程序员不是好设计师">
+<meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+
+  <meta name="description" content="AngularJS"/>
+
+
+
+
+  <meta name="keywords" content="angularjs, HK's blog" />
+
+
+
+
+
+
+
+
+
+
+  <link rel="alternate" href="/default" title="HK's blog">
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=2.10.1" />
+
+
+
+<link rel="canonical" href="http://yoursite.com/2016/08/30/angularjs/"/>
+
+
+
+  <link rel="stylesheet" type="text/css" href="/lib/fancybox/jquery.fancybox.css" />
+
+
+
+
+  <link rel="stylesheet" type="text/css" href="/lib/nprogress/nprogress.min.css" />
+
+
+
+<link rel="stylesheet" type="text/css" href="/css/style.css?v=2.10.1" />
+
+
+
+  
+
+
+
+  <script id="baidu_push">
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+
+
+
+
+
+
+
+<script>
+  window.config = {"leancloud":{"app_id":null,"app_key":null},"toc":true,"fancybox":true,"pjax":true};
+</script>
+
+    <title> AngularJS - HK's blog </title>
+  </head>
+
+  <body><div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/." class="logo">HK's blog</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
     
-
-    <!--Author-->
+      <a href="/">
+        <li class="mobile-menu-item">
+          
+          
+            首页
+          
+        </li>
+      </a>
     
-        <meta name="author" content="hk">
+      <a href="/archives/">
+        <li class="mobile-menu-item">
+          
+          
+            归档
+          
+        </li>
+      </a>
     
-
-    <!-- Title -->
+      <a href="/tags">
+        <li class="mobile-menu-item">
+          
+          
+            标签
+          
+        </li>
+      </a>
     
-    <title>AngularJS | HK&#39;s blog</title>
+      <a href="/categories">
+        <li class="mobile-menu-item">
+          
+          
+            分类
+          
+        </li>
+      </a>
+    
+      <a href="/about">
+        <li class="mobile-menu-item">
+          
+          
+            关于
+          
+        </li>
+      </a>
+    
+  </ul>
+</nav>
 
-    <!-- Bootstrap Core CSS -->
-    <link href="//cdn.bootcss.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
+    <div class="container" id="mobile-panel">
+      <header id="header" class="header"><div class="logo-wrapper">
+  <a href="/." class="logo">HK's blog</a>
+</div>
 
-    <!-- Custom CSS -->
-    <link rel="stylesheet" href="/css/style.css">
+<nav class="site-navbar">
+  
+    <ul id="menu" class="menu">
+      
+        <li class="menu-item">
+          <a class="menu-item-link" href="/">
+            
+            
+              首页
+            
+          </a>
+        </li>
+      
+        <li class="menu-item">
+          <a class="menu-item-link" href="/archives/">
+            
+            
+              归档
+            
+          </a>
+        </li>
+      
+        <li class="menu-item">
+          <a class="menu-item-link" href="/tags">
+            
+            
+              标签
+            
+          </a>
+        </li>
+      
+        <li class="menu-item">
+          <a class="menu-item-link" href="/categories">
+            
+            
+              分类
+            
+          </a>
+        </li>
+      
+        <li class="menu-item">
+          <a class="menu-item-link" href="/about">
+            
+            
+              关于
+            
+          </a>
+        </li>
+      
+    </ul>
+  
+</nav>
 
-    <!-- Custom Fonts -->
-    <link href="//cdn.bootcss.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-    <link href='//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
-    <link href='//fonts.googleapis.com/css?family=Noto+Serif:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+      </header>
 
+      <main id="main" class="main">
+        <div class="content-wrapper">
+          <div id="content" class="content">
+            
+  
+  <article class="post">
+    <header class="post-header">
+      <h1 class="post-title">
+        
+          AngularJS
+        
+      </h1>
 
-    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->
-</head>
+      <div class="post-meta">
+        <span class="post-time">
+          2016-08-30
+        </span>
+        
+          <span class="post-category">
+            
+              <a href="/categories/angularjs/">angularjs</a>
+            
+          </span>
+        
+        
+      </div>
+    </header>
 
-<body>
-
-    <!-- Content -->
-    <section class="article-container">
-<!-- Back Home -->
-<a class="nav-back" href="/">
-    <i class="fa fa-puzzle-piece"></i>
-</a>
-
-<!-- Page Header -->
-<header class="intro-header">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-                <div class="post-heading">
-                    <h1>AngularJS</h1>
-                </div>
-            </div>
-        </div>
+    
+    
+  <div class="post-toc" id="post-toc">
+    <h2 class="post-toc-title">文章目录</h2>
+    <div class="post-toc-content">
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Angularjs是什么"><span class="toc-text">Angularjs是什么</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Angularjs的核心特性"><span class="toc-text">Angularjs的核心特性</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#AngularJS的优点"><span class="toc-text">AngularJS的优点</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#AngulaJS的缺点"><span class="toc-text">AngulaJS的缺点</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#示例"><span class="toc-text">示例</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#包括AngularJS"><span class="toc-text">包括AngularJS</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#指向AngularJS应用程序"><span class="toc-text">指向AngularJS应用程序</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#视图"><span class="toc-text">视图</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#控制器"><span class="toc-text">控制器</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#AngularJS-控制器"><span class="toc-text">AngularJS 控制器</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#AngularJS-过滤器"><span class="toc-text">AngularJS 过滤器</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#AngularJS-HTML-DOM"><span class="toc-text">AngularJS HTML DOM</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#AngularJS-模块"><span class="toc-text">AngularJS 模块</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#应用模块"><span class="toc-text">应用模块</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#控制器模块"><span class="toc-text">控制器模块</span></a></li></ol></li></ol>
     </div>
-</header>
+  </div>
 
-<!-- Post Content -->
-<article>
-    <div class="container">
-        <div class="row">
-            <!-- Post Main Content -->
-            <div class="post-content col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-                <h2 id="Angularjs是什么"><a href="#Angularjs是什么" class="headerlink" title="Angularjs是什么"></a>Angularjs是什么</h2><p>AngularJS是一个功能强大的基于JavaScript开发框架用于创建富互联网应用(RIA)。</p>
+
+
+    <div class="post-content">
+      
+        <h2 id="Angularjs是什么"><a href="#Angularjs是什么" class="headerlink" title="Angularjs是什么"></a>Angularjs是什么</h2><p>AngularJS是一个功能强大的基于JavaScript开发框架用于创建富互联网应用(RIA)。</p>
 <h2 id="Angularjs的核心特性"><a href="#Angularjs的核心特性" class="headerlink" title="Angularjs的核心特性"></a>Angularjs的核心特性</h2><ul>
 <li><strong>数据绑定</strong>： 模型和视图组件之间的数据自动同步。</li>
 <li><strong>适用范围</strong>： 这些对象参考模型。它们充当控制器和视图之间的胶水。</li>
@@ -80,10 +267,11 @@
 <li><strong>模板</strong>：　　 这些符合从控制器和模型信息的呈现的视图。这些可以是单个文件(如index.html)，或使用“谐音”在一个页面多个视图。</li>
 <li><strong>路由</strong>： 　　它是切换视图的概念。</li>
 <li><strong>模型视图</strong>： MVC是一个设计模式将应用划分为不同的部分(称为模型，视图和控制器)，每个都有不同的职责。 AngularJS并没有传统意义上的实现MVC，而是更接近于MVVM(模型 - 视图 - 视图模型)。 AngularJS团队将它作为模型视图。</li>
-<li><strong>深层链接</strong>： 深层链接，可以使应用程序状态进行编码在URL中而能够添加到书签。应用程序可从URL恢复到相同的状态。<br>依赖注入: AngularJS有一个内置的依赖注入子系统，开发人员通过使应用程序从而更易于开发，理解和测试。</li>
-</ul>
-<h2 id="AngularJS的优点"><a href="#AngularJS的优点" class="headerlink" title="AngularJS的优点"></a>AngularJS的优点</h2><ul>
-<li>AngularJS提供一个非常干净和维护的方式来创造单页的应用。 </li>
+<li><p><strong>深层链接</strong>： 深层链接，可以使应用程序状态进行编码在URL中而能够添加到书签。应用程序可从URL恢复到相同的状态。<br>依赖注入: AngularJS有一个内置的依赖注入子系统，开发人员通过使应用程序从而更易于开发，理解和测试。</p>
+<a id="more"></a>
+<h2 id="AngularJS的优点"><a href="#AngularJS的优点" class="headerlink" title="AngularJS的优点"></a>AngularJS的优点</h2></li>
+<li><p>AngularJS提供一个非常干净和维护的方式来创造单页的应用。 </p>
+</li>
 <li>AngularJS提供数据绑定功能在HTML中，从而给用户提供丰富和响应的体验 </li>
 <li>AngularJS代码可进行单元测试。 </li>
 <li>AngularJS使用依赖注入和利用关注点分离。 </li>
@@ -119,50 +307,185 @@
 <h3 id="应用模块"><a href="#应用模块" class="headerlink" title="应用模块"></a>应用模块</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> mainApp = angular.module(<span class="string">"mainApp"</span>, []);</span><br></pre></td></tr></table></figure>
 <p>在这里，我们声明了使用 angular.module 函数的应用程序mainApp模块。我们已经传递一个空数组给它。这个数组通常包含依赖模块。</p>
 <h3 id="控制器模块"><a href="#控制器模块" class="headerlink" title="控制器模块"></a>控制器模块</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">mainApp.controller(<span class="string">"studentController"</span>, <span class="function"><span class="keyword">function</span>(<span class="params">$scope</span>) </span>&#123;</span><br><span class="line">   $scope.student = &#123;</span><br><span class="line">      firstName: <span class="string">"Mahesh"</span>,</span><br><span class="line">      lastName: <span class="string">"Parashar"</span>,</span><br><span class="line">      fees:<span class="number">500</span>,</span><br><span class="line">      subjects:[</span><br><span class="line">         &#123;<span class="attr">name</span>:<span class="string">'Physics'</span>,<span class="attr">marks</span>:<span class="number">70</span>&#125;,</span><br><span class="line">         &#123;<span class="attr">name</span>:<span class="string">'Chemistry'</span>,<span class="attr">marks</span>:<span class="number">80</span>&#125;,</span><br><span class="line">         &#123;<span class="attr">name</span>:<span class="string">'Math'</span>,<span class="attr">marks</span>:<span class="number">65</span>&#125;,</span><br><span class="line">         &#123;<span class="attr">name</span>:<span class="string">'English'</span>,<span class="attr">marks</span>:<span class="number">75</span>&#125;,</span><br><span class="line">         &#123;<span class="attr">name</span>:<span class="string">'Hindi'</span>,<span class="attr">marks</span>:<span class="number">67</span>&#125;</span><br><span class="line">      ],</span><br><span class="line">      fullName: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">         <span class="keyword">var</span> studentObject;</span><br><span class="line">         studentObject = $scope.student;</span><br><span class="line">         <span class="keyword">return</span> studentObject.firstName + <span class="string">" "</span> + studentObject.lastName;</span><br><span class="line">      &#125;</span><br><span class="line">   &#125;;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
- 
-                <!-- Meta -->
-                <div class="post-meta">
-                    <hr>
-                    <br>
-                    <div class="post-tags">
-                        
-                            
-
-<a href="/tags/angularjs/">#angularjs</a>
-
-
-                        
-                    </div>
-                    <div class="post-date">
-                        2016 年 08 月 30 日
-                    </div>
-                </div>
-            </div>
-
-            <!-- Comments -->
-            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-                <!-- Disqus Comments -->
-
-
-            </div>
-        </div>
+      
     </div>
-</article>
-</section>
 
-    <!-- Scripts -->
-    <!-- jQuery -->
-<script src="//cdn.bootcss.com/jquery/2.2.1/jquery.min.js"></script>
-<!-- Bootstrap -->
-<script src="//cdn.bootcss.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    
+      
+      
 
-<script type="text/javascript">
-	console.log('Hexo-theme-hollow designed by zchen9 🙋 © 2015-' + (new Date()).getFullYear());
-</script>
 
-    <!-- Google Analytics -->
+
+      
+      
     
 
-</body>
+    
+      <footer class="post-footer">
+        
+          <div class="post-tags">
+            
+              <a href="/tags/angularjs/">angularjs</a>
+            
+          </div>
+        
+        
+        
+  <nav class="post-nav">
+    
+      <a class="prev" href="/2017/03/11/axios/">
+        <i class="iconfont icon-left"></i>
+        <span class="prev-text nav-default">axios</span>
+        <span class="prev-text nav-mobile">上一篇</span>
+      </a>
+    
+    
+      <a class="next" href="/2016/04/12/node.js 事件驱动编程理解/">
+        <span class="next-text nav-default">node.js 事件驱动编程理解</span>
+        <span class="prev-text nav-mobile">下一篇</span>
+        <i class="iconfont icon-right"></i>
+      </a>
+    
+  </nav>
 
+
+      </footer>
+    
+
+  </article>
+
+
+          </div>
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+      </main>
+
+      <footer id="footer" class="footer">
+
+  <div class="social-links">
+    
+      
+        
+          <a href="mailto:hk93211@gmail.com" class="iconfont icon-email" title="email"></a>
+        
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+        
+          <a href="https://github.com/hk93211" class="iconfont icon-github" title="github"></a>
+        
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+
+    
+      
+      <a href="/atom.xml" class="iconfont icon-rss" title="rss"></a>
+    
+  </div>
+
+
+
+<div class="copyright">
+  <span class="power-by">
+    由 <a class="hexo-link" href="https://hexo.io/">Hexo</a> 强力驱动
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    主题 - 
+    <a class="theme-link" href="https://github.com/ahonn/hexo-theme-even">Even</a>
+  </span>
+
+  <span class="copyright-year">
+    
+    &copy; 
+     
+      2015 - 
+    
+    2018
+
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">hk</span>
+  </span>
+</div>
+
+      </footer>
+
+      <div class="back-to-top" id="back-to-top">
+        <i class="iconfont icon-up"></i>
+      </div>
+    </div>
+
+    
+  
+  
+
+  
+
+
+
+    
+  
+
+
+
+  
+  
+
+
+
+
+
+  
+    <script type="text/javascript" src="/lib/jquery/jquery.min.js"></script>
+  
+
+  
+    <script type="text/javascript" src="/lib/slideout/slideout.js"></script>
+  
+
+  
+    <script type="text/javascript" src="/lib/fancybox/jquery.fancybox.pack.js"></script>
+  
+
+  
+    <script type="text/javascript" src="/lib/pjax/jquery.pjax.min.js"></script>
+  
+
+  
+    <script type="text/javascript" src="/lib/nprogress/nprogress.min.js"></script>
+  
+
+
+    <script type="text/javascript" src="/js/src/even.js?v=2.10.1"></script>
+
+  </body>
 </html>
