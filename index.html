@@ -360,6 +360,69 @@
     <header class="post-header">
       <h1 class="post-title">
         
+          <a class="post-link" href="/2018/09/25/eslint/">eslint</a>
+        
+      </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2018-09-25
+        </span>
+        
+          <span class="post-category">
+            
+              <a href="/categories/eslint/">eslint</a>
+            
+          </span>
+        
+        
+        <span class="post-visits"
+             data-url="/2018/09/25/eslint/"
+             data-title="eslint">
+          阅读次数 0
+        </span>
+        
+      </div>
+    </header>
+
+    
+    
+
+
+    <div class="post-content">
+      
+        
+        
+
+        
+          <p>eslint 可以给我们的代码定义一些语法规范, 防止我们在语法上犯一些低级的错误, 格式上的问题, 团队协作时大家都使用统一的代码风格去书写, 让我们在看别人的代码时更方便.</p>
+<p>先在项目中安装以下依赖, 版本号会更新,<br>“eslint”: “^5.8.0”,<br>“eslint-config-standard”: “^12.0.0”,<br>“eslint-plugin-html”: “^4.0.6”,<br>“eslint-plugin-import”: “^2.14.0”,<br>“eslint-plugin-node”: “^8.0.0”,<br>“eslint-plugin-promise”: “^4.0.1”,<br>“eslint-plugin-react”: “^7.11.1”,<br>“eslint-plugin-standard”: “^4.0.0”,</p>
+<p>再添加一个.eslintrc 文件:<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    <span class="string">"extends"</span>: <span class="string">"standard"</span>,</span><br><span class="line">    <span class="string">"plugins"</span>: [</span><br><span class="line">        <span class="string">"html"</span>,</span><br><span class="line">    ],</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>再在package.json文件中添加 eslint 校验命令<br>“lint”: “eslint –ext .js –ext .jsx –ext .vue src”<br>修复命令<br>“lint-fix”: “eslint –fix –ext .js –ext .jsx –ext .vue src”</p>
+<p>校验时报错在运行 lint 命令时 jsx 文件报错: Parsing error: Unexpected token =</p>
+<p>经过网上查找资料, 再安装一个 babel-eslint 依赖,安装后再在 .eslintrc 文件添加一行<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    <span class="string">"extends"</span>: <span class="string">"standard"</span>,</span><br><span class="line">    <span class="string">"plugins"</span>: [</span><br><span class="line">        <span class="string">"html"</span>,</span><br><span class="line">    ],</span><br><span class="line">    <span class="string">"parse"</span>: <span class="string">"babel-eslint"</span></span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>一般我们使用webpack 和 babel 进行开发的时候我们都会指定他的 parse 为 babel-eslint,<br>因为 eslint 对有一些 es6 的语法不是很支持</p>
+<p>我们还需要在 webpack 的 module 配置中最开始加上:<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    test: <span class="regexp">/\.(js|jsx|vue)$/</span>,</span><br><span class="line">    loader: <span class="string">'eslint-loader'</span>,</span><br><span class="line">    exclude: <span class="regexp">/node_modules/</span>, <span class="comment">// 因为有的 node_modules 文件已经是经过 babel 处理过的, 不符合我们的 es6 或者 es7 规范, 所有剔除</span></span><br><span class="line">    enforce: <span class="string">'pre'</span> <span class="comment">// 预处理: 在vue-loader之前就进行检测, 在这几种文件对应的loader处理之前就进行eslint-loader的检测</span></span><br><span class="line">&#125;,</span><br></pre></td></tr></table></figure></p>
+<p>此时只是用命令对我们的代码进行检查, 下面是配置编辑器直接在写代码的时候立即提示出有语法问题的代码</p>
+<p>在正式的项目中, 我们会有团队协作, 我们可以在git commit 的对应 hook 进行 eslint 的检查,<br>首先要安装 husky:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install husky -D</span><br></pre></td></tr></table></figure></p>
+<p>注意: 在安装一些git hook 工具的时候, npm install 之前, 项目跟目录一定要是一个git 仓库, 这样对应的工具才能初始化成功, 不然会有问题,</p>
+
+        
+      
+    </div>
+
+    
+
+    
+
+  </article>
+
+      
+        
+  <article class="post">
+    <header class="post-header">
+      <h1 class="post-title">
+        
           <a class="post-link" href="/2018/09/25/dva/">dva</a>
         
       </h1>
@@ -452,63 +515,6 @@
 <p>所以就要 git hook<br>比如commit 前执行 eslint的检测操作,  如果eslint的语法检查没有校验通过则不能进行提交</p>
 <p>要安装 husky 依赖,  注意安装依赖的时候  <strong>目录一定是要初始化好的 git 仓库</strong>,  不然此依赖找不到对应的git 进行hook</p>
 
-        
-      
-    </div>
-
-    
-
-    
-
-  </article>
-
-      
-        
-  <article class="post">
-    <header class="post-header">
-      <h1 class="post-title">
-        
-          <a class="post-link" href="/2018/09/17/面向对象-封装/">封装</a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <span class="post-time">
-          2018-09-17
-        </span>
-        
-          <span class="post-category">
-            
-              <a href="/categories/教程/">教程</a>
-            
-          </span>
-        
-        
-        <span class="post-visits"
-             data-url="/2018/09/17/面向对象-封装/"
-             data-title="封装">
-          阅读次数 0
-        </span>
-        
-      </div>
-    </header>
-
-    
-    
-
-
-    <div class="post-content">
-      
-        
-        
-          
-        
-
-        
-          <h2 id="创建一个类"><a href="#创建一个类" class="headerlink" title="创建一个类"></a>创建一个类</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> Book = <span class="function"><span class="keyword">function</span>(<span class="params">name, id</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.name = name;</span><br><span class="line">    <span class="keyword">this</span>.id = id;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">Book.prototype.showName = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="keyword">this</span>.name);</span><br><span class="line">&#125;</span><br><span class="line">或者</span><br><span class="line">Book.prototype = &#123;</span><br><span class="line">    showName: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="keyword">this</span>.name);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> book = <span class="keyword">new</span> Book(<span class="string">'javascript红宝书'</span>, <span class="number">1</span>);</span><br><span class="line">book.showName();</span><br></pre></td></tr></table></figure>
-          <div class="read-more">
-            <a href="/2018/09/17/面向对象-封装/" class="read-more-link">阅读更多</a>
-          </div>
         
       
     </div>
