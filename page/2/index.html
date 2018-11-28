@@ -297,6 +297,61 @@
     <header class="post-header">
       <h1 class="post-title">
         
+          <a class="post-link" href="/2018/09/25/git hook/">git hook</a>
+        
+      </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2018-09-25
+        </span>
+        
+          <span class="post-category">
+            
+              <a href="/categories/git/">git</a>
+            
+          </span>
+        
+        
+        <span class="post-visits"
+             data-url="/2018/09/25/git hook/"
+             data-title="git hook">
+          阅读次数 0
+        </span>
+        
+      </div>
+    </header>
+
+    
+    
+
+
+    <div class="post-content">
+      
+        
+        
+
+        
+          <h2 id="git-hook"><a href="#git-hook" class="headerlink" title="git hook"></a>git hook</h2><p>有时候, 在使用git提交代码的时候, 需要先用语法检查工具来检查项目中是否有不符合规范的语法, 如果有, 就不能提交代码</p>
+<p>所以就要 git hook<br>比如commit 前执行 eslint的检测操作,  如果eslint的语法检查没有校验通过则不能进行提交</p>
+<p>要安装 husky 依赖,  注意安装依赖的时候  <strong>目录一定是要初始化好的 git 仓库</strong>,  不然此依赖找不到对应的git 进行hook</p>
+
+        
+      
+    </div>
+
+    
+
+    
+
+  </article>
+
+      
+        
+  <article class="post">
+    <header class="post-header">
+      <h1 class="post-title">
+        
           <a class="post-link" href="/2018/09/17/面向对象-封装/">封装</a>
         
       </h1>
@@ -466,66 +521,6 @@
           <h3 id="webpack配置文件-webpack-config-js"><a href="#webpack配置文件-webpack-config-js" class="headerlink" title="webpack配置文件 webpack.config.js"></a>webpack配置文件 <code>webpack.config.js</code></h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> path = <span class="built_in">require</span>(<span class="string">'path'</span>);</span><br><span class="line"><span class="keyword">var</span> webpack = <span class="built_in">require</span>(<span class="string">'webpack'</span>);</span><br><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">  <span class="comment">// entry: path.join(__dirname, 'src/index.js'),</span></span><br><span class="line">  entry: [<span class="string">'./src/index'</span>],</span><br><span class="line">  output: &#123;</span><br><span class="line">    path: path.join(__dirname, <span class="string">'dist'</span>),</span><br><span class="line">    filename: <span class="string">'bundle.js'</span></span><br><span class="line">  &#125;,</span><br><span class="line">  plugins: [</span><br><span class="line">    <span class="keyword">new</span> webpack.optimize.UglifyJsPlugin(&#123;</span><br><span class="line">      compressor: &#123;</span><br><span class="line">        warnings: <span class="literal">false</span>,</span><br><span class="line">      &#125;,</span><br><span class="line">    &#125;),</span><br><span class="line">    <span class="keyword">new</span> webpack.optimize.OccurenceOrderPlugin()</span><br><span class="line">  ],</span><br><span class="line">  <span class="built_in">module</span>: &#123;</span><br><span class="line">    loaders: [&#123;</span><br><span class="line">      test: <span class="regexp">/\.css$/</span>,</span><br><span class="line">      loaders: [<span class="string">'style'</span>, <span class="string">'css'</span>]</span><br><span class="line">    &#125;]</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
           <div class="read-more">
             <a href="/2018/08/25/webpack自定义配置/" class="read-more-link">阅读更多</a>
-          </div>
-        
-      
-    </div>
-
-    
-
-    
-
-  </article>
-
-      
-        
-  <article class="post">
-    <header class="post-header">
-      <h1 class="post-title">
-        
-          <a class="post-link" href="/2018/08/24/vue-directive/">vue-directive</a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <span class="post-time">
-          2018-08-24
-        </span>
-        
-          <span class="post-category">
-            
-              <a href="/categories/vue/">vue</a>
-            
-          </span>
-        
-        
-        <span class="post-visits"
-             data-url="/2018/08/24/vue-directive/"
-             data-title="vue-directive">
-          阅读次数 0
-        </span>
-        
-      </div>
-    </header>
-
-    
-    
-
-
-    <div class="post-content">
-      
-        
-        
-          
-        
-
-        
-          <h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><p>在 Vue2.0 中，代码复用和抽象的主要形式是组件。然而，有的情况下，你仍然需要对普通 DOM 元素进行底层操作，这时候就会用到自定义指令。</p>
-<p>全局自定义指令<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">// 注册一个全局自定义指令 `v-focus`</span><br><span class="line">Vue.directive(&apos;focus&apos;, &#123;</span><br><span class="line">  // 当被绑定的元素插入到 DOM 中时……</span><br><span class="line">  inserted: function (el) &#123;</span><br><span class="line">    // 聚焦元素</span><br><span class="line">    el.focus()</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure></p>
-<p>注册局部指令，组件中也接受一个 directives 的选项<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">directives: &#123;</span><br><span class="line">  focus: &#123;</span><br><span class="line">    // 指令的定义</span><br><span class="line">    inserted: function (el) &#123;</span><br><span class="line">      el.focus()</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>然后你可以在模板中任何元素上使用新的 v-focus 属性，如下<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;input v-focus&gt; // 注意指令前面加上v-</span><br></pre></td></tr></table></figure></p>
-          <div class="read-more">
-            <a href="/2018/08/24/vue-directive/" class="read-more-link">阅读更多</a>
           </div>
         
       
