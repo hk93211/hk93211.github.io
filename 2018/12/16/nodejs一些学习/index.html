@@ -17,10 +17,12 @@
 
 
 
-  <meta name="description" content="不会搞艺术的程序员不是好设计师"/>
+  <meta name="description" content="nodejs一些学习"/>
 
 
 
+
+  <meta name="keywords" content="nodejs, HK's blog" />
 
 
 
@@ -40,7 +42,7 @@
 
 
 
-<link rel="canonical" href="http://yoursite.com/tags/nodejs/"/>
+<link rel="canonical" href="http://yoursite.com/2018/12/16/nodejs一些学习/"/>
 
 
 
@@ -106,11 +108,7 @@
   window.config = {"leancloud":{"app_id":"x8DnYYQw5Dl9oBmsrh29KacR-gzGzoHsz","app_key":"skGJTxdFoENHDdh68uEjPpbS"},"toc":true,"fancybox":true,"pjax":true};
 </script>
 
-    <title>
-  
-    nodejs · HK's blog
-  
-</title>
+    <title> nodejs一些学习 - HK's blog </title>
   </head>
 
   <body><div id="mobile-navbar" class="mobile-navbar">
@@ -240,77 +238,100 @@
           <div id="content" class="content">
             
   
-  
-  
+  <article class="post">
+    <header class="post-header">
+      <h1 class="post-title">
+        
+          nodejs一些学习
+        
+      </h1>
 
-  <section id="archive" class="archive">
-    
-      
-        <div class="archive-title tag">
-          <h2 class="archive-name">nodejs</h2>
-        </div>
-      
-    
-
-    
-      
-
-      <div class="archive-post">
-        <span class="archive-post-time">
-          
-            2018-12-16
-          
+      <div class="post-meta">
+        <span class="post-time">
+          2018-12-16
         </span>
-        <span class="archive-post-title">
-          <a href="/2018/12/16/nodejs一些学习/" class="archive-post-link">
-            nodejs一些学习
-          </a>
+        
+          <span class="post-category">
+            
+              <a href="/categories/nodejs/">nodejs</a>
+            
+          </span>
+        
+        
+        <span class="post-visits"
+             data-url="/2018/12/16/nodejs一些学习/"
+             data-title="nodejs一些学习">
+          阅读次数 0
         </span>
+        
       </div>
+    </header>
+
+    
+    
+  <div class="post-toc" id="post-toc">
+    <h2 class="post-toc-title">文章目录</h2>
+    <div class="post-toc-content">
+      <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#process-进程"><span class="toc-text">process: 进程</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#path-路径"><span class="toc-text">path: 路径</span></a></li></ol>
+    </div>
+  </div>
+
+
+
+    <div class="post-content">
+      
+        <h3 id="process-进程"><a href="#process-进程" class="headerlink" title="process: 进程"></a>process: 进程</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">process.cwd(); // 返回进程的当前工作目录</span><br><span class="line">process.env; // 返回用户的环境信息</span><br><span class="line">process.execPath; // 返回启动进程的可执行文件的绝对路径(node的路径)</span><br><span class="line">process.argv; // 返回进程启动时的命令行参数。 第一个元素是 process.execPath。 使用 process.argv0 可以获取 argv[0] 原始的值。 第二个元素是当前执行的 JavaScript 文件的路径。 剩余的元素都是额外的命令行参数。</span><br></pre></td></tr></table></figure>
+<h3 id="path-路径"><a href="#path-路径" class="headerlink" title="path: 路径"></a>path: 路径</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">path.resolve(); // 将路径或路径片段处理成绝对路径, 从右到左依次处理，直到构造出绝对路径, 其处理方式类似于对这些路径逐一进行cd操作，与cd操作不同的是，这引起路径可以是文件，并且可不必实际存在（resolve()方法不会利用底层的文件系统判断路径是否存在，而只是进行路径字符串操作）</span><br><span class="line">path.join(); // 连接任意多个路径字符串。要连接的多个路径可做为参数传入</span><br></pre></td></tr></table></figure>
+<p>__dirname; // 是被执行的js 文件的地址</p>
+
+      
+    </div>
+
     
       
-
-      <div class="archive-post">
-        <span class="archive-post-time">
-          
-            2016-04-12
-          
-        </span>
-        <span class="archive-post-title">
-          <a href="/2016/04/12/node.js 事件驱动编程理解/" class="archive-post-link">
-            node.js 事件驱动编程理解
-          </a>
-        </span>
-      </div>
-    
       
 
-      <div class="archive-post">
-        <span class="archive-post-time">
-          
-            2016-03-15
-          
-        </span>
-        <span class="archive-post-title">
-          <a href="/2016/03/15/node基础/" class="archive-post-link">
-            node基础
-          </a>
-        </span>
-      </div>
-    
-  </section>
 
-  
-  <nav class="pagination">
+
+      
+      
     
+
+    
+      <footer class="post-footer">
+        
+          <div class="post-tags">
+            
+              <a href="/tags/nodejs/">nodejs</a>
+            
+          </div>
+        
+        
+        
+  <nav class="post-nav">
+    
+    
+      <a class="next" href="/2018/11/28/this/">
+        <span class="next-text nav-default">this</span>
+        <span class="prev-text nav-mobile">下一篇</span>
+        <i class="iconfont icon-right"></i>
+      </a>
     
   </nav>
 
 
+      </footer>
+    
+
+  </article>
 
 
           </div>
           
+  <div class="comments" id="comments">
+    
+  </div>
+
 
         </div>
       </main>

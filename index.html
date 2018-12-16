@@ -244,6 +244,61 @@
     <header class="post-header">
       <h1 class="post-title">
         
+          <a class="post-link" href="/2018/12/16/nodejs一些学习/">nodejs一些学习</a>
+        
+      </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2018-12-16
+        </span>
+        
+          <span class="post-category">
+            
+              <a href="/categories/nodejs/">nodejs</a>
+            
+          </span>
+        
+        
+        <span class="post-visits"
+             data-url="/2018/12/16/nodejs一些学习/"
+             data-title="nodejs一些学习">
+          阅读次数 0
+        </span>
+        
+      </div>
+    </header>
+
+    
+    
+
+
+    <div class="post-content">
+      
+        
+        
+
+        
+          <h3 id="process-进程"><a href="#process-进程" class="headerlink" title="process: 进程"></a>process: 进程</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">process.cwd(); // 返回进程的当前工作目录</span><br><span class="line">process.env; // 返回用户的环境信息</span><br><span class="line">process.execPath; // 返回启动进程的可执行文件的绝对路径(node的路径)</span><br><span class="line">process.argv; // 返回进程启动时的命令行参数。 第一个元素是 process.execPath。 使用 process.argv0 可以获取 argv[0] 原始的值。 第二个元素是当前执行的 JavaScript 文件的路径。 剩余的元素都是额外的命令行参数。</span><br></pre></td></tr></table></figure>
+<h3 id="path-路径"><a href="#path-路径" class="headerlink" title="path: 路径"></a>path: 路径</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">path.resolve(); // 将路径或路径片段处理成绝对路径, 从右到左依次处理，直到构造出绝对路径, 其处理方式类似于对这些路径逐一进行cd操作，与cd操作不同的是，这引起路径可以是文件，并且可不必实际存在（resolve()方法不会利用底层的文件系统判断路径是否存在，而只是进行路径字符串操作）</span><br><span class="line">path.join(); // 连接任意多个路径字符串。要连接的多个路径可做为参数传入</span><br></pre></td></tr></table></figure>
+<p>__dirname; // 是被执行的js 文件的地址</p>
+
+        
+      
+    </div>
+
+    
+
+    
+
+  </article>
+
+      
+        
+  <article class="post">
+    <header class="post-header">
+      <h1 class="post-title">
+        
           <a class="post-link" href="/2018/11/28/this/">this</a>
         
       </h1>
@@ -456,65 +511,6 @@
           <h2 id="一、vue实例"><a href="#一、vue实例" class="headerlink" title="一、vue实例"></a>一、vue实例</h2><h3 id="1-1-vue实例的创建和作用"><a href="#1-1-vue实例的创建和作用" class="headerlink" title="1.1 vue实例的创建和作用"></a>1.1 vue实例的创建和作用</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> app = <span class="keyword">new</span> Vue(&#123;</span><br><span class="line">  el: <span class="string">'#root'</span>,</span><br><span class="line">  template: <span class="string">'&lt;h1&gt;hello world &#123;&#123;text&#125;&#125;&lt;/h1&gt;'</span>,</span><br><span class="line">  data: &#123;</span><br><span class="line">    text: <span class="number">0</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">setInterval(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">  <span class="comment">// app.text += 1; // 有效果, 页面text的值在增加</span></span><br><span class="line">  <span class="comment">// app.$options.data.text += 1; // 无效果, 页面的text不增加</span></span><br><span class="line">  app.$data.text += <span class="number">1</span>; <span class="comment">// 有效果, 页面text的值在增加</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
           <div class="read-more">
             <a href="/2018/10/06/vue入门/" class="read-more-link">阅读更多</a>
-          </div>
-        
-      
-    </div>
-
-    
-
-    
-
-  </article>
-
-      
-        
-  <article class="post">
-    <header class="post-header">
-      <h1 class="post-title">
-        
-          <a class="post-link" href="/2018/09/27/无状态组件的最佳写法/">无状态组件的最佳写法</a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <span class="post-time">
-          2018-09-27
-        </span>
-        
-          <span class="post-category">
-            
-              <a href="/categories/react/">react</a>
-            
-          </span>
-        
-        
-        <span class="post-visits"
-             data-url="/2018/09/27/无状态组件的最佳写法/"
-             data-title="无状态组件的最佳写法">
-          阅读次数 0
-        </span>
-        
-      </div>
-    </header>
-
-    
-    
-
-
-    <div class="post-content">
-      
-        
-        
-          
-        
-
-        
-          <h2 id="默认渲染行为的问题"><a href="#默认渲染行为的问题" class="headerlink" title="默认渲染行为的问题"></a>默认渲染行为的问题</h2><p>在React Component的生命周期中，有一个shouldComponentUpdate方法。这个方法默认返回值是true。</p>
-<p>这意味着就算没有改变组件的props或者state，也会导致组件的重绘。这就经常导致组件因为不相关数据的改变导致重绘，这极大的降低了React的渲染效率</p>
-<p>调用了setState方法后, 会触发组件的render方法, 并且state如果有传给子组件的话也会导致子组件的更新, 但是如果 setState前后组件的state并没有改变的话, 还是会触发组件极其子组件的更新, 这样就造成了性能的浪费, 所以可以使用react提供的 PureComponent组件.</p>
-          <div class="read-more">
-            <a href="/2018/09/27/无状态组件的最佳写法/" class="read-more-link">阅读更多</a>
           </div>
         
       

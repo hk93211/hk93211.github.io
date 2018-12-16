@@ -244,6 +244,63 @@
     <header class="post-header">
       <h1 class="post-title">
         
+          <a class="post-link" href="/2018/08/25/webpack自定义配置/">webpack自定义配置</a>
+        
+      </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2018-08-25
+        </span>
+        
+          <span class="post-category">
+            
+              <a href="/categories/webpack/">webpack</a>
+            
+          </span>
+        
+        
+        <span class="post-visits"
+             data-url="/2018/08/25/webpack自定义配置/"
+             data-title="webpack自定义配置">
+          阅读次数 0
+        </span>
+        
+      </div>
+    </header>
+
+    
+    
+
+
+    <div class="post-content">
+      
+        
+        
+          
+        
+
+        
+          <h3 id="webpack配置文件-webpack-config-js"><a href="#webpack配置文件-webpack-config-js" class="headerlink" title="webpack配置文件 webpack.config.js"></a>webpack配置文件 <code>webpack.config.js</code></h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> path = <span class="built_in">require</span>(<span class="string">'path'</span>);</span><br><span class="line"><span class="keyword">var</span> webpack = <span class="built_in">require</span>(<span class="string">'webpack'</span>);</span><br><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">  <span class="comment">// entry: path.join(__dirname, 'src/index.js'),</span></span><br><span class="line">  entry: [<span class="string">'./src/index'</span>],</span><br><span class="line">  output: &#123;</span><br><span class="line">    path: path.join(__dirname, <span class="string">'dist'</span>),</span><br><span class="line">    filename: <span class="string">'bundle.js'</span></span><br><span class="line">  &#125;,</span><br><span class="line">  plugins: [</span><br><span class="line">    <span class="keyword">new</span> webpack.optimize.UglifyJsPlugin(&#123;</span><br><span class="line">      compressor: &#123;</span><br><span class="line">        warnings: <span class="literal">false</span>,</span><br><span class="line">      &#125;,</span><br><span class="line">    &#125;),</span><br><span class="line">    <span class="keyword">new</span> webpack.optimize.OccurenceOrderPlugin()</span><br><span class="line">  ],</span><br><span class="line">  <span class="built_in">module</span>: &#123;</span><br><span class="line">    loaders: [&#123;</span><br><span class="line">      test: <span class="regexp">/\.css$/</span>,</span><br><span class="line">      loaders: [<span class="string">'style'</span>, <span class="string">'css'</span>]</span><br><span class="line">    &#125;]</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+          <div class="read-more">
+            <a href="/2018/08/25/webpack自定义配置/" class="read-more-link">阅读更多</a>
+          </div>
+        
+      
+    </div>
+
+    
+
+    
+
+  </article>
+
+      
+        
+  <article class="post">
+    <header class="post-header">
+      <h1 class="post-title">
+        
           <a class="post-link" href="/2018/08/24/vue-directive/">vue-directive</a>
         
       </h1>
@@ -463,70 +520,6 @@
 <p>命令会非常方便。普通的 git diff 命令默认对比的是没有加到索引中的文件。</p>
           <div class="read-more">
             <a href="/2018/08/20/git一些命令/" class="read-more-link">阅读更多</a>
-          </div>
-        
-      
-    </div>
-
-    
-
-    
-
-  </article>
-
-      
-        
-  <article class="post">
-    <header class="post-header">
-      <h1 class="post-title">
-        
-          <a class="post-link" href="/2018/08/19/angularjs复杂业务系统的代码架构探索/">AngularJS复杂业务系统的代码架构探索</a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <span class="post-time">
-          2018-08-19
-        </span>
-        
-          <span class="post-category">
-            
-              <a href="/categories/angularjs/">angularjs</a>
-            
-          </span>
-        
-        
-        <span class="post-visits"
-             data-url="/2018/08/19/angularjs复杂业务系统的代码架构探索/"
-             data-title="AngularJS复杂业务系统的代码架构探索">
-          阅读次数 0
-        </span>
-        
-      </div>
-    </header>
-
-    
-    
-
-
-    <div class="post-content">
-      
-        
-        
-          
-        
-
-        
-          <h2 id="模型系统的前世-–-“模糊系统”"><a href="#模型系统的前世-–-“模糊系统”" class="headerlink" title="模型系统的前世 – “模糊系统”"></a>模型系统的前世 – “模糊系统”</h2><h3 id="开发阶段-controller里面的代码"><a href="#开发阶段-controller里面的代码" class="headerlink" title="开发阶段: controller里面的代码"></a>开发阶段: controller里面的代码</h3><ul>
-<li>初始化视图模型, 视图展示元素的文字及显示影藏等等属性(ng-show/ng-if)</li>
-<li>定义事件响应函数, 处理UI交互逻辑(ng-click/ng-change)</li>
-<li>定义scope中, 指令需要的配置参数</li>
-<li>指令和controller的作用域的数据传递</li>
-<li>作用域内部属性变动的监听</li>
-<li>作用域之间的数据通信</li>
-<li>业务逻辑</li></ul>
-          <div class="read-more">
-            <a href="/2018/08/19/angularjs复杂业务系统的代码架构探索/" class="read-more-link">阅读更多</a>
           </div>
         
       

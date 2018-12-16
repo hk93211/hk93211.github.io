@@ -244,13 +244,13 @@
     <header class="post-header">
       <h1 class="post-title">
         
-          <a class="post-link" href="/2018/09/25/dva/">dva</a>
+          <a class="post-link" href="/2018/09/27/无状态组件的最佳写法/">无状态组件的最佳写法</a>
         
       </h1>
 
       <div class="post-meta">
         <span class="post-time">
-          2018-09-25
+          2018-09-27
         </span>
         
           <span class="post-category">
@@ -261,8 +261,8 @@
         
         
         <span class="post-visits"
-             data-url="/2018/09/25/dva/"
-             data-title="dva">
+             data-url="/2018/09/27/无状态组件的最佳写法/"
+             data-title="无状态组件的最佳写法">
           阅读次数 0
         </span>
         
@@ -277,10 +277,16 @@
       
         
         
+          
+        
 
         
-          <h2 id="笔记"><a href="#笔记" class="headerlink" title="笔记"></a>笔记</h2><p>只有在 router.js 定义使用的 component 对应的 component 才能从组件的 props 中提取到 history 属性的<br>要解决这个问题的话, 对应的组件要使用react-router-dom 的高阶组件 withRouter, 导出时用 withRouter(ComponentName) 包裹, 注意点: dva中使用 withRouter 要从dva的router库导入, 路径为 ‘dva/router’</p>
-
+          <h2 id="默认渲染行为的问题"><a href="#默认渲染行为的问题" class="headerlink" title="默认渲染行为的问题"></a>默认渲染行为的问题</h2><p>在React Component的生命周期中，有一个shouldComponentUpdate方法。这个方法默认返回值是true。</p>
+<p>这意味着就算没有改变组件的props或者state，也会导致组件的重绘。这就经常导致组件因为不相关数据的改变导致重绘，这极大的降低了React的渲染效率</p>
+<p>调用了setState方法后, 会触发组件的render方法, 并且state如果有传给子组件的话也会导致子组件的更新, 但是如果 setState前后组件的state并没有改变的话, 还是会触发组件极其子组件的更新, 这样就造成了性能的浪费, 所以可以使用react提供的 PureComponent组件.</p>
+          <div class="read-more">
+            <a href="/2018/09/27/无状态组件的最佳写法/" class="read-more-link">阅读更多</a>
+          </div>
         
       
     </div>
@@ -335,6 +341,59 @@
           <h2 id="git-hook"><a href="#git-hook" class="headerlink" title="git hook"></a>git hook</h2><p>有时候, 在使用git提交代码的时候, 需要先用语法检查工具来检查项目中是否有不符合规范的语法, 如果有, 就不能提交代码</p>
 <p>所以就要 git hook<br>比如commit 前执行 eslint的检测操作,  如果eslint的语法检查没有校验通过则不能进行提交</p>
 <p>要安装 husky 依赖,  注意安装依赖的时候  <strong>目录一定是要初始化好的 git 仓库</strong>,  不然此依赖找不到对应的git 进行hook</p>
+
+        
+      
+    </div>
+
+    
+
+    
+
+  </article>
+
+      
+        
+  <article class="post">
+    <header class="post-header">
+      <h1 class="post-title">
+        
+          <a class="post-link" href="/2018/09/25/dva/">dva</a>
+        
+      </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2018-09-25
+        </span>
+        
+          <span class="post-category">
+            
+              <a href="/categories/react/">react</a>
+            
+          </span>
+        
+        
+        <span class="post-visits"
+             data-url="/2018/09/25/dva/"
+             data-title="dva">
+          阅读次数 0
+        </span>
+        
+      </div>
+    </header>
+
+    
+    
+
+
+    <div class="post-content">
+      
+        
+        
+
+        
+          <h2 id="笔记"><a href="#笔记" class="headerlink" title="笔记"></a>笔记</h2><p>只有在 router.js 定义使用的 component 对应的 component 才能从组件的 props 中提取到 history 属性的<br>要解决这个问题的话, 对应的组件要使用react-router-dom 的高阶组件 withRouter, 导出时用 withRouter(ComponentName) 包裹, 注意点: dva中使用 withRouter 要从dva的router库导入, 路径为 ‘dva/router’</p>
 
         
       
@@ -464,63 +523,6 @@
 </ul>
           <div class="read-more">
             <a href="/2018/09/11/redux-saga/" class="read-more-link">阅读更多</a>
-          </div>
-        
-      
-    </div>
-
-    
-
-    
-
-  </article>
-
-      
-        
-  <article class="post">
-    <header class="post-header">
-      <h1 class="post-title">
-        
-          <a class="post-link" href="/2018/08/25/webpack自定义配置/">webpack自定义配置</a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <span class="post-time">
-          2018-08-25
-        </span>
-        
-          <span class="post-category">
-            
-              <a href="/categories/webpack/">webpack</a>
-            
-          </span>
-        
-        
-        <span class="post-visits"
-             data-url="/2018/08/25/webpack自定义配置/"
-             data-title="webpack自定义配置">
-          阅读次数 0
-        </span>
-        
-      </div>
-    </header>
-
-    
-    
-
-
-    <div class="post-content">
-      
-        
-        
-          
-        
-
-        
-          <h3 id="webpack配置文件-webpack-config-js"><a href="#webpack配置文件-webpack-config-js" class="headerlink" title="webpack配置文件 webpack.config.js"></a>webpack配置文件 <code>webpack.config.js</code></h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> path = <span class="built_in">require</span>(<span class="string">'path'</span>);</span><br><span class="line"><span class="keyword">var</span> webpack = <span class="built_in">require</span>(<span class="string">'webpack'</span>);</span><br><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">  <span class="comment">// entry: path.join(__dirname, 'src/index.js'),</span></span><br><span class="line">  entry: [<span class="string">'./src/index'</span>],</span><br><span class="line">  output: &#123;</span><br><span class="line">    path: path.join(__dirname, <span class="string">'dist'</span>),</span><br><span class="line">    filename: <span class="string">'bundle.js'</span></span><br><span class="line">  &#125;,</span><br><span class="line">  plugins: [</span><br><span class="line">    <span class="keyword">new</span> webpack.optimize.UglifyJsPlugin(&#123;</span><br><span class="line">      compressor: &#123;</span><br><span class="line">        warnings: <span class="literal">false</span>,</span><br><span class="line">      &#125;,</span><br><span class="line">    &#125;),</span><br><span class="line">    <span class="keyword">new</span> webpack.optimize.OccurenceOrderPlugin()</span><br><span class="line">  ],</span><br><span class="line">  <span class="built_in">module</span>: &#123;</span><br><span class="line">    loaders: [&#123;</span><br><span class="line">      test: <span class="regexp">/\.css$/</span>,</span><br><span class="line">      loaders: [<span class="string">'style'</span>, <span class="string">'css'</span>]</span><br><span class="line">    &#125;]</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-          <div class="read-more">
-            <a href="/2018/08/25/webpack自定义配置/" class="read-more-link">阅读更多</a>
           </div>
         
       
