@@ -42,7 +42,7 @@
 
 
 
-<link rel="canonical" href="http://yoursite.com/2018/12/16/javascript回流和重绘/"/>
+<link rel="canonical" href="http://yoursite.com/2018/12/17/javascript回流和重绘/"/>
 
 
 
@@ -248,7 +248,7 @@
 
       <div class="post-meta">
         <span class="post-time">
-          2018-12-16
+          2018-12-17
         </span>
         
           <span class="post-category">
@@ -259,7 +259,7 @@
         
         
         <span class="post-visits"
-             data-url="/2018/12/16/javascript回流和重绘/"
+             data-url="/2018/12/17/javascript回流和重绘/"
              data-title="javascript回流和重绘">
           阅读次数 0
         </span>
@@ -312,6 +312,7 @@
 </ol>
 </li>
 </ul>
+<a id="more"></a>
 <h3 id="1-构建DOM树"><a href="#1-构建DOM树" class="headerlink" title="1. 构建DOM树"></a>1. 构建DOM树</h3><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">"viewport"</span> <span class="attr">content</span>=<span class="string">"width=device-width,initial-scale=1"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">link</span> <span class="attr">href</span>=<span class="string">"style.css"</span> <span class="attr">rel</span>=<span class="string">"stylesheet"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">title</span>&gt;</span>DOM tree<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">p</span>&gt;</span>Hello <span class="tag">&lt;<span class="name">span</span>&gt;</span>DOM<span class="tag">&lt;/<span class="name">span</span>&gt;</span> World!<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">div</span>&gt;</span><span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">"awesome-photo.jpg"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <p>无论是DOM还是CSSOM, 都要经过 <code>Bytes -&gt; characters -&gt; tokens -&gt; nodes -&gt; objectmodel</code></p>
 <p>DOM树构建过程: 当前节点的所有子节点都构建好后才会去构建当前节点的下一个 兄弟节点。</p>
