@@ -17,10 +17,12 @@
 
 
 
-  <meta name="description" content="不会搞艺术的程序员不是好设计师"/>
+  <meta name="description" content="javascript回流和重绘"/>
 
 
 
+
+  <meta name="keywords" content="javascript, HK's blog" />
 
 
 
@@ -40,7 +42,7 @@
 
 
 
-<link rel="canonical" href="http://yoursite.com/"/>
+<link rel="canonical" href="http://yoursite.com/2018/12/16/javascript回流和重绘/"/>
 
 
 
@@ -106,7 +108,7 @@
   window.config = {"leancloud":{"app_id":"x8DnYYQw5Dl9oBmsrh29KacR-gzGzoHsz","app_key":"skGJTxdFoENHDdh68uEjPpbS"},"toc":true,"fancybox":true,"pjax":true};
 </script>
 
-    <title> HK's blog </title>
+    <title> javascript回流和重绘 - HK's blog </title>
   </head>
 
   <body><div id="mobile-navbar" class="mobile-navbar">
@@ -236,15 +238,11 @@
           <div id="content" class="content">
             
   
-  <section id="posts" class="posts">
-    
-      
-        
   <article class="post">
     <header class="post-header">
       <h1 class="post-title">
         
-          <a class="post-link" href="/2018/12/16/javascript回流和重绘/">javascript回流和重绘</a>
+          javascript回流和重绘
         
       </h1>
 
@@ -271,15 +269,18 @@
 
     
     
+  <div class="post-toc" id="post-toc">
+    <h2 class="post-toc-title">文章目录</h2>
+    <div class="post-toc-content">
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#一-什么是DOM"><span class="toc-text">一. 什么是DOM</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#浏览器渲染过程"><span class="toc-text">浏览器渲染过程</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-构建DOM树"><span class="toc-text">1. 构建DOM树</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-构建CSSOM树"><span class="toc-text">2. 构建CSSOM树</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-生成render树"><span class="toc-text">3. 生成render树</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-Layout-布局"><span class="toc-text">4. Layout 布局</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-Paint-绘制"><span class="toc-text">5. Paint 绘制</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Tips"><span class="toc-text">Tips</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#二-回流和重绘"><span class="toc-text">二. 回流和重绘</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#何时触发"><span class="toc-text">何时触发</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#引起reflow回流"><span class="toc-text">引起reflow回流</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#引起repaint重绘"><span class="toc-text">引起repaint重绘</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#优化reflow、repaint触发次数"><span class="toc-text">优化reflow、repaint触发次数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#DOMContentLoaded-和-load"><span class="toc-text">DOMContentLoaded 和 load</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#CSS-资源阻塞渲染"><span class="toc-text">CSS 资源阻塞渲染</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#JS-资源"><span class="toc-text">JS 资源</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#首屏优化Tips"><span class="toc-text">首屏优化Tips</span></a></li></ol></li></ol>
+    </div>
+  </div>
+
 
 
     <div class="post-content">
       
-        
-        
-
-        
-          <h2 id="一-什么是DOM"><a href="#一-什么是DOM" class="headerlink" title="一. 什么是DOM"></a>一. 什么是DOM</h2><p>DOM: Document Object Model 文档对象模型</p>
+        <h2 id="一-什么是DOM"><a href="#一-什么是DOM" class="headerlink" title="一. 什么是DOM"></a>一. 什么是DOM</h2><p>DOM: Document Object Model 文档对象模型</p>
 <p>只有JavaScript才能调用DOM这个API吗?</p>
 <p>答案是否</p>
 <p>Python也可以访问DOM</p>
@@ -397,260 +398,54 @@
 <li>异步js：阻塞解析器的 JavaScript 会强制浏览器等待 CSSOM 并暂停 DOM 的构建，导致首次渲染的时间延迟</li>
 </ul>
 
-        
       
     </div>
 
     
+      
+      
 
-    
 
-  </article>
 
       
-        
-  <article class="post">
-    <header class="post-header">
-      <h1 class="post-title">
-        
-          <a class="post-link" href="/2018/12/16/nodejs一些学习/">nodejs一些学习</a>
-        
-      </h1>
+      
+    
 
-      <div class="post-meta">
-        <span class="post-time">
-          2018-12-16
-        </span>
+    
+      <footer class="post-footer">
         
-          <span class="post-category">
+          <div class="post-tags">
             
-              <a href="/categories/nodejs/">nodejs</a>
+              <a href="/tags/javascript/">javascript</a>
             
-          </span>
-        
-        
-        <span class="post-visits"
-             data-url="/2018/12/16/nodejs一些学习/"
-             data-title="nodejs一些学习">
-          阅读次数 0
-        </span>
-        
-      </div>
-    </header>
-
-    
-    
-
-
-    <div class="post-content">
-      
-        
-        
-
-        
-          <h3 id="process-进程"><a href="#process-进程" class="headerlink" title="process: 进程"></a>process: 进程</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">process.cwd(); // 返回进程的当前工作目录</span><br><span class="line">process.env; // 返回用户的环境信息</span><br><span class="line">process.execPath; // 返回启动进程的可执行文件的绝对路径(node的路径)</span><br><span class="line">process.argv; // 返回进程启动时的命令行参数。 第一个元素是 process.execPath。 使用 process.argv0 可以获取 argv[0] 原始的值。 第二个元素是当前执行的 JavaScript 文件的路径。 剩余的元素都是额外的命令行参数。</span><br></pre></td></tr></table></figure>
-<h3 id="path-路径"><a href="#path-路径" class="headerlink" title="path: 路径"></a>path: 路径</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">path.resolve(); // 将路径或路径片段处理成绝对路径, 从右到左依次处理，直到构造出绝对路径, 其处理方式类似于对这些路径逐一进行cd操作，与cd操作不同的是，这引起路径可以是文件，并且可不必实际存在（resolve()方法不会利用底层的文件系统判断路径是否存在，而只是进行路径字符串操作）</span><br><span class="line">path.join(); // 连接任意多个路径字符串。要连接的多个路径可做为参数传入</span><br><span class="line"></span><br><span class="line">对比__dirname:</span><br><span class="line">__dirname; // 是被执行的js 文件的地址</span><br></pre></td></tr></table></figure>
-
-        
-      
-    </div>
-
-    
-
-    
-
-  </article>
-
-      
-        
-  <article class="post">
-    <header class="post-header">
-      <h1 class="post-title">
-        
-          <a class="post-link" href="/2018/11/28/this/">this</a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <span class="post-time">
-          2018-11-28
-        </span>
-        
-          <span class="post-category">
-            
-              <a href="/categories/javascript/">javascript</a>
-            
-          </span>
-        
-        
-        <span class="post-visits"
-             data-url="/2018/11/28/this/"
-             data-title="this">
-          阅读次数 0
-        </span>
-        
-      </div>
-    </header>
-
-    
-    
-
-
-    <div class="post-content">
-      
-        
-        
-          
-        
-
-        
-          <h3 id="一-全局执行"><a href="#一-全局执行" class="headerlink" title="一. 全局执行"></a>一. 全局执行</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(<span class="keyword">this</span>); <span class="comment">// Window</span></span><br></pre></td></tr></table></figure>
-          <div class="read-more">
-            <a href="/2018/11/28/this/" class="read-more-link">阅读更多</a>
           </div>
         
-      
-    </div>
-
-    
-
-    
-
-  </article>
-
-      
-        
-  <article class="post">
-    <header class="post-header">
-      <h1 class="post-title">
-        
-          <a class="post-link" href="/2018/11/11/vue-router/">vue-router</a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <span class="post-time">
-          2018-11-11
-        </span>
-        
-          <span class="post-category">
-            
-              <a href="/categories/vue/">vue</a>
-            
-          </span>
         
         
-        <span class="post-visits"
-             data-url="/2018/11/11/vue-router/"
-             data-title="vue-router">
-          阅读次数 0
-        </span>
-        
-      </div>
-    </header>
-
+  <nav class="post-nav">
     
     
-
-
-    <div class="post-content">
-      
-        
-        
-          
-        
-
-        
-          <h2 id="一-单页应用"><a href="#一-单页应用" class="headerlink" title="一. 单页应用"></a>一. 单页应用</h2><p>以前我们的网页应用都是输入一个url, 前端会请求后台, 后台返回一个新的html文件, 让前端进行渲染, 现在很多单页应用在浏览器地址栏输入url后, 都是不经过后台的, 仅仅是前端的javascript去处理路由的跳转, 那么我们就需要一个称职合理的路由工具来帮我们完成前端路由跳转的一些相关的工作, 那么现在前端框架都会配备自己的路由处理工具, 像vue 使用的是vue-router, react 使用的是react-router, angularjs 使用的是ng-router和ui-router, 还有不跟框架耦合的工具有 history 等等</p>
-          <div class="read-more">
-            <a href="/2018/11/11/vue-router/" class="read-more-link">阅读更多</a>
-          </div>
-        
-      
-    </div>
-
-    
-
-    
-
-  </article>
-
-      
-        
-  <article class="post">
-    <header class="post-header">
-      <h1 class="post-title">
-        
-          <a class="post-link" href="/2018/10/28/eslint/">eslint</a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <span class="post-time">
-          2018-10-28
-        </span>
-        
-          <span class="post-category">
-            
-              <a href="/categories/eslint/">eslint</a>
-            
-          </span>
-        
-        
-        <span class="post-visits"
-             data-url="/2018/10/28/eslint/"
-             data-title="eslint">
-          阅读次数 0
-        </span>
-        
-      </div>
-    </header>
-
-    
-    
-
-
-    <div class="post-content">
-      
-        
-        
-          
-        
-
-        
-          <h3 id="eslint在项目中使用"><a href="#eslint在项目中使用" class="headerlink" title="eslint在项目中使用"></a>eslint在项目中使用</h3><p>eslint 可以给我们的代码定义一些语法规范, 防止我们在语法上犯一些低级的错误, 格式上的问题, 团队协作时大家都使用统一的代码风格去书写, 让我们在看别人的代码时更方便.</p>
-<p>在项目中安装依赖<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">"eslint"</span>: <span class="string">"^5.8.0"</span>,</span><br><span class="line"><span class="string">"eslint-config-standard"</span>: <span class="string">"^12.0.0"</span>,</span><br><span class="line"><span class="string">"eslint-plugin-html"</span>: <span class="string">"^4.0.6"</span>,</span><br><span class="line"><span class="string">"eslint-plugin-import"</span>: <span class="string">"^2.14.0"</span>,</span><br><span class="line"><span class="string">"eslint-plugin-node"</span>: <span class="string">"^8.0.0"</span>,</span><br><span class="line"><span class="string">"eslint-plugin-promise"</span>: <span class="string">"^4.0.1"</span>,</span><br><span class="line"><span class="string">"eslint-plugin-react"</span>: <span class="string">"^7.11.1"</span>,</span><br><span class="line"><span class="string">"eslint-plugin-standard"</span>: <span class="string">"^4.0.0"</span>,</span><br></pre></td></tr></table></figure></p>
-          <div class="read-more">
-            <a href="/2018/10/28/eslint/" class="read-more-link">阅读更多</a>
-          </div>
-        
-      
-    </div>
-
-    
-
-    
-
-  </article>
-
-      
-      
-  <nav class="pagination">
-    
-    
-      <a class="next" href="/page/2/">
-        <span class="next-text">下一页</span>
+      <a class="next" href="/2018/12/16/nodejs一些学习/">
+        <span class="next-text nav-default">nodejs一些学习</span>
+        <span class="prev-text nav-mobile">下一篇</span>
         <i class="iconfont icon-right"></i>
       </a>
     
   </nav>
 
 
+      </footer>
     
-  </section>
+
+  </article>
+
 
           </div>
           
+  <div class="comments" id="comments">
+    
+  </div>
+
 
         </div>
       </main>
@@ -735,6 +530,11 @@
     </div>
 
     
+  
+  
+
+  
+
 
 
     

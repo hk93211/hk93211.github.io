@@ -244,6 +244,63 @@
     <header class="post-header">
       <h1 class="post-title">
         
+          <a class="post-link" href="/2018/10/06/vue入门/">vue入门</a>
+        
+      </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2018-10-06
+        </span>
+        
+          <span class="post-category">
+            
+              <a href="/categories/vue/">vue</a>
+            
+          </span>
+        
+        
+        <span class="post-visits"
+             data-url="/2018/10/06/vue入门/"
+             data-title="vue入门">
+          阅读次数 0
+        </span>
+        
+      </div>
+    </header>
+
+    
+    
+
+
+    <div class="post-content">
+      
+        
+        
+          
+        
+
+        
+          <h2 id="一、vue实例"><a href="#一、vue实例" class="headerlink" title="一、vue实例"></a>一、vue实例</h2><h3 id="1-1-vue实例的创建和作用"><a href="#1-1-vue实例的创建和作用" class="headerlink" title="1.1 vue实例的创建和作用"></a>1.1 vue实例的创建和作用</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> app = <span class="keyword">new</span> Vue(&#123;</span><br><span class="line">  el: <span class="string">'#root'</span>,</span><br><span class="line">  template: <span class="string">'&lt;h1&gt;hello world &#123;&#123;text&#125;&#125;&lt;/h1&gt;'</span>,</span><br><span class="line">  data: &#123;</span><br><span class="line">    text: <span class="number">0</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">setInterval(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">  <span class="comment">// app.text += 1; // 有效果, 页面text的值在增加</span></span><br><span class="line">  <span class="comment">// app.$options.data.text += 1; // 无效果, 页面的text不增加</span></span><br><span class="line">  app.$data.text += <span class="number">1</span>; <span class="comment">// 有效果, 页面text的值在增加</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+          <div class="read-more">
+            <a href="/2018/10/06/vue入门/" class="read-more-link">阅读更多</a>
+          </div>
+        
+      
+    </div>
+
+    
+
+    
+
+  </article>
+
+      
+        
+  <article class="post">
+    <header class="post-header">
+      <h1 class="post-title">
+        
           <a class="post-link" href="/2018/09/27/无状态组件的最佳写法/">无状态组件的最佳写法</a>
         
       </h1>
@@ -287,6 +344,59 @@
           <div class="read-more">
             <a href="/2018/09/27/无状态组件的最佳写法/" class="read-more-link">阅读更多</a>
           </div>
+        
+      
+    </div>
+
+    
+
+    
+
+  </article>
+
+      
+        
+  <article class="post">
+    <header class="post-header">
+      <h1 class="post-title">
+        
+          <a class="post-link" href="/2018/09/25/dva/">dva</a>
+        
+      </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2018-09-25
+        </span>
+        
+          <span class="post-category">
+            
+              <a href="/categories/react/">react</a>
+            
+          </span>
+        
+        
+        <span class="post-visits"
+             data-url="/2018/09/25/dva/"
+             data-title="dva">
+          阅读次数 0
+        </span>
+        
+      </div>
+    </header>
+
+    
+    
+
+
+    <div class="post-content">
+      
+        
+        
+
+        
+          <h2 id="笔记"><a href="#笔记" class="headerlink" title="笔记"></a>笔记</h2><p>只有在 router.js 定义使用的 component 对应的 component 才能从组件的 props 中提取到 history 属性的<br>要解决这个问题的话, 对应的组件要使用react-router-dom 的高阶组件 withRouter, 导出时用 withRouter(ComponentName) 包裹, 注意点: dva中使用 withRouter 要从dva的router库导入, 路径为 ‘dva/router’</p>
+
         
       
     </div>
@@ -358,59 +468,6 @@
     <header class="post-header">
       <h1 class="post-title">
         
-          <a class="post-link" href="/2018/09/25/dva/">dva</a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <span class="post-time">
-          2018-09-25
-        </span>
-        
-          <span class="post-category">
-            
-              <a href="/categories/react/">react</a>
-            
-          </span>
-        
-        
-        <span class="post-visits"
-             data-url="/2018/09/25/dva/"
-             data-title="dva">
-          阅读次数 0
-        </span>
-        
-      </div>
-    </header>
-
-    
-    
-
-
-    <div class="post-content">
-      
-        
-        
-
-        
-          <h2 id="笔记"><a href="#笔记" class="headerlink" title="笔记"></a>笔记</h2><p>只有在 router.js 定义使用的 component 对应的 component 才能从组件的 props 中提取到 history 属性的<br>要解决这个问题的话, 对应的组件要使用react-router-dom 的高阶组件 withRouter, 导出时用 withRouter(ComponentName) 包裹, 注意点: dva中使用 withRouter 要从dva的router库导入, 路径为 ‘dva/router’</p>
-
-        
-      
-    </div>
-
-    
-
-    
-
-  </article>
-
-      
-        
-  <article class="post">
-    <header class="post-header">
-      <h1 class="post-title">
-        
           <a class="post-link" href="/2018/09/17/面向对象-封装/">封装</a>
         
       </h1>
@@ -451,78 +508,6 @@
           <h2 id="创建一个类"><a href="#创建一个类" class="headerlink" title="创建一个类"></a>创建一个类</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> Book = <span class="function"><span class="keyword">function</span>(<span class="params">name, id</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.name = name;</span><br><span class="line">    <span class="keyword">this</span>.id = id;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">Book.prototype.showName = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="keyword">this</span>.name);</span><br><span class="line">&#125;</span><br><span class="line">或者</span><br><span class="line">Book.prototype = &#123;</span><br><span class="line">    showName: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="keyword">this</span>.name);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> book = <span class="keyword">new</span> Book(<span class="string">'javascript红宝书'</span>, <span class="number">1</span>);</span><br><span class="line">book.showName();</span><br></pre></td></tr></table></figure>
           <div class="read-more">
             <a href="/2018/09/17/面向对象-封装/" class="read-more-link">阅读更多</a>
-          </div>
-        
-      
-    </div>
-
-    
-
-    
-
-  </article>
-
-      
-        
-  <article class="post">
-    <header class="post-header">
-      <h1 class="post-title">
-        
-          <a class="post-link" href="/2018/09/11/redux-saga/">redux-saga</a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <span class="post-time">
-          2018-09-11
-        </span>
-        
-          <span class="post-category">
-            
-              <a href="/categories/react/">react</a>
-            
-          </span>
-        
-        
-        <span class="post-visits"
-             data-url="/2018/09/11/redux-saga/"
-             data-title="redux-saga">
-          阅读次数 0
-        </span>
-        
-      </div>
-    </header>
-
-    
-    
-
-
-    <div class="post-content">
-      
-        
-        
-          
-        
-
-        
-          <h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><p>redux-saga是一个用于管理redux应用异步操作的中间件，redux-saga通过创建sagas将所有异步操作逻辑收集在一个地方集中处理，可以用来代替redux-thunk中间件</p>
-<ul>
-<li><p>这意味着应用的逻辑会存在两个地方<br>(1) reducer负责处理action的stage更新<br>(2) sagas负责协调那些复杂或者异步的操作</p>
-</li>
-<li><p>sagas是通过generator函数来创建的</p>
-</li>
-<li>sagas可以被看作是在后台运行的进程。sagas监听发起的action，然后决定基于这个action来做什么 (比如：是发起一个异步请求，还是发起其他的action到store，还是调用其他的sagas 等 )</li>
-<li>在redux-saga的世界里，所有的任务都通过用 yield Effects 来完成 ( effect可以看作是redux-saga的任务单元 )</li>
-<li>Effects 都是简单的 javascript对象，包含了要被 saga middleware 执行的信息</li>
-<li>redux-saga 为各项任务提供了各种 （ Effects创建器 )</li>
-<li>因为使用了generator函数，redux-saga让你可以用 同步的方式来写异步代码</li>
-<li>redux-saga启动的任务可以在任何时候通过手动来取消，也可以把任务和其他的Effects放到 race 方法里以自动取消</li>
-<li>produce: 生产</li>
-<li>flow: 流动，排出</li>
-<li>整个流程：ui组件触发action创建函数 —&gt; action创建函数返回一个action ——&gt; action被传入redux中间件(被 saga等中间件处理) ，产生新的action，传入reducer——-&gt; reducer把数据传给ui组件显示 —–&gt; mapStateToProps ——&gt; ui组件显示</li>
-</ul>
-          <div class="read-more">
-            <a href="/2018/09/11/redux-saga/" class="read-more-link">阅读更多</a>
           </div>
         
       

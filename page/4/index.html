@@ -244,6 +244,66 @@
     <header class="post-header">
       <h1 class="post-title">
         
+          <a class="post-link" href="/2018/08/20/git一些命令/">git一些命令</a>
+        
+      </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2018-08-20
+        </span>
+        
+          <span class="post-category">
+            
+              <a href="/categories/教程/">教程</a>
+            
+          </span>
+        
+        
+        <span class="post-visits"
+             data-url="/2018/08/20/git一些命令/"
+             data-title="git一些命令">
+          阅读次数 0
+        </span>
+        
+      </div>
+    </header>
+
+    
+    
+
+
+    <div class="post-content">
+      
+        
+        
+          
+        
+
+        
+          <h2 id="Git-diff"><a href="#Git-diff" class="headerlink" title="Git diff"></a>Git diff</h2><p>通常情况下，我们会在自己的独立分支中完成需求开发，此时就会有需求将自己的分支和其他分支进行对比。这个功能可以通过<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git diff branch1 branch2</span><br></pre></td></tr></table></figure></p>
+<p>命令来对比branch1和branch2分支的区别, 列出每一个有改动文件的具体改动.</p>
+<p>如果希望对比暂存区和当前的 HEAD，那么使用<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git diff --cached</span><br></pre></td></tr></table></figure></p>
+<p>命令会非常方便。普通的 git diff 命令默认对比的是没有加到索引中的文件。</p>
+          <div class="read-more">
+            <a href="/2018/08/20/git一些命令/" class="read-more-link">阅读更多</a>
+          </div>
+        
+      
+    </div>
+
+    
+
+    
+
+  </article>
+
+      
+        
+  <article class="post">
+    <header class="post-header">
+      <h1 class="post-title">
+        
           <a class="post-link" href="/2018/08/19/angularjs复杂业务系统的代码架构探索/">AngularJS复杂业务系统的代码架构探索</a>
         
       </h1>
@@ -473,65 +533,6 @@
 <p>这样才会如你所预料那般的输出.</p>
           <div class="read-more">
             <a href="/2018/07/17/react-setState/" class="read-more-link">阅读更多</a>
-          </div>
-        
-      
-    </div>
-
-    
-
-    
-
-  </article>
-
-      
-        
-  <article class="post">
-    <header class="post-header">
-      <h1 class="post-title">
-        
-          <a class="post-link" href="/2018/01/30/ES6/">Object对象</a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <span class="post-time">
-          2018-01-30
-        </span>
-        
-          <span class="post-category">
-            
-              <a href="/categories/ES6/">ES6</a>
-            
-          </span>
-        
-        
-        <span class="post-visits"
-             data-url="/2018/01/30/ES6/"
-             data-title="Object对象">
-          阅读次数 0
-        </span>
-        
-      </div>
-    </header>
-
-    
-    
-
-
-    <div class="post-content">
-      
-        
-        
-          
-        
-
-        
-          <h1 id="Object"><a href="#Object" class="headerlink" title="Object"></a>Object</h1><h2 id="描述"><a href="#描述" class="headerlink" title="描述"></a>描述</h2><p>几乎所有的 JavaScript 对象都是 Object 的实例；一个典型的对象继承了Object.prototype的属性（包括方法），尽管这些属性可能被遮蔽（也被称为覆盖）。然而，一个Object可能是故意创建的，这是不确定的（例如通过Object.create(null)），或者它可能被改变，所以这不再是准确的（例如Object.setPrototypeOf）。</p>
-<p>改变Object原型，会通过原型链，而改变所有对象；除非这些属性和方法被其他对原型链更里层的改动所覆盖。这提供了一个非常强大的、但有潜在危险的机制，来覆盖或扩展对象行为。</p>
-<h2 id="属性"><a href="#属性" class="headerlink" title="属性"></a>属性</h2><p>Object.prototype.constructor<br>特定的函数，用于创建一个对象的原型</p>
-          <div class="read-more">
-            <a href="/2018/01/30/ES6/" class="read-more-link">阅读更多</a>
           </div>
         
       

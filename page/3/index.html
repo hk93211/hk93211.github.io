@@ -244,6 +244,78 @@
     <header class="post-header">
       <h1 class="post-title">
         
+          <a class="post-link" href="/2018/09/11/redux-saga/">redux-saga</a>
+        
+      </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2018-09-11
+        </span>
+        
+          <span class="post-category">
+            
+              <a href="/categories/react/">react</a>
+            
+          </span>
+        
+        
+        <span class="post-visits"
+             data-url="/2018/09/11/redux-saga/"
+             data-title="redux-saga">
+          阅读次数 0
+        </span>
+        
+      </div>
+    </header>
+
+    
+    
+
+
+    <div class="post-content">
+      
+        
+        
+          
+        
+
+        
+          <h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><p>redux-saga是一个用于管理redux应用异步操作的中间件，redux-saga通过创建sagas将所有异步操作逻辑收集在一个地方集中处理，可以用来代替redux-thunk中间件</p>
+<ul>
+<li><p>这意味着应用的逻辑会存在两个地方<br>(1) reducer负责处理action的stage更新<br>(2) sagas负责协调那些复杂或者异步的操作</p>
+</li>
+<li><p>sagas是通过generator函数来创建的</p>
+</li>
+<li>sagas可以被看作是在后台运行的进程。sagas监听发起的action，然后决定基于这个action来做什么 (比如：是发起一个异步请求，还是发起其他的action到store，还是调用其他的sagas 等 )</li>
+<li>在redux-saga的世界里，所有的任务都通过用 yield Effects 来完成 ( effect可以看作是redux-saga的任务单元 )</li>
+<li>Effects 都是简单的 javascript对象，包含了要被 saga middleware 执行的信息</li>
+<li>redux-saga 为各项任务提供了各种 （ Effects创建器 )</li>
+<li>因为使用了generator函数，redux-saga让你可以用 同步的方式来写异步代码</li>
+<li>redux-saga启动的任务可以在任何时候通过手动来取消，也可以把任务和其他的Effects放到 race 方法里以自动取消</li>
+<li>produce: 生产</li>
+<li>flow: 流动，排出</li>
+<li>整个流程：ui组件触发action创建函数 —&gt; action创建函数返回一个action ——&gt; action被传入redux中间件(被 saga等中间件处理) ，产生新的action，传入reducer——-&gt; reducer把数据传给ui组件显示 —–&gt; mapStateToProps ——&gt; ui组件显示</li>
+</ul>
+          <div class="read-more">
+            <a href="/2018/09/11/redux-saga/" class="read-more-link">阅读更多</a>
+          </div>
+        
+      
+    </div>
+
+    
+
+    
+
+  </article>
+
+      
+        
+  <article class="post">
+    <header class="post-header">
+      <h1 class="post-title">
+        
           <a class="post-link" href="/2018/08/25/webpack自定义配置/">webpack自定义配置</a>
         
       </h1>
@@ -460,66 +532,6 @@
 <p>不过随着单页应用与富客户端的流行，不断增长的代码库也急需合理的代码分割与依赖管理的解决方案，</p>
           <div class="read-more">
             <a href="/2018/08/22/JS模块简史/" class="read-more-link">阅读更多</a>
-          </div>
-        
-      
-    </div>
-
-    
-
-    
-
-  </article>
-
-      
-        
-  <article class="post">
-    <header class="post-header">
-      <h1 class="post-title">
-        
-          <a class="post-link" href="/2018/08/20/git一些命令/">git一些命令</a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <span class="post-time">
-          2018-08-20
-        </span>
-        
-          <span class="post-category">
-            
-              <a href="/categories/教程/">教程</a>
-            
-          </span>
-        
-        
-        <span class="post-visits"
-             data-url="/2018/08/20/git一些命令/"
-             data-title="git一些命令">
-          阅读次数 0
-        </span>
-        
-      </div>
-    </header>
-
-    
-    
-
-
-    <div class="post-content">
-      
-        
-        
-          
-        
-
-        
-          <h2 id="Git-diff"><a href="#Git-diff" class="headerlink" title="Git diff"></a>Git diff</h2><p>通常情况下，我们会在自己的独立分支中完成需求开发，此时就会有需求将自己的分支和其他分支进行对比。这个功能可以通过<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git diff branch1 branch2</span><br></pre></td></tr></table></figure></p>
-<p>命令来对比branch1和branch2分支的区别, 列出每一个有改动文件的具体改动.</p>
-<p>如果希望对比暂存区和当前的 HEAD，那么使用<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git diff --cached</span><br></pre></td></tr></table></figure></p>
-<p>命令会非常方便。普通的 git diff 命令默认对比的是没有加到索引中的文件。</p>
-          <div class="read-more">
-            <a href="/2018/08/20/git一些命令/" class="read-more-link">阅读更多</a>
           </div>
         
       
