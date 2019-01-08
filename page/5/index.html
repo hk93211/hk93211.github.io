@@ -244,6 +244,129 @@
     <header class="post-header">
       <h1 class="post-title">
         
+          <a class="post-link" href="/2018/08/15/netlify简介/">netlify简介</a>
+        
+      </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2018-08-15
+        </span>
+        
+          <span class="post-category">
+            
+              <a href="/categories/其他/">其他</a>
+            
+          </span>
+        
+        
+        <span class="post-visits"
+             data-url="/2018/08/15/netlify简介/"
+             data-title="netlify简介">
+          阅读次数 0
+        </span>
+        
+      </div>
+    </header>
+
+    
+    
+
+
+    <div class="post-content">
+      
+        
+        
+          
+        
+
+        
+          <h1 id="netlify"><a href="#netlify" class="headerlink" title="netlify"></a>netlify</h1><p>Netlify优秀的静态博客托管平台-自动编译部署生成Web网站可绑域名支持SSL.</p>
+<p>netlify则是国外一家提供静态网络托管服务的综合平台，专注于静态网站托管的web服务平台，可以完美的取代Coding。 Netlify完美且免费支持的ssl、域名绑定、http/2和TLS。最重要的就是，管理方式用git方法传递给github、gitlab或者是Bitbucket，然后Netlify就能自动编译并生成静态网站，真的是前端er的福音。</p>
+<p>1.官方首页：<a href="https://www.netlify.com/" target="_blank" rel="noopener">https://www.netlify.com/</a></p>
+<p>2.首先是到netlify申请注册一个账号。这里可以使用Github、Gitlab以及Bitbucket直接授权登陆。然后登录到空间管理中心，点击右上角的“New site from Git”添加网站</p>
+<p>3.然后根据自己的托管平台，可以选择GitHub、GitLab或者BitBucket。我们以最常用的GitHub为演示例子。（选择GitHub的同学，别忘了勾选下方的“Limit GitHub access to public repositories.”选项）</p>
+<p>4.点击GitHub之后会弹出一个让你授权的窗口，然后点击“Authorize netlify”之后，就会在netlify中读取你所有的代码库。</p>
+<p>5.点击你已经建好的库，选好分支（默认master即可），然后点击“Deploy site”，系统就会自动编译你的静态页面了。同时还会给出你的页面二级域名等信息。</p>
+<p>6.点击创建后，稍等一会儿，你就可以看到Netlify免费静态空间已经创建成功了，同时你在GitHub的代码也成功在Netlify运行了。 </p>
+          <div class="read-more">
+            <a href="/2018/08/15/netlify简介/" class="read-more-link">阅读更多</a>
+          </div>
+        
+      
+    </div>
+
+    
+
+    
+
+  </article>
+
+      
+        
+  <article class="post">
+    <header class="post-header">
+      <h1 class="post-title">
+        
+          <a class="post-link" href="/2018/07/17/react-setState/">react之setState的坑</a>
+        
+      </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2018-07-17
+        </span>
+        
+          <span class="post-category">
+            
+              <a href="/categories/React/">React</a>
+            
+          </span>
+        
+        
+        <span class="post-visits"
+             data-url="/2018/07/17/react-setState/"
+             data-title="react之setState的坑">
+          阅读次数 0
+        </span>
+        
+      </div>
+    </header>
+
+    
+    
+
+
+    <div class="post-content">
+      
+        
+        
+          
+        
+
+        
+          <h2 id="一-setState"><a href="#一-setState" class="headerlink" title="一.setState"></a>一.setState</h2><p>今天发现有很多文章在说setState的坑,吐槽之声也不少.其实我就碰到过一个<br>setState不会立即改变数据:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">this.setState(&#123;</span><br><span class="line">    name: &quot;name&quot;</span><br><span class="line">&#125;)</span><br><span class="line">console.log(`name is $&#123;this.state.name&#125;`); // name is &quot;&quot;</span><br></pre></td></tr></table></figure></p>
+<p>所以如果需要获取,就需要在回调函数里去做:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">this.setState(&#123;</span><br><span class="line">    name: &quot;name&quot;</span><br><span class="line">&#125;, () =&gt; &#123;</span><br><span class="line">  console.log(`name is $&#123;this.state.name&#125;`)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure></p>
+<p>这样才会如你所预料那般的输出.</p>
+          <div class="read-more">
+            <a href="/2018/07/17/react-setState/" class="read-more-link">阅读更多</a>
+          </div>
+        
+      
+    </div>
+
+    
+
+    
+
+  </article>
+
+      
+        
+  <article class="post">
+    <header class="post-header">
+      <h1 class="post-title">
+        
           <a class="post-link" href="/2018/01/30/ES6/">Object对象</a>
         
       </h1>
@@ -419,120 +542,6 @@
   </article>
 
       
-        
-  <article class="post">
-    <header class="post-header">
-      <h1 class="post-title">
-        
-          <a class="post-link" href="/2017/05/13/webpack学习之路/">webpack学习之路</a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <span class="post-time">
-          2017-05-13
-        </span>
-        
-          <span class="post-category">
-            
-              <a href="/categories/vue/">vue</a>
-            
-          </span>
-        
-        
-        <span class="post-visits"
-             data-url="/2017/05/13/webpack学习之路/"
-             data-title="webpack学习之路">
-          阅读次数 0
-        </span>
-        
-      </div>
-    </header>
-
-    
-    
-
-
-    <div class="post-content">
-      
-        
-        
-          
-        
-
-        
-          <h1 id="webpack学习之路"><a href="#webpack学习之路" class="headerlink" title="webpack学习之路"></a>webpack学习之路</h1><p>当自己在学习webpack的时候，在网上发现中文的很详细的教程很少，于是便想将自己学习webpack的笔记记录整理下来，便有了这篇文章，希望对大家有所帮助，如果有错误，欢迎大家指出。</p>
-          <div class="read-more">
-            <a href="/2017/05/13/webpack学习之路/" class="read-more-link">阅读更多</a>
-          </div>
-        
-      
-    </div>
-
-    
-
-    
-
-  </article>
-
-      
-        
-  <article class="post">
-    <header class="post-header">
-      <h1 class="post-title">
-        
-          <a class="post-link" href="/2017/05/13/vue-cli的webpack模板配置目录分析/">vue-cli的webpack模板配置目录分析</a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <span class="post-time">
-          2017-05-13
-        </span>
-        
-          <span class="post-category">
-            
-              <a href="/categories/vue/">vue</a>
-            
-          </span>
-        
-        
-        <span class="post-visits"
-             data-url="/2017/05/13/vue-cli的webpack模板配置目录分析/"
-             data-title="vue-cli的webpack模板配置目录分析">
-          阅读次数 0
-        </span>
-        
-      </div>
-    </header>
-
-    
-    
-
-
-    <div class="post-content">
-      
-        
-        
-          
-        
-
-        
-          <h2 id="一-文件结构"><a href="#一-文件结构" class="headerlink" title="一. 文件结构"></a>一. 文件结构</h2><p>本文主要分析开发（dev）和构建（build）两个过程涉及到的文件，故下面文件结构仅列出相应的内容。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">├─build</span><br><span class="line">│   ├─build.js</span><br><span class="line">│   ├─check-versions.js</span><br><span class="line">│   ├─dev-client.js</span><br><span class="line">│   ├─dev-server.js</span><br><span class="line">│   ├─utils.js</span><br><span class="line">│   ├─vue-loader.conf.js</span><br><span class="line">│   ├─webpack.base.conf.js</span><br><span class="line">│   ├─webpack.dev.conf.js</span><br><span class="line">│   ├─webpack.prod.conf.js</span><br><span class="line">│   └─webpack.test.conf.js</span><br><span class="line">├─config</span><br><span class="line">│   ├─dev.env.js</span><br><span class="line">│   ├─index.js</span><br><span class="line">│   ├─prod.env.js</span><br><span class="line">│   └─test.env.js</span><br><span class="line">├─...</span><br><span class="line">└─package.json</span><br></pre></td></tr></table></figure></p>
-          <div class="read-more">
-            <a href="/2017/05/13/vue-cli的webpack模板配置目录分析/" class="read-more-link">阅读更多</a>
-          </div>
-        
-      
-    </div>
-
-    
-
-    
-
-  </article>
-
-      
       
   <nav class="pagination">
     
@@ -622,7 +631,7 @@
      
       2015 - 
     
-    2018
+    2019
 
     <span class="heart">
       <i class="iconfont icon-heart"></i>

@@ -244,6 +244,116 @@
     <header class="post-header">
       <h1 class="post-title">
         
+          <a class="post-link" href="/2018/09/25/dva/">dva</a>
+        
+      </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2018-09-25
+        </span>
+        
+          <span class="post-category">
+            
+              <a href="/categories/react/">react</a>
+            
+          </span>
+        
+        
+        <span class="post-visits"
+             data-url="/2018/09/25/dva/"
+             data-title="dva">
+          阅读次数 0
+        </span>
+        
+      </div>
+    </header>
+
+    
+    
+
+
+    <div class="post-content">
+      
+        
+        
+
+        
+          <h2 id="笔记"><a href="#笔记" class="headerlink" title="笔记"></a>笔记</h2><p>只有在 router.js 定义使用的 component 对应的 component 才能从组件的 props 中提取到 history 属性的<br>要解决这个问题的话, 对应的组件要使用react-router-dom 的高阶组件 withRouter, 导出时用 withRouter(ComponentName) 包裹, 注意点: dva中使用 withRouter 要从dva的router库导入, 路径为 ‘dva/router’</p>
+
+        
+      
+    </div>
+
+    
+
+    
+
+  </article>
+
+      
+        
+  <article class="post">
+    <header class="post-header">
+      <h1 class="post-title">
+        
+          <a class="post-link" href="/2018/09/17/面向对象-封装/">封装</a>
+        
+      </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2018-09-17
+        </span>
+        
+          <span class="post-category">
+            
+              <a href="/categories/教程/">教程</a>
+            
+          </span>
+        
+        
+        <span class="post-visits"
+             data-url="/2018/09/17/面向对象-封装/"
+             data-title="封装">
+          阅读次数 0
+        </span>
+        
+      </div>
+    </header>
+
+    
+    
+
+
+    <div class="post-content">
+      
+        
+        
+          
+        
+
+        
+          <h2 id="创建一个类"><a href="#创建一个类" class="headerlink" title="创建一个类"></a>创建一个类</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> Book = <span class="function"><span class="keyword">function</span>(<span class="params">name, id</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.name = name;</span><br><span class="line">    <span class="keyword">this</span>.id = id;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">Book.prototype.showName = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="keyword">this</span>.name);</span><br><span class="line">&#125;</span><br><span class="line">或者</span><br><span class="line">Book.prototype = &#123;</span><br><span class="line">    showName: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="keyword">this</span>.name);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> book = <span class="keyword">new</span> Book(<span class="string">'javascript红宝书'</span>, <span class="number">1</span>);</span><br><span class="line">book.showName();</span><br></pre></td></tr></table></figure>
+          <div class="read-more">
+            <a href="/2018/09/17/面向对象-封装/" class="read-more-link">阅读更多</a>
+          </div>
+        
+      
+    </div>
+
+    
+
+    
+
+  </article>
+
+      
+        
+  <article class="post">
+    <header class="post-header">
+      <h1 class="post-title">
+        
           <a class="post-link" href="/2018/09/11/redux-saga/">redux-saga</a>
         
       </h1>
@@ -428,122 +538,6 @@
   </article>
 
       
-        
-  <article class="post">
-    <header class="post-header">
-      <h1 class="post-title">
-        
-          <a class="post-link" href="/2018/08/24/vue-mixin/">vue-mixin</a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <span class="post-time">
-          2018-08-24
-        </span>
-        
-          <span class="post-category">
-            
-              <a href="/categories/vue/">vue</a>
-            
-          </span>
-        
-        
-        <span class="post-visits"
-             data-url="/2018/08/24/vue-mixin/"
-             data-title="vue-mixin">
-          阅读次数 0
-        </span>
-        
-      </div>
-    </header>
-
-    
-    
-
-
-    <div class="post-content">
-      
-        
-        
-          
-        
-
-        
-          <h2 id="选项合并"><a href="#选项合并" class="headerlink" title="选项合并"></a>选项合并</h2><p>当组件和混入对象含有同名选项时，这些选项将以恰当的方式混合。</p>
-<h4 id="数据对象在内部会进行浅合并-一层属性深度-，在和组件的数据发生冲突时以组件数据优先。"><a href="#数据对象在内部会进行浅合并-一层属性深度-，在和组件的数据发生冲突时以组件数据优先。" class="headerlink" title="数据对象在内部会进行浅合并 (一层属性深度)，在和组件的数据发生冲突时以组件数据优先。"></a>数据对象在内部会进行浅合并 (一层属性深度)，在和组件的数据发生冲突时以组件数据优先。</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> mixin = &#123;</span><br><span class="line">  data: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> &#123;</span><br><span class="line">      message: <span class="string">'hello'</span>,</span><br><span class="line">      foo: <span class="string">'abc'</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">new</span> Vue(&#123;</span><br><span class="line">  mixins: [mixin],</span><br><span class="line">  data: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> &#123;</span><br><span class="line">      message: <span class="string">'goodbye'</span>,</span><br><span class="line">      bar: <span class="string">'def'</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">  created: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="keyword">this</span>.$data)</span><br><span class="line">    <span class="comment">// =&gt; &#123; message: "goodbye", foo: "abc", bar: "def" &#125;</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
-          <div class="read-more">
-            <a href="/2018/08/24/vue-mixin/" class="read-more-link">阅读更多</a>
-          </div>
-        
-      
-    </div>
-
-    
-
-    
-
-  </article>
-
-      
-        
-  <article class="post">
-    <header class="post-header">
-      <h1 class="post-title">
-        
-          <a class="post-link" href="/2018/08/22/JS模块简史/">JavaScript module简史</a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <span class="post-time">
-          2018-08-22
-        </span>
-        
-          <span class="post-category">
-            
-              <a href="/categories/教程/">教程</a>
-            
-          </span>
-        
-        
-        <span class="post-visits"
-             data-url="/2018/08/22/JS模块简史/"
-             data-title="JavaScript module简史">
-          阅读次数 0
-        </span>
-        
-      </div>
-    </header>
-
-    
-    
-
-
-    <div class="post-content">
-      
-        
-        
-          
-        
-
-        
-          <h1 id="JavaScript模块化"><a href="#JavaScript模块化" class="headerlink" title="JavaScript模块化"></a>JavaScript模块化</h1><p>最开始,JavaScript 往往作为嵌入到 HTML 页面中的用于控制动画与简单的用户交互的脚本语言，我们习惯于将其直接嵌入到 script 标签中：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;!--html--&gt;</span><br><span class="line">&lt;script type=&quot;application/javascript&quot;&gt;</span><br><span class="line">    // module1 code</span><br><span class="line">    // module2 code</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure></p>
-<p>不过随着单页应用与富客户端的流行，不断增长的代码库也急需合理的代码分割与依赖管理的解决方案，</p>
-          <div class="read-more">
-            <a href="/2018/08/22/JS模块简史/" class="read-more-link">阅读更多</a>
-          </div>
-        
-      
-    </div>
-
-    
-
-    
-
-  </article>
-
-      
       
   <nav class="pagination">
     
@@ -633,7 +627,7 @@
      
       2015 - 
     
-    2018
+    2019
 
     <span class="heart">
       <i class="iconfont icon-heart"></i>

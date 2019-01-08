@@ -244,6 +244,127 @@
     <header class="post-header">
       <h1 class="post-title">
         
+          <a class="post-link" href="/2019/01/05/JS怪异的number/">JS的number</a>
+        
+      </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2019-01-05
+        </span>
+        
+          <span class="post-category">
+            
+              <a href="/categories/javascript/">javascript</a>
+            
+          </span>
+        
+        
+        <span class="post-visits"
+             data-url="/2019/01/05/JS怪异的number/"
+             data-title="JS的number">
+          阅读次数 0
+        </span>
+        
+      </div>
+    </header>
+
+    
+    
+
+
+    <div class="post-content">
+      
+        
+        
+
+        
+          <h2 id="Number"><a href="#Number" class="headerlink" title="Number"></a>Number</h2><p>以前在写代码的时候, 总是遇到一些JavaScript数字上的精度问题, 只知道跟JavaScript的数字的编码有关, 并不知道具体的原因, 例如:</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">&gt; <span class="number">0.1</span> + <span class="number">0.2</span>;</span><br><span class="line"><span class="number">0.30000000000000004</span></span><br><span class="line"></span><br><span class="line">&gt; <span class="number">0.1</span> + <span class="number">1</span> - <span class="number">1</span>;</span><br><span class="line"><span class="number">0.10000000000000009</span></span><br><span class="line"></span><br><span class="line">&gt; <span class="number">0.1</span> * <span class="number">0.2</span>;</span><br><span class="line"><span class="number">0.020000000000000004</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">Math</span>.pow(<span class="number">2</span>, <span class="number">53</span>);</span><br><span class="line"><span class="number">9007199254740992</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">Math</span>.pow(<span class="number">2</span>, <span class="number">53</span>) + <span class="number">1</span>;</span><br><span class="line"><span class="number">9007199254740992</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">Math</span>.pow(<span class="number">2</span>, <span class="number">53</span>) + <span class="number">3</span>;</span><br><span class="line"><span class="number">9007199254740996</span></span><br></pre></td></tr></table></figure>
+<p>想弄清楚这些情况的原因, 就要弄清楚JavaScript是怎么编码数字的</p>
+<h2 id="一-JavaScript-是怎么编码数字的"><a href="#一-JavaScript-是怎么编码数字的" class="headerlink" title="一. JavaScript 是怎么编码数字的"></a>一. JavaScript 是怎么编码数字的</h2><p>JavaScript中的数字, 不管是整数, 小数, 分数, 还是正数, 负数, 全都是浮点数, 都是用8个字节(64位)来存储的</p>
+<p>一个数字在内存中占用 8 个字节（64 位），存储方式如下：</p>
+<ol>
+<li><code>0-51</code>：分数部分（52 位）</li>
+<li><code>52-62</code>：指数部分（11 位）</li>
+<li><code>63</code>：符号位（1 位：0 表示这个数是正数，1 表示这个数是负数）</li>
+</ol>
+
+        
+      
+    </div>
+
+    
+
+    
+
+  </article>
+
+      
+        
+  <article class="post">
+    <header class="post-header">
+      <h1 class="post-title">
+        
+          <a class="post-link" href="/2018/12/20/Gulp的Stream/">Gulp的Stream</a>
+        
+      </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2018-12-20
+        </span>
+        
+          <span class="post-category">
+            
+              <a href="/categories/gulp/">gulp</a>
+            
+          </span>
+        
+        
+        <span class="post-visits"
+             data-url="/2018/12/20/Gulp的Stream/"
+             data-title="Gulp的Stream">
+          阅读次数 0
+        </span>
+        
+      </div>
+    </header>
+
+    
+    
+
+
+    <div class="post-content">
+      
+        
+        
+          
+        
+
+        
+          <h2 id="Stream"><a href="#Stream" class="headerlink" title="Stream"></a>Stream</h2><p>你可能也在最初开始使用Gulp的时候就听说过：Gulp是一个有关<strong>Stream（数据流）</strong>的构建系统。这句话的意思是，<strong>Gulp本身使用了Node的Stream</strong>。</p>
+<p>Stream如其名字所示的“流”那样，就像是工厂的流水线。你要加工一个产品，不用全部在一个位置完成，而是可以拆分成多道工序。产品从第一道工序开始，第一道工序完成后，输出然后流入第二道工序，然后再第三道工序…一方面，大批量的产品需求也不用等到全部完工（这通常很久），而是可以完工一个就拿到一个。另一方面，复杂的加工过程被分割成一系列独立的工序，这些工序可以反复使用，还可以在需要的时候进行替换和重组。这就是Stream的理念。</p>
+<p>Stream在Node中的应用十分广泛，几乎所有Node程序都在某种程度上用到了Stream。</p>
+          <div class="read-more">
+            <a href="/2018/12/20/Gulp的Stream/" class="read-more-link">阅读更多</a>
+          </div>
+        
+      
+    </div>
+
+    
+
+    
+
+  </article>
+
+      
+        
+  <article class="post">
+    <header class="post-header">
+      <h1 class="post-title">
+        
           <a class="post-link" href="/2018/12/17/javascript回流和重绘/">javascript回流和重绘</a>
         
       </h1>
@@ -438,121 +559,6 @@
   </article>
 
       
-        
-  <article class="post">
-    <header class="post-header">
-      <h1 class="post-title">
-        
-          <a class="post-link" href="/2018/11/11/vue-router/">vue-router</a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <span class="post-time">
-          2018-11-11
-        </span>
-        
-          <span class="post-category">
-            
-              <a href="/categories/vue/">vue</a>
-            
-          </span>
-        
-        
-        <span class="post-visits"
-             data-url="/2018/11/11/vue-router/"
-             data-title="vue-router">
-          阅读次数 0
-        </span>
-        
-      </div>
-    </header>
-
-    
-    
-
-
-    <div class="post-content">
-      
-        
-        
-          
-        
-
-        
-          <h2 id="一-单页应用"><a href="#一-单页应用" class="headerlink" title="一. 单页应用"></a>一. 单页应用</h2><p>以前我们的网页应用都是输入一个url, 前端会请求后台, 后台返回一个新的html文件, 让前端进行渲染, 现在很多单页应用在浏览器地址栏输入url后, 都是不经过后台的, 仅仅是前端的javascript去处理路由的跳转, 那么我们就需要一个称职合理的路由工具来帮我们完成前端路由跳转的一些相关的工作, 那么现在前端框架都会配备自己的路由处理工具, 像vue 使用的是vue-router, react 使用的是react-router, angularjs 使用的是ng-router和ui-router, 还有不跟框架耦合的工具有 history 等等</p>
-          <div class="read-more">
-            <a href="/2018/11/11/vue-router/" class="read-more-link">阅读更多</a>
-          </div>
-        
-      
-    </div>
-
-    
-
-    
-
-  </article>
-
-      
-        
-  <article class="post">
-    <header class="post-header">
-      <h1 class="post-title">
-        
-          <a class="post-link" href="/2018/10/28/eslint/">eslint</a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <span class="post-time">
-          2018-10-28
-        </span>
-        
-          <span class="post-category">
-            
-              <a href="/categories/eslint/">eslint</a>
-            
-          </span>
-        
-        
-        <span class="post-visits"
-             data-url="/2018/10/28/eslint/"
-             data-title="eslint">
-          阅读次数 0
-        </span>
-        
-      </div>
-    </header>
-
-    
-    
-
-
-    <div class="post-content">
-      
-        
-        
-          
-        
-
-        
-          <h3 id="eslint在项目中使用"><a href="#eslint在项目中使用" class="headerlink" title="eslint在项目中使用"></a>eslint在项目中使用</h3><p>eslint 可以给我们的代码定义一些语法规范, 防止我们在语法上犯一些低级的错误, 格式上的问题, 团队协作时大家都使用统一的代码风格去书写, 让我们在看别人的代码时更方便.</p>
-<p>在项目中安装依赖<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">"eslint"</span>: <span class="string">"^5.8.0"</span>,</span><br><span class="line"><span class="string">"eslint-config-standard"</span>: <span class="string">"^12.0.0"</span>,</span><br><span class="line"><span class="string">"eslint-plugin-html"</span>: <span class="string">"^4.0.6"</span>,</span><br><span class="line"><span class="string">"eslint-plugin-import"</span>: <span class="string">"^2.14.0"</span>,</span><br><span class="line"><span class="string">"eslint-plugin-node"</span>: <span class="string">"^8.0.0"</span>,</span><br><span class="line"><span class="string">"eslint-plugin-promise"</span>: <span class="string">"^4.0.1"</span>,</span><br><span class="line"><span class="string">"eslint-plugin-react"</span>: <span class="string">"^7.11.1"</span>,</span><br><span class="line"><span class="string">"eslint-plugin-standard"</span>: <span class="string">"^4.0.0"</span>,</span><br></pre></td></tr></table></figure></p>
-          <div class="read-more">
-            <a href="/2018/10/28/eslint/" class="read-more-link">阅读更多</a>
-          </div>
-        
-      
-    </div>
-
-    
-
-    
-
-  </article>
-
-      
       
   <nav class="pagination">
     
@@ -637,7 +643,7 @@
      
       2015 - 
     
-    2018
+    2019
 
     <span class="heart">
       <i class="iconfont icon-heart"></i>
