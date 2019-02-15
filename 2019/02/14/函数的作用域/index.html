@@ -17,7 +17,7 @@
 
 
 
-  <meta name="description" content="JS的number"/>
+  <meta name="description" content="解构赋值"/>
 
 
 
@@ -42,7 +42,7 @@
 
 
 
-<link rel="canonical" href="http://yoursite.com/2019/01/05/JS怪异的number/"/>
+<link rel="canonical" href="http://yoursite.com/2019/02/14/函数的作用域/"/>
 
 
 
@@ -108,7 +108,7 @@
   window.config = {"leancloud":{"app_id":"x8DnYYQw5Dl9oBmsrh29KacR-gzGzoHsz","app_key":"skGJTxdFoENHDdh68uEjPpbS"},"toc":true,"fancybox":true,"pjax":true};
 </script>
 
-    <title> JS的number - HK's blog </title>
+    <title> 解构赋值 - HK's blog </title>
   </head>
 
   <body><div id="mobile-navbar" class="mobile-navbar">
@@ -242,13 +242,13 @@
     <header class="post-header">
       <h1 class="post-title">
         
-          JS的number
+          解构赋值
         
       </h1>
 
       <div class="post-meta">
         <span class="post-time">
-          2019-01-05
+          2019-02-14
         </span>
         
           <span class="post-category">
@@ -259,8 +259,8 @@
         
         
         <span class="post-visits"
-             data-url="/2019/01/05/JS怪异的number/"
-             data-title="JS的number">
+             data-url="/2019/02/14/函数的作用域/"
+             data-title="解构赋值">
           阅读次数 0
         </span>
         
@@ -272,7 +272,7 @@
   <div class="post-toc" id="post-toc">
     <h2 class="post-toc-title">文章目录</h2>
     <div class="post-toc-content">
-      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Number"><span class="toc-text">Number</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#一-JavaScript-是怎么编码数字的"><span class="toc-text">一. JavaScript 是怎么编码数字的</span></a></li></ol>
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#解构赋值"><span class="toc-text">解构赋值</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#用途"><span class="toc-text">用途</span></a></li></ol>
     </div>
   </div>
 
@@ -280,15 +280,28 @@
 
     <div class="post-content">
       
-        <h2 id="Number"><a href="#Number" class="headerlink" title="Number"></a>Number</h2><p>以前在写代码的时候, 总是遇到一些JavaScript数字上的精度问题, 只知道跟JavaScript的数字的编码有关, 并不知道具体的原因, 例如:</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">&gt; <span class="number">0.1</span> + <span class="number">0.2</span>;</span><br><span class="line"><span class="number">0.30000000000000004</span></span><br><span class="line"></span><br><span class="line">&gt; <span class="number">0.1</span> + <span class="number">1</span> - <span class="number">1</span>;</span><br><span class="line"><span class="number">0.10000000000000009</span></span><br><span class="line"></span><br><span class="line">&gt; <span class="number">0.1</span> * <span class="number">0.2</span>;</span><br><span class="line"><span class="number">0.020000000000000004</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">Math</span>.pow(<span class="number">2</span>, <span class="number">53</span>);</span><br><span class="line"><span class="number">9007199254740992</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">Math</span>.pow(<span class="number">2</span>, <span class="number">53</span>) + <span class="number">1</span>;</span><br><span class="line"><span class="number">9007199254740992</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">Math</span>.pow(<span class="number">2</span>, <span class="number">53</span>) + <span class="number">3</span>;</span><br><span class="line"><span class="number">9007199254740996</span></span><br></pre></td></tr></table></figure>
-<p>想弄清楚这些情况的原因, 就要弄清楚JavaScript是怎么编码数字的</p>
-<h2 id="一-JavaScript-是怎么编码数字的"><a href="#一-JavaScript-是怎么编码数字的" class="headerlink" title="一. JavaScript 是怎么编码数字的"></a>一. JavaScript 是怎么编码数字的</h2><p>JavaScript中的数字, 不管是整数, 小数, 分数, 还是正数, 负数, 全都是浮点数, 都是用8个字节(64位)来存储的</p>
-<p>一个数字在内存中占用 8 个字节（64 位），存储方式如下：</p>
-<ol>
-<li><code>0-51</code>：分数部分（52 位）</li>
-<li><code>52-62</code>：指数部分（11 位）</li>
-<li><code>63</code>：符号位（1 位：0 表示这个数是正数，1 表示这个数是负数）</li>
+        <h2 id="解构赋值"><a href="#解构赋值" class="headerlink" title="解构赋值"></a>解构赋值</h2><p>稍微复杂一点的解构赋值<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> obj = &#123;</span><br><span class="line">  p: [</span><br><span class="line">    <span class="string">'Hello'</span>,</span><br><span class="line">    &#123; <span class="attr">y</span>: <span class="string">'World'</span> &#125;</span><br><span class="line">  ]</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> &#123; p, <span class="attr">p</span>: [x, &#123; y &#125;] &#125; = obj;</span><br><span class="line">x <span class="comment">// "Hello"</span></span><br><span class="line">y <span class="comment">// "World"</span></span><br><span class="line">p <span class="comment">// ["Hello", &#123;y: "World"&#125;]</span></span><br></pre></td></tr></table></figure></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> node = &#123;</span><br><span class="line">  loc: &#123;</span><br><span class="line">    start: &#123;</span><br><span class="line">      line: <span class="number">1</span>,</span><br><span class="line">      column: <span class="number">5</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> &#123; loc, <span class="attr">loc</span>: &#123; start &#125;, <span class="attr">loc</span>: &#123; <span class="attr">start</span>: &#123; line &#125;&#125; &#125; = node;</span><br><span class="line">line <span class="comment">// 1</span></span><br><span class="line">loc  <span class="comment">// Object &#123;start: Object&#125;</span></span><br><span class="line">start <span class="comment">// Object &#123;line: 1, column: 5&#125;</span></span><br></pre></td></tr></table></figure>
+<p>上面代码有三次解构赋值，分别是对loc、start、line三个属性的解构赋值。注意，最后一次对line属性的解构赋值之中，只有line是变量，loc和start都是模式，不是变量。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">move</span>(<span class="params">&#123;x, y&#125; = &#123; x: <span class="number">0</span>, y: <span class="number">0</span> &#125;</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> [x, y];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">move(&#123;<span class="attr">x</span>: <span class="number">3</span>, <span class="attr">y</span>: <span class="number">8</span>&#125;); <span class="comment">// [3, 8]</span></span><br><span class="line">move(&#123;<span class="attr">x</span>: <span class="number">3</span>&#125;); <span class="comment">// [3, undefined]</span></span><br><span class="line">move(&#123;&#125;); <span class="comment">// [undefined, undefined]</span></span><br><span class="line">move(); <span class="comment">// [0, 0]</span></span><br></pre></td></tr></table></figure>
+<p>上面代码是为函数move的参数指定默认值，而不是为变量x和y指定默认值，所以会得到与前一种写法不同的结果。</p>
+<p>undefined就会触发函数参数的默认值。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[<span class="number">1</span>, <span class="literal">undefined</span>, <span class="number">3</span>].map(<span class="function">(<span class="params">x = <span class="string">'yes'</span></span>) =&gt;</span> x);</span><br><span class="line"><span class="comment">// [ 1, 'yes', 3 ]</span></span><br></pre></td></tr></table></figure>
+<h2 id="用途"><a href="#用途" class="headerlink" title="用途"></a>用途</h2><ol>
+<li><p>交换变量的值</p>
+</li>
+<li><p>从函数返回多个值</p>
+</li>
+<li><p>函数参数的定义</p>
+</li>
+<li><p>提取JSON数据</p>
+</li>
+<li><p>函数参数的默认值</p>
+</li>
+<li><p>遍历Map结构</p>
+</li>
+<li><p>输入模块的指定方法</p>
+</li>
 </ol>
 
       
@@ -317,15 +330,9 @@
         
   <nav class="post-nav">
     
-      <a class="prev" href="/2019/02/14/函数的作用域/">
-        <i class="iconfont icon-left"></i>
-        <span class="prev-text nav-default">解构赋值</span>
-        <span class="prev-text nav-mobile">上一篇</span>
-      </a>
     
-    
-      <a class="next" href="/2018/12/20/Gulp的Stream/">
-        <span class="next-text nav-default">Gulp的Stream</span>
+      <a class="next" href="/2019/01/05/JS怪异的number/">
+        <span class="next-text nav-default">JS的number</span>
         <span class="prev-text nav-mobile">下一篇</span>
         <i class="iconfont icon-right"></i>
       </a>

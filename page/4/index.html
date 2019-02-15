@@ -244,6 +244,66 @@
     <header class="post-header">
       <h1 class="post-title">
         
+          <a class="post-link" href="/2018/08/24/vue-directive/">vue-directive</a>
+        
+      </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2018-08-24
+        </span>
+        
+          <span class="post-category">
+            
+              <a href="/categories/vue/">vue</a>
+            
+          </span>
+        
+        
+        <span class="post-visits"
+             data-url="/2018/08/24/vue-directive/"
+             data-title="vue-directive">
+          阅读次数 0
+        </span>
+        
+      </div>
+    </header>
+
+    
+    
+
+
+    <div class="post-content">
+      
+        
+        
+          
+        
+
+        
+          <h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><p>在 Vue2.0 中，代码复用和抽象的主要形式是组件。然而，有的情况下，你仍然需要对普通 DOM 元素进行底层操作，这时候就会用到自定义指令。</p>
+<p>全局自定义指令<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">// 注册一个全局自定义指令 `v-focus`</span><br><span class="line">Vue.directive(&apos;focus&apos;, &#123;</span><br><span class="line">  // 当被绑定的元素插入到 DOM 中时……</span><br><span class="line">  inserted: function (el) &#123;</span><br><span class="line">    // 聚焦元素</span><br><span class="line">    el.focus()</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure></p>
+<p>注册局部指令，组件中也接受一个 directives 的选项<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">directives: &#123;</span><br><span class="line">  focus: &#123;</span><br><span class="line">    // 指令的定义</span><br><span class="line">    inserted: function (el) &#123;</span><br><span class="line">      el.focus()</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>然后你可以在模板中任何元素上使用新的 v-focus 属性，如下<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;input v-focus&gt; // 注意指令前面加上v-</span><br></pre></td></tr></table></figure></p>
+          <div class="read-more">
+            <a href="/2018/08/24/vue-directive/" class="read-more-link">阅读更多</a>
+          </div>
+        
+      
+    </div>
+
+    
+
+    
+
+  </article>
+
+      
+        
+  <article class="post">
+    <header class="post-header">
+      <h1 class="post-title">
+        
           <a class="post-link" href="/2018/08/24/vue-mixin/">vue-mixin</a>
         
       </h1>
@@ -467,65 +527,6 @@
 <li>业务逻辑</li></ul>
           <div class="read-more">
             <a href="/2018/08/19/angularjs复杂业务系统的代码架构探索/" class="read-more-link">阅读更多</a>
-          </div>
-        
-      
-    </div>
-
-    
-
-    
-
-  </article>
-
-      
-        
-  <article class="post">
-    <header class="post-header">
-      <h1 class="post-title">
-        
-          <a class="post-link" href="/2018/08/19/redux入门/">redux入门</a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <span class="post-time">
-          2018-08-19
-        </span>
-        
-          <span class="post-category">
-            
-              <a href="/categories/react/">react</a>
-            
-          </span>
-        
-        
-        <span class="post-visits"
-             data-url="/2018/08/19/redux入门/"
-             data-title="redux入门">
-          阅读次数 0
-        </span>
-        
-      </div>
-    </header>
-
-    
-    
-
-
-    <div class="post-content">
-      
-        
-        
-          
-        
-
-        
-          <h2 id="Redux是什么"><a href="#Redux是什么" class="headerlink" title="Redux是什么"></a>Redux是什么</h2><p>Redux对于JavaScript应用而言是一个可预测状态的<strong>容器</strong>。换言之，它是一个应用<strong>数据流框架</strong>，而不是传统的像underscore.js或者AngularJs那样的库或者框架。</p>
-<p>Redux最主要是用作应用状态的管理。简言之，Redux用一个单独的常量状态树（对象）保存这一整个应用的状态，这个对象不能直接被改变。当一些数据变化了，一个新的对象就会被创建（使用actions和reducers）。</p>
-<p>应用中所有的 state 都以一个对象树的形式储存在一个单一的 store 中。 惟一改变 state 的办法是触发 action，一个描述发生什么的对象。 为了描述 action 如何改变 state 树，你需要编写 reducers (单向数据流)。</p>
-          <div class="read-more">
-            <a href="/2018/08/19/redux入门/" class="read-more-link">阅读更多</a>
           </div>
         
       
