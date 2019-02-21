@@ -17,7 +17,7 @@
 
 
 
-  <meta name="description" content="JS的number"/>
+  <meta name="description" content="Waiting (TTFB) 时间过长"/>
 
 
 
@@ -42,7 +42,7 @@
 
 
 
-<link rel="canonical" href="http://yoursite.com/2019/01/05/JS怪异的number/"/>
+<link rel="canonical" href="http://yoursite.com/2019/02/21/JS怪异的number/"/>
 
 
 
@@ -108,7 +108,7 @@
   window.config = {"leancloud":{"app_id":"x8DnYYQw5Dl9oBmsrh29KacR-gzGzoHsz","app_key":"skGJTxdFoENHDdh68uEjPpbS"},"toc":true,"fancybox":true,"pjax":true};
 </script>
 
-    <title> JS的number - HK's blog </title>
+    <title> Waiting (TTFB) 时间过长 - HK's blog </title>
   </head>
 
   <body><div id="mobile-navbar" class="mobile-navbar">
@@ -242,13 +242,13 @@
     <header class="post-header">
       <h1 class="post-title">
         
-          JS的number
+          Waiting (TTFB) 时间过长
         
       </h1>
 
       <div class="post-meta">
         <span class="post-time">
-          2019-01-05
+          2019-02-21
         </span>
         
           <span class="post-category">
@@ -259,8 +259,8 @@
         
         
         <span class="post-visits"
-             data-url="/2019/01/05/JS怪异的number/"
-             data-title="JS的number">
+             data-url="/2019/02/21/JS怪异的number/"
+             data-title="Waiting (TTFB) 时间过长">
           阅读次数 0
         </span>
         
@@ -272,7 +272,7 @@
   <div class="post-toc" id="post-toc">
     <h2 class="post-toc-title">文章目录</h2>
     <div class="post-toc-content">
-      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Number"><span class="toc-text">Number</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#一-JavaScript-是怎么编码数字的"><span class="toc-text">一. JavaScript 是怎么编码数字的</span></a></li></ol>
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#背景"><span class="toc-text">背景</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#什么是-Waiting-TTFB-时间"><span class="toc-text">什么是 Waiting (TTFB) 时间</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#TTFB-时间多长算长？"><span class="toc-text">TTFB 时间多长算长？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#TTFB-过长的原因"><span class="toc-text">TTFB 过长的原因</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Waiting-TTFB-时间过长的解决办法"><span class="toc-text">Waiting (TTFB) 时间过长的解决办法</span></a></li></ol>
     </div>
   </div>
 
@@ -280,16 +280,18 @@
 
     <div class="post-content">
       
-        <h2 id="Number"><a href="#Number" class="headerlink" title="Number"></a>Number</h2><p>以前在写代码的时候, 总是遇到一些JavaScript数字上的精度问题, 只知道跟JavaScript的数字的编码有关, 并不知道具体的原因, 例如:</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">&gt; <span class="number">0.1</span> + <span class="number">0.2</span>;</span><br><span class="line"><span class="number">0.30000000000000004</span></span><br><span class="line"></span><br><span class="line">&gt; <span class="number">0.1</span> + <span class="number">1</span> - <span class="number">1</span>;</span><br><span class="line"><span class="number">0.10000000000000009</span></span><br><span class="line"></span><br><span class="line">&gt; <span class="number">0.1</span> * <span class="number">0.2</span>;</span><br><span class="line"><span class="number">0.020000000000000004</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">Math</span>.pow(<span class="number">2</span>, <span class="number">53</span>);</span><br><span class="line"><span class="number">9007199254740992</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">Math</span>.pow(<span class="number">2</span>, <span class="number">53</span>) + <span class="number">1</span>;</span><br><span class="line"><span class="number">9007199254740992</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">Math</span>.pow(<span class="number">2</span>, <span class="number">53</span>) + <span class="number">3</span>;</span><br><span class="line"><span class="number">9007199254740996</span></span><br></pre></td></tr></table></figure>
-<p>想弄清楚这些情况的原因, 就要弄清楚JavaScript是怎么编码数字的</p>
-<h2 id="一-JavaScript-是怎么编码数字的"><a href="#一-JavaScript-是怎么编码数字的" class="headerlink" title="一. JavaScript 是怎么编码数字的"></a>一. JavaScript 是怎么编码数字的</h2><p>JavaScript中的数字, 不管是整数, 小数, 分数, 还是正数, 负数, 全都是浮点数, 都是用8个字节(64位)来存储的</p>
-<p>一个数字在内存中占用 8 个字节（64 位），存储方式如下：</p>
-<ol>
-<li><code>0-51</code>：分数部分（52 位）</li>
-<li><code>52-62</code>：指数部分（11 位）</li>
-<li><code>63</code>：符号位（1 位：0 表示这个数是正数，1 表示这个数是负数）</li>
-</ol>
+        <h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h2><p>最近项目中的某个页面的加载时间过长, 从第一个接口开始到最后一个接口调用结束一共用了 5.5s ~ 6s, 就想着排查一下问题所在并优化掉, 打开浏览器调试工具, Network, 仔细查看每一个接口的调用时间, 抛开调用后端的resful接口, 就是一些静态资源(.js/.html/.json)的加载及解析花了大量的时间, 并发现这些静态资源的请求的Waterfall, 发现有的接口的 Waiting (TTFB) 选项时长过长, 有的接口的 Content Download 时间过长.</p>
+<a id="more"></a>
+<h2 id="什么是-Waiting-TTFB-时间"><a href="#什么是-Waiting-TTFB-时间" class="headerlink" title="什么是 Waiting (TTFB) 时间"></a>什么是 Waiting (TTFB) 时间</h2><p>什么是 Waiting (TTFB) 时间, TTFB 是 Time to First Byte 的缩写，指的是浏览器开始收到服务器响应数据的时间 <strong>(后台处理时间+重定向时间)</strong> ，是反映服务端响应速度的重要指标。就像你问朋友了一个问题，你的朋友思考了一会儿才给你答案，你朋友思考的时间就相当于 TTFB。你朋友思考的时间越短，就说明你朋友越聪明或者对你的问题越熟悉。对服务器来说，TTFB 时间越短，就说明服务器响应越快。</p>
+<h2 id="TTFB-时间多长算长？"><a href="#TTFB-时间多长算长？" class="headerlink" title="TTFB 时间多长算长？"></a>TTFB 时间多长算长？</h2><p>因为每个服务器的硬件和网络环境都不尽相同，每个服务器的 TTFB 时间也不相同。如果想知道你的服务器可以优化到什么程度，大家可以上传一些静态的 HTML 页面到服务器，然后打开这些静态页面，看一些这些页面的 TTFB 时间，大多数服务器的 TTFB 时间都在 50 ms 一下，这个时间就是我们优化时候可以追求的时间。下面两个图中的 TTFB 时间分别是本站所在服务器的静态和动态网页 TTFB 等待时间。</p>
+<p>根据我们的测试，TTFB 时间如果超过了 500 ms，用户在打开网页的时候就会感觉到明显的等待。我么可以把 500 ms 以上认为是 TTFB 时间过长。可见，WordPress 智库的服务器还不算差。</p>
+<h2 id="TTFB-过长的原因"><a href="#TTFB-过长的原因" class="headerlink" title="TTFB 过长的原因"></a>TTFB 过长的原因</h2><p>我们知道，对于动态网页来说，服务器收到用户打开一个页面的请求时，首先要从数据库中读取该页面需要的数据，然后把这些数据传入到模版中，模版渲染后，再返回给用户。由于查询数据和渲染模版需要需要一定的时间，在这个过程没有完成之前，浏览器就一致处于等待接收服务器响应的状态。有些服务的性能比较低，或者优化没做好，这个时间就会比较长。</p>
+<p>当然，如果服务器到用户之间的网络不好，（比如，服务器在欧洲，用户在中国，用户打开网页的时候，请求需要跨越千山万水才能达到服务器），服务器接收到用户请求的时间过长，也是导致 TTFB 时间过长的原因。</p>
+<p>有时候，页面在用户的浏览器中保存了过多的 Cookie，每次请求，这些 Cookie 都要发送到服务器，服务器都要处理这些 Cookie，这也是导致 TTFB 时间过长的原因之一。</p>
+<h2 id="Waiting-TTFB-时间过长的解决办法"><a href="#Waiting-TTFB-时间过长的解决办法" class="headerlink" title="Waiting (TTFB) 时间过长的解决办法"></a>Waiting (TTFB) 时间过长的解决办法</h2><p>知道了原因，解决办法就显而易见了，那就是缩短服务器响应时间，最简单直接并且有效的办法就是使用缓存，把 PHP 和 MySQL 的执行时间最小化，一些缓存插件可以把 SQL 查询结果缓存起来，把几十次查询结果转换为几次；一些缓存插件可以直接把用户所请求的页面静态化，用户打开网页时，相当于直接从服务器上下载了静态页面。</p>
+<p>如果是网络原因，换一个服务器是比较直接的解决办法。如果因为一些原因不能换服务器，可以使用一个 CDN，把页面同步到离用户比较近的 CDN 节点上，也是一个不错的解决办法。</p>
+<p>如果是 Cookie 的原因，可以通过修改应用程序，删除一些不必要的 Cookie，或者精简 Cookie 内容，缩短 Cookie 的有效期等，都是解决办法。</p>
+<p>具体参见谷歌官方开发文档 <a href="https://developers.google.com/web/tools/chrome-devtools/network-performance/understanding-resource-timing" target="_blank" rel="noopener">https://developers.google.com/web/tools/chrome-devtools/network-performance/understanding-resource-timing</a></p>
 
       
     </div>
@@ -317,15 +319,9 @@
         
   <nav class="post-nav">
     
-      <a class="prev" href="/2019/02/14/函数的作用域/">
-        <i class="iconfont icon-left"></i>
-        <span class="prev-text nav-default">解构赋值</span>
-        <span class="prev-text nav-mobile">上一篇</span>
-      </a>
     
-    
-      <a class="next" href="/2018/12/20/Gulp的Stream/">
-        <span class="next-text nav-default">Gulp的Stream</span>
+      <a class="next" href="/2019/02/14/结构赋值/">
+        <span class="next-text nav-default">解构赋值</span>
         <span class="prev-text nav-mobile">下一篇</span>
         <i class="iconfont icon-right"></i>
       </a>

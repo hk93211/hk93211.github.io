@@ -42,7 +42,7 @@
 
 
 
-<link rel="canonical" href="http://yoursite.com/2019/02/14/函数的作用域/"/>
+<link rel="canonical" href="http://yoursite.com/2019/02/14/结构赋值/"/>
 
 
 
@@ -259,7 +259,7 @@
         
         
         <span class="post-visits"
-             data-url="/2019/02/14/函数的作用域/"
+             data-url="/2019/02/14/结构赋值/"
              data-title="解构赋值">
           阅读次数 0
         </span>
@@ -281,6 +281,7 @@
     <div class="post-content">
       
         <h2 id="解构赋值"><a href="#解构赋值" class="headerlink" title="解构赋值"></a>解构赋值</h2><p>稍微复杂一点的解构赋值<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> obj = &#123;</span><br><span class="line">  p: [</span><br><span class="line">    <span class="string">'Hello'</span>,</span><br><span class="line">    &#123; <span class="attr">y</span>: <span class="string">'World'</span> &#125;</span><br><span class="line">  ]</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> &#123; p, <span class="attr">p</span>: [x, &#123; y &#125;] &#125; = obj;</span><br><span class="line">x <span class="comment">// "Hello"</span></span><br><span class="line">y <span class="comment">// "World"</span></span><br><span class="line">p <span class="comment">// ["Hello", &#123;y: "World"&#125;]</span></span><br></pre></td></tr></table></figure></p>
+<a id="more"></a>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> node = &#123;</span><br><span class="line">  loc: &#123;</span><br><span class="line">    start: &#123;</span><br><span class="line">      line: <span class="number">1</span>,</span><br><span class="line">      column: <span class="number">5</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> &#123; loc, <span class="attr">loc</span>: &#123; start &#125;, <span class="attr">loc</span>: &#123; <span class="attr">start</span>: &#123; line &#125;&#125; &#125; = node;</span><br><span class="line">line <span class="comment">// 1</span></span><br><span class="line">loc  <span class="comment">// Object &#123;start: Object&#125;</span></span><br><span class="line">start <span class="comment">// Object &#123;line: 1, column: 5&#125;</span></span><br></pre></td></tr></table></figure>
 <p>上面代码有三次解构赋值，分别是对loc、start、line三个属性的解构赋值。注意，最后一次对line属性的解构赋值之中，只有line是变量，loc和start都是模式，不是变量。</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">move</span>(<span class="params">&#123;x, y&#125; = &#123; x: <span class="number">0</span>, y: <span class="number">0</span> &#125;</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> [x, y];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">move(&#123;<span class="attr">x</span>: <span class="number">3</span>, <span class="attr">y</span>: <span class="number">8</span>&#125;); <span class="comment">// [3, 8]</span></span><br><span class="line">move(&#123;<span class="attr">x</span>: <span class="number">3</span>&#125;); <span class="comment">// [3, undefined]</span></span><br><span class="line">move(&#123;&#125;); <span class="comment">// [undefined, undefined]</span></span><br><span class="line">move(); <span class="comment">// [0, 0]</span></span><br></pre></td></tr></table></figure>
@@ -330,9 +331,15 @@
         
   <nav class="post-nav">
     
+      <a class="prev" href="/2019/02/21/JS怪异的number/">
+        <i class="iconfont icon-left"></i>
+        <span class="prev-text nav-default">Waiting (TTFB) 时间过长</span>
+        <span class="prev-text nav-mobile">上一篇</span>
+      </a>
     
-      <a class="next" href="/2019/01/05/JS怪异的number/">
-        <span class="next-text nav-default">JS的number</span>
+    
+      <a class="next" href="/2018/12/20/Gulp的Stream/">
+        <span class="next-text nav-default">Gulp的Stream</span>
         <span class="prev-text nav-mobile">下一篇</span>
         <i class="iconfont icon-right"></i>
       </a>
