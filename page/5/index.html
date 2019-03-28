@@ -244,6 +244,70 @@
     <header class="post-header">
       <h1 class="post-title">
         
+          <a class="post-link" href="/2018/08/19/angularjs复杂业务系统的代码架构探索/">AngularJS复杂业务系统的代码架构探索</a>
+        
+      </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2018-08-19
+        </span>
+        
+          <span class="post-category">
+            
+              <a href="/categories/angularjs/">angularjs</a>
+            
+          </span>
+        
+        
+        <span class="post-visits"
+             data-url="/2018/08/19/angularjs复杂业务系统的代码架构探索/"
+             data-title="AngularJS复杂业务系统的代码架构探索">
+          阅读次数 0
+        </span>
+        
+      </div>
+    </header>
+
+    
+    
+
+
+    <div class="post-content">
+      
+        
+        
+          
+        
+
+        
+          <h2 id="模型系统的前世-–-“模糊系统”"><a href="#模型系统的前世-–-“模糊系统”" class="headerlink" title="模型系统的前世 – “模糊系统”"></a>模型系统的前世 – “模糊系统”</h2><h3 id="开发阶段-controller里面的代码"><a href="#开发阶段-controller里面的代码" class="headerlink" title="开发阶段: controller里面的代码"></a>开发阶段: controller里面的代码</h3><ul>
+<li>初始化视图模型, 视图展示元素的文字及显示影藏等等属性(ng-show/ng-if)</li>
+<li>定义事件响应函数, 处理UI交互逻辑(ng-click/ng-change)</li>
+<li>定义scope中, 指令需要的配置参数</li>
+<li>指令和controller的作用域的数据传递</li>
+<li>作用域内部属性变动的监听</li>
+<li>作用域之间的数据通信</li>
+<li>业务逻辑</li></ul>
+          <div class="read-more">
+            <a href="/2018/08/19/angularjs复杂业务系统的代码架构探索/" class="read-more-link">阅读更多</a>
+          </div>
+        
+      
+    </div>
+
+    
+
+    
+
+  </article>
+
+      
+        
+  <article class="post">
+    <header class="post-header">
+      <h1 class="post-title">
+        
           <a class="post-link" href="/2018/08/19/redux入门/">redux入门</a>
         
       </h1>
@@ -468,68 +532,6 @@
 <h2 id="属性"><a href="#属性" class="headerlink" title="属性"></a>属性</h2><p>Object.prototype.constructor<br>特定的函数，用于创建一个对象的原型</p>
           <div class="read-more">
             <a href="/2018/01/30/ES6/" class="read-more-link">阅读更多</a>
-          </div>
-        
-      
-    </div>
-
-    
-
-    
-
-  </article>
-
-      
-        
-  <article class="post">
-    <header class="post-header">
-      <h1 class="post-title">
-        
-          <a class="post-link" href="/2017/08/17/ES7/">async和await</a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <span class="post-time">
-          2017-08-17
-        </span>
-        
-          <span class="post-category">
-            
-              <a href="/categories/ES7/">ES7</a>
-            
-          </span>
-        
-        
-        <span class="post-visits"
-             data-url="/2017/08/17/ES7/"
-             data-title="async和await">
-          阅读次数 0
-        </span>
-        
-      </div>
-    </header>
-
-    
-    
-
-
-    <div class="post-content">
-      
-        
-        
-          
-        
-
-        
-          <h1 id="async和await在干什么"><a href="#async和await在干什么" class="headerlink" title="async和await在干什么"></a>async和await在干什么</h1><p>任意一个名称都是有意义的，先从字面意思来理解。async 是“异步”的简写，而 await 可以认为是 async wait 的简写。所以应该很好理解 async 用于申明一个 function 是异步的，而 await 用于等待一个异步方法执行完成。</p>
-<p>另外还有一个很有意思的语法规定，await 只能出现在 async 函数中。然后细心的朋友会产生一个疑问，如果 await 只能出现在 async 函数中，那这个 async 函数应该怎么调用？</p>
-<p>如果需要通过 await 来调用一个 async 函数，那这个调用的外面必须得再包一个 async 函数，然后……进入死循环，永无出头之日……</p>
-<p>如果 async 函数不需要 await 来调用，那 async 到底起个啥作用？</p>
-<h1 id="async起什么作用"><a href="#async起什么作用" class="headerlink" title="async起什么作用"></a>async起什么作用</h1><p>这个问题的关键在于，async 函数是怎么处理它的返回值的！</p>
-<p>我们当然希望它能直接通过 <code>return</code> 语句返回我们想要的值，但是如果真是这样，似乎就没 await 什么事了。所以，写段代码来试试，看它到底会返回什么：</p>
-          <div class="read-more">
-            <a href="/2017/08/17/ES7/" class="read-more-link">阅读更多</a>
           </div>
         
       

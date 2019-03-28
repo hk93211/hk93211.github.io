@@ -244,6 +244,73 @@
     <header class="post-header">
       <h1 class="post-title">
         
+          <a class="post-link" href="/2018/08/24/vue-computed/">vue-computed</a>
+        
+      </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2018-08-24
+        </span>
+        
+          <span class="post-category">
+            
+              <a href="/categories/vue/">vue</a>
+            
+          </span>
+        
+        
+        <span class="post-visits"
+             data-url="/2018/08/24/vue-computed/"
+             data-title="vue-computed">
+          阅读次数 0
+        </span>
+        
+      </div>
+    </header>
+
+    
+    
+
+
+    <div class="post-content">
+      
+        
+        
+
+        
+          <h2 id="什么是computed-计算属性"><a href="#什么是computed-计算属性" class="headerlink" title="什么是computed 计算属性"></a>什么是computed 计算属性</h2><p>所有的计算属性都以函数的形式写在 Vue 实例内的 computed选项内，最终返回计算后的结果, 用于减少模板中的代码臃肿</p>
+<h2 id="用法"><a href="#用法" class="headerlink" title="用法"></a>用法</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">&lt;div id=&quot;app&quot;&gt;总价: &#123;&#123;price&#125;&#125;&lt;/div&gt;</span><br><span class="line"></span><br><span class="line">&lt;script&gt;</span><br><span class="line">  const app = new Vue(&#123;</span><br><span class="line">  el: &apos;#root&apos;,</span><br><span class="line">  template: &apos;&lt;h1&gt;hello world &#123;&#123;text&#125;&#125;&lt;/h1&gt;&apos;,</span><br><span class="line">  data: &#123;</span><br><span class="line">    money1: 1,</span><br><span class="line">    money2: 2,</span><br><span class="line">  &#125;,</span><br><span class="line">  computed: &#123;</span><br><span class="line">    price() &#123;</span><br><span class="line">      return this.money1 + this.money2;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+<p>还有一种写法(包含getter和setter)</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">&lt;div id=&quot;app&quot;&gt;总价: &#123;&#123;price&#125;&#125;&lt;/div&gt;</span><br><span class="line"></span><br><span class="line">&lt;script&gt;</span><br><span class="line">  const app = new Vue(&#123;</span><br><span class="line">  el: &apos;#root&apos;,</span><br><span class="line">  template: &apos;&lt;h1&gt;hello world &#123;&#123;text&#125;&#125;&lt;/h1&gt;&apos;,</span><br><span class="line">  data: &#123;</span><br><span class="line">    money1: 1,</span><br><span class="line">    money2: 2,</span><br><span class="line">  &#125;,</span><br><span class="line">  computed: &#123;</span><br><span class="line">    price &#123;</span><br><span class="line">      get() &#123;</span><br><span class="line">        return this.money1 + this.money2;</span><br><span class="line">      &#125;,</span><br><span class="line">      set(newValue) &#123;</span><br><span class="line">        this.money1 = newValue / 3 * 1;</span><br><span class="line">        this.money2 = newValue / 3 * 2;</span><br><span class="line">      &#125;</span><br><span class="line">      </span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+<p>当执行 this.price = xxx 的时候setter就会被调用</p>
+<p>绝大多数情况下，我们只会用默认的 getter方法来读取一个计算属性，在业务中很少用到setter</p>
+<p>计算属性还有两个很实用的小技巧容易被忽略:</p>
+<ul>
+<li>一. 计算属性可以依赖其他计算属性</li>
+<li>二. 计算属性不仅可以依赖当前 Vue 实例的数据，还可以依赖其他实例的数据，</li>
+</ul>
+<h2 id="对比methods"><a href="#对比methods" class="headerlink" title="对比methods"></a>对比methods</h2><p>计算属性能做到的事情, methods上同样能做到, 那么vue为什么还要定义一个属性来专门用作计算属性用呢?</p>
+<p>原因就是: 计算属性是基于它的依赖缓存的。 一个计算属性所依赖的数据发生变化时，它才会重新取值，所以只要计算属性依赖的值不改变，计算属性也就不更新</p>
+<p>使用计算属性还是 methods 取决于你是否需要缓存，当遍历大数组和做大量计算时，应当使用<br>计算属性，除非你不希望得到缓存</p>
+<h2 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h2><p>类的动态绑定也可以使用计算属性</p>
+
+        
+      
+    </div>
+
+    
+
+    
+
+  </article>
+
+      
+        
+  <article class="post">
+    <header class="post-header">
+      <h1 class="post-title">
+        
           <a class="post-link" href="/2018/08/24/vue-directive/">vue-directive</a>
         
       </h1>
@@ -463,70 +530,6 @@
 <p>命令会非常方便。普通的 git diff 命令默认对比的是没有加到索引中的文件。</p>
           <div class="read-more">
             <a href="/2018/08/20/git一些命令/" class="read-more-link">阅读更多</a>
-          </div>
-        
-      
-    </div>
-
-    
-
-    
-
-  </article>
-
-      
-        
-  <article class="post">
-    <header class="post-header">
-      <h1 class="post-title">
-        
-          <a class="post-link" href="/2018/08/19/angularjs复杂业务系统的代码架构探索/">AngularJS复杂业务系统的代码架构探索</a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <span class="post-time">
-          2018-08-19
-        </span>
-        
-          <span class="post-category">
-            
-              <a href="/categories/angularjs/">angularjs</a>
-            
-          </span>
-        
-        
-        <span class="post-visits"
-             data-url="/2018/08/19/angularjs复杂业务系统的代码架构探索/"
-             data-title="AngularJS复杂业务系统的代码架构探索">
-          阅读次数 0
-        </span>
-        
-      </div>
-    </header>
-
-    
-    
-
-
-    <div class="post-content">
-      
-        
-        
-          
-        
-
-        
-          <h2 id="模型系统的前世-–-“模糊系统”"><a href="#模型系统的前世-–-“模糊系统”" class="headerlink" title="模型系统的前世 – “模糊系统”"></a>模型系统的前世 – “模糊系统”</h2><h3 id="开发阶段-controller里面的代码"><a href="#开发阶段-controller里面的代码" class="headerlink" title="开发阶段: controller里面的代码"></a>开发阶段: controller里面的代码</h3><ul>
-<li>初始化视图模型, 视图展示元素的文字及显示影藏等等属性(ng-show/ng-if)</li>
-<li>定义事件响应函数, 处理UI交互逻辑(ng-click/ng-change)</li>
-<li>定义scope中, 指令需要的配置参数</li>
-<li>指令和controller的作用域的数据传递</li>
-<li>作用域内部属性变动的监听</li>
-<li>作用域之间的数据通信</li>
-<li>业务逻辑</li></ul>
-          <div class="read-more">
-            <a href="/2018/08/19/angularjs复杂业务系统的代码架构探索/" class="read-more-link">阅读更多</a>
           </div>
         
       

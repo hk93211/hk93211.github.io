@@ -244,6 +244,68 @@
     <header class="post-header">
       <h1 class="post-title">
         
+          <a class="post-link" href="/2017/08/17/ES7/">async和await</a>
+        
+      </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2017-08-17
+        </span>
+        
+          <span class="post-category">
+            
+              <a href="/categories/ES7/">ES7</a>
+            
+          </span>
+        
+        
+        <span class="post-visits"
+             data-url="/2017/08/17/ES7/"
+             data-title="async和await">
+          阅读次数 0
+        </span>
+        
+      </div>
+    </header>
+
+    
+    
+
+
+    <div class="post-content">
+      
+        
+        
+          
+        
+
+        
+          <h1 id="async和await在干什么"><a href="#async和await在干什么" class="headerlink" title="async和await在干什么"></a>async和await在干什么</h1><p>任意一个名称都是有意义的，先从字面意思来理解。async 是“异步”的简写，而 await 可以认为是 async wait 的简写。所以应该很好理解 async 用于申明一个 function 是异步的，而 await 用于等待一个异步方法执行完成。</p>
+<p>另外还有一个很有意思的语法规定，await 只能出现在 async 函数中。然后细心的朋友会产生一个疑问，如果 await 只能出现在 async 函数中，那这个 async 函数应该怎么调用？</p>
+<p>如果需要通过 await 来调用一个 async 函数，那这个调用的外面必须得再包一个 async 函数，然后……进入死循环，永无出头之日……</p>
+<p>如果 async 函数不需要 await 来调用，那 async 到底起个啥作用？</p>
+<h1 id="async起什么作用"><a href="#async起什么作用" class="headerlink" title="async起什么作用"></a>async起什么作用</h1><p>这个问题的关键在于，async 函数是怎么处理它的返回值的！</p>
+<p>我们当然希望它能直接通过 <code>return</code> 语句返回我们想要的值，但是如果真是这样，似乎就没 await 什么事了。所以，写段代码来试试，看它到底会返回什么：</p>
+          <div class="read-more">
+            <a href="/2017/08/17/ES7/" class="read-more-link">阅读更多</a>
+          </div>
+        
+      
+    </div>
+
+    
+
+    
+
+  </article>
+
+      
+        
+  <article class="post">
+    <header class="post-header">
+      <h1 class="post-title">
+        
           <a class="post-link" href="/2017/05/27/cookie、localStorage、sessionStorage/">cookie、localStorage、sessionStorage区别</a>
         
       </h1>
@@ -465,83 +527,6 @@
 <li>01/svg.html</li>
 </ul>
 
-        
-      
-    </div>
-
-    
-
-    
-
-  </article>
-
-      
-        
-  <article class="post">
-    <header class="post-header">
-      <h1 class="post-title">
-        
-          <a class="post-link" href="/2017/03/22/H5/">H5规范</a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <span class="post-time">
-          2017-03-22
-        </span>
-        
-          <span class="post-category">
-            
-              <a href="/categories/H5/">H5</a>
-            
-          </span>
-        
-        
-        <span class="post-visits"
-             data-url="/2017/03/22/H5/"
-             data-title="H5规范">
-          阅读次数 0
-        </span>
-        
-      </div>
-    </header>
-
-    
-    
-
-
-    <div class="post-content">
-      
-        
-        
-          
-        
-
-        
-          <h2 id="一-新的DOCTYPE和字符集"><a href="#一-新的DOCTYPE和字符集" class="headerlink" title="一.新的DOCTYPE和字符集"></a>一.新的DOCTYPE和字符集</h2><p>H5: &lt;!DOCTYPE HTML&gt;<br>H4: &lt;!DOCTYPE html PUBLIC “-//W3C//DTD HTML 4.01//EN”<br>“<a href="http://www.w3.org/TR/html4/strict.dtd&quot;&gt;" target="_blank" rel="noopener">http://www.w3.org/TR/html4/strict.dtd&quot;&gt;</a>
-　　</p>
-<h2 id="二-新增语义化标签"><a href="#二-新增语义化标签" class="headerlink" title="二.新增语义化标签"></a>二.新增语义化标签</h2><p><strong>语义化的简单理解</strong></p>
-<ul>
-<li>用正确的标签做正确的事情</li>
-<li>让页面的内容结构化,便于对浏览器,搜索引擎解析</li>
-<li>在没有CSS情况下也以一种文档格式显示,并且容易阅读</li>
-<li>使阅读源代码的人更易理解网站分块,便于维护理解</li>
-<li>利于SEO</li>
-</ul>
-<p><strong>新增的标签</strong></p>
-<ul>
-<li>1.header: 表示页眉</li>
-<li>2.footer: 表示页脚</li>
-<li>3.hgroup: 表示标题,里面放几个h1-h6元素</li>
-<li>4.nav: 导航栏</li>
-<li>5.aside: 主要内容的附属信息(侧边栏)</li>
-<li>6.section: 节 或者 段</li>
-<li>7.article: 表示在文档中,页面或网站中自成一体的内容</li>
-<li>8.address: 表示区块容器,必须作为联系信息出现</li>
-</ul>
-          <div class="read-more">
-            <a href="/2017/03/22/H5/" class="read-more-link">阅读更多</a>
-          </div>
         
       
     </div>
