@@ -358,65 +358,6 @@
     <header class="post-header">
       <h1 class="post-title">
         
-          <a class="post-link" href="/2018/12/20/Gulp的Stream/">Gulp的Stream</a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <span class="post-time">
-          2018-12-20
-        </span>
-        
-          <span class="post-category">
-            
-              <a href="/categories/gulp/">gulp</a>
-            
-          </span>
-        
-        
-        <span class="post-visits"
-             data-url="/2018/12/20/Gulp的Stream/"
-             data-title="Gulp的Stream">
-          阅读次数 0
-        </span>
-        
-      </div>
-    </header>
-
-    
-    
-
-
-    <div class="post-content">
-      
-        
-        
-          
-        
-
-        
-          <h1 id="Stream"><a href="#Stream" class="headerlink" title="Stream"></a>Stream</h1><p>你可能也在最初开始使用Gulp的时候就听说过：Gulp是一个有关<strong>Stream（数据流）</strong>的构建系统。这句话的意思是，<strong>Gulp本身使用了Node的Stream</strong>。</p>
-<p>Stream如其名字所示的“流”那样，就像是工厂的流水线。你要加工一个产品，不用全部在一个位置完成，而是可以拆分成多道工序。产品从第一道工序开始，第一道工序完成后，输出然后流入第二道工序，然后再第三道工序…一方面，大批量的产品需求也不用等到全部完工（这通常很久），而是可以完工一个就拿到一个。另一方面，复杂的加工过程被分割成一系列独立的工序，这些工序可以反复使用，还可以在需要的时候进行替换和重组。这就是Stream的理念。</p>
-<p>Stream在Node中的应用十分广泛，几乎所有Node程序都在某种程度上用到了Stream。</p>
-          <div class="read-more">
-            <a href="/2018/12/20/Gulp的Stream/" class="read-more-link">阅读更多</a>
-          </div>
-        
-      
-    </div>
-
-    
-
-    
-
-  </article>
-
-      
-        
-  <article class="post">
-    <header class="post-header">
-      <h1 class="post-title">
-        
           <a class="post-link" href="/2018/12/17/javascript回流和重绘/">javascript回流和重绘</a>
         
       </h1>
@@ -543,6 +484,63 @@
           <h3 id="process-进程"><a href="#process-进程" class="headerlink" title="process: 进程"></a>process: 进程</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">process.cwd(); // 返回进程的当前工作目录</span><br><span class="line">process.env; // 返回用户的环境信息</span><br><span class="line">process.execPath; // 返回启动进程的可执行文件的绝对路径(node的路径)</span><br><span class="line">process.argv; // 返回进程启动时的命令行参数。 第一个元素是 process.execPath。 使用 process.argv0 可以获取 argv[0] 原始的值。 第二个元素是当前执行的 JavaScript 文件的路径。 剩余的元素都是额外的命令行参数。</span><br></pre></td></tr></table></figure>
 <h3 id="path-路径"><a href="#path-路径" class="headerlink" title="path: 路径"></a>path: 路径</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">path.resolve(); // 将路径或路径片段处理成绝对路径, 从右到左依次处理，直到构造出绝对路径, 其处理方式类似于对这些路径逐一进行cd操作，与cd操作不同的是，这引起路径可以是文件，并且可不必实际存在（resolve()方法不会利用底层的文件系统判断路径是否存在，而只是进行路径字符串操作）</span><br><span class="line">path.join(); // 连接任意多个路径字符串。要连接的多个路径可做为参数传入</span><br><span class="line"></span><br><span class="line">对比__dirname:</span><br><span class="line">__dirname; // 是被执行的js 文件的地址</span><br></pre></td></tr></table></figure>
 
+        
+      
+    </div>
+
+    
+
+    
+
+  </article>
+
+      
+        
+  <article class="post">
+    <header class="post-header">
+      <h1 class="post-title">
+        
+          <a class="post-link" href="/2018/11/28/this/">this</a>
+        
+      </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2018-11-28
+        </span>
+        
+          <span class="post-category">
+            
+              <a href="/categories/javascript/">javascript</a>
+            
+          </span>
+        
+        
+        <span class="post-visits"
+             data-url="/2018/11/28/this/"
+             data-title="this">
+          阅读次数 0
+        </span>
+        
+      </div>
+    </header>
+
+    
+    
+
+
+    <div class="post-content">
+      
+        
+        
+          
+        
+
+        
+          <h3 id="一-全局执行"><a href="#一-全局执行" class="headerlink" title="一. 全局执行"></a>一. 全局执行</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(<span class="keyword">this</span>); <span class="comment">// Window</span></span><br></pre></td></tr></table></figure>
+          <div class="read-more">
+            <a href="/2018/11/28/this/" class="read-more-link">阅读更多</a>
+          </div>
         
       
     </div>
