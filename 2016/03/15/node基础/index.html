@@ -1,28 +1,355 @@
 <!DOCTYPE html>
+
 <html lang="zh-Hans">
-  <head>
+    <head>
+    <meta charset="utf-8">
+    <!--
+        © SukkaW
+        GitHub: https://github.com/SukkaW/hexo-theme-suka
+        Version: 1.3.2
+    -->
+    <script>
+window.lsVersion = "1.3.2",
+window.oldVersion = [
     
-<meta charset="UTF-8"/>
-<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+        
+            "0.2.0","0.0.1","0.1.0","1.0.0","1.0.1","1.1.0","1.1.1","1.2.0","1.3.0"
+        
+    
+]
+</script>
+
+    <!-- ### DNS Prefetch ### -->
+    <meta http-equiv="x-dns-prefetch-control" content="on">
+<!-- busuanzi -->
+
+    <link rel="dns-prefetch" href="//busuanzi.ibruce.info">
 
 
+<!-- comment -->
+
+
+
+
+
+
+
+<!-- analytics -->
+
+
+
+
+
+
+
+
+    <!-- ### Preload ### -->
+    
+    <!-- Busuanzi -->
+    
+    <link rel="preload" href="https://cdn.jsdelivr.net/npm/busuanzi@2.3.0/bsz.pure.mini.js" as="script">
+
+
+
+
+
+
+
+    <!-- ### Meta & Title & Info ### -->
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge, chrome=1">
+<meta name="renderer" content="webkit">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+
+<!-- Title -->
+<title>node基础 | HK&#39;s blog</title>
+
+<!-- favicon -->
+<!-- Favicons -->
+
+    <link rel="shortcut icon" type="image/ico" href="/img/suka-favicon.ico">
+
+
+
+
+
+
+<!-- Android Chrome Color -->
+
+
+
+<meta name="format-detection" content="telephone=no">
+
+<!-- Description -->
+<meta name="description" content="Node服务器端开发第一天
+Node简介及配置、快速上手、核心特点、模块化
+
+Node简介客户端的JavaScript是怎样的
+什么是 JavaScript？
+
+脚本语言
+运行在浏览器中
+一般用来做客户端页面的交互（Interactive）
+
+
+JavaScript 的运行环境？
+
+是不是运行在浏览器呢？
+不够严谨
+运行在浏览器内核中的 JS 引擎（engine）
+
+
+浏览器中的 JavaScript 可以做什么？
+
+操作DOM（对DOM的增删改、注册事件）
+AJAX/跨域
+BOM（页面跳转、历史记录、console.log()、alert()）
+ECMAScript
+
+
+浏览器中的 JavaScript 不可以做什么？
+
+文件操作（文件和文件夹的CRUD）
+没有办法操作系统信息
+由于运行环境特殊（我们写的代码是在不认识的人的浏览器中运行）
+
+
+在开发人员能力相同的情况下编程语言的能力取决于什么？
+
+-语言本身？-
+语言本身只是提供定义变量，定义函数，定义类型，流程控制，循环结构之类的操作
+取决于运行该语言的平台（环境）
+对于JS来说，我们常说的JS实际是ES，大部分能力都是由浏览器的执行引擎决定
+BOM和DOM可以说是浏览器开放出来的接口
+比如：Cordova中提供JS调用摄像头，操作本地文件的API
+
+Java既是语言也是平台
+
+Java运行在Java虚拟机（跨操作系统）
+PHP既是语言也是平台（跨操作系统）
+
+C#语言平台：.NET Framework（Windows）
+
+C#可以运行在MONO这样的平台
+因为有人需要将C#运行在Linux平台，所有出现了MONO
+
+
+
+
+JavaScript 只可以运行在浏览器中吗？
+不是
+能运行在哪取决于，这个环境有没有特定平台
+
+
+">
+
+<!-- Keywords -->
+<meta name="keywords" content=", nodejs">
+
+<!-- Disable Fucking Bloody Baidu Tranformation -->
 <meta http-equiv="Cache-Control" content="no-transform" />
 <meta http-equiv="Cache-Control" content="no-siteapp" />
 
-<meta name="theme-color" content="#f8f5ec" />
-<meta name="msapplication-navbutton-color" content="#f8f5ec">
+    <!-- ### Import File ### -->
+    
+        <!-- spectre.css -->
+
+    <link rel="stylesheet" href="/lib/spectre/spectre.min.css">
+
+
+<style>
+    body {
+        background-color: #f8f9fa;
+    }
+
+    a, a:visited {
+        color: #0070ff;
+    }
+
+    a:active, a:focus, a:hover {
+        color: #0070ff;
+        opacity: .75;
+    }
+
+    #post-content a,
+    #post-content a:hover,
+    #post-content a:focus,
+    #post-content a:visited {
+        color: #005eb9;
+        opacity: 1;
+    }
+
+    .post-entry .card-body a {
+        color: #0070ff;
+    }
+
+    .avatar {
+        background: #444;
+    }
+
+    .navbar-link,
+    .navbar-link:visited,
+    .timeline .timeline-item .timeline-icon.icon-lg {
+        color: #0070ff;
+    }
+
+    .navbar-link:hover {
+        color: #0070ff;
+        opacity: .8;
+    }
+
+    #search-input .btn,
+    #disqus_click_btn,
+    #disqus-switch-to-direct,
+    #disqus-loadmore-button {
+        background: #727e96;
+        border-color: #727e96;
+        color: #fff;
+    }
+
+    #post-toc a.post-toc-link,
+    #post-toc a.post-toc-link:visited,
+    .share-menu.menu .menu-item>a {
+        color: #727e96;
+    }
+
+    .share-menu.menu .menu-item>a:hover,
+    .share-menu.menu .menu-item>a:focus,
+    .share-menu.menu .menu-item>a:visited {
+        color: #50596c;
+        background: #f8f9fa;
+        opacity: .85;
+    }
+</style>
+
+<!-- style.css -->
+
+    <link rel="stylesheet" href="/css/style.min.css">
+
+
+
+
+
+
+
+
+
+    <!-- Prettify Theme -->
+    
+    
+        <link rel="stylesheet" href="/css/highlight/github.min.css">
+    
+
+
+
+    
+
+    <!-- ### Site Verification ### -->
+    
+
+
+    <!-- ### RSS ### -->
+    
+
+    <!-- ### WebApp ### -->
+    <meta name="mobile-web-app-capable" content="yes">
+<meta name="application-name" content="HK&#39;s blog">
+<meta name="msapplication-starturl" content="http://yoursite.com">
+
 <meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+<meta name="apple-mobile-web-app-title" content="HK&#39;s blog">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+<!-- Manifest Import -->
+
+<!-- Open Search -->
+
+
+    <!-- ### The Open Graph & Twitter Card Protocol ### -->
+    <meta property="og:title" content="node基础 | HK&#39;s blog">
+<meta property="og:site_name" content="HK&#39;s blog">
+
+<meta property="og:locale" content="zh-Hans">
+
+<meta property="og:url" content="http://yoursite.com/2016/03/15/node基础/">
+<meta property="og:image" content="http://yoursite.com/img/suka-favicon.ico">
+
+<meta property="og:description" content="Node服务器端开发第一天
+Node简介及配置、快速上手、核心特点、模块化
+
+Node简介客户端的JavaScript是怎样的
+什么是 JavaScript？
+
+脚本语言
+运行在浏览器中
+一般用来做客户端页面的交互（Interactive）
+
+
+JavaScript 的运行环境？
+
+是不是运行在浏览器呢？
+不够严谨
+运行在浏览器内核中的 JS 引擎（engine）
+
+
+浏览器中的 JavaScript 可以做什么？
+
+操作DOM（对DOM的增删改、注册事件）
+AJAX/跨域
+BOM（页面跳转、历史记录、console.log()、alert()）
+ECMAScript
+
+
+浏览器中的 JavaScript 不可以做什么？
+
+文件操作（文件和文件夹的CRUD）
+没有办法操作系统信息
+由于运行环境特殊（我们写的代码是在不认识的人的浏览器中运行）
+
+
+在开发人员能力相同的情况下编程语言的能力取决于什么？
+
+-语言本身？-
+语言本身只是提供定义变量，定义函数，定义类型，流程控制，循环结构之类的操作
+取决于运行该语言的平台（环境）
+对于JS来说，我们常说的JS实际是ES，大部分能力都是由浏览器的执行引擎决定
+BOM和DOM可以说是浏览器开放出来的接口
+比如：Cordova中提供JS调用摄像头，操作本地文件的API
+
+Java既是语言也是平台
+
+Java运行在Java虚拟机（跨操作系统）
+PHP既是语言也是平台（跨操作系统）
+
+C#语言平台：.NET Framework（Windows）
+
+C#可以运行在MONO这样的平台
+因为有人需要将C#运行在Linux平台，所有出现了MONO
 
 
 
-  <meta name="description" content="node基础"/>
+
+JavaScript 只可以运行在浏览器中吗？
+不是
+能运行在哪取决于，这个环境有没有特定平台
+
+
+">
+
+<meta name="twitter:card" content="summary">
+
+
+    <meta property="og:type" content="article">
+    <meta property="article:published_time" content="2016-03-15T06:33:42.000Z">
+    <meta property="article:modified_time" content="2016-03-15T06:33:42.000Z">
+    <meta property="article:author" content="hk">
+    <meta property="og:article:tag" content=", nodejs"> 
 
 
 
 
-  <meta name="keywords" content="nodejs, HK's blog" />
+
+    <!-- ### Analytics ### -->
+    
 
 
 
@@ -31,256 +358,339 @@
 
 
 
+    <!-- ### Canonical link ### -->
+    <link rel="canonical" href="http://yoursite.com/2016/03/15/node基础/">
 
-
-  <link rel="alternate" href="/default" title="HK's blog">
-
-
-
-
-  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=2.10.1" />
+    <!-- ### Structured Data ### -->
+    
 
 
 
-<link rel="canonical" href="http://yoursite.com/2016/03/15/node基础/"/>
+<script type="application/ld+json">
+{
+    "@context": "http://schema.org",
+    "url": "http://yoursite.com/2016/03/15/node基础/",
+    "@type": "BlogPosting",
+    "logo": "http://yoursite.com/img/suka-favicon.ico",
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "http://yoursite.com/2016/03/15/node基础/"
+    },
+    "headline": "node基础 | HK&#39;s blog",
+    
+    "image": {
+        "@type": "ImageObject",
+        "url": "http://yoursite.com/img/suka-favicon.ico"
+    },
+    
+    "datePublished": "2016-03-15T06:33:42.000Z",
+    "dateModified": "2019-01-16T13:28:55.801Z",
+    "author": {
+        "@type": "Person",
+        "name": "hk",
+        "image": {
+            "@type": "ImageObject",
+            "url": "http://yoursite.com/img/default_avatar.png"
+        },
+        "description": "Hi, nice to meet you."
+    },
+    "publisher": {
+        "@type": "Organization",
+        "name": "HK&#39;s blog",
+        "logo": {
+            "@type": "ImageObject",
+            "url": "http://yoursite.com/img/suka-favicon.ico"
+        }
+    },
+    
+    "potentialAction": {
+        "@type": "SearchAction",
+        "target": "http://yoursite.com/search?s={search_term_string}",
+        "query-input": "required name=search_term_string"
+    },
+    
+    "keywords": ", nodejs",
+    "description": "Node服务器端开发第一天
+Node简介及配置、快速上手、核心特点、模块化
+
+Node简介客户端的JavaScript是怎样的
+什么是 JavaScript？
+
+脚本语言
+运行在浏览器中
+一般用来做客户端页面的交互（Interactive）
+
+
+JavaScript 的运行环境？
+
+是不是运行在浏览器呢？
+不够严谨
+运行在浏览器内核中的 JS 引擎（engine）
+
+
+浏览器中的 JavaScript 可以做什么？
+
+操作DOM（对DOM的增删改、注册事件）
+AJAX/跨域
+BOM（页面跳转、历史记录、console.log()、alert()）
+ECMAScript
+
+
+浏览器中的 JavaScript 不可以做什么？
+
+文件操作（文件和文件夹的CRUD）
+没有办法操作系统信息
+由于运行环境特殊（我们写的代码是在不认识的人的浏览器中运行）
+
+
+在开发人员能力相同的情况下编程语言的能力取决于什么？
+
+-语言本身？-
+语言本身只是提供定义变量，定义函数，定义类型，流程控制，循环结构之类的操作
+取决于运行该语言的平台（环境）
+对于JS来说，我们常说的JS实际是ES，大部分能力都是由浏览器的执行引擎决定
+BOM和DOM可以说是浏览器开放出来的接口
+比如：Cordova中提供JS调用摄像头，操作本地文件的API
+
+Java既是语言也是平台
+
+Java运行在Java虚拟机（跨操作系统）
+PHP既是语言也是平台（跨操作系统）
+
+C#语言平台：.NET Framework（Windows）
+
+C#可以运行在MONO这样的平台
+因为有人需要将C#运行在Linux平台，所有出现了MONO
 
 
 
-  <link rel="stylesheet" type="text/css" href="/lib/fancybox/jquery.fancybox.css" />
+
+JavaScript 只可以运行在浏览器中吗？
+不是
+能运行在哪取决于，这个环境有没有特定平台
 
 
-
-
-  <link rel="stylesheet" type="text/css" href="/lib/nprogress/nprogress.min.css" />
-
-
-
-<link rel="stylesheet" type="text/css" href="/css/style.css?v=2.10.1" />
-
-
-
-  
-  <script id="baidu_analytics">
-    var _hmt = _hmt || [];
-    (function() {
-      var hm = document.createElement("script");
-      hm.src = "https://hm.baidu.com/hm.js?4f4a7591de227ae33b921d81486205f1";
-      var s = document.getElementsByTagName("script")[0];
-      s.parentNode.insertBefore(hm, s);
-    })();
-  </script>
-
-
-
-
-  <script id="baidu_push">
-(function(){
-    var bp = document.createElement('script');
-    var curProtocol = window.location.protocol.split(':')[0];
-    if (curProtocol === 'https') {
-        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
-    }
-    else {
-        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
-    }
-    var s = document.getElementsByTagName("script")[0];
-    s.parentNode.insertBefore(bp, s);
-})();
+"
+}
 </script>
 
 
 
-
-
-  <script src="//cdn1.lncld.net/static/js/3.1.1/av-min.js"></script>
-  <script id="leancloud">
-    AV.init({
-      appId: "x8DnYYQw5Dl9oBmsrh29KacR-gzGzoHsz",
-      appKey: "skGJTxdFoENHDdh68uEjPpbS"
-    });
-  </script>
-
-
-
-
-
-<script>
-  window.config = {"leancloud":{"app_id":"x8DnYYQw5Dl9oBmsrh29KacR-gzGzoHsz","app_key":"skGJTxdFoENHDdh68uEjPpbS"},"toc":true,"fancybox":true,"pjax":true};
-</script>
-
-    <title> node基础 - HK's blog </title>
-  </head>
-
-  <body><div id="mobile-navbar" class="mobile-navbar">
-  <div class="mobile-header-logo">
-    <a href="/." class="logo">HK's blog</a>
-  </div>
-  <div class="mobile-navbar-icon">
-    <span></span>
-    <span></span>
-    <span></span>
-  </div>
-</div>
-
-<nav id="mobile-menu" class="mobile-menu slideout-menu">
-  <ul class="mobile-menu-list">
+    <!-- ### Custom Head ### -->
     
-      <a href="/">
-        <li class="mobile-menu-item">
-          
-          
-            首页
-          
-        </li>
-      </a>
-    
-      <a href="/archives/">
-        <li class="mobile-menu-item">
-          
-          
-            归档
-          
-        </li>
-      </a>
-    
-      <a href="/tags">
-        <li class="mobile-menu-item">
-          
-          
-            标签
-          
-        </li>
-      </a>
-    
-      <a href="/categories">
-        <li class="mobile-menu-item">
-          
-          
-            分类
-          
-        </li>
-      </a>
-    
-      <a href="/about">
-        <li class="mobile-menu-item">
-          
-          
-            关于
-          
-        </li>
-      </a>
-    
-  </ul>
-</nav>
 
-    <div class="container" id="mobile-panel">
-      <header id="header" class="header"><div class="logo-wrapper">
-  <a href="/." class="logo">HK's blog</a>
-</div>
 
-<nav class="site-navbar">
-  
-    <ul id="menu" class="menu">
-      
+</head>
+
+    <body>
+        
+
+            
+
+            <!-- ### Main content ### -->
+            <!-- ## Header ##-->
+<header>
+    <h1 class="header-title text-center"><a href="/">HK&#39;s blog</a></h1>
+
+    <p class="text-center header-slogan">
+        
+            
+                Hi, nice to meet you.
+            
+        
+    </p>
+
+    <nav class="navbar-section text-center">
+    
+        <a href="/" class="navbar-link">Home</a>
+    
+    
+        <a href="/archives/" class="navbar-link">Archives</a>
+    
+    
+        <a href="/search" class="navbar-link">Search</a>
+    
+    
+    
+        <div class="dropdown dropdown-right">
+    <a class="navbar-link dropdown-toggle" tabindex="0">Share</a>
+    <ul class="menu share-menu">
+
+        <!-- Share Weibo -->
+        
         <li class="menu-item">
-          <a class="menu-item-link" href="/">
-            
-            
-              首页
-            
-          </a>
+            <a href="http://service.weibo.com/share/share.php?appkey=&title=HK's blog&url=http://yoursite.com&pic=http://yoursite.com/img/suka-favicon.ico&searchPic=false&style=simple" target="_blank" rel="noopener noreferrer nofollow">Share to Weibo</a>
         </li>
-      
+        
+
+        <!-- Share Twitter -->
+        
         <li class="menu-item">
-          <a class="menu-item-link" href="/archives/">
-            
-            
-              归档
-            
-          </a>
+            <a href="https://twitter.com/intent/tweet?text=HK's blog&url=http://yoursite.com&via=hk" target="_blank" rel="noopener noreferrer nofollow">Share to Twitter</a>
         </li>
-      
+        
+
+        <!-- Share Facebook -->
+        
         <li class="menu-item">
-          <a class="menu-item-link" href="/tags">
-            
-            
-              标签
-            
-          </a>
+            <a href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com" target="_blank" rel="noopener noreferrer nofollow">Share to Facebook</a>
         </li>
-      
+        
+
+        <!-- Share Google+ -->
+        
         <li class="menu-item">
-          <a class="menu-item-link" href="/categories">
-            
-            
-              分类
-            
-          </a>
+            <a href="https://plus.google.com/share?url=http://yoursite.com" target="_blank" rel="noopener noreferrer nofollow">Share to Google+</a>
         </li>
-      
+        
+
+        <!-- Share LinkedIn -->
+        
         <li class="menu-item">
-          <a class="menu-item-link" href="/about">
-            
-            
-              关于
-            
-          </a>
+            <a href="https://www.linkedin.com/shareArticle?mini=true&url=http://yoursite.com&title=node基础" target="_blank" rel="noopener noreferrer nofollow">Share to LinkedIn</a>
         </li>
-      
+        
+
+        <!-- Share QQ -->
+        
+        <li class="menu-item">
+            <a href="http://connect.qq.com/widget/shareqq/index.html?site=HK's blog&title=node基础&summary=不会搞艺术的程序员不是好设计师&pics=http://yoursite.com/img/suka-favicon.ico&url=http://yoursite.com" target="_blank" rel="noopener noreferrer nofollow"> Share to QQ</a>
+        </li>
+        
+
+        <!-- Share Telegram -->
+        
+        <li class="menu-item">
+            <a href="https://t.me/share/url?url=http://yoursite.com&text=node基础" target="_blank" rel="noopener noreferrer nofollow">Share to Telegram</a>
+        </li>
+        
+
+        <!-- QRCode -->
+        
+        <li class="menu-item">
+            <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAIQAAACECAAAAAB0L9x7AAABhklEQVR42u3ayw7CMAxE0f7/T8MKqUS1PS5VGEu3GxaFcBZW4keOl8FzgAABYgTiSJ7P+68fXnzn/E5dF4Q34jJoTogVtL5b/1xZF4Q/IgvIDLQGYmtdECMRSvB1ghfEfISykWUHH4i5iPSgKZKYLHgfOUVBbEeoAdb9fDzbBrEFURatQdBFh1e2yd2uykFsRWSLZclshagSZRDeCDWRvQq6aIOTGikgbBFKkCqYKOGJNjIQngi1+RElL92kN0xqQFgh1MW6m1mV7IDwRVSFjDJ8yYqcsOEKwh4RfblqlnQSHBAzEGqzXDnQ1MMLhDdCKVykxLWR0ICYg1A3oKxwypr0IPwRaiFbBWu1saWJLggrRDY46zTMqsEuiFmI6kJOtQF1L/6B8EdUg7gqke1cIr09nAWxDdG9KKwEsnK4gfBGKE1VtYmeDd7kzAqEBULddLICqdtkBTEToSx4Z2gLYj5CbbArBRWIGYhugdwZyP6c1IDYjngi0VUHNiD8Ef98QIAAYY14AzQWyWk0NrPwAAAAAElFTkSuQmCC" alr="QRCode">
+        </li>
+        
+
     </ul>
-  
+</div>
+    
+    
 </nav>
+</header>
 
-      </header>
-
-      <main id="main" class="main">
-        <div class="content-wrapper">
-          <div id="content" class="content">
             
-  
-  <article class="post">
-    <header class="post-header">
-      <h1 class="post-title">
-        
-          node基础
-        
-      </h1>
-
-      <div class="post-meta">
-        <span class="post-time">
-          2016-03-15
-        </span>
-        
-          <span class="post-category">
-            
-              <a href="/categories/nodejs/">nodejs</a>
-            
-          </span>
-        
-        
-        <span class="post-visits"
-             data-url="/2016/03/15/node基础/"
-             data-title="node基础">
-          阅读次数 0
-        </span>
-        
-      </div>
-    </header>
-
+    <!-- ## Post ## -->
     
     
-  <div class="post-toc" id="post-toc">
-    <h2 class="post-toc-title">文章目录</h2>
-    <div class="post-toc-content">
-      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Node服务器端开发第一天"><span class="toc-text">Node服务器端开发第一天</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Node简介"><span class="toc-text">Node简介</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#客户端的JavaScript是怎样的"><span class="toc-text">客户端的JavaScript是怎样的</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#什么是Node"><span class="toc-text">什么是Node</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#为什么是JavaScript"><span class="toc-text">为什么是JavaScript</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Node的实现结构"><span class="toc-text">Node的实现结构</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Node在当下Web开发领域的应用"><span class="toc-text">Node在当下Web开发领域的应用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#哪些公司在用"><span class="toc-text">哪些公司在用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#重点理解"><span class="toc-text">重点理解</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#环境配置"><span class="toc-text">环境配置</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#安装包的方式安装"><span class="toc-text">安装包的方式安装</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#更新版本"><span class="toc-text">更新版本</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#NVM工具的使用"><span class="toc-text">NVM工具的使用</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#安装操作步骤"><span class="toc-text">安装操作步骤</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#配置Python环境"><span class="toc-text">配置Python环境</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#环境变量的概念"><span class="toc-text">环境变量的概念</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Windows下常用的命令行操作"><span class="toc-text">Windows下常用的命令行操作</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#快速上手"><span class="toc-text">快速上手</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#事件驱动和非阻塞"><span class="toc-text">事件驱动和非阻塞</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#模块化开发"><span class="toc-text">模块化开发</span></a></li></ol></li></ol>
+
+
+<div class="post-container">
+    <div id="post-card" class="card">
+        
+        <div class="card-item-container">
+            <div class="card-inner-cell">
+                <!-- # Post Header Info # -->
+                <div class="card-header">
+                    
+    <h1 class="card-title h3 mb-2">node基础</h1>
+
+<div class="post-header-info">
+    <p class="post-header-info-left text-gray">
+        <img class="author-thumb lazyload" data-src="/img/default_avatar.png" alt="hk's Avatar">
+        <span>2016-03-15</span>
+        
+            <span class="suka-devide-dot"></span>
+            <a class="category-link" href="/categories/nodejs/">nodejs</a>
+        
+        
+            <!-- Busuanzi Post Views -->
+<span id="busuanzi_container_page_pv" hidden>
+    <span class="suka-devide-dot"></span>
+    <span></span>
+    <span id="busuanzi_value_page_pv"></span>
+    <span>Views</span>
+</span>
+        
+        
+    </p>
+    <div class="post-header-info-right">
+        
+            <div class="dropdown dropdown-right">
+<a class="dropdown-toggle" tabindex="0">Share the post</a>
+<ul class="menu share-menu">
+    <!-- Share Weibo -->
+    
+    <li class="menu-item">
+        <a href="http://service.weibo.com/share/share.php?appkey=&title=node基础&url=http://yoursite.com/2016/03/15/node基础/&pic=http://yoursite.com/img/suka-favicon.ico&searchPic=false&style=simple" target="_blank" rel="noopener noreferrer nofollow">Share to Weibo</a>
+    </li>
+    
+
+    <!-- Share Twitter -->
+    
+    <li class="menu-item">
+        <a href="https://twitter.com/intent/tweet?text=node基础&url=http://yoursite.com/2016/03/15/node基础/&via=hk" target="_blank" rel="noopener noreferrer nofollow">Share to Twitter</a>
+    </li>
+    
+
+    <!-- Share Facebook -->
+    
+    <li class="menu-item">
+        <a href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2016/03/15/node基础/" target="_blank" rel="noopener noreferrer nofollow">Share to Facebook</a>
+    </li>
+    
+
+    <!-- Share Google+ -->
+    
+    <li class="menu-item">
+        <a href="https://plus.google.com/share?url=http://yoursite.com/2016/03/15/node基础/" target="_blank" rel="noopener noreferrer nofollow">Share to Google+</a>
+    </li>
+    
+
+    <!-- Share LinkedIn -->
+    
+    <li class="menu-item">
+        <a href="https://www.linkedin.com/shareArticle?mini=true&url=http://yoursite.com/2016/03/15/node基础/&title=HK's blog" target="_blank" rel="noopener noreferrer nofollow">Share to LinkedIn</a>
+    </li>
+    
+
+    <!-- Share QQ -->
+    
+    <li class="menu-item">
+        <a href="http://connect.qq.com/widget/shareqq/index.html?site=HK's blog&title=HK's blog&summary=不会搞艺术的程序员不是好设计师&pics=http://yoursite.com/img/suka-favicon.ico&url=http://yoursite.com/2016/03/15/node基础/" target="_blank" rel="noopener noreferrer nofollow"> Share to QQ</a>
+    </li>
+    
+
+    <!-- Share Telegram -->
+    
+    <li class="menu-item">
+        <a href="https://t.me/share/url?url=http://yoursite.com/2016/03/15/node基础/&text=HK's blog" target="_blank" rel="noopener noreferrer nofollow">Share to Telegram</a>
+    </li>
+    
+
+    <!-- QRCode -->
+    
+    <li class="menu-item">
+        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAIQAAACECAAAAAB0L9x7AAABhklEQVR42u3ayw7CMAxE0f7/T8MKqUS1PS5VGEu3GxaFcBZW4keOl8FzgAABYgTiSJ7P+68fXnzn/E5dF4Q34jJoTogVtL5b/1xZF4Q/IgvIDLQGYmtdECMRSvB1ghfEfISykWUHH4i5iPSgKZKYLHgfOUVBbEeoAdb9fDzbBrEFURatQdBFh1e2yd2uykFsRWSLZclshagSZRDeCDWRvQq6aIOTGikgbBFKkCqYKOGJNjIQngi1+RElL92kN0xqQFgh1MW6m1mV7IDwRVSFjDJ8yYqcsOEKwh4RfblqlnQSHBAzEGqzXDnQ1MMLhDdCKVykxLWR0ICYg1A3oKxwypr0IPwRaiFbBWu1saWJLggrRDY46zTMqsEuiFmI6kJOtQF1L/6B8EdUg7gqke1cIr09nAWxDdG9KKwEsnK4gfBGKE1VtYmeDd7kzAqEBULddLICqdtkBTEToSx4Z2gLYj5CbbArBRWIGYhugdwZyP6c1IDYjngi0VUHNiD8Ef98QIAAYY14AzQWyWk0NrPwAAAAAElFTkSuQmCC" alt="QRCode">
+    </li>
+    
+
+</ul>
+</div>
+        
     </div>
-  </div>
-
-
-
-    <div class="post-content">
-      
-        <h1 id="Node服务器端开发第一天"><a href="#Node服务器端开发第一天" class="headerlink" title="Node服务器端开发第一天"></a>Node服务器端开发第一天</h1><blockquote>
+</div>
+                </div>
+                <div class="card-body">
+                    
+                        
+                            <div id="post-toc">
+                                <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#Node服务器端开发第一天"><span class="post-toc-number">1.</span> <span class="post-toc-text">Node服务器端开发第一天</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Node简介"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">Node简介</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#客户端的JavaScript是怎样的"><span class="post-toc-number">1.1.1.</span> <span class="post-toc-text">客户端的JavaScript是怎样的</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#什么是Node"><span class="post-toc-number">1.1.2.</span> <span class="post-toc-text">什么是Node</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#为什么是JavaScript"><span class="post-toc-number">1.1.3.</span> <span class="post-toc-text">为什么是JavaScript</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Node的实现结构"><span class="post-toc-number">1.1.4.</span> <span class="post-toc-text">Node的实现结构</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Node在当下Web开发领域的应用"><span class="post-toc-number">1.1.5.</span> <span class="post-toc-text">Node在当下Web开发领域的应用</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#哪些公司在用"><span class="post-toc-number">1.1.6.</span> <span class="post-toc-text">哪些公司在用</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#重点理解"><span class="post-toc-number">1.1.7.</span> <span class="post-toc-text">重点理解</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#环境配置"><span class="post-toc-number">1.2.</span> <span class="post-toc-text">环境配置</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#安装包的方式安装"><span class="post-toc-number">1.2.1.</span> <span class="post-toc-text">安装包的方式安装</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#更新版本"><span class="post-toc-number">1.2.2.</span> <span class="post-toc-text">更新版本</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#NVM工具的使用"><span class="post-toc-number">1.2.3.</span> <span class="post-toc-text">NVM工具的使用</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#安装操作步骤"><span class="post-toc-number">1.2.3.1.</span> <span class="post-toc-text">安装操作步骤</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#配置Python环境"><span class="post-toc-number">1.2.4.</span> <span class="post-toc-text">配置Python环境</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#环境变量的概念"><span class="post-toc-number">1.2.5.</span> <span class="post-toc-text">环境变量的概念</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Windows下常用的命令行操作"><span class="post-toc-number">1.2.6.</span> <span class="post-toc-text">Windows下常用的命令行操作</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#快速上手"><span class="post-toc-number">1.3.</span> <span class="post-toc-text">快速上手</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#事件驱动和非阻塞"><span class="post-toc-number">1.4.</span> <span class="post-toc-text">事件驱动和非阻塞</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#模块化开发"><span class="post-toc-number">1.5.</span> <span class="post-toc-text">模块化开发</span></a></li></ol></li></ol>
+                            </div>
+                        
+                    
+                    <article id="post-content">
+                        <h1 id="Node服务器端开发第一天"><a href="#Node服务器端开发第一天" class="headerlink" title="Node服务器端开发第一天"></a>Node服务器端开发第一天</h1><blockquote>
 <p>Node简介及配置、快速上手、核心特点、模块化</p>
 </blockquote>
 <h2 id="Node简介"><a href="#Node简介" class="headerlink" title="Node简介"></a>Node简介</h2><h3 id="客户端的JavaScript是怎样的"><a href="#客户端的JavaScript是怎样的" class="headerlink" title="客户端的JavaScript是怎样的"></a>客户端的JavaScript是怎样的</h3><ul>
@@ -456,185 +866,174 @@
 <hr>
 <h2 id="事件驱动和非阻塞"><a href="#事件驱动和非阻塞" class="headerlink" title="事件驱动和非阻塞"></a>事件驱动和非阻塞</h2><hr>
 <h2 id="模块化开发"><a href="#模块化开发" class="headerlink" title="模块化开发"></a>模块化开发</h2>
-      
-    </div>
-
-    
-      
-      
+                    </article>
+                    
 
 
-
-      
-      
-    
-
-    
-      <footer class="post-footer">
-        
-          <div class="post-tags">
-            
-              <a href="/tags/nodejs/">nodejs</a>
-            
-          </div>
-        
-        
-        
-  <nav class="post-nav">
-    
-      <a class="prev" href="/2016/04/12/node.js 事件驱动编程理解/">
-        <i class="iconfont icon-left"></i>
-        <span class="prev-text nav-default">node.js 事件驱动编程理解</span>
-        <span class="prev-text nav-mobile">上一篇</span>
-      </a>
-    
-    
-      <a class="next" href="/2015/10/23/markdown语法/">
-        <span class="next-text nav-default">markdown语法学习</span>
-        <span class="prev-text nav-mobile">下一篇</span>
-        <i class="iconfont icon-right"></i>
-      </a>
-    
-  </nav>
+    <blockquote id="date-expire-notification" class="post-expired-notify">This article was last updated on <span id="date-expire-num"></span> days ago, and the information described in the article may have changed.</blockquote>
+    <script>
+        var dateUpdate = Date.parse("2019-01-16");
+        var nowDate = new Date();
+        var a = nowDate.getTime();
+        var b = a - dateUpdate;
+        var daysUpdateExpire = Math.floor(b/(24*3600*1000));
+        if (daysUpdateExpire >= 120) {
+            document.getElementById('date-expire-num').innerHTML = daysUpdateExpire;
+        } else {
+            document.getElementById('date-expire-notification').style.display = 'none';
+        }
+    </script>
 
 
-      </footer>
-    
+<p class="post-footer-info mb-0 pt-0">Published at&nbsp;<time datetime="2016-03-15T06:33:42.000Z" itemprop="datePublished">2016-03-15</time>
 
-  </article>
+    , Updated at&nbsp;<time datetime="2019-01-16T13:28:55.801Z" itemprop="dateModified">2019-01-16</time>
 
+</p>
+<p class="post-footer-info mb-0 pt-2">
 
-          </div>
-          
-  <div class="comments" id="comments">
-    
-  </div>
+<span class="post-categories-list mt-2">
 
 
-        </div>
-      </main>
+<a class="post-categories-list-item" href='/categories/nodejs/'>nodejs</a>
 
-      <footer id="footer" class="footer">
-
-  <div class="social-links">
-    
-      
-        
-          <a href="mailto:hk93211@gmail.com" class="iconfont icon-email" title="email"></a>
-        
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-        
-          <a href="https://github.com/hk93211" class="iconfont icon-github" title="github"></a>
-        
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-
-    
-      
-      <a href="/atom.xml" class="iconfont icon-rss" title="rss"></a>
-    
-  </div>
+</span>
 
 
 
-<div class="copyright">
-  <span class="power-by">
-    由 <a class="hexo-link" href="https://hexo.io/">Hexo</a> 强力驱动
-  </span>
-  <span class="division">|</span>
-  <span class="theme-info">
-    主题 - 
-    <a class="theme-link" href="https://github.com/ahonn/hexo-theme-even">Even</a>
-  </span>
+<span class="post-tags-list mt-2">
 
-  <span class="copyright-year">
-    
-    &copy; 
-     
-      2015 - 
-    
-    2019
 
-    <span class="heart">
-      <i class="iconfont icon-heart"></i>
-    </span>
-    <span class="author">hk</span>
-  </span>
+<a class="post-tags-list-item" href='/tags/nodejs/'>#&nbsp;nodejs</a>
+
+</span>
+
+
+</p>
+
+                </div>
+                
+<div class="post-nav px-2 bg-gray">
+<ul class="pagination">
+    <!-- Prev Nav -->
+    
+        <li class="page-item page-prev">
+            <a href="/2016/04/12/node.js 事件驱动编程理解/">
+                <div class="page-item-title"><i class="icon icon-back" aria-hidden="true"></i></div>
+                <div class="page-item-subtitle">node.js 事件驱动编程理解</div>
+            </a>
+        </li>
+    
+
+    <!-- Next Nav -->
+    
+        <li class="page-item page-next">
+            <a href="/2015/10/23/markdown语法/">
+                <div class="page-item-title"><i class="icon icon-forward" aria-hidden="true"></i></div>
+                <div class="page-item-subtitle">markdown语法学习</div>
+            </a>
+        </li>
+    
+</ul>
 </div>
 
-      </footer>
-
-      <div class="back-to-top" id="back-to-top">
-        <i class="iconfont icon-up"></i>
-      </div>
+                
+                    <!-- # Comment # -->
+                    
+                
+            </div>
+        </div>
     </div>
+</div>
 
+            <!-- ### Footer ### -->
+            <footer class="text-center">
+    <!-- footer copyright -->
+    <p class="footer-copyright mb-0">Copyright&nbsp;©&nbsp;<span data-year></span>
+        <a class="footer-copyright-a" href="http://yoursite.com">HK&#39;s blog</a>
+    </p>
+    <!-- footer custom text -->
+    <p class="footer-text mb-0">
     
-  
-  
+    </p>
+    <!-- footer develop info -->
+    <p class="footer-develop mb-0">
+        
+            
+    <!-- Busuanzi User Views -->
+    <span id="busuanzi_container_site_uv" hidden>
+        <span></span>
+        <span id="busuanzi_value_site_uv"></span>
+        <span>Viewers</span>
+        
+            <span>|</span>
+        
+    </span>
 
-  
+
+
+        
+        
+        Powered by&nbsp;<!--
+         --><a href="https://hexo.io" target="_blank" class="footer-develop-a" rel="nofollow noopener noreferrer">Hexo</a><span class="footer-develop-divider"></span>Theme&nbsp;-&nbsp;<!--
+         --><a href="https://github.com/SukkaW/hexo-theme-suka" target="_blank" class="footer-develop-a" rel="noopener">Suka</a>
+    </p>
+</footer>
+
+        
+
+        <!-- ### Import File ### -->
+        <!-- ### Footer JS Import ### -->
+
+<script>
+window.lazyLoadOptions = {
+    elements_selector: ".lazyload",
+    threshold: 50
+};
 
 
 
+    /* Copyright */
+    var copyrightNow = new Date().getFullYear();
+    var copyrightContent = document.querySelector('span[data-year]')
     
-  
+        copyrightContent.textContent = copyrightNow
+    
 
 
 
-  
-  
+/* Cnosole Log */
+console.log('\n %c Suka Theme (hexo-theme-suka) | © SukkaW | Verision 1.3.2 %c https://github.com/SukkaW/hexo-theme-suka \n', 'color: #fff; background: #444; padding:5px 0;', 'background: #bbb; padding:5px 0;');
+</script>
+
+<!-- vanilla-lazyload -->
+
+    <script src="/lib/vanilla-lazyload/lazyload.min.js" async></script>
+
+
+
+    <!-- Busuanzi -->
+    
+    <script src="https://cdn.jsdelivr.net/npm/busuanzi@2.3.0/bsz.pure.mini.js" async></script>
+
+
+<!-- Offset -->
 
 
 
 
 
-  
-    <script type="text/javascript" src="/lib/jquery/jquery.min.js"></script>
-  
-
-  
-    <script type="text/javascript" src="/lib/slideout/slideout.js"></script>
-  
-
-  
-    <script type="text/javascript" src="/lib/fancybox/jquery.fancybox.pack.js"></script>
-  
-
-  
-    <script type="text/javascript" src="/lib/pjax/jquery.pjax.min.js"></script>
-  
-
-  
-    <script type="text/javascript" src="/lib/nprogress/nprogress.min.js"></script>
-  
 
 
-    <script type="text/javascript" src="/js/src/even.js?v=2.10.1"></script>
+<!-- gallery.js -->
 
-  </body>
+
+<!-- Comment -->
+
+
+<!-- ### Custom Footer ### -->
+
+
+    </body>
+
 </html>

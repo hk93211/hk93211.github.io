@@ -1,286 +1,537 @@
 <!DOCTYPE html>
+
 <html lang="zh-Hans">
-  <head>
+    <head>
+    <meta charset="utf-8">
+    <!--
+        © SukkaW
+        GitHub: https://github.com/SukkaW/hexo-theme-suka
+        Version: 1.3.2
+    -->
+    <script>
+window.lsVersion = "1.3.2",
+window.oldVersion = [
     
-<meta charset="UTF-8"/>
-<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+        
+            "0.2.0","0.0.1","0.1.0","1.0.0","1.0.1","1.1.0","1.1.1","1.2.0","1.3.0"
+        
+    
+]
+</script>
+
+    <!-- ### DNS Prefetch ### -->
+    <meta http-equiv="x-dns-prefetch-control" content="on">
+<!-- busuanzi -->
+
+    <link rel="dns-prefetch" href="//busuanzi.ibruce.info">
 
 
+<!-- comment -->
+
+
+
+
+
+
+
+<!-- analytics -->
+
+
+
+
+
+
+
+
+    <!-- ### Preload ### -->
+    
+    <!-- Busuanzi -->
+    
+    <link rel="preload" href="https://cdn.jsdelivr.net/npm/busuanzi@2.3.0/bsz.pure.mini.js" as="script">
+
+
+
+
+
+
+
+    <!-- ### Meta & Title & Info ### -->
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge, chrome=1">
+<meta name="renderer" content="webkit">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+
+<!-- Title -->
+<title>netlify简介 | HK&#39;s blog</title>
+
+<!-- favicon -->
+<!-- Favicons -->
+
+    <link rel="shortcut icon" type="image/ico" href="/img/suka-favicon.ico">
+
+
+
+
+
+
+<!-- Android Chrome Color -->
+
+
+
+<meta name="format-detection" content="telephone=no">
+
+<!-- Description -->
+<meta name="description" content="netlifyNetlify优秀的静态博客托管平台-自动编译部署生成Web网站可绑域名支持SSL.
+netlify则是国外一家提供静态网络托管服务的综合平台，专注于静态网站托管的web服务平台，可以完美的取代Coding。 Netlify完美且免费支持的ssl、域名绑定、http/2和TLS。最重要的就是，管理方式用git方法传递给github、gitlab或者是Bitbucket，然后Netlify就能自动编译并生成静态网站，真的是前端er的福音。
+1.官方首页：https://www.netlify.com/
+2.首先是到netlify申请注册一个账号。这里可以使用Github、Gitlab以及Bitbucket直接授权登陆。然后登录到空间管理中心，点击右上角的“New site from Git”添加网站
+3.然后根据自己的托管平台，可以选择GitHub、GitLab或者BitBucket。我们以最常用的GitHub为演示例子。（选择GitHub的同学，别忘了勾选下方的“Limit GitHub access to public repositories.”选项）
+4.点击GitHub之后会弹出一个让你授权的窗口，然后点击“Authorize netlify”之后，就会在netlify中读取你所有的代码库。
+5.点击你已经建好的库，选好分支（默认master即可），然后点击“Deploy site”，系统就会自动编译你的静态页面了。同时还会给出你的页面二级域名等信息。
+6.点击创建后，稍等一会儿，你就可以看到Netlify免费静态空间已经创建成功了，同时你在GitHub的代码也成功在Netlify运行了。 ">
+
+<!-- Keywords -->
+<meta name="keywords" content=", 其他">
+
+<!-- Disable Fucking Bloody Baidu Tranformation -->
 <meta http-equiv="Cache-Control" content="no-transform" />
 <meta http-equiv="Cache-Control" content="no-siteapp" />
 
-<meta name="theme-color" content="#f8f5ec" />
-<meta name="msapplication-navbutton-color" content="#f8f5ec">
+    <!-- ### Import File ### -->
+    
+        <!-- spectre.css -->
+
+    <link rel="stylesheet" href="/lib/spectre/spectre.min.css">
+
+
+<style>
+    body {
+        background-color: #f8f9fa;
+    }
+
+    a, a:visited {
+        color: #0070ff;
+    }
+
+    a:active, a:focus, a:hover {
+        color: #0070ff;
+        opacity: .75;
+    }
+
+    #post-content a,
+    #post-content a:hover,
+    #post-content a:focus,
+    #post-content a:visited {
+        color: #005eb9;
+        opacity: 1;
+    }
+
+    .post-entry .card-body a {
+        color: #0070ff;
+    }
+
+    .avatar {
+        background: #444;
+    }
+
+    .navbar-link,
+    .navbar-link:visited,
+    .timeline .timeline-item .timeline-icon.icon-lg {
+        color: #0070ff;
+    }
+
+    .navbar-link:hover {
+        color: #0070ff;
+        opacity: .8;
+    }
+
+    #search-input .btn,
+    #disqus_click_btn,
+    #disqus-switch-to-direct,
+    #disqus-loadmore-button {
+        background: #727e96;
+        border-color: #727e96;
+        color: #fff;
+    }
+
+    #post-toc a.post-toc-link,
+    #post-toc a.post-toc-link:visited,
+    .share-menu.menu .menu-item>a {
+        color: #727e96;
+    }
+
+    .share-menu.menu .menu-item>a:hover,
+    .share-menu.menu .menu-item>a:focus,
+    .share-menu.menu .menu-item>a:visited {
+        color: #50596c;
+        background: #f8f9fa;
+        opacity: .85;
+    }
+</style>
+
+<!-- style.css -->
+
+    <link rel="stylesheet" href="/css/style.min.css">
+
+
+
+
+
+
+
+
+
+    <!-- Prettify Theme -->
+    
+    
+        <link rel="stylesheet" href="/css/highlight/github.min.css">
+    
+
+
+
+    
+
+    <!-- ### Site Verification ### -->
+    
+
+
+    <!-- ### RSS ### -->
+    
+
+    <!-- ### WebApp ### -->
+    <meta name="mobile-web-app-capable" content="yes">
+<meta name="application-name" content="HK&#39;s blog">
+<meta name="msapplication-starturl" content="http://yoursite.com">
+
 <meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+<meta name="apple-mobile-web-app-title" content="HK&#39;s blog">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+<!-- Manifest Import -->
+
+<!-- Open Search -->
 
 
+    <!-- ### The Open Graph & Twitter Card Protocol ### -->
+    <meta property="og:title" content="netlify简介 | HK&#39;s blog">
+<meta property="og:site_name" content="HK&#39;s blog">
 
-  <meta name="description" content="netlify简介"/>
+<meta property="og:locale" content="zh-Hans">
 
+<meta property="og:url" content="http://yoursite.com/2018/08/15/netlify简介/">
+<meta property="og:image" content="http://yoursite.com/img/suka-favicon.ico">
 
+<meta property="og:description" content="netlifyNetlify优秀的静态博客托管平台-自动编译部署生成Web网站可绑域名支持SSL.
+netlify则是国外一家提供静态网络托管服务的综合平台，专注于静态网站托管的web服务平台，可以完美的取代Coding。 Netlify完美且免费支持的ssl、域名绑定、http/2和TLS。最重要的就是，管理方式用git方法传递给github、gitlab或者是Bitbucket，然后Netlify就能自动编译并生成静态网站，真的是前端er的福音。
+1.官方首页：https://www.netlify.com/
+2.首先是到netlify申请注册一个账号。这里可以使用Github、Gitlab以及Bitbucket直接授权登陆。然后登录到空间管理中心，点击右上角的“New site from Git”添加网站
+3.然后根据自己的托管平台，可以选择GitHub、GitLab或者BitBucket。我们以最常用的GitHub为演示例子。（选择GitHub的同学，别忘了勾选下方的“Limit GitHub access to public repositories.”选项）
+4.点击GitHub之后会弹出一个让你授权的窗口，然后点击“Authorize netlify”之后，就会在netlify中读取你所有的代码库。
+5.点击你已经建好的库，选好分支（默认master即可），然后点击“Deploy site”，系统就会自动编译你的静态页面了。同时还会给出你的页面二级域名等信息。
+6.点击创建后，稍等一会儿，你就可以看到Netlify免费静态空间已经创建成功了，同时你在GitHub的代码也成功在Netlify运行了。 ">
 
-
-  <meta name="keywords" content="其他, HK's blog" />
-
-
-
-
-
-
-
-
-
-
-  <link rel="alternate" href="/default" title="HK's blog">
-
-
-
-
-  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=2.10.1" />
+<meta name="twitter:card" content="summary">
 
 
-
-<link rel="canonical" href="http://yoursite.com/2018/08/15/netlify简介/"/>
-
-
-
-  <link rel="stylesheet" type="text/css" href="/lib/fancybox/jquery.fancybox.css" />
-
-
-
-
-  <link rel="stylesheet" type="text/css" href="/lib/nprogress/nprogress.min.css" />
-
-
-
-<link rel="stylesheet" type="text/css" href="/css/style.css?v=2.10.1" />
-
-
-
-  
-  <script id="baidu_analytics">
-    var _hmt = _hmt || [];
-    (function() {
-      var hm = document.createElement("script");
-      hm.src = "https://hm.baidu.com/hm.js?4f4a7591de227ae33b921d81486205f1";
-      var s = document.getElementsByTagName("script")[0];
-      s.parentNode.insertBefore(hm, s);
-    })();
-  </script>
+    <meta property="og:type" content="article">
+    <meta property="article:published_time" content="2018-08-15T07:24:09.000Z">
+    <meta property="article:modified_time" content="2018-08-15T07:24:09.000Z">
+    <meta property="article:author" content="hk">
+    <meta property="og:article:tag" content=", 其他"> 
 
 
 
 
-  <script id="baidu_push">
-(function(){
-    var bp = document.createElement('script');
-    var curProtocol = window.location.protocol.split(':')[0];
-    if (curProtocol === 'https') {
-        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
-    }
-    else {
-        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
-    }
-    var s = document.getElementsByTagName("script")[0];
-    s.parentNode.insertBefore(bp, s);
-})();
+
+    <!-- ### Analytics ### -->
+    
+
+
+
+
+
+
+
+
+    <!-- ### Canonical link ### -->
+    <link rel="canonical" href="http://yoursite.com/2018/08/15/netlify简介/">
+
+    <!-- ### Structured Data ### -->
+    
+
+
+
+<script type="application/ld+json">
+{
+    "@context": "http://schema.org",
+    "url": "http://yoursite.com/2018/08/15/netlify简介/",
+    "@type": "BlogPosting",
+    "logo": "http://yoursite.com/img/suka-favicon.ico",
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "http://yoursite.com/2018/08/15/netlify简介/"
+    },
+    "headline": "netlify简介 | HK&#39;s blog",
+    
+    "image": {
+        "@type": "ImageObject",
+        "url": "http://yoursite.com/img/suka-favicon.ico"
+    },
+    
+    "datePublished": "2018-08-15T07:24:09.000Z",
+    "dateModified": "2018-10-26T08:30:11.931Z",
+    "author": {
+        "@type": "Person",
+        "name": "hk",
+        "image": {
+            "@type": "ImageObject",
+            "url": "http://yoursite.com/img/default_avatar.png"
+        },
+        "description": "Hi, nice to meet you."
+    },
+    "publisher": {
+        "@type": "Organization",
+        "name": "HK&#39;s blog",
+        "logo": {
+            "@type": "ImageObject",
+            "url": "http://yoursite.com/img/suka-favicon.ico"
+        }
+    },
+    
+    "potentialAction": {
+        "@type": "SearchAction",
+        "target": "http://yoursite.com/search?s={search_term_string}",
+        "query-input": "required name=search_term_string"
+    },
+    
+    "keywords": ", 其他",
+    "description": "netlifyNetlify优秀的静态博客托管平台-自动编译部署生成Web网站可绑域名支持SSL.
+netlify则是国外一家提供静态网络托管服务的综合平台，专注于静态网站托管的web服务平台，可以完美的取代Coding。 Netlify完美且免费支持的ssl、域名绑定、http/2和TLS。最重要的就是，管理方式用git方法传递给github、gitlab或者是Bitbucket，然后Netlify就能自动编译并生成静态网站，真的是前端er的福音。
+1.官方首页：https://www.netlify.com/
+2.首先是到netlify申请注册一个账号。这里可以使用Github、Gitlab以及Bitbucket直接授权登陆。然后登录到空间管理中心，点击右上角的“New site from Git”添加网站
+3.然后根据自己的托管平台，可以选择GitHub、GitLab或者BitBucket。我们以最常用的GitHub为演示例子。（选择GitHub的同学，别忘了勾选下方的“Limit GitHub access to public repositories.”选项）
+4.点击GitHub之后会弹出一个让你授权的窗口，然后点击“Authorize netlify”之后，就会在netlify中读取你所有的代码库。
+5.点击你已经建好的库，选好分支（默认master即可），然后点击“Deploy site”，系统就会自动编译你的静态页面了。同时还会给出你的页面二级域名等信息。
+6.点击创建后，稍等一会儿，你就可以看到Netlify免费静态空间已经创建成功了，同时你在GitHub的代码也成功在Netlify运行了。 "
+}
 </script>
 
 
 
-
-
-  <script src="//cdn1.lncld.net/static/js/3.1.1/av-min.js"></script>
-  <script id="leancloud">
-    AV.init({
-      appId: "x8DnYYQw5Dl9oBmsrh29KacR-gzGzoHsz",
-      appKey: "skGJTxdFoENHDdh68uEjPpbS"
-    });
-  </script>
-
-
-
-
-
-<script>
-  window.config = {"leancloud":{"app_id":"x8DnYYQw5Dl9oBmsrh29KacR-gzGzoHsz","app_key":"skGJTxdFoENHDdh68uEjPpbS"},"toc":true,"fancybox":true,"pjax":true};
-</script>
-
-    <title> netlify简介 - HK's blog </title>
-  </head>
-
-  <body><div id="mobile-navbar" class="mobile-navbar">
-  <div class="mobile-header-logo">
-    <a href="/." class="logo">HK's blog</a>
-  </div>
-  <div class="mobile-navbar-icon">
-    <span></span>
-    <span></span>
-    <span></span>
-  </div>
-</div>
-
-<nav id="mobile-menu" class="mobile-menu slideout-menu">
-  <ul class="mobile-menu-list">
+    <!-- ### Custom Head ### -->
     
-      <a href="/">
-        <li class="mobile-menu-item">
-          
-          
-            首页
-          
-        </li>
-      </a>
-    
-      <a href="/archives/">
-        <li class="mobile-menu-item">
-          
-          
-            归档
-          
-        </li>
-      </a>
-    
-      <a href="/tags">
-        <li class="mobile-menu-item">
-          
-          
-            标签
-          
-        </li>
-      </a>
-    
-      <a href="/categories">
-        <li class="mobile-menu-item">
-          
-          
-            分类
-          
-        </li>
-      </a>
-    
-      <a href="/about">
-        <li class="mobile-menu-item">
-          
-          
-            关于
-          
-        </li>
-      </a>
-    
-  </ul>
-</nav>
 
-    <div class="container" id="mobile-panel">
-      <header id="header" class="header"><div class="logo-wrapper">
-  <a href="/." class="logo">HK's blog</a>
-</div>
 
-<nav class="site-navbar">
-  
-    <ul id="menu" class="menu">
-      
+</head>
+
+    <body>
+        
+
+            
+
+            <!-- ### Main content ### -->
+            <!-- ## Header ##-->
+<header>
+    <h1 class="header-title text-center"><a href="/">HK&#39;s blog</a></h1>
+
+    <p class="text-center header-slogan">
+        
+            
+                Hi, nice to meet you.
+            
+        
+    </p>
+
+    <nav class="navbar-section text-center">
+    
+        <a href="/" class="navbar-link">Home</a>
+    
+    
+        <a href="/archives/" class="navbar-link">Archives</a>
+    
+    
+        <a href="/search" class="navbar-link">Search</a>
+    
+    
+    
+        <div class="dropdown dropdown-right">
+    <a class="navbar-link dropdown-toggle" tabindex="0">Share</a>
+    <ul class="menu share-menu">
+
+        <!-- Share Weibo -->
+        
         <li class="menu-item">
-          <a class="menu-item-link" href="/">
-            
-            
-              首页
-            
-          </a>
+            <a href="http://service.weibo.com/share/share.php?appkey=&title=HK's blog&url=http://yoursite.com&pic=http://yoursite.com/img/suka-favicon.ico&searchPic=false&style=simple" target="_blank" rel="noopener noreferrer nofollow">Share to Weibo</a>
         </li>
-      
+        
+
+        <!-- Share Twitter -->
+        
         <li class="menu-item">
-          <a class="menu-item-link" href="/archives/">
-            
-            
-              归档
-            
-          </a>
+            <a href="https://twitter.com/intent/tweet?text=HK's blog&url=http://yoursite.com&via=hk" target="_blank" rel="noopener noreferrer nofollow">Share to Twitter</a>
         </li>
-      
+        
+
+        <!-- Share Facebook -->
+        
         <li class="menu-item">
-          <a class="menu-item-link" href="/tags">
-            
-            
-              标签
-            
-          </a>
+            <a href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com" target="_blank" rel="noopener noreferrer nofollow">Share to Facebook</a>
         </li>
-      
+        
+
+        <!-- Share Google+ -->
+        
         <li class="menu-item">
-          <a class="menu-item-link" href="/categories">
-            
-            
-              分类
-            
-          </a>
+            <a href="https://plus.google.com/share?url=http://yoursite.com" target="_blank" rel="noopener noreferrer nofollow">Share to Google+</a>
         </li>
-      
+        
+
+        <!-- Share LinkedIn -->
+        
         <li class="menu-item">
-          <a class="menu-item-link" href="/about">
-            
-            
-              关于
-            
-          </a>
+            <a href="https://www.linkedin.com/shareArticle?mini=true&url=http://yoursite.com&title=netlify简介" target="_blank" rel="noopener noreferrer nofollow">Share to LinkedIn</a>
         </li>
-      
+        
+
+        <!-- Share QQ -->
+        
+        <li class="menu-item">
+            <a href="http://connect.qq.com/widget/shareqq/index.html?site=HK's blog&title=netlify简介&summary=不会搞艺术的程序员不是好设计师&pics=http://yoursite.com/img/suka-favicon.ico&url=http://yoursite.com" target="_blank" rel="noopener noreferrer nofollow"> Share to QQ</a>
+        </li>
+        
+
+        <!-- Share Telegram -->
+        
+        <li class="menu-item">
+            <a href="https://t.me/share/url?url=http://yoursite.com&text=netlify简介" target="_blank" rel="noopener noreferrer nofollow">Share to Telegram</a>
+        </li>
+        
+
+        <!-- QRCode -->
+        
+        <li class="menu-item">
+            <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUCAAAAABQV18IAAAB2klEQVR42u3awa6DMAxEUf7/p9stqsjMNWURm2FTVbyS86QQx3aOz4bXEVRQQQV1gTrEdb7/+/fq++WAZpygZqFWD/n9XKHVfTpOUPNQbjAFkAOJ3wb1ThR5ASqDBxWUWgTJQhnUe1F0AVQBmOAe2SUEtT3KJQ5PfT6azQS1LQoXH0yiutrsrSb4I1WXoLZErQJsJalcBtirybwIzEHNQzkECcR/F0GCGoEim7JV4VUtjmqRLQXkoFqiaGCViSSc/CpYBzUDpQoZZOKr76QQZwNyUC1R6iEkiXQBHTcFghqBUpNcJQHqPm06BTUTRRqKlYc7qExegxqBqjyI3qebRPz2BdUORTZgrjhLN4LqRQlqFqpawK8Uz3DhNqgRKFnEutEgIv8gqg4H1R5FJ6NbDFVSYYu8QY1CkYXTbfAqB3ZsYzuo1qhKk8cVRFxxA58KCqo9ihTDXKCmL0m5YRRUOxQZ2CWqleSivKIH1QpFDwi6IoUqsLlgHdQslJuMtEnkEoa/GkZBtUOpxVElq7SQcWuiB9UeRQ+MkuI+PWQR1HtRLmmlRY5S0SyosSh6MIL8RhVNgpqHIsmm2qCRhqUt6AY1BlVpUpNCLWkq3eo4BNUCtdMVVFBBBXW6vtD2khGEzmzRAAAAAElFTkSuQmCC" alr="QRCode">
+        </li>
+        
+
     </ul>
-  
+</div>
+    
+    
 </nav>
+</header>
 
-      </header>
-
-      <main id="main" class="main">
-        <div class="content-wrapper">
-          <div id="content" class="content">
             
-  
-  <article class="post">
-    <header class="post-header">
-      <h1 class="post-title">
-        
-          netlify简介
-        
-      </h1>
-
-      <div class="post-meta">
-        <span class="post-time">
-          2018-08-15
-        </span>
-        
-          <span class="post-category">
-            
-              <a href="/categories/其他/">其他</a>
-            
-          </span>
-        
-        
-        <span class="post-visits"
-             data-url="/2018/08/15/netlify简介/"
-             data-title="netlify简介">
-          阅读次数 0
-        </span>
-        
-      </div>
-    </header>
-
+    <!-- ## Post ## -->
     
     
-  <div class="post-toc" id="post-toc">
-    <h2 class="post-toc-title">文章目录</h2>
-    <div class="post-toc-content">
-      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#netlify"><span class="toc-text">netlify</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#快速在Netlify建立Jekyll、Hexo、Hugo静态博客"><span class="toc-text">快速在Netlify建立Jekyll、Hexo、Hugo静态博客</span></a></li></ol>
+
+
+<div class="post-container">
+    <div id="post-card" class="card">
+        
+        <div class="card-item-container">
+            <div class="card-inner-cell">
+                <!-- # Post Header Info # -->
+                <div class="card-header">
+                    
+    <h1 class="card-title h3 mb-2">netlify简介</h1>
+
+<div class="post-header-info">
+    <p class="post-header-info-left text-gray">
+        <img class="author-thumb lazyload" data-src="/img/default_avatar.png" alt="hk's Avatar">
+        <span>2018-08-15</span>
+        
+            <span class="suka-devide-dot"></span>
+            <a class="category-link" href="/categories/其他/">其他</a>
+        
+        
+            <!-- Busuanzi Post Views -->
+<span id="busuanzi_container_page_pv" hidden>
+    <span class="suka-devide-dot"></span>
+    <span></span>
+    <span id="busuanzi_value_page_pv"></span>
+    <span>Views</span>
+</span>
+        
+        
+    </p>
+    <div class="post-header-info-right">
+        
+            <div class="dropdown dropdown-right">
+<a class="dropdown-toggle" tabindex="0">Share the post</a>
+<ul class="menu share-menu">
+    <!-- Share Weibo -->
+    
+    <li class="menu-item">
+        <a href="http://service.weibo.com/share/share.php?appkey=&title=netlify简介&url=http://yoursite.com/2018/08/15/netlify简介/&pic=http://yoursite.com/img/suka-favicon.ico&searchPic=false&style=simple" target="_blank" rel="noopener noreferrer nofollow">Share to Weibo</a>
+    </li>
+    
+
+    <!-- Share Twitter -->
+    
+    <li class="menu-item">
+        <a href="https://twitter.com/intent/tweet?text=netlify简介&url=http://yoursite.com/2018/08/15/netlify简介/&via=hk" target="_blank" rel="noopener noreferrer nofollow">Share to Twitter</a>
+    </li>
+    
+
+    <!-- Share Facebook -->
+    
+    <li class="menu-item">
+        <a href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2018/08/15/netlify简介/" target="_blank" rel="noopener noreferrer nofollow">Share to Facebook</a>
+    </li>
+    
+
+    <!-- Share Google+ -->
+    
+    <li class="menu-item">
+        <a href="https://plus.google.com/share?url=http://yoursite.com/2018/08/15/netlify简介/" target="_blank" rel="noopener noreferrer nofollow">Share to Google+</a>
+    </li>
+    
+
+    <!-- Share LinkedIn -->
+    
+    <li class="menu-item">
+        <a href="https://www.linkedin.com/shareArticle?mini=true&url=http://yoursite.com/2018/08/15/netlify简介/&title=HK's blog" target="_blank" rel="noopener noreferrer nofollow">Share to LinkedIn</a>
+    </li>
+    
+
+    <!-- Share QQ -->
+    
+    <li class="menu-item">
+        <a href="http://connect.qq.com/widget/shareqq/index.html?site=HK's blog&title=HK's blog&summary=不会搞艺术的程序员不是好设计师&pics=http://yoursite.com/img/suka-favicon.ico&url=http://yoursite.com/2018/08/15/netlify简介/" target="_blank" rel="noopener noreferrer nofollow"> Share to QQ</a>
+    </li>
+    
+
+    <!-- Share Telegram -->
+    
+    <li class="menu-item">
+        <a href="https://t.me/share/url?url=http://yoursite.com/2018/08/15/netlify简介/&text=HK's blog" target="_blank" rel="noopener noreferrer nofollow">Share to Telegram</a>
+    </li>
+    
+
+    <!-- QRCode -->
+    
+    <li class="menu-item">
+        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUCAAAAABQV18IAAAB2klEQVR42u3awa6DMAxEUf7/p9stqsjMNWURm2FTVbyS86QQx3aOz4bXEVRQQQV1gTrEdb7/+/fq++WAZpygZqFWD/n9XKHVfTpOUPNQbjAFkAOJ3wb1ThR5ASqDBxWUWgTJQhnUe1F0AVQBmOAe2SUEtT3KJQ5PfT6azQS1LQoXH0yiutrsrSb4I1WXoLZErQJsJalcBtirybwIzEHNQzkECcR/F0GCGoEim7JV4VUtjmqRLQXkoFqiaGCViSSc/CpYBzUDpQoZZOKr76QQZwNyUC1R6iEkiXQBHTcFghqBUpNcJQHqPm06BTUTRRqKlYc7qExegxqBqjyI3qebRPz2BdUORTZgrjhLN4LqRQlqFqpawK8Uz3DhNqgRKFnEutEgIv8gqg4H1R5FJ6NbDFVSYYu8QY1CkYXTbfAqB3ZsYzuo1qhKk8cVRFxxA58KCqo9ihTDXKCmL0m5YRRUOxQZ2CWqleSivKIH1QpFDwi6IoUqsLlgHdQslJuMtEnkEoa/GkZBtUOpxVElq7SQcWuiB9UeRQ+MkuI+PWQR1HtRLmmlRY5S0SyosSh6MIL8RhVNgpqHIsmm2qCRhqUt6AY1BlVpUpNCLWkq3eo4BNUCtdMVVFBBBXW6vtD2khGEzmzRAAAAAElFTkSuQmCC" alt="QRCode">
+    </li>
+    
+
+</ul>
+</div>
+        
     </div>
-  </div>
-
-
-
-    <div class="post-content">
-      
-        <h1 id="netlify"><a href="#netlify" class="headerlink" title="netlify"></a>netlify</h1><p>Netlify优秀的静态博客托管平台-自动编译部署生成Web网站可绑域名支持SSL.</p>
+</div>
+                </div>
+                <div class="card-body">
+                    
+                        
+                            <div id="post-toc">
+                                <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#netlify"><span class="post-toc-number">1.</span> <span class="post-toc-text">netlify</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#快速在Netlify建立Jekyll、Hexo、Hugo静态博客"><span class="post-toc-number">2.</span> <span class="post-toc-text">快速在Netlify建立Jekyll、Hexo、Hugo静态博客</span></a></li></ol>
+                            </div>
+                        
+                    
+                    <article id="post-content">
+                        <h1 id="netlify"><a href="#netlify" class="headerlink" title="netlify"></a>netlify</h1><p>Netlify优秀的静态博客托管平台-自动编译部署生成Web网站可绑域名支持SSL.</p>
 <p>netlify则是国外一家提供静态网络托管服务的综合平台，专注于静态网站托管的web服务平台，可以完美的取代Coding。 Netlify完美且免费支持的ssl、域名绑定、http/2和TLS。最重要的就是，管理方式用git方法传递给github、gitlab或者是Bitbucket，然后Netlify就能自动编译并生成静态网站，真的是前端er的福音。</p>
 <p>1.官方首页：<a href="https://www.netlify.com/" target="_blank" rel="noopener">https://www.netlify.com/</a></p>
 <p>2.首先是到netlify申请注册一个账号。这里可以使用Github、Gitlab以及Bitbucket直接授权登陆。然后登录到空间管理中心，点击右上角的“New site from Git”添加网站</p>
@@ -296,185 +547,174 @@
 <p>5.稍等一会儿，Netlify就会自动编译好Hexo博客，完成后如下图所示，你可以直接访问它给的二级域名了：</p>
 <p>转载自: <a href="https://www.freehao123.com/netlify/" target="_blank" rel="noopener">https://www.freehao123.com/netlify/</a></p>
 
-      
-    </div>
-
-    
-      
-      
+                    </article>
+                    
 
 
-
-      
-      
-    
-
-    
-      <footer class="post-footer">
-        
-          <div class="post-tags">
-            
-              <a href="/tags/其他/">其他</a>
-            
-          </div>
-        
-        
-        
-  <nav class="post-nav">
-    
-      <a class="prev" href="/2018/08/19/redux入门/">
-        <i class="iconfont icon-left"></i>
-        <span class="prev-text nav-default">redux入门</span>
-        <span class="prev-text nav-mobile">上一篇</span>
-      </a>
-    
-    
-      <a class="next" href="/2018/07/17/react-setState/">
-        <span class="next-text nav-default">react之setState的坑</span>
-        <span class="prev-text nav-mobile">下一篇</span>
-        <i class="iconfont icon-right"></i>
-      </a>
-    
-  </nav>
+    <blockquote id="date-expire-notification" class="post-expired-notify">This article was last updated on <span id="date-expire-num"></span> days ago, and the information described in the article may have changed.</blockquote>
+    <script>
+        var dateUpdate = Date.parse("2018-10-26");
+        var nowDate = new Date();
+        var a = nowDate.getTime();
+        var b = a - dateUpdate;
+        var daysUpdateExpire = Math.floor(b/(24*3600*1000));
+        if (daysUpdateExpire >= 120) {
+            document.getElementById('date-expire-num').innerHTML = daysUpdateExpire;
+        } else {
+            document.getElementById('date-expire-notification').style.display = 'none';
+        }
+    </script>
 
 
-      </footer>
-    
+<p class="post-footer-info mb-0 pt-0">Published at&nbsp;<time datetime="2018-08-15T07:24:09.000Z" itemprop="datePublished">2018-08-15</time>
 
-  </article>
+    , Updated at&nbsp;<time datetime="2018-10-26T08:30:11.931Z" itemprop="dateModified">2018-10-26</time>
 
+</p>
+<p class="post-footer-info mb-0 pt-2">
 
-          </div>
-          
-  <div class="comments" id="comments">
-    
-  </div>
+<span class="post-categories-list mt-2">
 
 
-        </div>
-      </main>
+<a class="post-categories-list-item" href='/categories/其他/'>其他</a>
 
-      <footer id="footer" class="footer">
-
-  <div class="social-links">
-    
-      
-        
-          <a href="mailto:hk93211@gmail.com" class="iconfont icon-email" title="email"></a>
-        
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-        
-          <a href="https://github.com/hk93211" class="iconfont icon-github" title="github"></a>
-        
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-
-    
-      
-      <a href="/atom.xml" class="iconfont icon-rss" title="rss"></a>
-    
-  </div>
+</span>
 
 
 
-<div class="copyright">
-  <span class="power-by">
-    由 <a class="hexo-link" href="https://hexo.io/">Hexo</a> 强力驱动
-  </span>
-  <span class="division">|</span>
-  <span class="theme-info">
-    主题 - 
-    <a class="theme-link" href="https://github.com/ahonn/hexo-theme-even">Even</a>
-  </span>
+<span class="post-tags-list mt-2">
 
-  <span class="copyright-year">
-    
-    &copy; 
-     
-      2015 - 
-    
-    2019
 
-    <span class="heart">
-      <i class="iconfont icon-heart"></i>
-    </span>
-    <span class="author">hk</span>
-  </span>
+<a class="post-tags-list-item" href='/tags/其他/'>#&nbsp;其他</a>
+
+</span>
+
+
+</p>
+
+                </div>
+                
+<div class="post-nav px-2 bg-gray">
+<ul class="pagination">
+    <!-- Prev Nav -->
+    
+        <li class="page-item page-prev">
+            <a href="/2018/08/19/redux入门/">
+                <div class="page-item-title"><i class="icon icon-back" aria-hidden="true"></i></div>
+                <div class="page-item-subtitle">redux入门</div>
+            </a>
+        </li>
+    
+
+    <!-- Next Nav -->
+    
+        <li class="page-item page-next">
+            <a href="/2018/07/17/react-setState/">
+                <div class="page-item-title"><i class="icon icon-forward" aria-hidden="true"></i></div>
+                <div class="page-item-subtitle">react之setState的坑</div>
+            </a>
+        </li>
+    
+</ul>
 </div>
 
-      </footer>
-
-      <div class="back-to-top" id="back-to-top">
-        <i class="iconfont icon-up"></i>
-      </div>
+                
+                    <!-- # Comment # -->
+                    
+                
+            </div>
+        </div>
     </div>
+</div>
 
+            <!-- ### Footer ### -->
+            <footer class="text-center">
+    <!-- footer copyright -->
+    <p class="footer-copyright mb-0">Copyright&nbsp;©&nbsp;<span data-year></span>
+        <a class="footer-copyright-a" href="http://yoursite.com">HK&#39;s blog</a>
+    </p>
+    <!-- footer custom text -->
+    <p class="footer-text mb-0">
     
-  
-  
+    </p>
+    <!-- footer develop info -->
+    <p class="footer-develop mb-0">
+        
+            
+    <!-- Busuanzi User Views -->
+    <span id="busuanzi_container_site_uv" hidden>
+        <span></span>
+        <span id="busuanzi_value_site_uv"></span>
+        <span>Viewers</span>
+        
+            <span>|</span>
+        
+    </span>
 
-  
+
+
+        
+        
+        Powered by&nbsp;<!--
+         --><a href="https://hexo.io" target="_blank" class="footer-develop-a" rel="nofollow noopener noreferrer">Hexo</a><span class="footer-develop-divider"></span>Theme&nbsp;-&nbsp;<!--
+         --><a href="https://github.com/SukkaW/hexo-theme-suka" target="_blank" class="footer-develop-a" rel="noopener">Suka</a>
+    </p>
+</footer>
+
+        
+
+        <!-- ### Import File ### -->
+        <!-- ### Footer JS Import ### -->
+
+<script>
+window.lazyLoadOptions = {
+    elements_selector: ".lazyload",
+    threshold: 50
+};
 
 
 
+    /* Copyright */
+    var copyrightNow = new Date().getFullYear();
+    var copyrightContent = document.querySelector('span[data-year]')
     
-  
+        copyrightContent.textContent = copyrightNow
+    
 
 
 
-  
-  
+/* Cnosole Log */
+console.log('\n %c Suka Theme (hexo-theme-suka) | © SukkaW | Verision 1.3.2 %c https://github.com/SukkaW/hexo-theme-suka \n', 'color: #fff; background: #444; padding:5px 0;', 'background: #bbb; padding:5px 0;');
+</script>
+
+<!-- vanilla-lazyload -->
+
+    <script src="/lib/vanilla-lazyload/lazyload.min.js" async></script>
+
+
+
+    <!-- Busuanzi -->
+    
+    <script src="https://cdn.jsdelivr.net/npm/busuanzi@2.3.0/bsz.pure.mini.js" async></script>
+
+
+<!-- Offset -->
 
 
 
 
 
-  
-    <script type="text/javascript" src="/lib/jquery/jquery.min.js"></script>
-  
-
-  
-    <script type="text/javascript" src="/lib/slideout/slideout.js"></script>
-  
-
-  
-    <script type="text/javascript" src="/lib/fancybox/jquery.fancybox.pack.js"></script>
-  
-
-  
-    <script type="text/javascript" src="/lib/pjax/jquery.pjax.min.js"></script>
-  
-
-  
-    <script type="text/javascript" src="/lib/nprogress/nprogress.min.js"></script>
-  
 
 
-    <script type="text/javascript" src="/js/src/even.js?v=2.10.1"></script>
+<!-- gallery.js -->
 
-  </body>
+
+<!-- Comment -->
+
+
+<!-- ### Custom Footer ### -->
+
+
+    </body>
+
 </html>

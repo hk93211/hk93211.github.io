@@ -1,286 +1,516 @@
 <!DOCTYPE html>
+
 <html lang="zh-Hans">
-  <head>
+    <head>
+    <meta charset="utf-8">
+    <!--
+        © SukkaW
+        GitHub: https://github.com/SukkaW/hexo-theme-suka
+        Version: 1.3.2
+    -->
+    <script>
+window.lsVersion = "1.3.2",
+window.oldVersion = [
     
-<meta charset="UTF-8"/>
-<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+        
+            "0.2.0","0.0.1","0.1.0","1.0.0","1.0.1","1.1.0","1.1.1","1.2.0","1.3.0"
+        
+    
+]
+</script>
+
+    <!-- ### DNS Prefetch ### -->
+    <meta http-equiv="x-dns-prefetch-control" content="on">
+<!-- busuanzi -->
+
+    <link rel="dns-prefetch" href="//busuanzi.ibruce.info">
 
 
+<!-- comment -->
+
+
+
+
+
+
+
+<!-- analytics -->
+
+
+
+
+
+
+
+
+    <!-- ### Preload ### -->
+    
+    <!-- Busuanzi -->
+    
+    <link rel="preload" href="https://cdn.jsdelivr.net/npm/busuanzi@2.3.0/bsz.pure.mini.js" as="script">
+
+
+
+
+
+
+
+    <!-- ### Meta & Title & Info ### -->
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge, chrome=1">
+<meta name="renderer" content="webkit">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+
+<!-- Title -->
+<title>Waiting (TTFB) 时间过长 | HK&#39;s blog</title>
+
+<!-- favicon -->
+<!-- Favicons -->
+
+    <link rel="shortcut icon" type="image/ico" href="/img/suka-favicon.ico">
+
+
+
+
+
+
+<!-- Android Chrome Color -->
+
+
+
+<meta name="format-detection" content="telephone=no">
+
+<!-- Description -->
+<meta name="description" content="背景最近项目中的某个页面的加载时间过长, 从第一个接口开始到最后一个接口调用结束一共用了 5.5s ~ 6s, 就想着排查一下问题所在并优化掉, 打开浏览器调试工具, Network, 仔细查看每一个接口的调用时间, 抛开调用后端的resful接口, 就是一些静态资源(.js/.html/.json)的加载及解析花了大量的时间, 并发现这些静态资源的请求的Waterfall, 发现有的接口的 Waiting (TTFB) 选项时长过长, 有的接口的 Content Download 时间过长.">
+
+<!-- Keywords -->
+<meta name="keywords" content=", javascript">
+
+<!-- Disable Fucking Bloody Baidu Tranformation -->
 <meta http-equiv="Cache-Control" content="no-transform" />
 <meta http-equiv="Cache-Control" content="no-siteapp" />
 
-<meta name="theme-color" content="#f8f5ec" />
-<meta name="msapplication-navbutton-color" content="#f8f5ec">
+    <!-- ### Import File ### -->
+    
+        <!-- spectre.css -->
+
+    <link rel="stylesheet" href="/lib/spectre/spectre.min.css">
+
+
+<style>
+    body {
+        background-color: #f8f9fa;
+    }
+
+    a, a:visited {
+        color: #0070ff;
+    }
+
+    a:active, a:focus, a:hover {
+        color: #0070ff;
+        opacity: .75;
+    }
+
+    #post-content a,
+    #post-content a:hover,
+    #post-content a:focus,
+    #post-content a:visited {
+        color: #005eb9;
+        opacity: 1;
+    }
+
+    .post-entry .card-body a {
+        color: #0070ff;
+    }
+
+    .avatar {
+        background: #444;
+    }
+
+    .navbar-link,
+    .navbar-link:visited,
+    .timeline .timeline-item .timeline-icon.icon-lg {
+        color: #0070ff;
+    }
+
+    .navbar-link:hover {
+        color: #0070ff;
+        opacity: .8;
+    }
+
+    #search-input .btn,
+    #disqus_click_btn,
+    #disqus-switch-to-direct,
+    #disqus-loadmore-button {
+        background: #727e96;
+        border-color: #727e96;
+        color: #fff;
+    }
+
+    #post-toc a.post-toc-link,
+    #post-toc a.post-toc-link:visited,
+    .share-menu.menu .menu-item>a {
+        color: #727e96;
+    }
+
+    .share-menu.menu .menu-item>a:hover,
+    .share-menu.menu .menu-item>a:focus,
+    .share-menu.menu .menu-item>a:visited {
+        color: #50596c;
+        background: #f8f9fa;
+        opacity: .85;
+    }
+</style>
+
+<!-- style.css -->
+
+    <link rel="stylesheet" href="/css/style.min.css">
+
+
+
+
+
+
+
+
+
+    <!-- Prettify Theme -->
+    
+    
+        <link rel="stylesheet" href="/css/highlight/github.min.css">
+    
+
+
+
+    
+
+    <!-- ### Site Verification ### -->
+    
+
+
+    <!-- ### RSS ### -->
+    
+
+    <!-- ### WebApp ### -->
+    <meta name="mobile-web-app-capable" content="yes">
+<meta name="application-name" content="HK&#39;s blog">
+<meta name="msapplication-starturl" content="http://yoursite.com">
+
 <meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+<meta name="apple-mobile-web-app-title" content="HK&#39;s blog">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+<!-- Manifest Import -->
+
+<!-- Open Search -->
 
 
+    <!-- ### The Open Graph & Twitter Card Protocol ### -->
+    <meta property="og:title" content="Waiting (TTFB) 时间过长 | HK&#39;s blog">
+<meta property="og:site_name" content="HK&#39;s blog">
 
-  <meta name="description" content="Waiting (TTFB) 时间过长"/>
+<meta property="og:locale" content="zh-Hans">
 
+<meta property="og:url" content="http://yoursite.com/2019/02/21/JS怪异的number/">
+<meta property="og:image" content="http://yoursite.com/img/suka-favicon.ico">
 
+<meta property="og:description" content="背景最近项目中的某个页面的加载时间过长, 从第一个接口开始到最后一个接口调用结束一共用了 5.5s ~ 6s, 就想着排查一下问题所在并优化掉, 打开浏览器调试工具, Network, 仔细查看每一个接口的调用时间, 抛开调用后端的resful接口, 就是一些静态资源(.js/.html/.json)的加载及解析花了大量的时间, 并发现这些静态资源的请求的Waterfall, 发现有的接口的 Waiting (TTFB) 选项时长过长, 有的接口的 Content Download 时间过长.">
 
-
-  <meta name="keywords" content="javascript, HK's blog" />
-
-
-
-
-
-
-
+<meta name="twitter:card" content="summary">
 
 
-
-  <link rel="alternate" href="/default" title="HK's blog">
-
-
-
-
-  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=2.10.1" />
-
-
-
-<link rel="canonical" href="http://yoursite.com/2019/02/21/JS怪异的number/"/>
-
-
-
-  <link rel="stylesheet" type="text/css" href="/lib/fancybox/jquery.fancybox.css" />
+    <meta property="og:type" content="article">
+    <meta property="article:published_time" content="2019-02-21T14:13:12.000Z">
+    <meta property="article:modified_time" content="2019-02-21T14:13:12.000Z">
+    <meta property="article:author" content="hk">
+    <meta property="og:article:tag" content=", javascript"> 
 
 
 
 
-  <link rel="stylesheet" type="text/css" href="/lib/nprogress/nprogress.min.css" />
 
-
-
-<link rel="stylesheet" type="text/css" href="/css/style.css?v=2.10.1" />
-
-
-
-  
-  <script id="baidu_analytics">
-    var _hmt = _hmt || [];
-    (function() {
-      var hm = document.createElement("script");
-      hm.src = "https://hm.baidu.com/hm.js?4f4a7591de227ae33b921d81486205f1";
-      var s = document.getElementsByTagName("script")[0];
-      s.parentNode.insertBefore(hm, s);
-    })();
-  </script>
+    <!-- ### Analytics ### -->
+    
 
 
 
 
-  <script id="baidu_push">
-(function(){
-    var bp = document.createElement('script');
-    var curProtocol = window.location.protocol.split(':')[0];
-    if (curProtocol === 'https') {
-        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
-    }
-    else {
-        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
-    }
-    var s = document.getElementsByTagName("script")[0];
-    s.parentNode.insertBefore(bp, s);
-})();
+
+
+
+
+    <!-- ### Canonical link ### -->
+    <link rel="canonical" href="http://yoursite.com/2019/02/21/JS怪异的number/">
+
+    <!-- ### Structured Data ### -->
+    
+
+
+
+<script type="application/ld+json">
+{
+    "@context": "http://schema.org",
+    "url": "http://yoursite.com/2019/02/21/JS怪异的number/",
+    "@type": "BlogPosting",
+    "logo": "http://yoursite.com/img/suka-favicon.ico",
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "http://yoursite.com/2019/02/21/JS怪异的number/"
+    },
+    "headline": "Waiting (TTFB) 时间过长 | HK&#39;s blog",
+    
+    "image": {
+        "@type": "ImageObject",
+        "url": "http://yoursite.com/img/suka-favicon.ico"
+    },
+    
+    "datePublished": "2019-02-21T14:13:12.000Z",
+    "dateModified": "2019-02-21T09:41:20.463Z",
+    "author": {
+        "@type": "Person",
+        "name": "hk",
+        "image": {
+            "@type": "ImageObject",
+            "url": "http://yoursite.com/img/default_avatar.png"
+        },
+        "description": "Hi, nice to meet you."
+    },
+    "publisher": {
+        "@type": "Organization",
+        "name": "HK&#39;s blog",
+        "logo": {
+            "@type": "ImageObject",
+            "url": "http://yoursite.com/img/suka-favicon.ico"
+        }
+    },
+    
+    "potentialAction": {
+        "@type": "SearchAction",
+        "target": "http://yoursite.com/search?s={search_term_string}",
+        "query-input": "required name=search_term_string"
+    },
+    
+    "keywords": ", javascript",
+    "description": "背景最近项目中的某个页面的加载时间过长, 从第一个接口开始到最后一个接口调用结束一共用了 5.5s ~ 6s, 就想着排查一下问题所在并优化掉, 打开浏览器调试工具, Network, 仔细查看每一个接口的调用时间, 抛开调用后端的resful接口, 就是一些静态资源(.js/.html/.json)的加载及解析花了大量的时间, 并发现这些静态资源的请求的Waterfall, 发现有的接口的 Waiting (TTFB) 选项时长过长, 有的接口的 Content Download 时间过长."
+}
 </script>
 
 
 
-
-
-  <script src="//cdn1.lncld.net/static/js/3.1.1/av-min.js"></script>
-  <script id="leancloud">
-    AV.init({
-      appId: "x8DnYYQw5Dl9oBmsrh29KacR-gzGzoHsz",
-      appKey: "skGJTxdFoENHDdh68uEjPpbS"
-    });
-  </script>
-
-
-
-
-
-<script>
-  window.config = {"leancloud":{"app_id":"x8DnYYQw5Dl9oBmsrh29KacR-gzGzoHsz","app_key":"skGJTxdFoENHDdh68uEjPpbS"},"toc":true,"fancybox":true,"pjax":true};
-</script>
-
-    <title> Waiting (TTFB) 时间过长 - HK's blog </title>
-  </head>
-
-  <body><div id="mobile-navbar" class="mobile-navbar">
-  <div class="mobile-header-logo">
-    <a href="/." class="logo">HK's blog</a>
-  </div>
-  <div class="mobile-navbar-icon">
-    <span></span>
-    <span></span>
-    <span></span>
-  </div>
-</div>
-
-<nav id="mobile-menu" class="mobile-menu slideout-menu">
-  <ul class="mobile-menu-list">
+    <!-- ### Custom Head ### -->
     
-      <a href="/">
-        <li class="mobile-menu-item">
-          
-          
-            首页
-          
-        </li>
-      </a>
-    
-      <a href="/archives/">
-        <li class="mobile-menu-item">
-          
-          
-            归档
-          
-        </li>
-      </a>
-    
-      <a href="/tags">
-        <li class="mobile-menu-item">
-          
-          
-            标签
-          
-        </li>
-      </a>
-    
-      <a href="/categories">
-        <li class="mobile-menu-item">
-          
-          
-            分类
-          
-        </li>
-      </a>
-    
-      <a href="/about">
-        <li class="mobile-menu-item">
-          
-          
-            关于
-          
-        </li>
-      </a>
-    
-  </ul>
-</nav>
 
-    <div class="container" id="mobile-panel">
-      <header id="header" class="header"><div class="logo-wrapper">
-  <a href="/." class="logo">HK's blog</a>
-</div>
 
-<nav class="site-navbar">
-  
-    <ul id="menu" class="menu">
-      
+</head>
+
+    <body>
+        
+
+            
+
+            <!-- ### Main content ### -->
+            <!-- ## Header ##-->
+<header>
+    <h1 class="header-title text-center"><a href="/">HK&#39;s blog</a></h1>
+
+    <p class="text-center header-slogan">
+        
+            
+                Hi, nice to meet you.
+            
+        
+    </p>
+
+    <nav class="navbar-section text-center">
+    
+        <a href="/" class="navbar-link">Home</a>
+    
+    
+        <a href="/archives/" class="navbar-link">Archives</a>
+    
+    
+        <a href="/search" class="navbar-link">Search</a>
+    
+    
+    
+        <div class="dropdown dropdown-right">
+    <a class="navbar-link dropdown-toggle" tabindex="0">Share</a>
+    <ul class="menu share-menu">
+
+        <!-- Share Weibo -->
+        
         <li class="menu-item">
-          <a class="menu-item-link" href="/">
-            
-            
-              首页
-            
-          </a>
+            <a href="http://service.weibo.com/share/share.php?appkey=&title=HK's blog&url=http://yoursite.com&pic=http://yoursite.com/img/suka-favicon.ico&searchPic=false&style=simple" target="_blank" rel="noopener noreferrer nofollow">Share to Weibo</a>
         </li>
-      
+        
+
+        <!-- Share Twitter -->
+        
         <li class="menu-item">
-          <a class="menu-item-link" href="/archives/">
-            
-            
-              归档
-            
-          </a>
+            <a href="https://twitter.com/intent/tweet?text=HK's blog&url=http://yoursite.com&via=hk" target="_blank" rel="noopener noreferrer nofollow">Share to Twitter</a>
         </li>
-      
+        
+
+        <!-- Share Facebook -->
+        
         <li class="menu-item">
-          <a class="menu-item-link" href="/tags">
-            
-            
-              标签
-            
-          </a>
+            <a href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com" target="_blank" rel="noopener noreferrer nofollow">Share to Facebook</a>
         </li>
-      
+        
+
+        <!-- Share Google+ -->
+        
         <li class="menu-item">
-          <a class="menu-item-link" href="/categories">
-            
-            
-              分类
-            
-          </a>
+            <a href="https://plus.google.com/share?url=http://yoursite.com" target="_blank" rel="noopener noreferrer nofollow">Share to Google+</a>
         </li>
-      
+        
+
+        <!-- Share LinkedIn -->
+        
         <li class="menu-item">
-          <a class="menu-item-link" href="/about">
-            
-            
-              关于
-            
-          </a>
+            <a href="https://www.linkedin.com/shareArticle?mini=true&url=http://yoursite.com&title=Waiting (TTFB) 时间过长" target="_blank" rel="noopener noreferrer nofollow">Share to LinkedIn</a>
         </li>
-      
+        
+
+        <!-- Share QQ -->
+        
+        <li class="menu-item">
+            <a href="http://connect.qq.com/widget/shareqq/index.html?site=HK's blog&title=Waiting (TTFB) 时间过长&summary=不会搞艺术的程序员不是好设计师&pics=http://yoursite.com/img/suka-favicon.ico&url=http://yoursite.com" target="_blank" rel="noopener noreferrer nofollow"> Share to QQ</a>
+        </li>
+        
+
+        <!-- Share Telegram -->
+        
+        <li class="menu-item">
+            <a href="https://t.me/share/url?url=http://yoursite.com&text=Waiting (TTFB) 时间过长" target="_blank" rel="noopener noreferrer nofollow">Share to Telegram</a>
+        </li>
+        
+
+        <!-- QRCode -->
+        
+        <li class="menu-item">
+            <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUCAAAAABQV18IAAAB4UlEQVR42u3a0a6DIBCEYd//pdvbtoGZWWITWH9vzmlM9TNByg57vTY8LlCgQIEaoC5x/J7//M7v90fnvm5o7gOqF2p2kRFgBBnhR+fVfUD1Q80uOhrI6ubqQdz3QT0D5SZQ9RDqIUE9FzWb9GZYN/hBPQelJkA12GcLttkkessqAdT2KFc43PX31moG1LaoKHgIFoBqkv1L6gJqW5SbDJMAwxWhqqC1MzqoY1HJIl/Bq0XD8OFAtUa5i8/CsyTomC4KQbVAqQIgDTWSYtaFb6D6oFx4nwzuakE7/QyqDao6uJMNo/SFsBvboI5FqQulG9orwRqonqjVENZtYLuXo5QOgzoGVQkiXCOOC0DiYhRUG1SlEUdtBKgXQC4WQbVAVRoD1aRaCf+jjW1Qx6Mc0MHTpp04yQPVApXc0IW0SZPOtPAF1QqVNAmmG5OrQRuoPihVOKTBmpt41Q85qJ6oJIyvBP/pD3vUgAPqOFR6JEFbZeJd6l4EtT0qaRJ0zQ4qZHWLRVD9UNXBmDZXJM0T8coT1HEoN8Arwf1KUQuqJ6oSprqQLd0oAvVslNsYKg3oZOUJqi0qDfMTbKmaAXU8Km3CWSk41AYkqJ6otHBI/k83jaLuRVBHonY6QIECBerjeAO7dZEggdCiTAAAAABJRU5ErkJggg==" alr="QRCode">
+        </li>
+        
+
     </ul>
-  
+</div>
+    
+    
 </nav>
+</header>
 
-      </header>
-
-      <main id="main" class="main">
-        <div class="content-wrapper">
-          <div id="content" class="content">
             
-  
-  <article class="post">
-    <header class="post-header">
-      <h1 class="post-title">
-        
-          Waiting (TTFB) 时间过长
-        
-      </h1>
-
-      <div class="post-meta">
-        <span class="post-time">
-          2019-02-21
-        </span>
-        
-          <span class="post-category">
-            
-              <a href="/categories/javascript/">javascript</a>
-            
-          </span>
-        
-        
-        <span class="post-visits"
-             data-url="/2019/02/21/JS怪异的number/"
-             data-title="Waiting (TTFB) 时间过长">
-          阅读次数 0
-        </span>
-        
-      </div>
-    </header>
-
+    <!-- ## Post ## -->
     
     
-  <div class="post-toc" id="post-toc">
-    <h2 class="post-toc-title">文章目录</h2>
-    <div class="post-toc-content">
-      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#背景"><span class="toc-text">背景</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#什么是-Waiting-TTFB-时间"><span class="toc-text">什么是 Waiting (TTFB) 时间</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#TTFB-时间多长算长？"><span class="toc-text">TTFB 时间多长算长？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#TTFB-过长的原因"><span class="toc-text">TTFB 过长的原因</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Waiting-TTFB-时间过长的解决办法"><span class="toc-text">Waiting (TTFB) 时间过长的解决办法</span></a></li></ol>
+
+
+<div class="post-container">
+    <div id="post-card" class="card">
+        
+        <div class="card-item-container">
+            <div class="card-inner-cell">
+                <!-- # Post Header Info # -->
+                <div class="card-header">
+                    
+    <h1 class="card-title h3 mb-2">Waiting (TTFB) 时间过长</h1>
+
+<div class="post-header-info">
+    <p class="post-header-info-left text-gray">
+        <img class="author-thumb lazyload" data-src="/img/default_avatar.png" alt="hk's Avatar">
+        <span>2019-02-21</span>
+        
+            <span class="suka-devide-dot"></span>
+            <a class="category-link" href="/categories/javascript/">javascript</a>
+        
+        
+            <!-- Busuanzi Post Views -->
+<span id="busuanzi_container_page_pv" hidden>
+    <span class="suka-devide-dot"></span>
+    <span></span>
+    <span id="busuanzi_value_page_pv"></span>
+    <span>Views</span>
+</span>
+        
+        
+    </p>
+    <div class="post-header-info-right">
+        
+            <div class="dropdown dropdown-right">
+<a class="dropdown-toggle" tabindex="0">Share the post</a>
+<ul class="menu share-menu">
+    <!-- Share Weibo -->
+    
+    <li class="menu-item">
+        <a href="http://service.weibo.com/share/share.php?appkey=&title=Waiting (TTFB) 时间过长&url=http://yoursite.com/2019/02/21/JS怪异的number/&pic=http://yoursite.com/img/suka-favicon.ico&searchPic=false&style=simple" target="_blank" rel="noopener noreferrer nofollow">Share to Weibo</a>
+    </li>
+    
+
+    <!-- Share Twitter -->
+    
+    <li class="menu-item">
+        <a href="https://twitter.com/intent/tweet?text=Waiting (TTFB) 时间过长&url=http://yoursite.com/2019/02/21/JS怪异的number/&via=hk" target="_blank" rel="noopener noreferrer nofollow">Share to Twitter</a>
+    </li>
+    
+
+    <!-- Share Facebook -->
+    
+    <li class="menu-item">
+        <a href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2019/02/21/JS怪异的number/" target="_blank" rel="noopener noreferrer nofollow">Share to Facebook</a>
+    </li>
+    
+
+    <!-- Share Google+ -->
+    
+    <li class="menu-item">
+        <a href="https://plus.google.com/share?url=http://yoursite.com/2019/02/21/JS怪异的number/" target="_blank" rel="noopener noreferrer nofollow">Share to Google+</a>
+    </li>
+    
+
+    <!-- Share LinkedIn -->
+    
+    <li class="menu-item">
+        <a href="https://www.linkedin.com/shareArticle?mini=true&url=http://yoursite.com/2019/02/21/JS怪异的number/&title=HK's blog" target="_blank" rel="noopener noreferrer nofollow">Share to LinkedIn</a>
+    </li>
+    
+
+    <!-- Share QQ -->
+    
+    <li class="menu-item">
+        <a href="http://connect.qq.com/widget/shareqq/index.html?site=HK's blog&title=HK's blog&summary=不会搞艺术的程序员不是好设计师&pics=http://yoursite.com/img/suka-favicon.ico&url=http://yoursite.com/2019/02/21/JS怪异的number/" target="_blank" rel="noopener noreferrer nofollow"> Share to QQ</a>
+    </li>
+    
+
+    <!-- Share Telegram -->
+    
+    <li class="menu-item">
+        <a href="https://t.me/share/url?url=http://yoursite.com/2019/02/21/JS怪异的number/&text=HK's blog" target="_blank" rel="noopener noreferrer nofollow">Share to Telegram</a>
+    </li>
+    
+
+    <!-- QRCode -->
+    
+    <li class="menu-item">
+        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUCAAAAABQV18IAAAB4UlEQVR42u3a0a6DIBCEYd//pdvbtoGZWWITWH9vzmlM9TNByg57vTY8LlCgQIEaoC5x/J7//M7v90fnvm5o7gOqF2p2kRFgBBnhR+fVfUD1Q80uOhrI6ubqQdz3QT0D5SZQ9RDqIUE9FzWb9GZYN/hBPQelJkA12GcLttkkessqAdT2KFc43PX31moG1LaoKHgIFoBqkv1L6gJqW5SbDJMAwxWhqqC1MzqoY1HJIl/Bq0XD8OFAtUa5i8/CsyTomC4KQbVAqQIgDTWSYtaFb6D6oFx4nwzuakE7/QyqDao6uJMNo/SFsBvboI5FqQulG9orwRqonqjVENZtYLuXo5QOgzoGVQkiXCOOC0DiYhRUG1SlEUdtBKgXQC4WQbVAVRoD1aRaCf+jjW1Qx6Mc0MHTpp04yQPVApXc0IW0SZPOtPAF1QqVNAmmG5OrQRuoPihVOKTBmpt41Q85qJ6oJIyvBP/pD3vUgAPqOFR6JEFbZeJd6l4EtT0qaRJ0zQ4qZHWLRVD9UNXBmDZXJM0T8coT1HEoN8Arwf1KUQuqJ6oSprqQLd0oAvVslNsYKg3oZOUJqi0qDfMTbKmaAXU8Km3CWSk41AYkqJ6otHBI/k83jaLuRVBHonY6QIECBerjeAO7dZEggdCiTAAAAABJRU5ErkJggg==" alt="QRCode">
+    </li>
+    
+
+</ul>
+</div>
+        
     </div>
-  </div>
-
-
-
-    <div class="post-content">
-      
-        <h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h2><p>最近项目中的某个页面的加载时间过长, 从第一个接口开始到最后一个接口调用结束一共用了 5.5s ~ 6s, 就想着排查一下问题所在并优化掉, 打开浏览器调试工具, Network, 仔细查看每一个接口的调用时间, 抛开调用后端的resful接口, 就是一些静态资源(.js/.html/.json)的加载及解析花了大量的时间, 并发现这些静态资源的请求的Waterfall, 发现有的接口的 Waiting (TTFB) 选项时长过长, 有的接口的 Content Download 时间过长.</p>
+</div>
+                </div>
+                <div class="card-body">
+                    
+                        
+                            <div id="post-toc">
+                                <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#背景"><span class="post-toc-number">1.</span> <span class="post-toc-text">背景</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#什么是-Waiting-TTFB-时间"><span class="post-toc-number">2.</span> <span class="post-toc-text">什么是 Waiting (TTFB) 时间</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#TTFB-时间多长算长？"><span class="post-toc-number">3.</span> <span class="post-toc-text">TTFB 时间多长算长？</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#TTFB-过长的原因"><span class="post-toc-number">4.</span> <span class="post-toc-text">TTFB 过长的原因</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Waiting-TTFB-时间过长的解决办法"><span class="post-toc-number">5.</span> <span class="post-toc-text">Waiting (TTFB) 时间过长的解决办法</span></a></li></ol>
+                            </div>
+                        
+                    
+                    <article id="post-content">
+                        <h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h2><p>最近项目中的某个页面的加载时间过长, 从第一个接口开始到最后一个接口调用结束一共用了 5.5s ~ 6s, 就想着排查一下问题所在并优化掉, 打开浏览器调试工具, Network, 仔细查看每一个接口的调用时间, 抛开调用后端的resful接口, 就是一些静态资源(.js/.html/.json)的加载及解析花了大量的时间, 并发现这些静态资源的请求的Waterfall, 发现有的接口的 Waiting (TTFB) 选项时长过长, 有的接口的 Content Download 时间过长.</p>
 <a id="more"></a>
 <h2 id="什么是-Waiting-TTFB-时间"><a href="#什么是-Waiting-TTFB-时间" class="headerlink" title="什么是 Waiting (TTFB) 时间"></a>什么是 Waiting (TTFB) 时间</h2><p>什么是 Waiting (TTFB) 时间, TTFB 是 Time to First Byte 的缩写，指的是浏览器开始收到服务器响应数据的时间 <strong>(后台处理时间+重定向时间)</strong> ，是反映服务端响应速度的重要指标。就像你问朋友了一个问题，你的朋友思考了一会儿才给你答案，你朋友思考的时间就相当于 TTFB。你朋友思考的时间越短，就说明你朋友越聪明或者对你的问题越熟悉。对服务器来说，TTFB 时间越短，就说明服务器响应越快。</p>
 <h2 id="TTFB-时间多长算长？"><a href="#TTFB-时间多长算长？" class="headerlink" title="TTFB 时间多长算长？"></a>TTFB 时间多长算长？</h2><p>因为每个服务器的硬件和网络环境都不尽相同，每个服务器的 TTFB 时间也不相同。如果想知道你的服务器可以优化到什么程度，大家可以上传一些静态的 HTML 页面到服务器，然后打开这些静态页面，看一些这些页面的 TTFB 时间，大多数服务器的 TTFB 时间都在 50 ms 一下，这个时间就是我们优化时候可以追求的时间。下面两个图中的 TTFB 时间分别是本站所在服务器的静态和动态网页 TTFB 等待时间。</p>
@@ -293,179 +523,165 @@
 <p>如果是 Cookie 的原因，可以通过修改应用程序，删除一些不必要的 Cookie，或者精简 Cookie 内容，缩短 Cookie 的有效期等，都是解决办法。</p>
 <p>具体参见谷歌官方开发文档 <a href="https://developers.google.com/web/tools/chrome-devtools/network-performance/understanding-resource-timing" target="_blank" rel="noopener">https://developers.google.com/web/tools/chrome-devtools/network-performance/understanding-resource-timing</a></p>
 
-      
-    </div>
-
-    
-      
-      
+                    </article>
+                    
 
 
-
-      
-      
-    
-
-    
-      <footer class="post-footer">
-        
-          <div class="post-tags">
-            
-              <a href="/tags/javascript/">javascript</a>
-            
-          </div>
-        
-        
-        
-  <nav class="post-nav">
-    
-    
-      <a class="next" href="/2019/02/14/结构赋值/">
-        <span class="next-text nav-default">解构赋值</span>
-        <span class="prev-text nav-mobile">下一篇</span>
-        <i class="iconfont icon-right"></i>
-      </a>
-    
-  </nav>
+    <blockquote id="date-expire-notification" class="post-expired-notify">This article was last updated on <span id="date-expire-num"></span> days ago, and the information described in the article may have changed.</blockquote>
+    <script>
+        var dateUpdate = Date.parse("2019-02-21");
+        var nowDate = new Date();
+        var a = nowDate.getTime();
+        var b = a - dateUpdate;
+        var daysUpdateExpire = Math.floor(b/(24*3600*1000));
+        if (daysUpdateExpire >= 120) {
+            document.getElementById('date-expire-num').innerHTML = daysUpdateExpire;
+        } else {
+            document.getElementById('date-expire-notification').style.display = 'none';
+        }
+    </script>
 
 
-      </footer>
-    
+<p class="post-footer-info mb-0 pt-0">Published at&nbsp;<time datetime="2019-02-21T14:13:12.000Z" itemprop="datePublished">2019-02-21</time>
 
-  </article>
+</p>
+<p class="post-footer-info mb-0 pt-2">
 
-
-          </div>
-          
-  <div class="comments" id="comments">
-    
-  </div>
+<span class="post-categories-list mt-2">
 
 
-        </div>
-      </main>
+<a class="post-categories-list-item" href='/categories/javascript/'>javascript</a>
 
-      <footer id="footer" class="footer">
-
-  <div class="social-links">
-    
-      
-        
-          <a href="mailto:hk93211@gmail.com" class="iconfont icon-email" title="email"></a>
-        
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-        
-          <a href="https://github.com/hk93211" class="iconfont icon-github" title="github"></a>
-        
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-
-    
-      
-      <a href="/atom.xml" class="iconfont icon-rss" title="rss"></a>
-    
-  </div>
+</span>
 
 
 
-<div class="copyright">
-  <span class="power-by">
-    由 <a class="hexo-link" href="https://hexo.io/">Hexo</a> 强力驱动
-  </span>
-  <span class="division">|</span>
-  <span class="theme-info">
-    主题 - 
-    <a class="theme-link" href="https://github.com/ahonn/hexo-theme-even">Even</a>
-  </span>
+<span class="post-tags-list mt-2">
 
-  <span class="copyright-year">
-    
-    &copy; 
-     
-      2015 - 
-    
-    2019
 
-    <span class="heart">
-      <i class="iconfont icon-heart"></i>
-    </span>
-    <span class="author">hk</span>
-  </span>
+<a class="post-tags-list-item" href='/tags/javascript/'>#&nbsp;javascript</a>
+
+</span>
+
+
+</p>
+
+                </div>
+                
+<div class="post-nav px-2 bg-gray">
+<ul class="pagination">
+    <!-- Prev Nav -->
+    
+
+    <!-- Next Nav -->
+    
+        <li class="page-item page-next">
+            <a href="/2019/02/14/结构赋值/">
+                <div class="page-item-title"><i class="icon icon-forward" aria-hidden="true"></i></div>
+                <div class="page-item-subtitle">解构赋值</div>
+            </a>
+        </li>
+    
+</ul>
 </div>
 
-      </footer>
-
-      <div class="back-to-top" id="back-to-top">
-        <i class="iconfont icon-up"></i>
-      </div>
+                
+                    <!-- # Comment # -->
+                    
+                
+            </div>
+        </div>
     </div>
+</div>
 
+            <!-- ### Footer ### -->
+            <footer class="text-center">
+    <!-- footer copyright -->
+    <p class="footer-copyright mb-0">Copyright&nbsp;©&nbsp;<span data-year></span>
+        <a class="footer-copyright-a" href="http://yoursite.com">HK&#39;s blog</a>
+    </p>
+    <!-- footer custom text -->
+    <p class="footer-text mb-0">
     
-  
-  
+    </p>
+    <!-- footer develop info -->
+    <p class="footer-develop mb-0">
+        
+            
+    <!-- Busuanzi User Views -->
+    <span id="busuanzi_container_site_uv" hidden>
+        <span></span>
+        <span id="busuanzi_value_site_uv"></span>
+        <span>Viewers</span>
+        
+            <span>|</span>
+        
+    </span>
 
-  
+
+
+        
+        
+        Powered by&nbsp;<!--
+         --><a href="https://hexo.io" target="_blank" class="footer-develop-a" rel="nofollow noopener noreferrer">Hexo</a><span class="footer-develop-divider"></span>Theme&nbsp;-&nbsp;<!--
+         --><a href="https://github.com/SukkaW/hexo-theme-suka" target="_blank" class="footer-develop-a" rel="noopener">Suka</a>
+    </p>
+</footer>
+
+        
+
+        <!-- ### Import File ### -->
+        <!-- ### Footer JS Import ### -->
+
+<script>
+window.lazyLoadOptions = {
+    elements_selector: ".lazyload",
+    threshold: 50
+};
 
 
 
+    /* Copyright */
+    var copyrightNow = new Date().getFullYear();
+    var copyrightContent = document.querySelector('span[data-year]')
     
-  
+        copyrightContent.textContent = copyrightNow
+    
 
 
 
-  
-  
+/* Cnosole Log */
+console.log('\n %c Suka Theme (hexo-theme-suka) | © SukkaW | Verision 1.3.2 %c https://github.com/SukkaW/hexo-theme-suka \n', 'color: #fff; background: #444; padding:5px 0;', 'background: #bbb; padding:5px 0;');
+</script>
+
+<!-- vanilla-lazyload -->
+
+    <script src="/lib/vanilla-lazyload/lazyload.min.js" async></script>
+
+
+
+    <!-- Busuanzi -->
+    
+    <script src="https://cdn.jsdelivr.net/npm/busuanzi@2.3.0/bsz.pure.mini.js" async></script>
+
+
+<!-- Offset -->
 
 
 
 
 
-  
-    <script type="text/javascript" src="/lib/jquery/jquery.min.js"></script>
-  
-
-  
-    <script type="text/javascript" src="/lib/slideout/slideout.js"></script>
-  
-
-  
-    <script type="text/javascript" src="/lib/fancybox/jquery.fancybox.pack.js"></script>
-  
-
-  
-    <script type="text/javascript" src="/lib/pjax/jquery.pjax.min.js"></script>
-  
-
-  
-    <script type="text/javascript" src="/lib/nprogress/nprogress.min.js"></script>
-  
 
 
-    <script type="text/javascript" src="/js/src/even.js?v=2.10.1"></script>
+<!-- gallery.js -->
 
-  </body>
+
+<!-- Comment -->
+
+
+<!-- ### Custom Footer ### -->
+
+
+    </body>
+
 </html>
