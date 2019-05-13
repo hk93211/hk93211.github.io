@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 
-<html lang="zh-Hans">
+<html lang="zh-CN">
     <head>
     <meta charset="utf-8">
     <!--
@@ -28,6 +28,9 @@ window.oldVersion = [
 
 <!-- comment -->
 
+
+    <link rel="dns-prefetch" href="//disqus.com">
+    <link rel="dns-prefetch" href="//huan9kun.disqus.com">
 
 
 
@@ -80,11 +83,10 @@ window.oldVersion = [
 <meta name="format-detection" content="telephone=no">
 
 <!-- Description -->
-<meta name="description" content="JavaScript模块化最开始,JavaScript 往往作为嵌入到 HTML 页面中的用于控制动画与简单的用户交互的脚本语言，我们习惯于将其直接嵌入到 script 标签中：12345&amp;lt;!--html--&amp;gt;&amp;lt;script type=&amp;quot;application/javascript&amp;quot;&amp;gt;    // module1 code    // module2 code&amp;lt;/script&amp;gt;
-不过随着单页应用与富客户端的流行，不断增长的代码库也急需合理的代码分割与依赖管理的解决方案，">
+<meta name="description" content="JavaScript模块化最开始...">
 
 <!-- Keywords -->
-<meta name="keywords" content=", 教程">
+<meta name="keywords" content="Front End, 前端, 全栈, 教程">
 
 <!-- Disable Fucking Bloody Baidu Tranformation -->
 <meta http-equiv="Cache-Control" content="no-transform" />
@@ -209,13 +211,12 @@ window.oldVersion = [
     <meta property="og:title" content="JavaScript module简史 | HK&#39;s blog">
 <meta property="og:site_name" content="HK&#39;s blog">
 
-<meta property="og:locale" content="zh-Hans">
+<meta property="og:locale" content="zh-CN">
 
 <meta property="og:url" content="http://yoursite.com/2018/08/22/JS模块简史/">
 <meta property="og:image" content="http://yoursite.com/img/suka-favicon.ico">
 
-<meta property="og:description" content="JavaScript模块化最开始,JavaScript 往往作为嵌入到 HTML 页面中的用于控制动画与简单的用户交互的脚本语言，我们习惯于将其直接嵌入到 script 标签中：12345&amp;lt;!--html--&amp;gt;&amp;lt;script type=&amp;quot;application/javascript&amp;quot;&amp;gt;    // module1 code    // module2 code&amp;lt;/script&amp;gt;
-不过随着单页应用与富客户端的流行，不断增长的代码库也急需合理的代码分割与依赖管理的解决方案，">
+<meta property="og:description" content="JavaScript模块化最开始...">
 
 <meta name="twitter:card" content="summary">
 
@@ -224,7 +225,7 @@ window.oldVersion = [
     <meta property="article:published_time" content="2018-08-22T01:30:42.000Z">
     <meta property="article:modified_time" content="2018-08-22T01:30:42.000Z">
     <meta property="article:author" content="hk">
-    <meta property="og:article:tag" content=", 教程"> 
+    <meta property="og:article:tag" content="Front End, 前端, 全栈, 教程"> 
 
 
 
@@ -266,15 +267,15 @@ window.oldVersion = [
     },
     
     "datePublished": "2018-08-22T01:30:42.000Z",
-    "dateModified": "2018-10-26T08:29:29.988Z",
+    "dateModified": "2019-04-20T03:34:25.825Z",
     "author": {
         "@type": "Person",
         "name": "hk",
         "image": {
             "@type": "ImageObject",
-            "url": "http://yoursite.com/img/default_avatar.png"
+            "url": "http://yoursite.com/img/luffy.jpeg"
         },
-        "description": "Hi, nice to meet you."
+        "description": "不会搞艺术的程序员不是好设计师"
     },
     "publisher": {
         "@type": "Organization",
@@ -291,9 +292,8 @@ window.oldVersion = [
         "query-input": "required name=search_term_string"
     },
     
-    "keywords": ", 教程",
-    "description": "JavaScript模块化最开始,JavaScript 往往作为嵌入到 HTML 页面中的用于控制动画与简单的用户交互的脚本语言，我们习惯于将其直接嵌入到 script 标签中：12345&amp;lt;!--html--&amp;gt;&amp;lt;script type=&amp;quot;application/javascript&amp;quot;&amp;gt;    // module1 code    // module2 code&amp;lt;/script&amp;gt;
-不过随着单页应用与富客户端的流行，不断增长的代码库也急需合理的代码分割与依赖管理的解决方案，"
+    "keywords": "Front End, 前端, 全栈, 教程",
+    "description": "JavaScript模块化最开始..."
 }
 </script>
 
@@ -318,73 +318,77 @@ window.oldVersion = [
     <p class="text-center header-slogan">
         
             
-                Hi, nice to meet you.
+                不会搞艺术的程序员不是好设计师
             
         
     </p>
 
     <nav class="navbar-section text-center">
     
-        <a href="/" class="navbar-link">Home</a>
+        <a href="/" class="navbar-link">首页</a>
     
     
-        <a href="/archives/" class="navbar-link">Archives</a>
+        <a href="/archives/" class="navbar-link">归档</a>
     
     
-        <a href="/search" class="navbar-link">Search</a>
+        <a href="/search" class="navbar-link">搜索</a>
     
+    
+        <a href="/about/" class="navbar-link">关于</a>
+    
+        <a href="/links/" class="navbar-link">友链</a>
     
     
         <div class="dropdown dropdown-right">
-    <a class="navbar-link dropdown-toggle" tabindex="0">Share</a>
+    <a class="navbar-link dropdown-toggle" tabindex="0">分享</a>
     <ul class="menu share-menu">
 
         <!-- Share Weibo -->
         
         <li class="menu-item">
-            <a href="http://service.weibo.com/share/share.php?appkey=&title=HK's blog&url=http://yoursite.com&pic=http://yoursite.com/img/suka-favicon.ico&searchPic=false&style=simple" target="_blank" rel="noopener noreferrer nofollow">Share to Weibo</a>
+            <a href="http://service.weibo.com/share/share.php?appkey=&title=HK's blog&url=http://yoursite.com&pic=http://yoursite.com/img/suka-favicon.ico&searchPic=false&style=simple" target="_blank" rel="noopener noreferrer nofollow">分享到微博</a>
         </li>
         
 
         <!-- Share Twitter -->
         
         <li class="menu-item">
-            <a href="https://twitter.com/intent/tweet?text=HK's blog&url=http://yoursite.com&via=hk" target="_blank" rel="noopener noreferrer nofollow">Share to Twitter</a>
+            <a href="https://twitter.com/intent/tweet?text=HK's blog&url=http://yoursite.com&via=hk" target="_blank" rel="noopener noreferrer nofollow">分享到 Twitter</a>
         </li>
         
 
         <!-- Share Facebook -->
         
         <li class="menu-item">
-            <a href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com" target="_blank" rel="noopener noreferrer nofollow">Share to Facebook</a>
+            <a href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com" target="_blank" rel="noopener noreferrer nofollow">分享到 Facebook</a>
         </li>
         
 
         <!-- Share Google+ -->
         
         <li class="menu-item">
-            <a href="https://plus.google.com/share?url=http://yoursite.com" target="_blank" rel="noopener noreferrer nofollow">Share to Google+</a>
+            <a href="https://plus.google.com/share?url=http://yoursite.com" target="_blank" rel="noopener noreferrer nofollow">分享到 Google+</a>
         </li>
         
 
         <!-- Share LinkedIn -->
         
         <li class="menu-item">
-            <a href="https://www.linkedin.com/shareArticle?mini=true&url=http://yoursite.com&title=JavaScript module简史" target="_blank" rel="noopener noreferrer nofollow">Share to LinkedIn</a>
+            <a href="https://www.linkedin.com/shareArticle?mini=true&url=http://yoursite.com&title=JavaScript module简史" target="_blank" rel="noopener noreferrer nofollow">分享到 LinkedIn</a>
         </li>
         
 
         <!-- Share QQ -->
         
         <li class="menu-item">
-            <a href="http://connect.qq.com/widget/shareqq/index.html?site=HK's blog&title=JavaScript module简史&summary=不会搞艺术的程序员不是好设计师&pics=http://yoursite.com/img/suka-favicon.ico&url=http://yoursite.com" target="_blank" rel="noopener noreferrer nofollow"> Share to QQ</a>
+            <a href="http://connect.qq.com/widget/shareqq/index.html?site=HK's blog&title=JavaScript module简史&summary=不会搞艺术的程序员不是好设计师&pics=http://yoursite.com/img/suka-favicon.ico&url=http://yoursite.com" target="_blank" rel="noopener noreferrer nofollow"> 分享到 QQ</a>
         </li>
         
 
         <!-- Share Telegram -->
         
         <li class="menu-item">
-            <a href="https://t.me/share/url?url=http://yoursite.com&text=JavaScript module简史" target="_blank" rel="noopener noreferrer nofollow">Share to Telegram</a>
+            <a href="https://t.me/share/url?url=http://yoursite.com&text=JavaScript module简史" target="_blank" rel="noopener noreferrer nofollow">分享到 Telegram</a>
         </li>
         
 
@@ -420,7 +424,7 @@ window.oldVersion = [
 
 <div class="post-header-info">
     <p class="post-header-info-left text-gray">
-        <img class="author-thumb lazyload" data-src="/img/default_avatar.png" alt="hk's Avatar">
+        <img class="author-thumb lazyload" data-src="/img/luffy.jpeg" alt="hk's Avatar">
         <span>2018-08-22</span>
         
             <span class="suka-devide-dot"></span>
@@ -440,54 +444,54 @@ window.oldVersion = [
     <div class="post-header-info-right">
         
             <div class="dropdown dropdown-right">
-<a class="dropdown-toggle" tabindex="0">Share the post</a>
+<a class="dropdown-toggle" tabindex="0">分享本文</a>
 <ul class="menu share-menu">
     <!-- Share Weibo -->
     
     <li class="menu-item">
-        <a href="http://service.weibo.com/share/share.php?appkey=&title=JavaScript module简史&url=http://yoursite.com/2018/08/22/JS模块简史/&pic=http://yoursite.com/img/suka-favicon.ico&searchPic=false&style=simple" target="_blank" rel="noopener noreferrer nofollow">Share to Weibo</a>
+        <a href="http://service.weibo.com/share/share.php?appkey=&title=JavaScript module简史&url=http://yoursite.com/2018/08/22/JS模块简史/&pic=http://yoursite.com/img/suka-favicon.ico&searchPic=false&style=simple" target="_blank" rel="noopener noreferrer nofollow">分享到微博</a>
     </li>
     
 
     <!-- Share Twitter -->
     
     <li class="menu-item">
-        <a href="https://twitter.com/intent/tweet?text=JavaScript module简史&url=http://yoursite.com/2018/08/22/JS模块简史/&via=hk" target="_blank" rel="noopener noreferrer nofollow">Share to Twitter</a>
+        <a href="https://twitter.com/intent/tweet?text=JavaScript module简史&url=http://yoursite.com/2018/08/22/JS模块简史/&via=hk" target="_blank" rel="noopener noreferrer nofollow">分享到 Twitter</a>
     </li>
     
 
     <!-- Share Facebook -->
     
     <li class="menu-item">
-        <a href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2018/08/22/JS模块简史/" target="_blank" rel="noopener noreferrer nofollow">Share to Facebook</a>
+        <a href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2018/08/22/JS模块简史/" target="_blank" rel="noopener noreferrer nofollow">分享到 Facebook</a>
     </li>
     
 
     <!-- Share Google+ -->
     
     <li class="menu-item">
-        <a href="https://plus.google.com/share?url=http://yoursite.com/2018/08/22/JS模块简史/" target="_blank" rel="noopener noreferrer nofollow">Share to Google+</a>
+        <a href="https://plus.google.com/share?url=http://yoursite.com/2018/08/22/JS模块简史/" target="_blank" rel="noopener noreferrer nofollow">分享到 Google+</a>
     </li>
     
 
     <!-- Share LinkedIn -->
     
     <li class="menu-item">
-        <a href="https://www.linkedin.com/shareArticle?mini=true&url=http://yoursite.com/2018/08/22/JS模块简史/&title=HK's blog" target="_blank" rel="noopener noreferrer nofollow">Share to LinkedIn</a>
+        <a href="https://www.linkedin.com/shareArticle?mini=true&url=http://yoursite.com/2018/08/22/JS模块简史/&title=HK's blog" target="_blank" rel="noopener noreferrer nofollow">分享到 LinkedIn</a>
     </li>
     
 
     <!-- Share QQ -->
     
     <li class="menu-item">
-        <a href="http://connect.qq.com/widget/shareqq/index.html?site=HK's blog&title=HK's blog&summary=不会搞艺术的程序员不是好设计师&pics=http://yoursite.com/img/suka-favicon.ico&url=http://yoursite.com/2018/08/22/JS模块简史/" target="_blank" rel="noopener noreferrer nofollow"> Share to QQ</a>
+        <a href="http://connect.qq.com/widget/shareqq/index.html?site=HK's blog&title=HK's blog&summary=不会搞艺术的程序员不是好设计师&pics=http://yoursite.com/img/suka-favicon.ico&url=http://yoursite.com/2018/08/22/JS模块简史/" target="_blank" rel="noopener noreferrer nofollow"> 分享到 QQ</a>
     </li>
     
 
     <!-- Share Telegram -->
     
     <li class="menu-item">
-        <a href="https://t.me/share/url?url=http://yoursite.com/2018/08/22/JS模块简史/&text=HK's blog" target="_blank" rel="noopener noreferrer nofollow">Share to Telegram</a>
+        <a href="https://t.me/share/url?url=http://yoursite.com/2018/08/22/JS模块简史/&text=HK's blog" target="_blank" rel="noopener noreferrer nofollow">分享到 Telegram</a>
     </li>
     
 
@@ -515,7 +519,7 @@ window.oldVersion = [
                     <article id="post-content">
                         <h1 id="JavaScript模块化"><a href="#JavaScript模块化" class="headerlink" title="JavaScript模块化"></a>JavaScript模块化</h1><p>最开始,JavaScript 往往作为嵌入到 HTML 页面中的用于控制动画与简单的用户交互的脚本语言，我们习惯于将其直接嵌入到 script 标签中：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;!--html--&gt;</span><br><span class="line">&lt;script type=&quot;application/javascript&quot;&gt;</span><br><span class="line">    // module1 code</span><br><span class="line">    // module2 code</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure></p>
 <p>不过随着单页应用与富客户端的流行，不断增长的代码库也急需合理的代码分割与依赖管理的解决方案，</p>
-<a id="more"></a>
+<!--  -->
 <h2 id="命名空间模式"><a href="#命名空间模式" class="headerlink" title="命名空间模式"></a>命名空间模式</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">// file app.js</span><br><span class="line">var app = &#123;&#125;;</span><br><span class="line"></span><br><span class="line">// file greeting.js</span><br><span class="line">app.helloInLang = &#123;</span><br><span class="line">    en: &apos;Hello world!&apos;,</span><br><span class="line">    es: &apos;¡Hola mundo!&apos;,</span><br><span class="line">    ru: &apos;Привет мир!&apos;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">// file hello.js</span><br><span class="line">app.writeHello = function (lang) &#123;</span><br><span class="line">    document.write(app.helloInLang[lang]);</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 <p>所有数据对象与函数都归属于全局对象 app，不过显而易见这种方式对于大型多人协同项目的可维护性还是较差，并且没有解决模块间依赖管理的问题。</p>
 <h2 id="依赖注入"><a href="#依赖注入" class="headerlink" title="依赖注入"></a>依赖注入</h2><p>Martin Fowler 于 2004 年提出了依赖注入（Dependency Injection）的概念，其主要用于 Java 中的组件内通信；以 Spring 为代表的一系列支持依赖注入与控制反转的框架将这种设计模式发扬光大，并且成为了 Java 服务端开发的标准模式之一。依赖注入的核心思想在于<strong>某个模块不需要手动地初始化某个依赖对象，而只需要声明该依赖并由外部框架自动实例化该对象实现并且传递到模块内</strong>。而五年之后的 2009 年 Misko Hevery 开始设计新的 JavaScript 框架，并且使用了依赖注入作为其组件间通信的核心机制。这个框架就是引领一时风骚，甚至于说是现代 Web 开发先驱之一的 Angular。Angular 允许我们定义模块，并且在显式地声明其依赖模块而由框架完成自动注入。其核心思想如下所示：</p>
@@ -534,9 +538,9 @@ window.oldVersion = [
                     
 
 
-    <blockquote id="date-expire-notification" class="post-expired-notify">This article was last updated on <span id="date-expire-num"></span> days ago, and the information described in the article may have changed.</blockquote>
+    <blockquote id="date-expire-notification" class="post-expired-notify">本文最后更新于 <span id="date-expire-num"></span> 天前，文中所描述的信息可能已发生改变</blockquote>
     <script>
-        var dateUpdate = Date.parse("2018-10-26");
+        var dateUpdate = Date.parse("2019-04-20");
         var nowDate = new Date();
         var a = nowDate.getTime();
         var b = a - dateUpdate;
@@ -549,9 +553,9 @@ window.oldVersion = [
     </script>
 
 
-<p class="post-footer-info mb-0 pt-0">Published at&nbsp;<time datetime="2018-08-22T01:30:42.000Z" itemprop="datePublished">2018-08-22</time>
+<p class="post-footer-info mb-0 pt-0">本文发表于&nbsp;<time datetime="2018-08-22T01:30:42.000Z" itemprop="datePublished">2018-08-22</time>
 
-    , Updated at&nbsp;<time datetime="2018-10-26T08:29:29.988Z" itemprop="dateModified">2018-10-26</time>
+    , 最后修改于&nbsp;<time datetime="2019-04-20T03:34:25.825Z" itemprop="dateModified">2019-04-20</time>
 
 </p>
 <p class="post-footer-info mb-0 pt-2">
@@ -603,6 +607,26 @@ window.oldVersion = [
 
                 
                     <!-- # Comment # -->
+                    
+                        <div class="card-footer post-comment">
+                            <div id="disqus_thread"></div>
+<script>
+    var disqus_config = function () {
+        this.page.url = 'http://yoursite.com/2018/08/22/JS模块简史/'; // Replace PAGE_URL with your page's canonical URL variable
+        this.page.identifier = 'http://yoursite.com/2018/08/22/JS模块简史/'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+    };
+</script>
+<script id="disqus-thread-script">
+    (function() { // DON'T EDIT BELOW THIS LINE
+        var d = document;
+        var s = d.createElement('script');
+        s.src = '//huan9kun.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', + new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+
+                        </div>
                     
                 
             </div>
@@ -693,6 +717,11 @@ console.log('\n %c Suka Theme (hexo-theme-suka) | © SukkaW | Verision 1.3.2 %c 
 
 
 <!-- Comment -->
+
+    
+        <script id="dsq-count-scr" src="https://huan9kun.disqus.com/count.js" async></script>
+
+    
 
 
 <!-- ### Custom Footer ### -->

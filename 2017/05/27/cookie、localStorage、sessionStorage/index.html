@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 
-<html lang="zh-Hans">
+<html lang="zh-CN">
     <head>
     <meta charset="utf-8">
     <!--
@@ -28,6 +28,9 @@ window.oldVersion = [
 
 <!-- comment -->
 
+
+    <link rel="dns-prefetch" href="//disqus.com">
+    <link rel="dns-prefetch" href="//huan9kun.disqus.com">
 
 
 
@@ -80,12 +83,10 @@ window.oldVersion = [
 <meta name="format-detection" content="telephone=no">
 
 <!-- Description -->
-<meta name="description" content="基本概念CookieCookie 是小甜饼的意思。顾名思义，cookie 确实非常小，它的大小限制为4KB左右，是网景公司的前雇员 Lou Montulli 在1993年3月的发明。它的主要用途有保存登录信息，比如你登录某个网站市场可以看到“记住密码”，这通常就是通过在 Cookie 中存入一段辨别用户身份的数据来实现的。
-localStoragelocalStorage 是 HTML5 标准中新加入的技术，它并不是什么划时代的新东西。早在 IE 6 时代，就有一个叫 userData 的东西用于本地存储，而当时考虑到浏览器兼容性，更通用的方案是使用 Flash。而如今，localStorage 被大多数浏览器所支持，如果你的网站需要支持 IE6+，那以 userData 作为你的 polyfill 的方案是种不错的选择。
-sessionStoragesessionStorage 与 localStorage 的接口类似，但保存数据的生命周期与 localStorage 不同。做过后端开发的同学应该知道 Session 这个词的意思，直译过来是“会话”。而 sessionStorage 是一个前端的概念，它只是可以将一部分数据在当前会话中保存下来，刷新页面数据依旧存在。但当页面关闭后，sessionStorage 中的数据就会被清空。">
+<meta name="description" content="基本概念">
 
 <!-- Keywords -->
-<meta name="keywords" content=", 教程">
+<meta name="keywords" content="Front End, 前端, 全栈, 教程">
 
 <!-- Disable Fucking Bloody Baidu Tranformation -->
 <meta http-equiv="Cache-Control" content="no-transform" />
@@ -210,14 +211,12 @@ sessionStoragesessionStorage 与 localStorage 的接口类似，但保存数据�
     <meta property="og:title" content="cookie、localStorage、sessionStorage区别 | HK&#39;s blog">
 <meta property="og:site_name" content="HK&#39;s blog">
 
-<meta property="og:locale" content="zh-Hans">
+<meta property="og:locale" content="zh-CN">
 
 <meta property="og:url" content="http://yoursite.com/2017/05/27/cookie、localStorage、sessionStorage/">
 <meta property="og:image" content="http://yoursite.com/img/suka-favicon.ico">
 
-<meta property="og:description" content="基本概念CookieCookie 是小甜饼的意思。顾名思义，cookie 确实非常小，它的大小限制为4KB左右，是网景公司的前雇员 Lou Montulli 在1993年3月的发明。它的主要用途有保存登录信息，比如你登录某个网站市场可以看到“记住密码”，这通常就是通过在 Cookie 中存入一段辨别用户身份的数据来实现的。
-localStoragelocalStorage 是 HTML5 标准中新加入的技术，它并不是什么划时代的新东西。早在 IE 6 时代，就有一个叫 userData 的东西用于本地存储，而当时考虑到浏览器兼容性，更通用的方案是使用 Flash。而如今，localStorage 被大多数浏览器所支持，如果你的网站需要支持 IE6+，那以 userData 作为你的 polyfill 的方案是种不错的选择。
-sessionStoragesessionStorage 与 localStorage 的接口类似，但保存数据的生命周期与 localStorage 不同。做过后端开发的同学应该知道 Session 这个词的意思，直译过来是“会话”。而 sessionStorage 是一个前端的概念，它只是可以将一部分数据在当前会话中保存下来，刷新页面数据依旧存在。但当页面关闭后，sessionStorage 中的数据就会被清空。">
+<meta property="og:description" content="基本概念">
 
 <meta name="twitter:card" content="summary">
 
@@ -226,7 +225,7 @@ sessionStoragesessionStorage 与 localStorage 的接口类似，但保存数据�
     <meta property="article:published_time" content="2017-05-27T06:33:42.000Z">
     <meta property="article:modified_time" content="2017-05-27T06:33:42.000Z">
     <meta property="article:author" content="hk">
-    <meta property="og:article:tag" content=", 教程"> 
+    <meta property="og:article:tag" content="Front End, 前端, 全栈, 教程"> 
 
 
 
@@ -268,15 +267,15 @@ sessionStoragesessionStorage 与 localStorage 的接口类似，但保存数据�
     },
     
     "datePublished": "2017-05-27T06:33:42.000Z",
-    "dateModified": "2018-10-26T08:28:39.054Z",
+    "dateModified": "2019-04-20T03:34:25.825Z",
     "author": {
         "@type": "Person",
         "name": "hk",
         "image": {
             "@type": "ImageObject",
-            "url": "http://yoursite.com/img/default_avatar.png"
+            "url": "http://yoursite.com/img/luffy.jpeg"
         },
-        "description": "Hi, nice to meet you."
+        "description": "不会搞艺术的程序员不是好设计师"
     },
     "publisher": {
         "@type": "Organization",
@@ -293,10 +292,8 @@ sessionStoragesessionStorage 与 localStorage 的接口类似，但保存数据�
         "query-input": "required name=search_term_string"
     },
     
-    "keywords": ", 教程",
-    "description": "基本概念CookieCookie 是小甜饼的意思。顾名思义，cookie 确实非常小，它的大小限制为4KB左右，是网景公司的前雇员 Lou Montulli 在1993年3月的发明。它的主要用途有保存登录信息，比如你登录某个网站市场可以看到“记住密码”，这通常就是通过在 Cookie 中存入一段辨别用户身份的数据来实现的。
-localStoragelocalStorage 是 HTML5 标准中新加入的技术，它并不是什么划时代的新东西。早在 IE 6 时代，就有一个叫 userData 的东西用于本地存储，而当时考虑到浏览器兼容性，更通用的方案是使用 Flash。而如今，localStorage 被大多数浏览器所支持，如果你的网站需要支持 IE6+，那以 userData 作为你的 polyfill 的方案是种不错的选择。
-sessionStoragesessionStorage 与 localStorage 的接口类似，但保存数据的生命周期与 localStorage 不同。做过后端开发的同学应该知道 Session 这个词的意思，直译过来是“会话”。而 sessionStorage 是一个前端的概念，它只是可以将一部分数据在当前会话中保存下来，刷新页面数据依旧存在。但当页面关闭后，sessionStorage 中的数据就会被清空。"
+    "keywords": "Front End, 前端, 全栈, 教程",
+    "description": "基本概念"
 }
 </script>
 
@@ -321,73 +318,77 @@ sessionStoragesessionStorage 与 localStorage 的接口类似，但保存数据�
     <p class="text-center header-slogan">
         
             
-                Hi, nice to meet you.
+                不会搞艺术的程序员不是好设计师
             
         
     </p>
 
     <nav class="navbar-section text-center">
     
-        <a href="/" class="navbar-link">Home</a>
+        <a href="/" class="navbar-link">首页</a>
     
     
-        <a href="/archives/" class="navbar-link">Archives</a>
+        <a href="/archives/" class="navbar-link">归档</a>
     
     
-        <a href="/search" class="navbar-link">Search</a>
+        <a href="/search" class="navbar-link">搜索</a>
     
+    
+        <a href="/about/" class="navbar-link">关于</a>
+    
+        <a href="/links/" class="navbar-link">友链</a>
     
     
         <div class="dropdown dropdown-right">
-    <a class="navbar-link dropdown-toggle" tabindex="0">Share</a>
+    <a class="navbar-link dropdown-toggle" tabindex="0">分享</a>
     <ul class="menu share-menu">
 
         <!-- Share Weibo -->
         
         <li class="menu-item">
-            <a href="http://service.weibo.com/share/share.php?appkey=&title=HK's blog&url=http://yoursite.com&pic=http://yoursite.com/img/suka-favicon.ico&searchPic=false&style=simple" target="_blank" rel="noopener noreferrer nofollow">Share to Weibo</a>
+            <a href="http://service.weibo.com/share/share.php?appkey=&title=HK's blog&url=http://yoursite.com&pic=http://yoursite.com/img/suka-favicon.ico&searchPic=false&style=simple" target="_blank" rel="noopener noreferrer nofollow">分享到微博</a>
         </li>
         
 
         <!-- Share Twitter -->
         
         <li class="menu-item">
-            <a href="https://twitter.com/intent/tweet?text=HK's blog&url=http://yoursite.com&via=hk" target="_blank" rel="noopener noreferrer nofollow">Share to Twitter</a>
+            <a href="https://twitter.com/intent/tweet?text=HK's blog&url=http://yoursite.com&via=hk" target="_blank" rel="noopener noreferrer nofollow">分享到 Twitter</a>
         </li>
         
 
         <!-- Share Facebook -->
         
         <li class="menu-item">
-            <a href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com" target="_blank" rel="noopener noreferrer nofollow">Share to Facebook</a>
+            <a href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com" target="_blank" rel="noopener noreferrer nofollow">分享到 Facebook</a>
         </li>
         
 
         <!-- Share Google+ -->
         
         <li class="menu-item">
-            <a href="https://plus.google.com/share?url=http://yoursite.com" target="_blank" rel="noopener noreferrer nofollow">Share to Google+</a>
+            <a href="https://plus.google.com/share?url=http://yoursite.com" target="_blank" rel="noopener noreferrer nofollow">分享到 Google+</a>
         </li>
         
 
         <!-- Share LinkedIn -->
         
         <li class="menu-item">
-            <a href="https://www.linkedin.com/shareArticle?mini=true&url=http://yoursite.com&title=cookie、localStorage、sessionStorage区别" target="_blank" rel="noopener noreferrer nofollow">Share to LinkedIn</a>
+            <a href="https://www.linkedin.com/shareArticle?mini=true&url=http://yoursite.com&title=cookie、localStorage、sessionStorage区别" target="_blank" rel="noopener noreferrer nofollow">分享到 LinkedIn</a>
         </li>
         
 
         <!-- Share QQ -->
         
         <li class="menu-item">
-            <a href="http://connect.qq.com/widget/shareqq/index.html?site=HK's blog&title=cookie、localStorage、sessionStorage区别&summary=不会搞艺术的程序员不是好设计师&pics=http://yoursite.com/img/suka-favicon.ico&url=http://yoursite.com" target="_blank" rel="noopener noreferrer nofollow"> Share to QQ</a>
+            <a href="http://connect.qq.com/widget/shareqq/index.html?site=HK's blog&title=cookie、localStorage、sessionStorage区别&summary=不会搞艺术的程序员不是好设计师&pics=http://yoursite.com/img/suka-favicon.ico&url=http://yoursite.com" target="_blank" rel="noopener noreferrer nofollow"> 分享到 QQ</a>
         </li>
         
 
         <!-- Share Telegram -->
         
         <li class="menu-item">
-            <a href="https://t.me/share/url?url=http://yoursite.com&text=cookie、localStorage、sessionStorage区别" target="_blank" rel="noopener noreferrer nofollow">Share to Telegram</a>
+            <a href="https://t.me/share/url?url=http://yoursite.com&text=cookie、localStorage、sessionStorage区别" target="_blank" rel="noopener noreferrer nofollow">分享到 Telegram</a>
         </li>
         
 
@@ -423,7 +424,7 @@ sessionStoragesessionStorage 与 localStorage 的接口类似，但保存数据�
 
 <div class="post-header-info">
     <p class="post-header-info-left text-gray">
-        <img class="author-thumb lazyload" data-src="/img/default_avatar.png" alt="hk's Avatar">
+        <img class="author-thumb lazyload" data-src="/img/luffy.jpeg" alt="hk's Avatar">
         <span>2017-05-27</span>
         
             <span class="suka-devide-dot"></span>
@@ -443,54 +444,54 @@ sessionStoragesessionStorage 与 localStorage 的接口类似，但保存数据�
     <div class="post-header-info-right">
         
             <div class="dropdown dropdown-right">
-<a class="dropdown-toggle" tabindex="0">Share the post</a>
+<a class="dropdown-toggle" tabindex="0">分享本文</a>
 <ul class="menu share-menu">
     <!-- Share Weibo -->
     
     <li class="menu-item">
-        <a href="http://service.weibo.com/share/share.php?appkey=&title=cookie、localStorage、sessionStorage区别&url=http://yoursite.com/2017/05/27/cookie、localStorage、sessionStorage/&pic=http://yoursite.com/img/suka-favicon.ico&searchPic=false&style=simple" target="_blank" rel="noopener noreferrer nofollow">Share to Weibo</a>
+        <a href="http://service.weibo.com/share/share.php?appkey=&title=cookie、localStorage、sessionStorage区别&url=http://yoursite.com/2017/05/27/cookie、localStorage、sessionStorage/&pic=http://yoursite.com/img/suka-favicon.ico&searchPic=false&style=simple" target="_blank" rel="noopener noreferrer nofollow">分享到微博</a>
     </li>
     
 
     <!-- Share Twitter -->
     
     <li class="menu-item">
-        <a href="https://twitter.com/intent/tweet?text=cookie、localStorage、sessionStorage区别&url=http://yoursite.com/2017/05/27/cookie、localStorage、sessionStorage/&via=hk" target="_blank" rel="noopener noreferrer nofollow">Share to Twitter</a>
+        <a href="https://twitter.com/intent/tweet?text=cookie、localStorage、sessionStorage区别&url=http://yoursite.com/2017/05/27/cookie、localStorage、sessionStorage/&via=hk" target="_blank" rel="noopener noreferrer nofollow">分享到 Twitter</a>
     </li>
     
 
     <!-- Share Facebook -->
     
     <li class="menu-item">
-        <a href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2017/05/27/cookie、localStorage、sessionStorage/" target="_blank" rel="noopener noreferrer nofollow">Share to Facebook</a>
+        <a href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2017/05/27/cookie、localStorage、sessionStorage/" target="_blank" rel="noopener noreferrer nofollow">分享到 Facebook</a>
     </li>
     
 
     <!-- Share Google+ -->
     
     <li class="menu-item">
-        <a href="https://plus.google.com/share?url=http://yoursite.com/2017/05/27/cookie、localStorage、sessionStorage/" target="_blank" rel="noopener noreferrer nofollow">Share to Google+</a>
+        <a href="https://plus.google.com/share?url=http://yoursite.com/2017/05/27/cookie、localStorage、sessionStorage/" target="_blank" rel="noopener noreferrer nofollow">分享到 Google+</a>
     </li>
     
 
     <!-- Share LinkedIn -->
     
     <li class="menu-item">
-        <a href="https://www.linkedin.com/shareArticle?mini=true&url=http://yoursite.com/2017/05/27/cookie、localStorage、sessionStorage/&title=HK's blog" target="_blank" rel="noopener noreferrer nofollow">Share to LinkedIn</a>
+        <a href="https://www.linkedin.com/shareArticle?mini=true&url=http://yoursite.com/2017/05/27/cookie、localStorage、sessionStorage/&title=HK's blog" target="_blank" rel="noopener noreferrer nofollow">分享到 LinkedIn</a>
     </li>
     
 
     <!-- Share QQ -->
     
     <li class="menu-item">
-        <a href="http://connect.qq.com/widget/shareqq/index.html?site=HK's blog&title=HK's blog&summary=不会搞艺术的程序员不是好设计师&pics=http://yoursite.com/img/suka-favicon.ico&url=http://yoursite.com/2017/05/27/cookie、localStorage、sessionStorage/" target="_blank" rel="noopener noreferrer nofollow"> Share to QQ</a>
+        <a href="http://connect.qq.com/widget/shareqq/index.html?site=HK's blog&title=HK's blog&summary=不会搞艺术的程序员不是好设计师&pics=http://yoursite.com/img/suka-favicon.ico&url=http://yoursite.com/2017/05/27/cookie、localStorage、sessionStorage/" target="_blank" rel="noopener noreferrer nofollow"> 分享到 QQ</a>
     </li>
     
 
     <!-- Share Telegram -->
     
     <li class="menu-item">
-        <a href="https://t.me/share/url?url=http://yoursite.com/2017/05/27/cookie、localStorage、sessionStorage/&text=HK's blog" target="_blank" rel="noopener noreferrer nofollow">Share to Telegram</a>
+        <a href="https://t.me/share/url?url=http://yoursite.com/2017/05/27/cookie、localStorage、sessionStorage/&text=HK's blog" target="_blank" rel="noopener noreferrer nofollow">分享到 Telegram</a>
     </li>
     
 
@@ -519,7 +520,7 @@ sessionStoragesessionStorage 与 localStorage 的接口类似，但保存数据�
                         <h2 id="基本概念"><a href="#基本概念" class="headerlink" title="基本概念"></a>基本概念</h2><h3 id="Cookie"><a href="#Cookie" class="headerlink" title="Cookie"></a>Cookie</h3><p>Cookie 是小甜饼的意思。顾名思义，cookie 确实非常小，它的大小限制为4KB左右，是网景公司的前雇员 Lou Montulli 在1993年3月的发明。它的主要用途有保存登录信息，比如你登录某个网站市场可以看到“记住密码”，这通常就是通过在 Cookie 中存入一段辨别用户身份的数据来实现的。</p>
 <h3 id="localStorage"><a href="#localStorage" class="headerlink" title="localStorage"></a>localStorage</h3><p>localStorage 是 HTML5 标准中新加入的技术，它并不是什么划时代的新东西。早在 IE 6 时代，就有一个叫 userData 的东西用于本地存储，而当时考虑到浏览器兼容性，更通用的方案是使用 Flash。而如今，localStorage 被大多数浏览器所支持，如果你的网站需要支持 IE6+，那以 userData 作为你的 polyfill 的方案是种不错的选择。</p>
 <h3 id="sessionStorage"><a href="#sessionStorage" class="headerlink" title="sessionStorage"></a>sessionStorage</h3><p>sessionStorage 与 localStorage 的接口类似，但保存数据的生命周期与 localStorage 不同。做过后端开发的同学应该知道 Session 这个词的意思，直译过来是“会话”。而 sessionStorage 是一个前端的概念，它只是可以将一部分数据在当前会话中保存下来，刷新页面数据依旧存在。但当页面关闭后，sessionStorage 中的数据就会被清空。</p>
-<a id="more"></a>
+<!--  -->
 <h3 id="三者的异同"><a href="#三者的异同" class="headerlink" title="三者的异同"></a>三者的异同</h3><table>
 <thead>
 <tr>
@@ -565,9 +566,9 @@ sessionStoragesessionStorage 与 localStorage 的接口类似，但保存数据�
                     
 
 
-    <blockquote id="date-expire-notification" class="post-expired-notify">This article was last updated on <span id="date-expire-num"></span> days ago, and the information described in the article may have changed.</blockquote>
+    <blockquote id="date-expire-notification" class="post-expired-notify">本文最后更新于 <span id="date-expire-num"></span> 天前，文中所描述的信息可能已发生改变</blockquote>
     <script>
-        var dateUpdate = Date.parse("2018-10-26");
+        var dateUpdate = Date.parse("2019-04-20");
         var nowDate = new Date();
         var a = nowDate.getTime();
         var b = a - dateUpdate;
@@ -580,9 +581,9 @@ sessionStoragesessionStorage 与 localStorage 的接口类似，但保存数据�
     </script>
 
 
-<p class="post-footer-info mb-0 pt-0">Published at&nbsp;<time datetime="2017-05-27T06:33:42.000Z" itemprop="datePublished">2017-05-27</time>
+<p class="post-footer-info mb-0 pt-0">本文发表于&nbsp;<time datetime="2017-05-27T06:33:42.000Z" itemprop="datePublished">2017-05-27</time>
 
-    , Updated at&nbsp;<time datetime="2018-10-26T08:28:39.054Z" itemprop="dateModified">2018-10-26</time>
+    , 最后修改于&nbsp;<time datetime="2019-04-20T03:34:25.825Z" itemprop="dateModified">2019-04-20</time>
 
 </p>
 <p class="post-footer-info mb-0 pt-2">
@@ -634,6 +635,26 @@ sessionStoragesessionStorage 与 localStorage 的接口类似，但保存数据�
 
                 
                     <!-- # Comment # -->
+                    
+                        <div class="card-footer post-comment">
+                            <div id="disqus_thread"></div>
+<script>
+    var disqus_config = function () {
+        this.page.url = 'http://yoursite.com/2017/05/27/cookie、localStorage、sessionStorage/'; // Replace PAGE_URL with your page's canonical URL variable
+        this.page.identifier = 'http://yoursite.com/2017/05/27/cookie、localStorage、sessionStorage/'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+    };
+</script>
+<script id="disqus-thread-script">
+    (function() { // DON'T EDIT BELOW THIS LINE
+        var d = document;
+        var s = d.createElement('script');
+        s.src = '//huan9kun.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', + new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+
+                        </div>
                     
                 
             </div>
@@ -724,6 +745,11 @@ console.log('\n %c Suka Theme (hexo-theme-suka) | © SukkaW | Verision 1.3.2 %c 
 
 
 <!-- Comment -->
+
+    
+        <script id="dsq-count-scr" src="https://huan9kun.disqus.com/count.js" async></script>
+
+    
 
 
 <!-- ### Custom Footer ### -->

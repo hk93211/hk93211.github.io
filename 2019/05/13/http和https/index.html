@@ -1,0 +1,758 @@
+<!DOCTYPE html>
+
+<html lang="zh-CN">
+    <head>
+    <meta charset="utf-8">
+    <!--
+        © SukkaW
+        GitHub: https://github.com/SukkaW/hexo-theme-suka
+        Version: 1.3.2
+    -->
+    <script>
+window.lsVersion = "1.3.2",
+window.oldVersion = [
+    
+        
+            "0.2.0","0.0.1","0.1.0","1.0.0","1.0.1","1.1.0","1.1.1","1.2.0","1.3.0"
+        
+    
+]
+</script>
+
+    <!-- ### DNS Prefetch ### -->
+    <meta http-equiv="x-dns-prefetch-control" content="on">
+<!-- busuanzi -->
+
+    <link rel="dns-prefetch" href="//busuanzi.ibruce.info">
+
+
+<!-- comment -->
+
+
+    <link rel="dns-prefetch" href="//disqus.com">
+    <link rel="dns-prefetch" href="//huan9kun.disqus.com">
+
+
+
+
+
+
+<!-- analytics -->
+
+
+
+
+
+
+
+
+    <!-- ### Preload ### -->
+    
+    <!-- Busuanzi -->
+    
+    <link rel="preload" href="https://cdn.jsdelivr.net/npm/busuanzi@2.3.0/bsz.pure.mini.js" as="script">
+
+
+
+
+
+
+
+    <!-- ### Meta & Title & Info ### -->
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge, chrome=1">
+<meta name="renderer" content="webkit">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+
+<!-- Title -->
+<title>http和https | HK&#39;s blog</title>
+
+<!-- favicon -->
+<!-- Favicons -->
+
+    <link rel="shortcut icon" type="image/ico" href="/img/suka-favicon.ico">
+
+
+
+
+
+
+<!-- Android Chrome Color -->
+
+
+
+<meta name="format-detection" content="telephone=no">
+
+<!-- Description -->
+<meta name="description" content="前言最近, 个人博客想加上小绿锁, 也就是安全连接的标识, 但是自己的http相关知识太匮乏了, ...">
+
+<!-- Keywords -->
+<meta name="keywords" content="Front End, 前端, 全栈, http">
+
+<!-- Disable Fucking Bloody Baidu Tranformation -->
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+    <!-- ### Import File ### -->
+    
+        <!-- spectre.css -->
+
+    <link rel="stylesheet" href="/lib/spectre/spectre.min.css">
+
+
+<style>
+    body {
+        background-color: #f8f9fa;
+    }
+
+    a, a:visited {
+        color: #0070ff;
+    }
+
+    a:active, a:focus, a:hover {
+        color: #0070ff;
+        opacity: .75;
+    }
+
+    #post-content a,
+    #post-content a:hover,
+    #post-content a:focus,
+    #post-content a:visited {
+        color: #005eb9;
+        opacity: 1;
+    }
+
+    .post-entry .card-body a {
+        color: #0070ff;
+    }
+
+    .avatar {
+        background: #444;
+    }
+
+    .navbar-link,
+    .navbar-link:visited,
+    .timeline .timeline-item .timeline-icon.icon-lg {
+        color: #0070ff;
+    }
+
+    .navbar-link:hover {
+        color: #0070ff;
+        opacity: .8;
+    }
+
+    #search-input .btn,
+    #disqus_click_btn,
+    #disqus-switch-to-direct,
+    #disqus-loadmore-button {
+        background: #727e96;
+        border-color: #727e96;
+        color: #fff;
+    }
+
+    #post-toc a.post-toc-link,
+    #post-toc a.post-toc-link:visited,
+    .share-menu.menu .menu-item>a {
+        color: #727e96;
+    }
+
+    .share-menu.menu .menu-item>a:hover,
+    .share-menu.menu .menu-item>a:focus,
+    .share-menu.menu .menu-item>a:visited {
+        color: #50596c;
+        background: #f8f9fa;
+        opacity: .85;
+    }
+</style>
+
+<!-- style.css -->
+
+    <link rel="stylesheet" href="/css/style.min.css">
+
+
+
+
+
+
+
+
+
+    <!-- Prettify Theme -->
+    
+    
+        <link rel="stylesheet" href="/css/highlight/github.min.css">
+    
+
+
+
+    
+
+    <!-- ### Site Verification ### -->
+    
+
+
+    <!-- ### RSS ### -->
+    
+
+    <!-- ### WebApp ### -->
+    <meta name="mobile-web-app-capable" content="yes">
+<meta name="application-name" content="HK&#39;s blog">
+<meta name="msapplication-starturl" content="http://yoursite.com">
+
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="HK&#39;s blog">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+<!-- Manifest Import -->
+
+<!-- Open Search -->
+
+
+    <!-- ### The Open Graph & Twitter Card Protocol ### -->
+    <meta property="og:title" content="http和https | HK&#39;s blog">
+<meta property="og:site_name" content="HK&#39;s blog">
+
+<meta property="og:locale" content="zh-CN">
+
+<meta property="og:url" content="2019/05/13/http和https/">
+<meta property="og:image" content="http://yoursite.com/img/suka-favicon.ico">
+
+<meta property="og:description" content="前言最近, 个人博客想加上小绿锁, 也就是安全连接的标识, 但是自己的http相关知识太匮乏了, ...">
+
+<meta name="twitter:card" content="summary">
+
+
+    <meta property="og:type" content="article">
+    <meta property="article:published_time" content="2019-05-13T07:06:09.000Z">
+    <meta property="article:modified_time" content="2019-05-13T07:06:09.000Z">
+    <meta property="article:author" content="hk">
+    <meta property="og:article:tag" content="Front End, 前端, 全栈, http"> 
+
+
+
+
+
+    <!-- ### Analytics ### -->
+    
+
+
+
+
+
+
+
+
+    <!-- ### Canonical link ### -->
+    <link rel="canonical" href="http://yoursite.com/2019/05/13/http和https/">
+
+    <!-- ### Structured Data ### -->
+    
+
+
+
+<script type="application/ld+json">
+{
+    "@context": "http://schema.org",
+    "url": "http://yoursite.com/2019/05/13/http和https/",
+    "@type": "BlogPosting",
+    "logo": "http://yoursite.com/img/suka-favicon.ico",
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "http://yoursite.com/2019/05/13/http和https/"
+    },
+    "headline": "http和https | HK&#39;s blog",
+    
+    "image": {
+        "@type": "ImageObject",
+        "url": "http://yoursite.com/img/suka-favicon.ico"
+    },
+    
+    "datePublished": "2019-05-13T07:06:09.000Z",
+    "dateModified": "2019-05-13T07:32:40.810Z",
+    "author": {
+        "@type": "Person",
+        "name": "hk",
+        "image": {
+            "@type": "ImageObject",
+            "url": "http://yoursite.com/img/luffy.jpeg"
+        },
+        "description": "不会搞艺术的程序员不是好设计师"
+    },
+    "publisher": {
+        "@type": "Organization",
+        "name": "HK&#39;s blog",
+        "logo": {
+            "@type": "ImageObject",
+            "url": "http://yoursite.com/img/suka-favicon.ico"
+        }
+    },
+    
+    "potentialAction": {
+        "@type": "SearchAction",
+        "target": "http://yoursite.com/search?s={search_term_string}",
+        "query-input": "required name=search_term_string"
+    },
+    
+    "keywords": "Front End, 前端, 全栈, http",
+    "description": "前言最近, 个人博客想加上小绿锁, 也就是安全连接的标识, 但是自己的http相关知识太匮乏了, ..."
+}
+</script>
+
+
+
+    <!-- ### Custom Head ### -->
+    
+
+
+</head>
+
+    <body>
+        
+
+            
+
+            <!-- ### Main content ### -->
+            <!-- ## Header ##-->
+<header>
+    <h1 class="header-title text-center"><a href="/">HK&#39;s blog</a></h1>
+
+    <p class="text-center header-slogan">
+        
+            
+                不会搞艺术的程序员不是好设计师
+            
+        
+    </p>
+
+    <nav class="navbar-section text-center">
+    
+        <a href="/" class="navbar-link">首页</a>
+    
+    
+        <a href="/archives/" class="navbar-link">归档</a>
+    
+    
+        <a href="/search" class="navbar-link">搜索</a>
+    
+    
+        <a href="/about/" class="navbar-link">关于</a>
+    
+        <a href="/links/" class="navbar-link">友链</a>
+    
+    
+        <div class="dropdown dropdown-right">
+    <a class="navbar-link dropdown-toggle" tabindex="0">分享</a>
+    <ul class="menu share-menu">
+
+        <!-- Share Weibo -->
+        
+        <li class="menu-item">
+            <a href="http://service.weibo.com/share/share.php?appkey=&title=HK's blog&url=http://yoursite.com&pic=http://yoursite.com/img/suka-favicon.ico&searchPic=false&style=simple" target="_blank" rel="noopener noreferrer nofollow">分享到微博</a>
+        </li>
+        
+
+        <!-- Share Twitter -->
+        
+        <li class="menu-item">
+            <a href="https://twitter.com/intent/tweet?text=HK's blog&url=http://yoursite.com&via=hk" target="_blank" rel="noopener noreferrer nofollow">分享到 Twitter</a>
+        </li>
+        
+
+        <!-- Share Facebook -->
+        
+        <li class="menu-item">
+            <a href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com" target="_blank" rel="noopener noreferrer nofollow">分享到 Facebook</a>
+        </li>
+        
+
+        <!-- Share Google+ -->
+        
+        <li class="menu-item">
+            <a href="https://plus.google.com/share?url=http://yoursite.com" target="_blank" rel="noopener noreferrer nofollow">分享到 Google+</a>
+        </li>
+        
+
+        <!-- Share LinkedIn -->
+        
+        <li class="menu-item">
+            <a href="https://www.linkedin.com/shareArticle?mini=true&url=http://yoursite.com&title=http和https" target="_blank" rel="noopener noreferrer nofollow">分享到 LinkedIn</a>
+        </li>
+        
+
+        <!-- Share QQ -->
+        
+        <li class="menu-item">
+            <a href="http://connect.qq.com/widget/shareqq/index.html?site=HK's blog&title=http和https&summary=不会搞艺术的程序员不是好设计师&pics=http://yoursite.com/img/suka-favicon.ico&url=http://yoursite.com" target="_blank" rel="noopener noreferrer nofollow"> 分享到 QQ</a>
+        </li>
+        
+
+        <!-- Share Telegram -->
+        
+        <li class="menu-item">
+            <a href="https://t.me/share/url?url=http://yoursite.com&text=http和https" target="_blank" rel="noopener noreferrer nofollow">分享到 Telegram</a>
+        </li>
+        
+
+        <!-- QRCode -->
+        
+        <li class="menu-item">
+            <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUCAAAAABQV18IAAAB2klEQVR42u3ay67CMAyE4b7/S8MKCZVkZoyySNy/m1N6evmQip3YuV4bbhcoUKBADVCX2H4umvz/s38/NvqsngOqD2r40hUfoK6PnwOqFer+gPvx0Y1m11bOBfVMlHr5R+DRjwAUqNFxFRDdPqjnoVTQSwKrC6RLRwmgtkepAf3Kv8tmM6C2RtmiQzj4c5PTpVUXUFuj1IuokmoaWJP7g+qFmk04Zy+8O0fhbfENVCtUUjSb3dwVRBIoqD4oV7RIEG7AqBI8qH4olTwrA7Vp0WKSlIcNAFBtUA6XJtR40lmZjII6ElVpQjuMajKpxiaoPigZzMxN0oScNJpA9UFVm9eVhqRrSk2L+6CORrkmkJssJMfVfUH1Rbmg6AaB1R9IXOAAdRyqsjgrKdbbgVwlIYM6HuWKYa7gX2042VECqCNRaUPaFdZcQT9aiAiqFcol2TRoJgtv4lECqONRafHMNbpdQJ1eB6oVqpI808JssrAnmoyCOgqVNBfdvnqhS18aVAvUP01DNzlQDfI4IYM6GpUW5F0h5N+gCqonSk0EomRqCmdJcAX1HNSKQJtMIkA9B5UEzWTgZ4tsoFqhqgtrKuclRRFQvVClpFlM2OmXA9UHtdMGChQoUF/bG48UMnF0gmtJAAAAAElFTkSuQmCC" alr="QRCode">
+        </li>
+        
+
+    </ul>
+</div>
+    
+    
+</nav>
+</header>
+
+            
+    <!-- ## Post ## -->
+    
+    
+
+
+<div class="post-container">
+    <div id="post-card" class="card">
+        
+        <div class="card-item-container">
+            <div class="card-inner-cell">
+                <!-- # Post Header Info # -->
+                <div class="card-header">
+                    
+    <h1 class="card-title h3 mb-2">http和https</h1>
+
+<div class="post-header-info">
+    <p class="post-header-info-left text-gray">
+        <img class="author-thumb lazyload" data-src="/img/luffy.jpeg" alt="hk's Avatar">
+        <span>2019-05-13</span>
+        
+            <span class="suka-devide-dot"></span>
+            <a class="category-link" href="/categories/http/">http</a>
+        
+        
+            <!-- Busuanzi Post Views -->
+<span id="busuanzi_container_page_pv" hidden>
+    <span class="suka-devide-dot"></span>
+    <span></span>
+    <span id="busuanzi_value_page_pv"></span>
+    <span>Views</span>
+</span>
+        
+        
+    </p>
+    <div class="post-header-info-right">
+        
+            <div class="dropdown dropdown-right">
+<a class="dropdown-toggle" tabindex="0">分享本文</a>
+<ul class="menu share-menu">
+    <!-- Share Weibo -->
+    
+    <li class="menu-item">
+        <a href="http://service.weibo.com/share/share.php?appkey=&title=http和https&url=http://yoursite.com/2019/05/13/http和https/&pic=http://yoursite.com/img/suka-favicon.ico&searchPic=false&style=simple" target="_blank" rel="noopener noreferrer nofollow">分享到微博</a>
+    </li>
+    
+
+    <!-- Share Twitter -->
+    
+    <li class="menu-item">
+        <a href="https://twitter.com/intent/tweet?text=http和https&url=http://yoursite.com/2019/05/13/http和https/&via=hk" target="_blank" rel="noopener noreferrer nofollow">分享到 Twitter</a>
+    </li>
+    
+
+    <!-- Share Facebook -->
+    
+    <li class="menu-item">
+        <a href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2019/05/13/http和https/" target="_blank" rel="noopener noreferrer nofollow">分享到 Facebook</a>
+    </li>
+    
+
+    <!-- Share Google+ -->
+    
+    <li class="menu-item">
+        <a href="https://plus.google.com/share?url=http://yoursite.com/2019/05/13/http和https/" target="_blank" rel="noopener noreferrer nofollow">分享到 Google+</a>
+    </li>
+    
+
+    <!-- Share LinkedIn -->
+    
+    <li class="menu-item">
+        <a href="https://www.linkedin.com/shareArticle?mini=true&url=http://yoursite.com/2019/05/13/http和https/&title=HK's blog" target="_blank" rel="noopener noreferrer nofollow">分享到 LinkedIn</a>
+    </li>
+    
+
+    <!-- Share QQ -->
+    
+    <li class="menu-item">
+        <a href="http://connect.qq.com/widget/shareqq/index.html?site=HK's blog&title=HK's blog&summary=不会搞艺术的程序员不是好设计师&pics=http://yoursite.com/img/suka-favicon.ico&url=http://yoursite.com/2019/05/13/http和https/" target="_blank" rel="noopener noreferrer nofollow"> 分享到 QQ</a>
+    </li>
+    
+
+    <!-- Share Telegram -->
+    
+    <li class="menu-item">
+        <a href="https://t.me/share/url?url=http://yoursite.com/2019/05/13/http和https/&text=HK's blog" target="_blank" rel="noopener noreferrer nofollow">分享到 Telegram</a>
+    </li>
+    
+
+    <!-- QRCode -->
+    
+    <li class="menu-item">
+        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUCAAAAABQV18IAAAB2klEQVR42u3ay67CMAyE4b7/S8MKCZVkZoyySNy/m1N6evmQip3YuV4bbhcoUKBADVCX2H4umvz/s38/NvqsngOqD2r40hUfoK6PnwOqFer+gPvx0Y1m11bOBfVMlHr5R+DRjwAUqNFxFRDdPqjnoVTQSwKrC6RLRwmgtkepAf3Kv8tmM6C2RtmiQzj4c5PTpVUXUFuj1IuokmoaWJP7g+qFmk04Zy+8O0fhbfENVCtUUjSb3dwVRBIoqD4oV7RIEG7AqBI8qH4olTwrA7Vp0WKSlIcNAFBtUA6XJtR40lmZjII6ElVpQjuMajKpxiaoPigZzMxN0oScNJpA9UFVm9eVhqRrSk2L+6CORrkmkJssJMfVfUH1Rbmg6AaB1R9IXOAAdRyqsjgrKdbbgVwlIYM6HuWKYa7gX2042VECqCNRaUPaFdZcQT9aiAiqFcol2TRoJgtv4lECqONRafHMNbpdQJ1eB6oVqpI808JssrAnmoyCOgqVNBfdvnqhS18aVAvUP01DNzlQDfI4IYM6GpUW5F0h5N+gCqonSk0EomRqCmdJcAX1HNSKQJtMIkA9B5UEzWTgZ4tsoFqhqgtrKuclRRFQvVClpFlM2OmXA9UHtdMGChQoUF/bG48UMnF0gmtJAAAAAElFTkSuQmCC" alt="QRCode">
+    </li>
+    
+
+</ul>
+</div>
+        
+    </div>
+</div>
+                </div>
+                <div class="card-body">
+                    
+                        
+                            <div id="post-toc">
+                                <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#前言"><span class="post-toc-number">1.</span> <span class="post-toc-text">前言</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#HTTP是什么"><span class="post-toc-number">2.</span> <span class="post-toc-text">HTTP是什么</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#HTTPS是什么"><span class="post-toc-number">3.</span> <span class="post-toc-text">HTTPS是什么</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#HTTP协议存在的哪些问题"><span class="post-toc-number">4.</span> <span class="post-toc-text">HTTP协议存在的哪些问题</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#使用明文通讯"><span class="post-toc-number">4.0.1.</span> <span class="post-toc-text">使用明文通讯</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#无法证明报文的完整性"><span class="post-toc-number">4.0.2.</span> <span class="post-toc-text">无法证明报文的完整性</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#不验证通信方的身份"><span class="post-toc-number">4.0.3.</span> <span class="post-toc-text">不验证通信方的身份</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#HTTPS如何解决HTTP上述问题"><span class="post-toc-number">5.</span> <span class="post-toc-text">HTTPS如何解决HTTP上述问题</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#HTTPS工作流程"><span class="post-toc-number">6.</span> <span class="post-toc-text">HTTPS工作流程</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#HTTP-和-HTTPS-的区别"><span class="post-toc-number">7.</span> <span class="post-toc-text">HTTP 和 HTTPS 的区别</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#为何不所有的网站都使用HTTPS"><span class="post-toc-number">8.</span> <span class="post-toc-text">为何不所有的网站都使用HTTPS</span></a></li></ol>
+                            </div>
+                        
+                    
+                    <article id="post-content">
+                        <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>最近, 个人博客想加上小绿锁, 也就是安全连接的标识, 但是自己的http相关知识太匮乏了, 所以想去了解一下 http 的相关知识</p>
+<p>所以带着一下几个问题去查资料:</p>
+<ul>
+<li>HTTP是什么</li>
+<li>HTTP通信存在什么问题</li>
+<li>HTTPS如何改进HTTP存在那些问题</li>
+<li>HTTPS工作原理是什么</li>
+</ul>
+<h1 id="HTTP是什么"><a href="#HTTP是什么" class="headerlink" title="HTTP是什么"></a>HTTP是什么</h1><p>HTTP协议(HyperText Transfer Protocol，超文本传输协议) 是因特网上应用最为广泛的一种网络传输协议, 所有的WWW文件都必须遵守这个标准.</p>
+<p>HTTP是一个基于TCP/IP通信协议来传递数据(HTML 文件, 图片文件, 查询结果等)</p>
+<h1 id="HTTPS是什么"><a href="#HTTPS是什么" class="headerlink" title="HTTPS是什么"></a>HTTPS是什么</h1><p>HTTPS是在HTTP上建立SSL加密层，并对传输数据进行加密，是HTTP协议的安全版。现在它被广泛用于万维网上安全敏感的通讯，例如交易支付方面。</p>
+<p>HTTPS主要作用是：</p>
+<p>（1）对数据进行加密，并建立一个信息安全通道，来保证传输过程中的数据安全;</p>
+<p>（2）对网站服务器进行真实身份认证。</p>
+<p>我们经常会在Web的登录页面和购物结算界面等使用HTTPS通信。使用HTTPS通信时，不再用 <code>http://</code>，而是改用 <code>https://</code>。另外，当浏览器访问HTTPS通信有效的Web网站时，浏览器的地址栏内会出现一个带锁的标记。对HTTPS的显示方式会因浏览器的不同而有所改变。</p>
+<h1 id="HTTP协议存在的哪些问题"><a href="#HTTP协议存在的哪些问题" class="headerlink" title="HTTP协议存在的哪些问题"></a>HTTP协议存在的哪些问题</h1><h3 id="使用明文通讯"><a href="#使用明文通讯" class="headerlink" title="使用明文通讯"></a>使用明文通讯</h3><p>由于HTTP本身不具备加密的功能，所以也无法做到对通信整体（使用HTTP协议通信的请求和响应的内容）进行加密。即，<strong>HTTP报文使用明文（指未经过加密的报文）方式发送, 内容有可能被窃听</strong>。</p>
+<p>HTTP明文协议的缺陷是导致数据泄露、数据篡改、流量劫持、钓鱼攻击等安全问题的重要原因。HTTP协议无法加密数据，所有通信数据都在网络中明文“裸奔”。通过网络的嗅探设备及一些技术手段，就可还原HTTP报文内容。</p>
+<h3 id="无法证明报文的完整性"><a href="#无法证明报文的完整性" class="headerlink" title="无法证明报文的完整性"></a>无法证明报文的完整性</h3><p>所谓完整性是指信息的准确度。若无法证明其完整性，通常也就意味着无法判断信息是否准确。由于HTTP协议无法证明通信的报文完整性，因此，在请求或响应送出之后直到对方接收之前的这段时间内，即使请求或响应的内容遭到篡改，也没有办法获悉。换句话说，<strong>没有任何办法确认，发出的请求/响应和接收到的请求/响应是前后相同的(所以可能遭篡改)</strong>。</p>
+<h3 id="不验证通信方的身份"><a href="#不验证通信方的身份" class="headerlink" title="不验证通信方的身份"></a>不验证通信方的身份</h3><p><strong>HTTP协议中的请求和响应不会对通信方进行确认(因此可能遭遇伪装)</strong>。在HTTP协议通信时，由于不存在确认通信方的处理步骤，任何人都可以发起请求。另外，服务器只要接收到请求，不管对方是谁都会返回一个响应（但也仅限于发送端的IP地址和端口号没有被Web服务器设定限制访问的前提下）</p>
+<p>HTTP协议无法验证通信方身份，任何人都可以伪造虚假服务器欺骗用户，实现“钓鱼欺诈”，用户无法察觉。</p>
+<p>反观HTTPS协议，它比HTTP协议相比多了以下优势（下文会详细介绍）:</p>
+<ul>
+<li>数据隐私性：内容经过对称加密，每个连接生成一个唯一的加密密钥</li>
+<li>数据完整性：内容传输经过完整性校验</li>
+<li>身份认证：第三方无法伪造服务端（客户端）身份</li>
+</ul>
+<h1 id="HTTPS如何解决HTTP上述问题"><a href="#HTTPS如何解决HTTP上述问题" class="headerlink" title="HTTPS如何解决HTTP上述问题"></a>HTTPS如何解决HTTP上述问题</h1><p>HTTPS并非是应用层的一种新协议。只是HTTP通信接口部分用SSL和TLS协议代替而已。</p>
+<p>通常，HTTP直接和TCP通信。当使用SSL时，则演变成先和SSL通信，再由SSL和TCP通信了。简言之，<strong>所谓HTTPS，其实就是身披SSL协议这层外壳的HTTP</strong>。</p>
+<p>在采用SSL后，HTTP就拥有了HTTPS的加密、证书和完整性保护这些功能。<strong>也就是说HTTP加上加密处理和认证以及完整性保护后即是HTTPS</strong>。</p>
+<p>HTTPS 协议的主要功能基本都依赖于 TLS/SSL 协议，TLS/SSL 的功能实现主要依赖于三类基本算法：散列函数 、对称加密和非对称加密，<strong>其利用非对称加密实现身份认证和密钥协商，对称加密算法采用协商的密钥对数据加密，基于散列函数验证信息的完整性。</strong></p>
+<h1 id="HTTPS工作流程"><a href="#HTTPS工作流程" class="headerlink" title="HTTPS工作流程"></a>HTTPS工作流程</h1><p>1.Client发起一个HTTPS（比如 <a href="https://xxx.blog.com/login）的请求，根据RFC2818的规定，Client知道需要连接Server的443（默认）端口。" target="_blank" rel="noopener">https://xxx.blog.com/login）的请求，根据RFC2818的规定，Client知道需要连接Server的443（默认）端口。</a></p>
+<p>2.Server把事先配置好的公钥证书（public key certificate）返回给客户端。</p>
+<p>3.Client验证公钥证书：比如是否在有效期内，证书的用途是不是匹配Client请求的站点，是不是在CRL吊销列表里面，它的上一级证书是否有效，这是一个递归的过程，直到验证到根证书（操作系统内置的Root证书或者Client内置的Root证书）。如果验证通过则继续，不通过则显示警告信息。</p>
+<p>4.Client使用伪随机数生成器生成加密所使用的对称密钥，然后用证书的公钥加密这个对称密钥，发给Server。</p>
+<p>5.Server使用自己的私钥（private key）解密这个消息，得到对称密钥。至此，Client和Server双方都持有了相同的对称密钥。</p>
+<p>6.Server使用对称密钥加密“明文内容A”，发送给Client。</p>
+<p>7.Client使用对称密钥解密响应的密文，得到“明文内容A”。</p>
+<p>8.Client再次发起HTTPS的请求，使用对称密钥加密请求的“明文内容B”，然后Server使用对称密钥解密密文，得到“明文内容B”。</p>
+<h1 id="HTTP-和-HTTPS-的区别"><a href="#HTTP-和-HTTPS-的区别" class="headerlink" title="HTTP 和 HTTPS 的区别"></a>HTTP 和 HTTPS 的区别</h1><p>HTTP 是明文传输协议，HTTPS 协议是由 SSL+HTTP 协议构建的可进行加密传输、身份认证的网络协议，比 HTTP 协议安全。</p>
+<p>关于安全性，用最简单的比喻形容两者的关系就是卡车运货，HTTP下的运货车是敞篷的，货物都是暴露的。而https则是封闭集装箱车，安全性自然提升不少。</p>
+<ul>
+<li>HTTPS比HTTP更加安全，对搜索引擎更友好，利于SEO,谷歌、百度优先索引HTTPS网页;</li>
+<li>HTTPS需要用到SSL证书，而HTTP不用;</li>
+<li>HTTPS标准端口443，HTTP标准端口80;</li>
+<li>HTTPS基于传输层，HTTP基于应用层;</li>
+<li>HTTPS在浏览器显示绿色安全锁，HTTP没有显示;</li>
+</ul>
+<h1 id="为何不所有的网站都使用HTTPS"><a href="#为何不所有的网站都使用HTTPS" class="headerlink" title="为何不所有的网站都使用HTTPS"></a>为何不所有的网站都使用HTTPS</h1><p>首先，很多人还是会觉得HTTPS实施有门槛，这个门槛在于需要权威CA颁发的SSL证书。从证书的选择、购买到部署，传统的模式下都会比较耗时耗力。</p>
+<p>其次，HTTPS普遍认为性能消耗要大于HTTP，因为与纯文本通信相比，加密通信会消耗更多的CPU及内存资源。如果每次通信都加密，会消耗相当多的资源，平摊到一台计算机上时，能够处理的请求数量必定也会随之减少。但事实并非如此，用户可以通过性能优化、把证书部署在SLB或CDN，来解决此问题。举个实际的例子，“双十一”期间，全站HTTPS的淘宝、天猫依然保证了网站和移动端的访问、浏览、交易等操作的顺畅、平滑。通过测试发现，经过优化后的许多页面性能与HTTP持平甚至还有小幅提升，因此HTTPS经过优化之后其实并不慢。</p>
+<p>除此之外，想要节约购买证书的开销也是原因之一。要进行HTTPS通信，证书是必不可少的。而使用的证书必须向认证机构（CA）购买。</p>
+<p>最后是安全意识。相比国内，国外互联网行业的安全意识和技术应用相对成熟，HTTPS部署趋势是由社会、企业、政府共同去推动的。</p>
+
+                    </article>
+                    
+
+
+    <blockquote id="date-expire-notification" class="post-expired-notify">本文最后更新于 <span id="date-expire-num"></span> 天前，文中所描述的信息可能已发生改变</blockquote>
+    <script>
+        var dateUpdate = Date.parse("2019-05-13");
+        var nowDate = new Date();
+        var a = nowDate.getTime();
+        var b = a - dateUpdate;
+        var daysUpdateExpire = Math.floor(b/(24*3600*1000));
+        if (daysUpdateExpire >= 120) {
+            document.getElementById('date-expire-num').innerHTML = daysUpdateExpire;
+        } else {
+            document.getElementById('date-expire-notification').style.display = 'none';
+        }
+    </script>
+
+
+<p class="post-footer-info mb-0 pt-0">本文发表于&nbsp;<time datetime="2019-05-13T07:06:09.000Z" itemprop="datePublished">2019-05-13</time>
+
+</p>
+<p class="post-footer-info mb-0 pt-2">
+
+<span class="post-categories-list mt-2">
+
+
+<a class="post-categories-list-item" href='/categories/http/'>http</a>
+
+</span>
+
+
+
+<span class="post-tags-list mt-2">
+
+
+<a class="post-tags-list-item" href='/tags/http/'>#&nbsp;http</a>
+
+</span>
+
+
+</p>
+
+                </div>
+                
+<div class="post-nav px-2 bg-gray">
+<ul class="pagination">
+    <!-- Prev Nav -->
+    
+
+    <!-- Next Nav -->
+    
+        <li class="page-item page-next">
+            <a href="/2019/05/09/webpack一些plugin/">
+                <div class="page-item-title"><i class="icon icon-forward" aria-hidden="true"></i></div>
+                <div class="page-item-subtitle">webpack的plugin</div>
+            </a>
+        </li>
+    
+</ul>
+</div>
+
+                
+                    <!-- # Comment # -->
+                    
+                        <div class="card-footer post-comment">
+                            <div id="disqus_thread"></div>
+<script>
+    var disqus_config = function () {
+        this.page.url = 'http://yoursite.com/2019/05/13/http和https/'; // Replace PAGE_URL with your page's canonical URL variable
+        this.page.identifier = 'http://yoursite.com/2019/05/13/http和https/'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+    };
+</script>
+<script id="disqus-thread-script">
+    (function() { // DON'T EDIT BELOW THIS LINE
+        var d = document;
+        var s = d.createElement('script');
+        s.src = '//huan9kun.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', + new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+
+                        </div>
+                    
+                
+            </div>
+        </div>
+    </div>
+</div>
+
+            <!-- ### Footer ### -->
+            <footer class="text-center">
+    <!-- footer copyright -->
+    <p class="footer-copyright mb-0">Copyright&nbsp;©&nbsp;<span data-year></span>
+        <a class="footer-copyright-a" href="http://yoursite.com">HK&#39;s blog</a>
+    </p>
+    <!-- footer custom text -->
+    <p class="footer-text mb-0">
+    
+    </p>
+    <!-- footer develop info -->
+    <p class="footer-develop mb-0">
+        
+            
+    <!-- Busuanzi User Views -->
+    <span id="busuanzi_container_site_uv" hidden>
+        <span></span>
+        <span id="busuanzi_value_site_uv"></span>
+        <span>Viewers</span>
+        
+            <span>|</span>
+        
+    </span>
+
+
+
+        
+        
+        Powered by&nbsp;<!--
+         --><a href="https://hexo.io" target="_blank" class="footer-develop-a" rel="nofollow noopener noreferrer">Hexo</a><span class="footer-develop-divider"></span>Theme&nbsp;-&nbsp;<!--
+         --><a href="https://github.com/SukkaW/hexo-theme-suka" target="_blank" class="footer-develop-a" rel="noopener">Suka</a>
+    </p>
+</footer>
+
+        
+
+        <!-- ### Import File ### -->
+        <!-- ### Footer JS Import ### -->
+
+<script>
+window.lazyLoadOptions = {
+    elements_selector: ".lazyload",
+    threshold: 50
+};
+
+
+
+    /* Copyright */
+    var copyrightNow = new Date().getFullYear();
+    var copyrightContent = document.querySelector('span[data-year]')
+    
+        copyrightContent.textContent = copyrightNow
+    
+
+
+
+/* Cnosole Log */
+console.log('\n %c Suka Theme (hexo-theme-suka) | © SukkaW | Verision 1.3.2 %c https://github.com/SukkaW/hexo-theme-suka \n', 'color: #fff; background: #444; padding:5px 0;', 'background: #bbb; padding:5px 0;');
+</script>
+
+<!-- vanilla-lazyload -->
+
+    <script src="/lib/vanilla-lazyload/lazyload.min.js" async></script>
+
+
+
+    <!-- Busuanzi -->
+    
+    <script src="https://cdn.jsdelivr.net/npm/busuanzi@2.3.0/bsz.pure.mini.js" async></script>
+
+
+<!-- Offset -->
+
+
+
+
+
+
+
+<!-- gallery.js -->
+
+
+<!-- Comment -->
+
+    
+        <script id="dsq-count-scr" src="https://huan9kun.disqus.com/count.js" async></script>
+
+    
+
+
+<!-- ### Custom Footer ### -->
+
+
+    </body>
+
+</html>
