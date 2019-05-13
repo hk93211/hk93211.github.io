@@ -267,7 +267,7 @@ window.oldVersion = [
     },
     
     "datePublished": "2019-05-13T07:06:09.000Z",
-    "dateModified": "2019-05-13T07:32:40.810Z",
+    "dateModified": "2019-05-13T07:39:11.437Z",
     "author": {
         "@type": "Person",
         "name": "hk",
@@ -512,7 +512,7 @@ window.oldVersion = [
                     
                         
                             <div id="post-toc">
-                                <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#前言"><span class="post-toc-number">1.</span> <span class="post-toc-text">前言</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#HTTP是什么"><span class="post-toc-number">2.</span> <span class="post-toc-text">HTTP是什么</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#HTTPS是什么"><span class="post-toc-number">3.</span> <span class="post-toc-text">HTTPS是什么</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#HTTP协议存在的哪些问题"><span class="post-toc-number">4.</span> <span class="post-toc-text">HTTP协议存在的哪些问题</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#使用明文通讯"><span class="post-toc-number">4.0.1.</span> <span class="post-toc-text">使用明文通讯</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#无法证明报文的完整性"><span class="post-toc-number">4.0.2.</span> <span class="post-toc-text">无法证明报文的完整性</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#不验证通信方的身份"><span class="post-toc-number">4.0.3.</span> <span class="post-toc-text">不验证通信方的身份</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#HTTPS如何解决HTTP上述问题"><span class="post-toc-number">5.</span> <span class="post-toc-text">HTTPS如何解决HTTP上述问题</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#HTTPS工作流程"><span class="post-toc-number">6.</span> <span class="post-toc-text">HTTPS工作流程</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#HTTP-和-HTTPS-的区别"><span class="post-toc-number">7.</span> <span class="post-toc-text">HTTP 和 HTTPS 的区别</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#为何不所有的网站都使用HTTPS"><span class="post-toc-number">8.</span> <span class="post-toc-text">为何不所有的网站都使用HTTPS</span></a></li></ol>
+                                <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#前言"><span class="post-toc-number">1.</span> <span class="post-toc-text">前言</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#HTTP是什么"><span class="post-toc-number">2.</span> <span class="post-toc-text">HTTP是什么</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#HTTPS是什么"><span class="post-toc-number">3.</span> <span class="post-toc-text">HTTPS是什么</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#HTTP协议存在的哪些问题"><span class="post-toc-number">4.</span> <span class="post-toc-text">HTTP协议存在的哪些问题</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#HTTPS如何解决HTTP上述问题"><span class="post-toc-number">5.</span> <span class="post-toc-text">HTTPS如何解决HTTP上述问题</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#HTTPS工作流程"><span class="post-toc-number">6.</span> <span class="post-toc-text">HTTPS工作流程</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#HTTP-和-HTTPS-的区别"><span class="post-toc-number">7.</span> <span class="post-toc-text">HTTP 和 HTTPS 的区别</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#为何不所有的网站都使用HTTPS"><span class="post-toc-number">8.</span> <span class="post-toc-text">为何不所有的网站都使用HTTPS</span></a></li></ol>
                             </div>
                         
                     
@@ -532,10 +532,19 @@ window.oldVersion = [
 <p>（1）对数据进行加密，并建立一个信息安全通道，来保证传输过程中的数据安全;</p>
 <p>（2）对网站服务器进行真实身份认证。</p>
 <p>我们经常会在Web的登录页面和购物结算界面等使用HTTPS通信。使用HTTPS通信时，不再用 <code>http://</code>，而是改用 <code>https://</code>。另外，当浏览器访问HTTPS通信有效的Web网站时，浏览器的地址栏内会出现一个带锁的标记。对HTTPS的显示方式会因浏览器的不同而有所改变。</p>
-<h1 id="HTTP协议存在的哪些问题"><a href="#HTTP协议存在的哪些问题" class="headerlink" title="HTTP协议存在的哪些问题"></a>HTTP协议存在的哪些问题</h1><h3 id="使用明文通讯"><a href="#使用明文通讯" class="headerlink" title="使用明文通讯"></a>使用明文通讯</h3><p>由于HTTP本身不具备加密的功能，所以也无法做到对通信整体（使用HTTP协议通信的请求和响应的内容）进行加密。即，<strong>HTTP报文使用明文（指未经过加密的报文）方式发送, 内容有可能被窃听</strong>。</p>
+<h1 id="HTTP协议存在的哪些问题"><a href="#HTTP协议存在的哪些问题" class="headerlink" title="HTTP协议存在的哪些问题"></a>HTTP协议存在的哪些问题</h1><ul>
+<li>使用明文通讯</li>
+</ul>
+<p>由于HTTP本身不具备加密的功能，所以也无法做到对通信整体（使用HTTP协议通信的请求和响应的内容）进行加密。即，<strong>HTTP报文使用明文（指未经过加密的报文）方式发送, 内容有可能被窃听</strong>。</p>
 <p>HTTP明文协议的缺陷是导致数据泄露、数据篡改、流量劫持、钓鱼攻击等安全问题的重要原因。HTTP协议无法加密数据，所有通信数据都在网络中明文“裸奔”。通过网络的嗅探设备及一些技术手段，就可还原HTTP报文内容。</p>
-<h3 id="无法证明报文的完整性"><a href="#无法证明报文的完整性" class="headerlink" title="无法证明报文的完整性"></a>无法证明报文的完整性</h3><p>所谓完整性是指信息的准确度。若无法证明其完整性，通常也就意味着无法判断信息是否准确。由于HTTP协议无法证明通信的报文完整性，因此，在请求或响应送出之后直到对方接收之前的这段时间内，即使请求或响应的内容遭到篡改，也没有办法获悉。换句话说，<strong>没有任何办法确认，发出的请求/响应和接收到的请求/响应是前后相同的(所以可能遭篡改)</strong>。</p>
-<h3 id="不验证通信方的身份"><a href="#不验证通信方的身份" class="headerlink" title="不验证通信方的身份"></a>不验证通信方的身份</h3><p><strong>HTTP协议中的请求和响应不会对通信方进行确认(因此可能遭遇伪装)</strong>。在HTTP协议通信时，由于不存在确认通信方的处理步骤，任何人都可以发起请求。另外，服务器只要接收到请求，不管对方是谁都会返回一个响应（但也仅限于发送端的IP地址和端口号没有被Web服务器设定限制访问的前提下）</p>
+<ul>
+<li>无法证明报文的完整性</li>
+</ul>
+<p>所谓完整性是指信息的准确度。若无法证明其完整性，通常也就意味着无法判断信息是否准确。由于HTTP协议无法证明通信的报文完整性，因此，在请求或响应送出之后直到对方接收之前的这段时间内，即使请求或响应的内容遭到篡改，也没有办法获悉。换句话说，<strong>没有任何办法确认，发出的请求/响应和接收到的请求/响应是前后相同的(所以可能遭篡改)</strong>。</p>
+<ul>
+<li>不验证通信方的身份</li>
+</ul>
+<p><strong>HTTP协议中的请求和响应不会对通信方进行确认(因此可能遭遇伪装)</strong>。在HTTP协议通信时，由于不存在确认通信方的处理步骤，任何人都可以发起请求。另外，服务器只要接收到请求，不管对方是谁都会返回一个响应（但也仅限于发送端的IP地址和端口号没有被Web服务器设定限制访问的前提下）</p>
 <p>HTTP协议无法验证通信方身份，任何人都可以伪造虚假服务器欺骗用户，实现“钓鱼欺诈”，用户无法察觉。</p>
 <p>反观HTTPS协议，它比HTTP协议相比多了以下优势（下文会详细介绍）:</p>
 <ul>
@@ -547,7 +556,7 @@ window.oldVersion = [
 <p>通常，HTTP直接和TCP通信。当使用SSL时，则演变成先和SSL通信，再由SSL和TCP通信了。简言之，<strong>所谓HTTPS，其实就是身披SSL协议这层外壳的HTTP</strong>。</p>
 <p>在采用SSL后，HTTP就拥有了HTTPS的加密、证书和完整性保护这些功能。<strong>也就是说HTTP加上加密处理和认证以及完整性保护后即是HTTPS</strong>。</p>
 <p>HTTPS 协议的主要功能基本都依赖于 TLS/SSL 协议，TLS/SSL 的功能实现主要依赖于三类基本算法：散列函数 、对称加密和非对称加密，<strong>其利用非对称加密实现身份认证和密钥协商，对称加密算法采用协商的密钥对数据加密，基于散列函数验证信息的完整性。</strong></p>
-<h1 id="HTTPS工作流程"><a href="#HTTPS工作流程" class="headerlink" title="HTTPS工作流程"></a>HTTPS工作流程</h1><p>1.Client发起一个HTTPS（比如 <a href="https://xxx.blog.com/login）的请求，根据RFC2818的规定，Client知道需要连接Server的443（默认）端口。" target="_blank" rel="noopener">https://xxx.blog.com/login）的请求，根据RFC2818的规定，Client知道需要连接Server的443（默认）端口。</a></p>
+<h1 id="HTTPS工作流程"><a href="#HTTPS工作流程" class="headerlink" title="HTTPS工作流程"></a>HTTPS工作流程</h1><p>1.Client发起一个HTTPS (比如 <a href="https://xxx.blog.com/login" target="_blank" rel="noopener">https://xxx.blog.com/login</a>) 的请求，根据RFC2818的规定，Client知道需要连接Server的443（默认）端口。</p>
 <p>2.Server把事先配置好的公钥证书（public key certificate）返回给客户端。</p>
 <p>3.Client验证公钥证书：比如是否在有效期内，证书的用途是不是匹配Client请求的站点，是不是在CRL吊销列表里面，它的上一级证书是否有效，这是一个递归的过程，直到验证到根证书（操作系统内置的Root证书或者Client内置的Root证书）。如果验证通过则继续，不通过则显示警告信息。</p>
 <p>4.Client使用伪随机数生成器生成加密所使用的对称密钥，然后用证书的公钥加密这个对称密钥，发给Server。</p>
