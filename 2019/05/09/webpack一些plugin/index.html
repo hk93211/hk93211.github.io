@@ -267,7 +267,7 @@ window.oldVersion = [
     },
     
     "datePublished": "2019-05-09T07:25:09.000Z",
-    "dateModified": "2019-05-09T14:16:18.672Z",
+    "dateModified": "2019-05-14T01:04:31.850Z",
     "author": {
         "@type": "Person",
         "name": "hk",
@@ -512,7 +512,7 @@ window.oldVersion = [
                     
                         
                             <div id="post-toc">
-                                <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#generate-json-webpack-plugin"><span class="post-toc-number">1.</span> <span class="post-toc-text">generate-json-webpack-plugin</span></a></li></ol>
+                                <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#generate-json-webpack-plugin"><span class="post-toc-number">1.</span> <span class="post-toc-text">generate-json-webpack-plugin</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#webpack-dev-middleware"><span class="post-toc-number">2.</span> <span class="post-toc-text">webpack-dev-middleware</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#webpack-hot-middleware"><span class="post-toc-number">3.</span> <span class="post-toc-text">webpack-hot-middleware</span></a></li></ol>
                             </div>
                         
                     
@@ -524,13 +524,21 @@ window.oldVersion = [
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">new</span> GenerateJsonPlugin(</span><br><span class="line">  <span class="string">'my-file.json'</span>,</span><br><span class="line">  &#123; <span class="attr">foo</span>: <span class="string">'bar'</span>, <span class="attr">one</span>: <span class="string">'two'</span> &#125;,</span><br><span class="line">  (key, value) =&gt; &#123;</span><br><span class="line">    <span class="keyword">if</span> (value === <span class="string">'bar'</span>) &#123;</span><br><span class="line">      <span class="keyword">return</span> <span class="string">'baz'</span>; </span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> value;</span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="number">2</span></span><br><span class="line">)</span><br></pre></td></tr></table></figure>
 <p>此时 my-file.json 文件的内容为:</p>
 <figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="attr">"foo"</span>: <span class="string">"baz"</span>,</span><br><span class="line">  <span class="attr">"one"</span>: <span class="string">"two"</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="webpack-dev-middleware"><a href="#webpack-dev-middleware" class="headerlink" title="webpack-dev-middleware"></a>webpack-dev-middleware</h1><p>Webpack dev middleware 是 WebPack 的一个中间件。它用于在 Express 中分发需要通过 WebPack 编译的文件。单独使用它就可以完成代码的热重载（hot reloading）功能。</p>
+<p>特性：</p>
+<ul>
+<li>不会在硬盘中写入文件，完全基于内存实现。</li>
+<li>如果使用 watch 模式监听代码修改，Webpack 会自动编译，如果在 Webpack 编译过程中请求文件，Webpack dev middleware 会延迟请求，直到编译完成之后再开始发送编译完成的文件。</li>
+</ul>
+<h1 id="webpack-hot-middleware"><a href="#webpack-hot-middleware" class="headerlink" title="webpack-hot-middleware"></a>webpack-hot-middleware</h1><p>Webpack hot middleware 它通过订阅 Webpack 的编译更新，之后通过执行 webpack 的 HMR api 将这些代码模块的更新推送给浏览器端。</p>
+
                     </article>
                     
 
 
     <blockquote id="date-expire-notification" class="post-expired-notify">本文最后更新于 <span id="date-expire-num"></span> 天前，文中所描述的信息可能已发生改变</blockquote>
     <script>
-        var dateUpdate = Date.parse("2019-05-09");
+        var dateUpdate = Date.parse("2019-05-14");
         var nowDate = new Date();
         var a = nowDate.getTime();
         var b = a - dateUpdate;
@@ -544,6 +552,8 @@ window.oldVersion = [
 
 
 <p class="post-footer-info mb-0 pt-0">本文发表于&nbsp;<time datetime="2019-05-09T07:25:09.000Z" itemprop="datePublished">2019-05-09</time>
+
+    , 最后修改于&nbsp;<time datetime="2019-05-14T01:04:31.850Z" itemprop="dateModified">2019-05-14</time>
 
 </p>
 <p class="post-footer-info mb-0 pt-2">
