@@ -267,7 +267,7 @@ window.oldVersion = [
     },
     
     "datePublished": "2018-08-20T01:00:12.000Z",
-    "dateModified": "2019-04-20T03:34:25.829Z",
+    "dateModified": "2019-06-11T15:34:58.559Z",
     "author": {
         "@type": "Person",
         "name": "hk",
@@ -547,6 +547,7 @@ window.oldVersion = [
 <p>命令。</p>
 <p>需要查看历史提交记录中两个点之间的提交历史，我们可以用<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git log HEAD~5..HEAD^ --oneline</span><br></pre></td></tr></table></figure></p>
 <p>命令，对于分支可以使用<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git log branch_name..master --oneline</span><br></pre></td></tr></table></figure></p>
+<p>显示 master 分支的文件的改动<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git log master --name-only --oneline</span><br></pre></td></tr></table></figure></p>
 <h2 id="修复错误提交"><a href="#修复错误提交" class="headerlink" title="修复错误提交"></a>修复错误提交</h2><p><strong>注意：以下一些命令会修改提交历史，使用前请确保了解后再执行。</strong><br>当提交出错时，我们可能会希望能够修改提交历史。我不建议修改已经推送到远程仓库的提交历史（即使 git 允许这样做），但是对于本地仓库的提交历史，我个人认为还是可以修改的。通过<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git commit --amend</span><br></pre></td></tr></table></figure></p>
 <p>命令可以删除前一次提交，并创建一个新的提交记录以替代之前的提交。</p>
 <p>另一个我最喜欢的 git 使用技巧是交互式变基 (rebase）。它可以用来编辑提交信息，或者将多个提交压缩成一个提交，这也是我最喜欢的一个功能。为了在远程仓库 origin 的 master 分支之后的所有提交上执行交互式变基，可以使用<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git rebase -i origin/master</span><br></pre></td></tr></table></figure></p>
@@ -559,6 +560,7 @@ window.oldVersion = [
 <h2 id="将log-输出成工整好看的形式"><a href="#将log-输出成工整好看的形式" class="headerlink" title="将log 输出成工整好看的形式"></a>将log 输出成工整好看的形式</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git log --pretty=format:&quot;%C(auto)%h %ad | %C(auto)%s%d  %Cblue(%an)&quot; --date=short</span><br></pre></td></tr></table></figure>
 <h2 id="要看在某个时间段内的commit"><a href="#要看在某个时间段内的commit" class="headerlink" title="要看在某个时间段内的commit"></a>要看在某个时间段内的commit</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git log --since=&quot;2018-10-01&quot; --before=&quot;2018-10-02&quot;</span><br></pre></td></tr></table></figure>
 <h2 id="把当前代码提交到另一个远程git仓库"><a href="#把当前代码提交到另一个远程git仓库" class="headerlink" title="把当前代码提交到另一个远程git仓库"></a>把当前代码提交到另一个远程git仓库</h2><p>假如仓库repo_a当前位于branch_a，要求将branch_a的整个数据（包括提交历史）全部提取出来，并建立一个新的仓库repo_b。这里假设仓库repo_b已经被建立。<br>git remote add基本语法如下。name和url是必须的。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">1、 将仓库repo_b的URL添加到工作仓库的remote。</span><br><span class="line">git remote add [-t &lt;branch&gt;] [-m &lt;master&gt;] [-f] [--[no-]tags] [--mirror=&lt;fetch|push&gt;] &lt;name&gt; &lt;url&gt;</span><br><span class="line">git remote add wei-ui-repo http://git.meicloud.com/mjb-product/web-ui/jiebao-plus</span><br><span class="line">(origin_repo_b:自己起的名字，只要不与现有的remote名重复即可)</span><br><span class="line">(git@server_ip:/path/repo_b.git:repo_b的远程路径)</span><br><span class="line"></span><br><span class="line">2、将代码推送到远程repo_b。</span><br><span class="line">git push origin_repo_b branch_a</span><br><span class="line">(origin_repo_b:远程仓库repo_b的名字)</span><br><span class="line">(branch_a:仓库repo_a的的branch_a分支)</span><br><span class="line"></span><br><span class="line">3、克隆仓库repo_b，检查是否push成功。</span><br><span class="line">git clone git@server_ip:/path/repo_b.</span><br></pre></td></tr></table></figure></p>
+<p>以下命令用于将本地的分支推向远端的分支:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git push origin_repo_b local_branch:origin_branch</span><br></pre></td></tr></table></figure></p>
 <h2 id="写在最后"><a href="#写在最后" class="headerlink" title="写在最后"></a>写在最后</h2><p>以上都是我最喜欢的 git 实用技巧。希望你也能从中学到一些新知识。这些都是我在日常使用中发现非常有用的命令，它们对我的日常工作非常有用。如果你也有类似常用的 git 实用技巧或者常用命令，可以分享出来大家一起交流。</p>
 
                     </article>
@@ -567,7 +569,7 @@ window.oldVersion = [
 
     <blockquote id="date-expire-notification" class="post-expired-notify">本文最后更新于 <span id="date-expire-num"></span> 天前，文中所描述的信息可能已发生改变</blockquote>
     <script>
-        var dateUpdate = Date.parse("2019-04-20");
+        var dateUpdate = Date.parse("2019-06-11");
         var nowDate = new Date();
         var a = nowDate.getTime();
         var b = a - dateUpdate;
@@ -582,7 +584,7 @@ window.oldVersion = [
 
 <p class="post-footer-info mb-0 pt-0">本文发表于&nbsp;<time datetime="2018-08-20T01:00:12.000Z" itemprop="datePublished">2018-08-20</time>
 
-    , 最后修改于&nbsp;<time datetime="2019-04-20T03:34:25.829Z" itemprop="dateModified">2019-04-20</time>
+    , 最后修改于&nbsp;<time datetime="2019-06-11T15:34:58.559Z" itemprop="dateModified">2019-06-11</time>
 
 </p>
 <p class="post-footer-info mb-0 pt-2">
