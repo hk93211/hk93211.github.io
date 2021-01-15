@@ -1,0 +1,271 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>node基础 | Kwin 's Blog</title><meta name="description" content="node基础"><meta name="keywords" content="node"><meta name="author" content="Kwin,hk93211@gmail.com"><meta name="copyright" content="Kwin"><meta name="format-detection" content="telephone=no"><link rel="shortcut icon" href="/assets/images/favicon.ico"><meta http-equiv="Cache-Control" content="no-transform"><meta http-equiv="Cache-Control" content="no-siteapp"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="https://fonts.googleapis.com" crossorigin="crossorigin"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><meta name="twitter:card" content="summary"><meta name="twitter:title" content="node基础"><meta name="twitter:description" content="node基础"><meta name="twitter:image" content="http://huangkun.host/assets/images/bg/15.jpeg"><meta property="og:type" content="article"><meta property="og:title" content="node基础"><meta property="og:url" content="http://huangkun.host/2020/03/25/20160315-node%E5%9F%BA%E7%A1%80/"><meta property="og:site_name" content="Kwin 's Blog"><meta property="og:description" content="node基础"><meta property="og:image" content="http://huangkun.host/assets/images/bg/15.jpeg"><script src="https://cdn.jsdelivr.net/npm/js-cookie/dist/js.cookie.min.js"></script><script>const autoChangeMode = '1'
+var t = Cookies.get("theme")
+if (autoChangeMode == '1'){
+  const isDarkMode = window.matchMedia("(prefers-color-scheme: dark)").matches
+  const isLightMode = window.matchMedia("(prefers-color-scheme: light)").matches
+  const isNotSpecified = window.matchMedia("(prefers-color-scheme: no-preference)").matches
+  const hasNoSupport = !isDarkMode && !isLightMode && !isNotSpecified
+
+  if (t === undefined){
+    if (isLightMode) activateLightMode()
+    else if (isDarkMode) activateDarkMode()
+    else if (isNotSpecified || hasNoSupport){
+      console.log('You specified no preference for a color scheme or your browser does not support it. I Schedule dark mode during night time.')
+      now = new Date();
+      hour = now.getHours();
+      isNight = hour < 6 || hour >= 18
+      isNight ? activateDarkMode() : activateLightMode()
+  }
+  } else if (t == 'light') activateLightMode()
+  else activateDarkMode()
+
+} else if (autoChangeMode == '2'){
+  now = new Date();
+  hour = now.getHours();
+  isNight = hour < 6 || hour >= 18
+  if(t === undefined) isNight? activateDarkMode() : activateLightMode()
+  else if (t === 'light') activateLightMode()
+  else activateDarkMode() 
+} else {
+  if ( t == 'dark' ) activateDarkMode()
+  else if ( t == 'light') activateLightMode()
+}
+
+function activateDarkMode(){
+  document.documentElement.setAttribute('data-theme', 'dark')
+  if (document.querySelector('meta[name="theme-color"]') !== null){
+    document.querySelector('meta[name="theme-color"]').setAttribute('content','#000')
+  }
+}
+function activateLightMode(){
+  document.documentElement.setAttribute('data-theme', 'light')
+  if (document.querySelector('meta[name="theme-color"]') !== null){
+  document.querySelector('meta[name="theme-color"]').setAttribute('content','#fff')
+  }
+}</script><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@latest/css/font-awesome.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.css"><link rel="canonical" href="http://huangkun.host/2020/03/25/20160315-node%E5%9F%BA%E7%A1%80/"><link rel="prev" title="nodejs事件驱动编程理解" href="http://huangkun.host/2020/03/25/20160412-nodejs%E4%BA%8B%E4%BB%B6%E9%A9%B1%E5%8A%A8%E7%BC%96%E7%A8%8B%E7%90%86%E8%A7%A3/"><link rel="next" title="markdown语法学习" href="http://huangkun.host/2020/03/25/20151023-markdown%E8%AF%AD%E6%B3%95%E5%AD%A6%E4%B9%A0/"><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Titillium+Web"><script>var GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: {"defaultEncoding":2,"translateDelay":0,"cookieDomain":"http://huangkun.host/","msgToTraditionalChinese":"繁","msgToSimplifiedChinese":"簡"},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  bookmark: {
+    title: 'Snackbar.bookmark.title',
+    message_prev: '按',
+    message_next: '键将本页加入书签'
+  },
+  runtime_unit: '天',
+  runtime: true,
+  copyright: undefined,
+  ClickShowText: undefined,
+  medium_zoom: false,
+  fancybox: true,
+  Snackbar: undefined,
+  baiduPush: false,
+  highlightCopy: true,
+  highlightLang: true,
+  highlightShrink: false,
+  isFontAwesomeV5: false
+  
+}</script><script>var GLOBAL_CONFIG_SITE = { 
+  isPost: true,
+  isHome: false
+}</script><meta name="generator" content="Hexo 4.2.0"><link rel="alternate" href="/atom.xml" title="Kwin 's Blog" type="application/atom+xml">
+</head><body><div id="mobile-sidebar"><div id="menu_mask"></div><div id="mobile-sidebar-menus"><div class="mobile_author_icon"><img class="avatar-img" src="/assets/images/avatar.png" onerror="onerror=null;src='/assets/images/bg/39.jpeg'" alt="avatar"/></div><div class="mobile_post_data"><div class="mobile_data_item is-center"><div class="mobile_data_link"><a href="/archives/"><div class="headline">文章</div><div class="length_num">62</div></a></div></div><div class="mobile_data_item is-center">      <div class="mobile_data_link"><a href="/tags/"><div class="headline">标签</div><div class="length_num">23</div></a></div></div><div class="mobile_data_item is-center">     <div class="mobile_data_link"><a href="/categories/"><div class="headline">分类</div><div class="length_num">19</div></a></div></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fa fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fa fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fa fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fa fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fa fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fa fa-heart"></i><span> 关于</span></a></div><div class="menus_item"><a class="site-page"><i class="fa-fw fa fa-list" aria-hidden="true"></i><span> 清单</span><i class="fa fa-chevron-down menus-expand" aria-hidden="true"></i></a><ul class="menus_item_child"><li><a class="site-page" href="/music/"><i class="fa-fw fa fa-music"></i><span> Music</span></a></li><li><a class="site-page" href="/movies/"><i class="fa-fw fa fa-film"></i><span> Movie</span></a></li></ul></div></div></div></div><i class="fa fa-arrow-right on" id="toggle-sidebar" aria-hidden="true">     </i><div id="sidebar"><div class="sidebar-toc"><div class="sidebar-toc__title">目录</div><div class="sidebar-toc__progress"><span class="progress-notice">你已经读了</span><span class="progress-num">0</span><span class="progress-percentage">%</span><div class="sidebar-toc__progress-bar">     </div></div><div class="sidebar-toc__content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Node服务器端开发第一天"><span class="toc-number">1.</span> <span class="toc-text">Node服务器端开发第一天</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Node简介"><span class="toc-number">1.1.</span> <span class="toc-text">Node简介</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#客户端的JavaScript是怎样的"><span class="toc-number">1.1.1.</span> <span class="toc-text">客户端的JavaScript是怎样的</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#什么是Node"><span class="toc-number">1.1.2.</span> <span class="toc-text">什么是Node</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#为什么是JavaScript"><span class="toc-number">1.1.3.</span> <span class="toc-text">为什么是JavaScript</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Node的实现结构"><span class="toc-number">1.1.4.</span> <span class="toc-text">Node的实现结构</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Node在当下Web开发领域的应用"><span class="toc-number">1.1.5.</span> <span class="toc-text">Node在当下Web开发领域的应用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#哪些公司在用"><span class="toc-number">1.1.6.</span> <span class="toc-text">哪些公司在用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#重点理解"><span class="toc-number">1.1.7.</span> <span class="toc-text">重点理解</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#环境配置"><span class="toc-number">1.2.</span> <span class="toc-text">环境配置</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#安装包的方式安装"><span class="toc-number">1.2.1.</span> <span class="toc-text">安装包的方式安装</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#更新版本"><span class="toc-number">1.2.2.</span> <span class="toc-text">更新版本</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#NVM工具的使用"><span class="toc-number">1.2.3.</span> <span class="toc-text">NVM工具的使用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#配置Python环境"><span class="toc-number">1.2.4.</span> <span class="toc-text">配置Python环境</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#环境变量的概念"><span class="toc-number">1.2.5.</span> <span class="toc-text">环境变量的概念</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Windows下常用的命令行操作"><span class="toc-number">1.2.6.</span> <span class="toc-text">Windows下常用的命令行操作</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#事件驱动和非阻塞"><span class="toc-number">1.3.</span> <span class="toc-text">事件驱动和非阻塞</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#模块化开发"><span class="toc-number">1.4.</span> <span class="toc-text">模块化开发</span></a></li></ol></li></ol></div></div></div><div id="body-wrap"><div class="post-bg" id="nav" style="background-image: url(/assets/images/bg/15.jpeg)"><div id="page-header"><span class="pull_left" id="blog_name"><a class="blog_title" id="site-name" href="/">Kwin 's Blog</a></span><span class="toggle-menu pull_right close"><a class="site-page"><i class="fa fa-bars fa-fw" aria-hidden="true"></i></a></span><span class="pull_right menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fa fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fa fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fa fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fa fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fa fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fa fa-heart"></i><span> 关于</span></a></div><div class="menus_item"><a class="site-page"><i class="fa-fw fa fa-list" aria-hidden="true"></i><span> 清单</span><i class="fa fa-chevron-down menus-expand" aria-hidden="true"></i></a><ul class="menus_item_child"><li><a class="site-page" href="/music/"><i class="fa-fw fa fa-music"></i><span> Music</span></a></li><li><a class="site-page" href="/movies/"><i class="fa-fw fa fa-film"></i><span> Movie</span></a></li></ul></div></div></span></div><div id="post-info"><div id="post-title"><div class="posttitle">node基础</div></div><div id="post-meta"><time class="post-meta__date"><i class="fa fa-calendar fa-fw" aria-hidden="true"></i> 发表于 2020-03-25<span class="post-meta__separator">|</span><i class="fa fa-history fa-fw" aria-hidden="true"></i> 更新于 2020-03-25</time><span class="post-meta__separator">|</span><span><i class="fa fa-inbox post-meta__icon fa-fw" aria-hidden="true"></i><a class="post-meta__categories" href="/categories/node/">node</a></span><div class="post-meta-wordcount"><div class="post-meta-pv-cv"><i class="fa fa-eye post-meta__icon fa-fw" aria-hidden="true"> </i><span>阅读量:</span><span id="busuanzi_value_page_pv"></span><span class="post-meta__separator">|</span><i class="post-meta__icon fa-fw fa fa-comment-o" aria-hidden="true"></i><span>评论数:</span><span class="disqus-comment-count comment-count"><a href="http://huangkun.host/2020/03/25/20160315-node%E5%9F%BA%E7%A1%80/#disqus_thread"></a></span></div></div></div></div></div><main class="layout_post" id="content-inner"><article id="post"><div id="article-container"><h1 id="Node服务器端开发第一天"><a href="#Node服务器端开发第一天" class="headerlink" title="Node服务器端开发第一天"></a>Node服务器端开发第一天</h1><blockquote>
+<p>Node简介及配置、快速上手、核心特点、模块化</p>
+</blockquote>
+<h2 id="Node简介"><a href="#Node简介" class="headerlink" title="Node简介"></a>Node简介</h2><h3 id="客户端的JavaScript是怎样的"><a href="#客户端的JavaScript是怎样的" class="headerlink" title="客户端的JavaScript是怎样的"></a>客户端的JavaScript是怎样的</h3><ul>
+<li><p>什么是JavaScript</p>
+<ul>
+<li>脚本语言</li>
+<li>运行在浏览器中</li>
+<li>一般用来做客户端页面的交互（Interactive）</li>
+</ul>
+</li>
+<li><p>JavaScript 的运行环境？</p>
+<ul>
+<li>是不是运行在浏览器呢？</li>
+<li>不够严谨</li>
+<li>运行在浏览器内核中的 JS 引擎（engine）</li>
+</ul>
+</li>
+<li><p>浏览器中的 JavaScript 可以做什么？</p>
+<ul>
+<li>操作DOM（对DOM的增删改、注册事件）</li>
+<li>AJAX/跨域</li>
+<li>BOM（页面跳转、历史记录、console.log()、alert()）</li>
+<li>ECMAScript</li>
+</ul>
+</li>
+<li><p>浏览器中的 JavaScript 不可以做什么？</p>
+<ul>
+<li>文件操作（文件和文件夹的CRUD）</li>
+<li>没有办法操作系统信息</li>
+<li>由于运行环境特殊（我们写的代码是在不认识的人的浏览器中运行）</li>
+</ul>
+</li>
+<li><p>在开发人员能力相同的情况下编程语言的能力取决于什么？</p>
+<ul>
+<li>语言本身？</li>
+<li>语言本身只是提供定义变量，定义函数，定义类型，流程控制，循环结构之类的操作</li>
+<li>取决于运行该语言的平台（环境）</li>
+<li>对于JS来说，我们常说的JS实际是ES，大部分能力都是由浏览器的执行引擎决定</li>
+<li>BOM和DOM可以说是浏览器开放出来的接口</li>
+<li>比如：Cordova中提供JS调用摄像头，操作本地文件的API</li>
+<li>Java既是语言也是平台</li>
+<li>Java运行在Java虚拟机（跨操作系统）</li>
+<li>PHP既是语言也是平台（跨操作系统）</li>
+<li>C#语言平台：.NET Framework（Windows）</li>
+<li>C#可以运行在MONO这样的平台</li>
+<li>因为有人需要将C#运行在Linux平台，所有出现了MONO</li>
+</ul>
+</li>
+<li><p>JavaScript 只可以运行在浏览器中吗 ?</p>
+<ul>
+<li>不是</li>
+<li>能运行在哪取决于，这个环境有没有特定平台</li>
+</ul>
+</li>
+</ul>
+<h3 id="什么是Node"><a href="#什么是Node" class="headerlink" title="什么是Node"></a>什么是Node</h3><ul>
+<li>Node 就是 JavaScript 语言在服务器端的运行环境</li>
+<li>所谓“运行环境（平台）”有两层意思：<ul>
+<li>首先，JavaScript 语言通过 Node 在服务器运行，在这个意义上，Node 有点像 JavaScript 虚拟机；</li>
+<li>其次，Node 提供大量工具库，使得 JavaScript 语言与操作系统互动（比如读写文件、新建子进程），在这个意义上， Node 又是 JavaScript 的工具库。</li>
+</ul>
+</li>
+</ul>
+<h3 id="为什么是JavaScript"><a href="#为什么是JavaScript" class="headerlink" title="为什么是JavaScript"></a>为什么是JavaScript</h3><h3 id="Node的实现结构"><a href="#Node的实现结构" class="headerlink" title="Node的实现结构"></a>Node的实现结构</h3><h3 id="Node在当下Web开发领域的应用"><a href="#Node在当下Web开发领域的应用" class="headerlink" title="Node在当下Web开发领域的应用"></a>Node在当下Web开发领域的应用</h3><h3 id="哪些公司在用"><a href="#哪些公司在用" class="headerlink" title="哪些公司在用"></a>哪些公司在用</h3><h3 id="重点理解"><a href="#重点理解" class="headerlink" title="重点理解"></a>重点理解</h3><ul>
+<li>Node是一个JavaScript的运行环境（平台），不是一门语言，也不是JavaScript的框- 架；</li>
+<li>Node的实现结构；</li>
+<li>Node可以用来开发服务端应用程序，Web系统；</li>
+<li>基于Node的前端工具集</li>
+</ul>
+<hr />
+
+<h2 id="环境配置"><a href="#环境配置" class="headerlink" title="环境配置"></a>环境配置</h2><h3 id="安装包的方式安装"><a href="#安装包的方式安装" class="headerlink" title="安装包的方式安装"></a>安装包的方式安装</h3><ul>
+<li>安装包下载链接(5.7.0版本, 如果需要高版本, 请自行前往官网下载)：<ul>
+<li>Mac OSX： <a href="http://npm.taobao.org/mirrors/node/v5.7.0/node-v5.7.0.pkg" target="_blank" rel="noopener">darwin</a></li>
+<li>Windows：<ul>
+<li><a href="http://npm.taobao.org/mirrors/node/v5.7.0/node-v5.7.0-x64.msi" target="_blank" rel="noopener">x64</a></li>
+<li><a href="http://npm.taobao.org/mirrors/node/v5.7.0/node-v5.7.0-x86.msi" target="_blank" rel="noopener">x86</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>安装操作：<ul>
+<li>一路Next</li>
+</ul>
+</li>
+</ul>
+<h3 id="更新版本"><a href="#更新版本" class="headerlink" title="更新版本"></a>更新版本</h3><ul>
+<li>操作方式：<ul>
+<li>重新下载最新的安装包；</li>
+<li>覆盖安装即可；</li>
+</ul>
+</li>
+<li>问题：<ul>
+<li>以前版本安装的很多全局的工具包需要重新安装</li>
+<li>无法回滚到之前的版本</li>
+<li>无法在多个版本之间切换（很多时候我们要使用特定版本）</li>
+</ul>
+</li>
+</ul>
+<h3 id="NVM工具的使用"><a href="#NVM工具的使用" class="headerlink" title="NVM工具的使用"></a>NVM工具的使用</h3><blockquote>
+<p>Node Version Manager（Node版本管理工具）</p>
+</blockquote>
+<p>由于以后的开发工作可能会在多个Node版本中测试，而且Node的版本也比较多，所以需要这么款工具来管理</p>
+<p>安装操作步骤</p>
+<ol>
+<li>下载：<a href="https://github.com/coreybutler/nvm-windows/releases/download/1.1.0/nvm-noinstall.zip" target="_blank" rel="noopener">nvm-windows</a></li>
+<li>解压到一个全英文路径</li>
+<li>编辑解压目录下的 <code>settings.txt</code> 文件（不存在则新建）</li>
+</ol>
+<ul>
+<li><code>root</code> 配置为当前 nvm.exe 所在目录</li>
+<li><code>path</code> 配置为 node 快捷方式所在的目录</li>
+<li><code>arch</code> 配置为当前操作系统的位数（32/64）</li>
+<li><code>proxy</code> 不用配置</li>
+</ul>
+<ol start="4">
+<li>配置环境变量 可以通过 window+r : sysdm.cpl</li>
+</ol>
+<ul>
+<li><code>NVM_HOME = 当前 nvm.exe</code> 所在目录</li>
+<li><code>NVM_SYMLINK = node</code> 快捷方式所在的目录</li>
+<li><code>PATH += %NVM_HOME%;%NVM_SYMLINK%</code>;</li>
+<li><code>CMD</code> 通过 <code>set [name]</code> 命令查看环境变量是否配置成功</li>
+<li><code>PowerShell</code> 中是通过 <code>dir env:[name]</code> 命令</li>
+</ul>
+<ol start="5">
+<li>NVM使用说明：</li>
+</ol>
+<ul>
+<li><a href="https://github.com/coreybutler/nvm-windows/" target="_blank" rel="noopener">https://github.com/coreybutler/nvm-windows/</a></li>
+</ul>
+<ol start="6">
+<li>NPM的目录之后使用再配置</li>
+</ol>
+<h3 id="配置Python环境"><a href="#配置Python环境" class="headerlink" title="配置Python环境"></a>配置Python环境</h3><blockquote>
+<p>Node中有些第三方的包是以C/C++源码的方式发布的，需要安装后编译 确保全局环境中可以使用python命令</p>
+</blockquote>
+<h3 id="环境变量的概念"><a href="#环境变量的概念" class="headerlink" title="环境变量的概念"></a>环境变量的概念</h3><blockquote>
+<p>环境变量就是操作系统提供的系统级别用于存储变量的地方</p>
+</blockquote>
+<ul>
+<li>Windows中环境变量分为系统变量和用户变量</li>
+<li>环境变量的变量名是不区分大小写的</li>
+<li>特殊值：<ul>
+<li>PATH 变量：只要添加到 PATH 变量中的路径，都可以在任何目录下搜索</li>
+</ul>
+</li>
+</ul>
+<h3 id="Windows下常用的命令行操作"><a href="#Windows下常用的命令行操作" class="headerlink" title="Windows下常用的命令行操作"></a>Windows下常用的命令行操作</h3><ul>
+<li>切换当前目录（change directory）：cd</li>
+<li>创建目录（make directory）：mkdir</li>
+<li>查看当前目录列表（directory）：dir<ul>
+<li>别名：ls（list）</li>
+</ul>
+</li>
+<li>清空当前控制台：cls<ul>
+<li>别名：clear</li>
+</ul>
+</li>
+<li>删除文件：del<ul>
+<li>别名：rm</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p>注意：所有别名必须在新版本的 PowerShell 中使用</p>
+</blockquote>
+<hr />
+
+<h2 id="事件驱动和非阻塞"><a href="#事件驱动和非阻塞" class="headerlink" title="事件驱动和非阻塞"></a>事件驱动和非阻塞</h2><p>详情见我的下一篇文章 <a href="/posts/20160412-nodejs事件驱动编程理解.html">node.js 事件驱动编程理解</a></p>
+<hr />
+
+<h2 id="模块化开发"><a href="#模块化开发" class="headerlink" title="模块化开发"></a>模块化开发</h2><hr />
+</div><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="mailto:hk93211@gmail.com">Kwin</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="http://huangkun.host/2020/03/25/20160315-node%E5%9F%BA%E7%A1%80/">http://huangkun.host/2020/03/25/20160315-node基础/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="http://huangkun.host" target="_blank">Kwin 's Blog</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/node/">node    </a></div><div class="post_share"><div class="social-share" data-image="/assets/images/bg/38.jpeg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js/dist/css/share.min.css"/><script src="https://cdn.jsdelivr.net/npm/social-share.js/dist/js/social-share.min.js"></script></div></div><div class="post-reward"><a class="reward-button button--primary button--animated"> <i class="fa fa-qrcode"></i> 打赏<div class="reward-main"><ul class="reward-all"><li class="reward-item"><img class="lazyload post-qr-code__img" src="/assets/images/pay/wechat.jpg" alt="微信"/><div class="post-qr-code__desc">微信</div></li><li class="reward-item"><img class="lazyload post-qr-code__img" src="/assets/images/pay/alipay.jpg" alt="支付宝"/><div class="post-qr-code__desc">支付宝</div></li></ul></div></a></div><nav class="pagination_post" id="pagination"><div class="prev-post pull_left"><a href="/2020/03/25/20160412-nodejs%E4%BA%8B%E4%BB%B6%E9%A9%B1%E5%8A%A8%E7%BC%96%E7%A8%8B%E7%90%86%E8%A7%A3/"><img class="prev_cover lazyload" data-src="/assets/images/bg/14.jpeg" onerror="onerror=null;src='/img/404.jpg'"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">nodejs事件驱动编程理解</div></div></a></div><div class="next-post pull_right"><a href="/2020/03/25/20151023-markdown%E8%AF%AD%E6%B3%95%E5%AD%A6%E4%B9%A0/"><img class="next_cover lazyload" data-src="/assets/images/bg/16.jpeg" onerror="onerror=null;src='/img/404.jpg'"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">markdown语法学习</div></div></a></div></nav><div class="relatedPosts"><div class="relatedPosts_headline"><i class="fa fa-fw fa-thumbs-up" aria-hidden="true"></i><span> 相关推荐</span></div><div class="relatedPosts_list"><div class="relatedPosts_item"><a href="/2020/03/25/20160412-nodejs事件驱动编程理解/" title="nodejs事件驱动编程理解"><img class="relatedPosts_cover lazyload"data-src="/assets/images/bg/14.jpeg"><div class="relatedPosts_main is-center"><div class="relatedPosts_date"><i class="fa fa-calendar fa-fw" aria-hidden="true"></i> 2020-03-25</div><div class="relatedPosts_title">nodejs事件驱动编程理解</div></div></a></div><div class="relatedPosts_item"><a href="/2020/03/25/20181216-nodejs一些学习/" title="nodejs一些学习"><img class="relatedPosts_cover lazyload"data-src="/assets/images/bg/23.jpeg"><div class="relatedPosts_main is-center"><div class="relatedPosts_date"><i class="fa fa-calendar fa-fw" aria-hidden="true"></i> 2020-03-25</div><div class="relatedPosts_title">nodejs一些学习</div></div></a></div><div class="relatedPosts_item"><a href="/2020/03/25/20190725-Nodejs的Stream/" title="Nodejs的Stream"><img class="relatedPosts_cover lazyload"data-src="/assets/images/bg/14.jpeg"><div class="relatedPosts_main is-center"><div class="relatedPosts_date"><i class="fa fa-calendar fa-fw" aria-hidden="true"></i> 2020-03-25</div><div class="relatedPosts_title">Nodejs的Stream</div></div></a></div></div><div class="clear_both"></div></div><hr><div id="post-comment"><div class="comment_headling"><i class="fa fa-comments fa-fw" aria-hidden="true"></i><span> 评论</span></div><div id="disqus_thread"></div><script>var disqus_config = function () {
+  this.page.url = 'http://huangkun.host/2020/03/25/20160315-node%E5%9F%BA%E7%A1%80/';
+  this.page.identifier = '2020/03/25/20160315-node基础/';
+  this.page.title = 'node基础';
+};
+(function() { 
+  var d = document, s = d.createElement('script');
+  s.src = 'https://AlexKhan.disqus.com/embed.js';
+  s.setAttribute('data-timestamp', +new Date());
+  (d.head || d.body).appendChild(s);
+})();
+</script><script>function getDisqusCount() {
+  var d = document, s = d.createElement('script');
+  s.src = 'https://AlexKhan.disqus.com/count.js';
+  s.id = 'dsq-count-scr';
+  (d.head || d.body).appendChild(s);
+}
+
+window.addEventListener('load', getDisqusCount, false);</script></div></article></main><footer id="footer" style="background-image: url(/assets/images/bg/15.jpeg)" data-type="photo"><div id="footer-wrap"><div class="copyright">&copy;2015 - 2020 By Kwin</div><div class="framework-info"><span>驱动 </span><a href="https://hexo.io" target="_blank" rel="noopener"><span>Hexo</span></a><span class="footer-separator">|</span><span>主题 </span><a href="https://github.com/jerryc127/hexo-theme-butterfly" target="_blank" rel="noopener"><span>Butterfly</span></a></div><div class="icp"><a href="http://www.beian.miit.gov.cn" target="_blank" rel="noopener"><img class="icp-icon" src="/img/icp.png"/><span>粤ICP备19151619号-1</span></a></div></div></footer></div><section class="rightside" id="rightside"><div id="rightside-config-hide"><i class="fa fa-plus" id="font_plus" title="放大字体"></i><i class="fa fa-minus" id="font_minus" title="缩小字体"></i><a class="translate_chn_to_cht" id="translateLink" href="javascript:translatePage();" title="简繁转换" target="_self">繁</a><i class="darkmode fa fa-moon-o" id="darkmode" title="夜间模式"></i></div><div id="rightside-config-show"><div id="rightside_config" title="设置"><i class="fa fa-cog" aria-hidden="true"></i></div><a id="to_comment" href="#post-comment" title="直达评论"><i class="scroll_to_comment fa fa-comments">  </i></a><i class="fa fa-list-ul close" id="mobile-toc-button" title="目录" aria-hidden="true"></i><i class="fa fa-arrow-up" id="go-up" title="回到顶部" aria-hidden="true"></i></div></section><script src="https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js"></script><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/tw_cn.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js"></script><script id="ribbon_piao" mobile="true" src="/js/third-party/piao.js"></script><script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><script src="https://cdn.jsdelivr.net/npm/instant.page@latest/instantpage.min.js" type="module"></script><script src="https://cdn.jsdelivr.net/npm/lazysizes@latest/lazysizes.min.js" async=""></script><script src="/js/third-party/click_heart.js"></script><script src="https://cdn.jsdelivr.net/npm/pangu/dist/browser/pangu.min.js"></script><script>document.addEventListener('DOMContentLoaded', function() {
+      pangu.spacingElementById('content-inner')
+})</script></body></html>

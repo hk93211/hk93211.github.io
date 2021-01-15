@@ -1,495 +1,79 @@
-<!DOCTYPE html>
-
-<html lang="zh-CN">
-    <head>
-    <meta charset="utf-8">
-    <!--
-        © SukkaW
-        GitHub: https://github.com/SukkaW/hexo-theme-suka
-        Version: 1.3.2
-    -->
-    <script>
-window.lsVersion = "1.3.2",
-window.oldVersion = [
-    
-        
-            "0.2.0","0.0.1","0.1.0","1.0.0","1.0.1","1.1.0","1.1.1","1.2.0","1.3.0"
-        
-    
-]
-</script>
-
-    <!-- ### DNS Prefetch ### -->
-    <meta http-equiv="x-dns-prefetch-control" content="on">
-<!-- busuanzi -->
-
-    <link rel="dns-prefetch" href="//busuanzi.ibruce.info">
-
-
-<!-- comment -->
-
-
-    <link rel="dns-prefetch" href="//disqus.com">
-    <link rel="dns-prefetch" href="//huan9kun.disqus.com">
-
-
-
-
-
-
-<!-- analytics -->
-
-
-
-
-
-
-
-
-    <!-- ### Preload ### -->
-    
-    <!-- Busuanzi -->
-    
-    <link rel="preload" href="https://cdn.jsdelivr.net/npm/busuanzi@2.3.0/bsz.pure.mini.js" as="script">
-
-
-
-
-
-
-
-    <!-- ### Meta & Title & Info ### -->
-    <meta http-equiv="X-UA-Compatible" content="IE=Edge, chrome=1">
-<meta name="renderer" content="webkit">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
-
-<!-- Title -->
-<title>分类: interview | HK&#39;s blog</title>
-
-<!-- favicon -->
-<!-- Favicons -->
-
-    <link rel="shortcut icon" type="image/ico" href="/img/suka-favicon.ico">
-
-
-
-
-
-
-<!-- Android Chrome Color -->
-
-
-
-<meta name="format-detection" content="telephone=no">
-
-<!-- Description -->
-<meta name="description" content="不会搞艺术的程序员不是好设计师">
-
-<!-- Keywords -->
-<meta name="keywords" content="Front End, 前端, 全栈">
-
-<!-- Disable Fucking Bloody Baidu Tranformation -->
-<meta http-equiv="Cache-Control" content="no-transform" />
-<meta http-equiv="Cache-Control" content="no-siteapp" />
-
-    <!-- ### Import File ### -->
-    
-        <!-- spectre.css -->
-
-    <link rel="stylesheet" href="/lib/spectre/spectre.min.css">
-
-
-<style>
-    body {
-        background-color: #f8f9fa;
-    }
-
-    a, a:visited {
-        color: #0070ff;
-    }
-
-    a:active, a:focus, a:hover {
-        color: #0070ff;
-        opacity: .75;
-    }
-
-    #post-content a,
-    #post-content a:hover,
-    #post-content a:focus,
-    #post-content a:visited {
-        color: #005eb9;
-        opacity: 1;
-    }
-
-    .post-entry .card-body a {
-        color: #0070ff;
-    }
-
-    .avatar {
-        background: #444;
-    }
-
-    .navbar-link,
-    .navbar-link:visited,
-    .timeline .timeline-item .timeline-icon.icon-lg {
-        color: #0070ff;
-    }
-
-    .navbar-link:hover {
-        color: #0070ff;
-        opacity: .8;
-    }
-
-    #search-input .btn,
-    #disqus_click_btn,
-    #disqus-switch-to-direct,
-    #disqus-loadmore-button {
-        background: #727e96;
-        border-color: #727e96;
-        color: #fff;
-    }
-
-    #post-toc a.post-toc-link,
-    #post-toc a.post-toc-link:visited,
-    .share-menu.menu .menu-item>a {
-        color: #727e96;
-    }
-
-    .share-menu.menu .menu-item>a:hover,
-    .share-menu.menu .menu-item>a:focus,
-    .share-menu.menu .menu-item>a:visited {
-        color: #50596c;
-        background: #f8f9fa;
-        opacity: .85;
-    }
-</style>
-
-<!-- style.css -->
-
-    <link rel="stylesheet" href="/css/style.min.css">
-
-
-
-
-
-
-
-
-
-    <!-- Prettify Theme -->
-    
-
-
-    
-
-    <!-- ### Site Verification ### -->
-    
-
-
-    <!-- ### RSS ### -->
-    
-
-    <!-- ### WebApp ### -->
-    <meta name="mobile-web-app-capable" content="yes">
-<meta name="application-name" content="HK&#39;s blog">
-<meta name="msapplication-starturl" content="http://yoursite.com">
-
-<meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-title" content="HK&#39;s blog">
-<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-
-<!-- Manifest Import -->
-
-<!-- Open Search -->
-
-
-    <!-- ### The Open Graph & Twitter Card Protocol ### -->
-    <meta property="og:title" content="分类: interview | HK&#39;s blog">
-<meta property="og:site_name" content="HK&#39;s blog">
-
-<meta property="og:locale" content="zh-CN">
-
-<meta property="og:url" content="http://yoursite.com/categories/interview/">
-<meta property="og:image" content="http://yoursite.com/img/suka-favicon.ico">
-
-<meta property="og:description" content="不会搞艺术的程序员不是好设计师">
-
-<meta name="twitter:card" content="summary">
-
-
-    <meta property="og:type" content="blog">
-
-
-
-
-
-    <!-- ### Analytics ### -->
-    
-
-
-
-
-
-
-
-
-    <!-- ### Canonical link ### -->
-    <link rel="canonical" href="http://yoursite.com/categories/interview/">
-
-    <!-- ### Structured Data ### -->
-    
-
-
-
-
-    <!-- ### Custom Head ### -->
-    
-
-
-</head>
-
-    <body>
-        
-
-            
-
-            <!-- ### Main content ### -->
-            <!-- ## Header ##-->
-<header>
-    <h1 class="header-title text-center"><a href="/">HK&#39;s blog</a></h1>
-
-    <p class="text-center header-slogan">
-        
-            
-                不会搞艺术的程序员不是好设计师
-            
-        
-    </p>
-
-    <nav class="navbar-section text-center">
-    
-        <a href="/" class="navbar-link">首页</a>
-    
-    
-        <a href="/archives/" class="navbar-link">归档</a>
-    
-    
-        <a href="/search" class="navbar-link">搜索</a>
-    
-    
-        <a href="/about/" class="navbar-link">关于</a>
-    
-        <a href="/links/" class="navbar-link">友链</a>
-    
-    
-        <div class="dropdown dropdown-right">
-    <a class="navbar-link dropdown-toggle" tabindex="0">分享</a>
-    <ul class="menu share-menu">
-
-        <!-- Share Weibo -->
-        
-        <li class="menu-item">
-            <a href="http://service.weibo.com/share/share.php?appkey=&title=HK's blog&url=http://yoursite.com&pic=http://yoursite.com/img/suka-favicon.ico&searchPic=false&style=simple" target="_blank" rel="noopener noreferrer nofollow">分享到微博</a>
-        </li>
-        
-
-        <!-- Share Twitter -->
-        
-        <li class="menu-item">
-            <a href="https://twitter.com/intent/tweet?text=HK's blog&url=http://yoursite.com&via=hk" target="_blank" rel="noopener noreferrer nofollow">分享到 Twitter</a>
-        </li>
-        
-
-        <!-- Share Facebook -->
-        
-        <li class="menu-item">
-            <a href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com" target="_blank" rel="noopener noreferrer nofollow">分享到 Facebook</a>
-        </li>
-        
-
-        <!-- Share Google+ -->
-        
-        <li class="menu-item">
-            <a href="https://plus.google.com/share?url=http://yoursite.com" target="_blank" rel="noopener noreferrer nofollow">分享到 Google+</a>
-        </li>
-        
-
-        <!-- Share LinkedIn -->
-        
-        <li class="menu-item">
-            <a href="https://www.linkedin.com/shareArticle?mini=true&url=http://yoursite.com&title=" target="_blank" rel="noopener noreferrer nofollow">分享到 LinkedIn</a>
-        </li>
-        
-
-        <!-- Share QQ -->
-        
-        <li class="menu-item">
-            <a href="http://connect.qq.com/widget/shareqq/index.html?site=HK's blog&title=&summary=不会搞艺术的程序员不是好设计师&pics=http://yoursite.com/img/suka-favicon.ico&url=http://yoursite.com" target="_blank" rel="noopener noreferrer nofollow"> 分享到 QQ</a>
-        </li>
-        
-
-        <!-- Share Telegram -->
-        
-        <li class="menu-item">
-            <a href="https://t.me/share/url?url=http://yoursite.com&text=" target="_blank" rel="noopener noreferrer nofollow">分享到 Telegram</a>
-        </li>
-        
-
-        <!-- QRCode -->
-        
-        <li class="menu-item">
-            <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAIQAAACECAAAAAB0L9x7AAABkElEQVR42u3ay27DMAxEUf//TzerAkUiDod2YI+K600RRXbOQjUf0vETcB0gQIDYAnGI6/f7j5vfxqo56rkgshHLRVOM//2B1XyFfx8HkY2oFuRqvPrs3g9ib8RyQQnU5Lkg9kVUC859eYHYE1EFmi4wufMuRVEQtyOcRPfM369n2yBuQViFq5nYquT4clUO4jaEeglVwarCrT6r3wGRiZCTLiCqxQwiHzFJUKux04scRCSiaoBWwclNYk5HURCPI7omh5PYdC+9UfEDIgIhJ4qHuQ3UcgxEJMK5aZLUjBJlEJEIp1E+2UyZFMUgMhEqWHUbcE5zdfTfASIG4SS1VZHTFUvyxQciEqGCV9csdYKZvAdEJGKy2LpA5RwUk1U5iAjEtIBRSazagFvOBRGJcDfhFEYV0NYhDhBRiMlB4a4ZPzn0ASIb0TY9BdAtqNs3Jog4hLMg3c1ap+kG4n8g3ISmK6JA7I1wmyCnEiAQ0QgVwJzCpzsManX5QcQgJoludwjUabCByEY8eYEAASIa8QL7t6iYuNDrEQAAAABJRU5ErkJggg==" alr="QRCode">
-        </li>
-        
-
-    </ul>
-</div>
-    
-    
-</nav>
-</header>
-
-            
-    <div class="container">
-    <div class="main-container">
-        <main>
-            <!-- # Title # -->
-            <h2 class="page-title">分类 : interview</h2>
-            <!-- # Post List # -->
-            <div class="post-stream-container">
-                
-                    <div class="grid-item">
-                        <article class="post-entry container px-0 card">
-        <div class="columns col-gapless">
-            
-                <div class="column col-12">
-                    
-    <h2 class="h5 mb-0 card-header"><a class="card-title" href="/2019/06/03/面试题/">面试题</a></h2>
-
-
-<p class="mb-0 card-body">
-    
-        1
-    <a href="/2019/06/03/面试题/">阅读全文</a>
-</p>
-
-
-    <!-- Date & Category -->
-    <div class="card-footer post-entry-info text-gray">
-        <img class="author-thumb lazyload" data-src="/img/luffy.jpeg" alt="hk's Avatar">
-        <time>2019-06-03</time>
-        
-            <span class="suka-devide-dot"></span>
-            <a class="category-link" href="/categories/interview/">interview</a>
-        
-        
-    </div>
-
-                </div>
-            
-        </div>
-</article>
-
-                    </div>
-                
-            </div>
-        </main>
-        
-
-    </div>
-</div>
-
-
-            <!-- ### Footer ### -->
-            <footer class="text-center">
-    <!-- footer copyright -->
-    <p class="footer-copyright mb-0">Copyright&nbsp;©&nbsp;<span data-year></span>
-        <a class="footer-copyright-a" href="http://yoursite.com">HK&#39;s blog</a>
-    </p>
-    <!-- footer custom text -->
-    <p class="footer-text mb-0">
-    
-    </p>
-    <!-- footer develop info -->
-    <p class="footer-develop mb-0">
-        
-            
-    <!-- Busuanzi User Views -->
-    <span id="busuanzi_container_site_uv" hidden>
-        <span></span>
-        <span id="busuanzi_value_site_uv"></span>
-        <span>Viewers</span>
-        
-            <span>|</span>
-        
-    </span>
-
-
-
-        
-        
-        Powered by&nbsp;<!--
-         --><a href="https://hexo.io" target="_blank" class="footer-develop-a" rel="nofollow noopener noreferrer">Hexo</a><span class="footer-develop-divider"></span>Theme&nbsp;-&nbsp;<!--
-         --><a href="https://github.com/SukkaW/hexo-theme-suka" target="_blank" class="footer-develop-a" rel="noopener">Suka</a>
-    </p>
-</footer>
-
-        
-
-        <!-- ### Import File ### -->
-        <!-- ### Footer JS Import ### -->
-
-<script>
-window.lazyLoadOptions = {
-    elements_selector: ".lazyload",
-    threshold: 50
-};
-
-
-
-    /* Copyright */
-    var copyrightNow = new Date().getFullYear();
-    var copyrightContent = document.querySelector('span[data-year]')
-    
-        copyrightContent.textContent = copyrightNow
-    
-
-
-
-/* Cnosole Log */
-console.log('\n %c Suka Theme (hexo-theme-suka) | © SukkaW | Verision 1.3.2 %c https://github.com/SukkaW/hexo-theme-suka \n', 'color: #fff; background: #444; padding:5px 0;', 'background: #bbb; padding:5px 0;');
-</script>
-
-<!-- vanilla-lazyload -->
-
-    <script src="/lib/vanilla-lazyload/lazyload.min.js" async></script>
-
-
-
-    <!-- Busuanzi -->
-    
-    <script src="https://cdn.jsdelivr.net/npm/busuanzi@2.3.0/bsz.pure.mini.js" async></script>
-
-
-<!-- Offset -->
-
-
-
-
-
-
-
-<!-- gallery.js -->
-
-
-<!-- Comment -->
-
-    
-
-
-<!-- ### Custom Footer ### -->
-
-
-    </body>
-
-</html>
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>分类: interview | Kwin 's Blog</title><meta name="description" content="不会搞艺术的程序员不是好设计师"><meta name="keywords" content="frontend,coding,engineer"><meta name="author" content="Kwin,hk93211@gmail.com"><meta name="copyright" content="Kwin"><meta name="format-detection" content="telephone=no"><link rel="shortcut icon" href="/assets/images/favicon.ico"><meta http-equiv="Cache-Control" content="no-transform"><meta http-equiv="Cache-Control" content="no-siteapp"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="https://fonts.googleapis.com" crossorigin="crossorigin"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><meta name="twitter:card" content="summary"><meta name="twitter:title" content="分类: interview"><meta name="twitter:description" content="不会搞艺术的程序员不是好设计师"><meta name="twitter:image" content="http://huangkun.host/assets/images/avatar.png"><meta property="og:type" content="website"><meta property="og:title" content="分类: interview"><meta property="og:url" content="http://huangkun.host/categories/interview/"><meta property="og:site_name" content="Kwin 's Blog"><meta property="og:description" content="不会搞艺术的程序员不是好设计师"><meta property="og:image" content="http://huangkun.host/assets/images/avatar.png"><script src="https://cdn.jsdelivr.net/npm/js-cookie/dist/js.cookie.min.js"></script><script>const autoChangeMode = '1'
+var t = Cookies.get("theme")
+if (autoChangeMode == '1'){
+  const isDarkMode = window.matchMedia("(prefers-color-scheme: dark)").matches
+  const isLightMode = window.matchMedia("(prefers-color-scheme: light)").matches
+  const isNotSpecified = window.matchMedia("(prefers-color-scheme: no-preference)").matches
+  const hasNoSupport = !isDarkMode && !isLightMode && !isNotSpecified
+
+  if (t === undefined){
+    if (isLightMode) activateLightMode()
+    else if (isDarkMode) activateDarkMode()
+    else if (isNotSpecified || hasNoSupport){
+      console.log('You specified no preference for a color scheme or your browser does not support it. I Schedule dark mode during night time.')
+      now = new Date();
+      hour = now.getHours();
+      isNight = hour < 6 || hour >= 18
+      isNight ? activateDarkMode() : activateLightMode()
+  }
+  } else if (t == 'light') activateLightMode()
+  else activateDarkMode()
+
+} else if (autoChangeMode == '2'){
+  now = new Date();
+  hour = now.getHours();
+  isNight = hour < 6 || hour >= 18
+  if(t === undefined) isNight? activateDarkMode() : activateLightMode()
+  else if (t === 'light') activateLightMode()
+  else activateDarkMode() 
+} else {
+  if ( t == 'dark' ) activateDarkMode()
+  else if ( t == 'light') activateLightMode()
+}
+
+function activateDarkMode(){
+  document.documentElement.setAttribute('data-theme', 'dark')
+  if (document.querySelector('meta[name="theme-color"]') !== null){
+    document.querySelector('meta[name="theme-color"]').setAttribute('content','#000')
+  }
+}
+function activateLightMode(){
+  document.documentElement.setAttribute('data-theme', 'light')
+  if (document.querySelector('meta[name="theme-color"]') !== null){
+  document.querySelector('meta[name="theme-color"]').setAttribute('content','#fff')
+  }
+}</script><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@latest/css/font-awesome.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.css"><link rel="canonical" href="http://huangkun.host/categories/interview/"><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Titillium+Web"><script>var GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: {"defaultEncoding":2,"translateDelay":0,"cookieDomain":"http://huangkun.host/","msgToTraditionalChinese":"繁","msgToSimplifiedChinese":"簡"},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  bookmark: {
+    title: 'Snackbar.bookmark.title',
+    message_prev: '按',
+    message_next: '键将本页加入书签'
+  },
+  runtime_unit: '天',
+  runtime: true,
+  copyright: undefined,
+  ClickShowText: undefined,
+  medium_zoom: false,
+  fancybox: true,
+  Snackbar: undefined,
+  baiduPush: false,
+  highlightCopy: true,
+  highlightLang: true,
+  highlightShrink: false,
+  isFontAwesomeV5: false
+  
+}</script><script>var GLOBAL_CONFIG_SITE = { 
+  isPost: false,
+  isHome: false
+}</script><meta name="generator" content="Hexo 4.2.0"><link rel="alternate" href="/atom.xml" title="Kwin 's Blog" type="application/atom+xml">
+</head><body><div id="mobile-sidebar"><div id="menu_mask"></div><div id="mobile-sidebar-menus"><div class="mobile_author_icon"><img class="avatar-img" src="/assets/images/avatar.png" onerror="onerror=null;src='/assets/images/bg/39.jpeg'" alt="avatar"/></div><div class="mobile_post_data"><div class="mobile_data_item is-center"><div class="mobile_data_link"><a href="/archives/"><div class="headline">文章</div><div class="length_num">62</div></a></div></div><div class="mobile_data_item is-center">      <div class="mobile_data_link"><a href="/tags/"><div class="headline">标签</div><div class="length_num">23</div></a></div></div><div class="mobile_data_item is-center">     <div class="mobile_data_link"><a href="/categories/"><div class="headline">分类</div><div class="length_num">19</div></a></div></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fa fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fa fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fa fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fa fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fa fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fa fa-heart"></i><span> 关于</span></a></div><div class="menus_item"><a class="site-page"><i class="fa-fw fa fa-list" aria-hidden="true"></i><span> 清单</span><i class="fa fa-chevron-down menus-expand" aria-hidden="true"></i></a><ul class="menus_item_child"><li><a class="site-page" href="/music/"><i class="fa-fw fa fa-music"></i><span> Music</span></a></li><li><a class="site-page" href="/movies/"><i class="fa-fw fa fa-film"></i><span> Movie</span></a></li></ul></div></div></div></div><div id="body-wrap"><div class="not-index-bg" id="nav" style="background-image: url(/assets/images/bg/26.jpeg)"><div id="page-header"><span class="pull_left" id="blog_name"><a class="blog_title" id="site-name" href="/">Kwin 's Blog</a></span><span class="toggle-menu pull_right close"><a class="site-page"><i class="fa fa-bars fa-fw" aria-hidden="true"></i></a></span><span class="pull_right menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fa fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fa fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fa fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fa fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fa fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fa fa-heart"></i><span> 关于</span></a></div><div class="menus_item"><a class="site-page"><i class="fa-fw fa fa-list" aria-hidden="true"></i><span> 清单</span><i class="fa fa-chevron-down menus-expand" aria-hidden="true"></i></a><ul class="menus_item_child"><li><a class="site-page" href="/music/"><i class="fa-fw fa fa-music"></i><span> Music</span></a></li><li><a class="site-page" href="/movies/"><i class="fa-fw fa fa-film"></i><span> Movie</span></a></li></ul></div></div></span></div><div id="page_site-info"><h1 id="site_title">interview</h1></div></div><main class="layout_page" id="content-inner"><div id="category"><div class="article-sort-title">分类 - interview</div><div class="article-sort"><div class="article-sort-item year">2020</div><div class="article-sort-item"><div class="article-sort-img"><a class="article-sort-item__img" href="/2020/03/25/20200325-%E5%89%8D%E7%AB%AF%E5%9F%BA%E7%A1%80%E9%9D%A2%E8%AF%95%E9%A2%98/"><img src="/assets/images/bg/41.jpeg" alt="前端基础面试题" onerror="this.onerror=null;this.src='/img/404.jpg'"></a></div><div class="article-sort-post"><a class="article-sort-item__post" href="/2020/03/25/20200325-%E5%89%8D%E7%AB%AF%E5%9F%BA%E7%A1%80%E9%9D%A2%E8%AF%95%E9%A2%98/"><i class="fa fa-clock-o" aria-hidden="true"></i><time class="article-sort-item__time">2020-03-25</time><div class="article-sort-item__title">前端基础面试题</div></a></div></div><div class="article-sort-item"><div class="article-sort-img"><a class="article-sort-item__img" href="/2020/03/25/20190823-Vue%E9%9D%A2%E8%AF%95%E9%A2%98/"><img src="/assets/images/bg/11.jpeg" alt="Vue面试题" onerror="this.onerror=null;this.src='/img/404.jpg'"></a></div><div class="article-sort-post"><a class="article-sort-item__post" href="/2020/03/25/20190823-Vue%E9%9D%A2%E8%AF%95%E9%A2%98/"><i class="fa fa-clock-o" aria-hidden="true"></i><time class="article-sort-item__time">2020-03-25</time><div class="article-sort-item__title">Vue面试题</div></a></div></div><div class="article-sort-item"><div class="article-sort-img"><a class="article-sort-item__img" href="/2020/03/25/20190603-%E9%9D%A2%E8%AF%95%E9%A2%98/"><img src="/assets/images/bg/15.jpeg" alt="面试题" onerror="this.onerror=null;this.src='/img/404.jpg'"></a></div><div class="article-sort-post"><a class="article-sort-item__post" href="/2020/03/25/20190603-%E9%9D%A2%E8%AF%95%E9%A2%98/"><i class="fa fa-clock-o" aria-hidden="true"></i><time class="article-sort-item__time">2020-03-25</time><div class="article-sort-item__title">面试题</div></a></div></div></div><nav id="pagination"><div class="pagination"><span class="page-number current">1</span></div></nav></div><div class="aside_content" id="aside_content"><div class="card-widget card-info"><div class="card-content"><div class="card-info-avatar is-center"><img class="avatar-img" src="/assets/images/avatar.png" onerror="this.onerror=null;this.src='/assets/images/bg/39.jpeg'" alt="avatar"/><div class="author-info__name">Kwin</div><div class="author-info__description">不会搞艺术的程序员不是好设计师</div></div><div class="card-info-data"><div class="card-info-data-item is-center"><a href="/archives"><div class="headline">文章</div><div class="length_num">62</div></a></div><div class="card-info-data-item is-center">      <a href="/tags"><div class="headline">标签</div><div class="length_num">23</div></a></div><div class="card-info-data-item is-center">     <a href="/categories"><div class="headline">分类</div><div class="length_num">19</div></a></div></div><div class="card-info-bookmark is-center"><a class="bookmark button--primary button--animated" id="bookmark-it" href="javascript:;" title="加入书签" target="_self"><i class="fa fa-bookmark" aria-hidden="true"></i><span>加入书签</span></a></div><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/hk93211" target="_blank"><i class="fa fa-github" aria-hidden="true"></i></a><a class="social-icon" href="https://weibo.com/superxiaohuang" target="_blank"><i class="fa fa-weibo" aria-hidden="true"></i></a><a class="social-icon" href="https://t.me/hk93211" target="_blank"><i class="fa fa-telegram" aria-hidden="true"></i></a><a class="social-icon" href="https://medium.com/@hk93211" target="_blank"><i class="fa fa-medium" aria-hidden="true"></i></a><a class="social-icon" href="mailto:hk93211@gmail.com" target="_blank"><i class="fa fa-envelope" aria-hidden="true"></i></a><a class="social-icon" href="/atom.xml" target="_blank"><i class="fa fa-rss" aria-hidden="true"></i></a></div></div></div><div class="card-widget card-announcement"><div class="card-content"><div class="item-headline"><i class="fa fa-bullhorn card-announcement-animation" aria-hidden="true"></i><span>公告</span></div><div class="announcement_content">感謝訪問本站，若喜歡請收藏或者订阅本站 ^_^ <div>作者的公众号</div><img src="/assets/images/public-wechat-account.jpg" /><div>小程序</div><img src="/assets/images/miniprogram.jpg" /></div></div></div><div class="card-widget card-recent-post"><div class="card-content"><div class="item-headline"><i class="fa fa-history" aria-hidden="true"></i><span>最新文章</span></div><div class="aside-recent-item"> <div class="aside-recent-post"><a href="/2020/12/31/20201223-h5%E4%B8%8E%E5%8E%9F%E7%94%9FAPP%E4%BA%A4%E4%BA%92%E5%8E%9F%E7%90%86/"><div class="aside-post-cover"><img class="aside-post-bg lazyload" data-src="/assets/images/bg/38.jpeg" onerror="this.onerror=null;this.src='/img/404.jpg'" title="h5与原生APP交互原理" alt="h5与原生APP交互原理"/></div><div class="aside-post-title"><div class="aside-post_title" href="/2020/12/31/20201223-h5%E4%B8%8E%E5%8E%9F%E7%94%9FAPP%E4%BA%A4%E4%BA%92%E5%8E%9F%E7%90%86/" title="h5与原生APP交互原理">h5与原生APP交互原理</div><time class="aside-post_meta post-meta__date">2020-12-31</time></div></a></div><div class="aside-recent-post"><a href="/2020/04/02/20200402-git%E6%89%BE%E5%9B%9Ereset%E6%8E%89%E7%9A%84%E5%86%85%E5%AE%B9/"><div class="aside-post-cover"><img class="aside-post-bg lazyload" data-src="/assets/images/bg/39.jpeg" onerror="this.onerror=null;this.src='/img/404.jpg'" title="git找回错误reset的文件" alt="git找回错误reset的文件"/></div><div class="aside-post-title"><div class="aside-post_title" href="/2020/04/02/20200402-git%E6%89%BE%E5%9B%9Ereset%E6%8E%89%E7%9A%84%E5%86%85%E5%AE%B9/" title="git找回错误reset的文件">git找回错误reset的文件</div><time class="aside-post_meta post-meta__date">2020-04-02</time></div></a></div><div class="aside-recent-post"><a href="/2020/03/27/20200327-vue%E5%88%B7%E6%96%B0%E5%BD%93%E5%89%8D%E9%A1%B5%E9%9D%A2/"><div class="aside-post-cover"><img class="aside-post-bg lazyload" data-src="/assets/images/bg/40.jpeg" onerror="this.onerror=null;this.src='/img/404.jpg'" title="vue刷新当前页面" alt="vue刷新当前页面"/></div><div class="aside-post-title"><div class="aside-post_title" href="/2020/03/27/20200327-vue%E5%88%B7%E6%96%B0%E5%BD%93%E5%89%8D%E9%A1%B5%E9%9D%A2/" title="vue刷新当前页面">vue刷新当前页面</div><time class="aside-post_meta post-meta__date">2020-03-27</time></div></a></div><div class="aside-recent-post"><a href="/2020/03/25/20200325-%E5%89%8D%E7%AB%AF%E5%9F%BA%E7%A1%80%E9%9D%A2%E8%AF%95%E9%A2%98/"><div class="aside-post-cover"><img class="aside-post-bg lazyload" data-src="/assets/images/bg/41.jpeg" onerror="this.onerror=null;this.src='/img/404.jpg'" title="前端基础面试题" alt="前端基础面试题"/></div><div class="aside-post-title"><div class="aside-post_title" href="/2020/03/25/20200325-%E5%89%8D%E7%AB%AF%E5%9F%BA%E7%A1%80%E9%9D%A2%E8%AF%95%E9%A2%98/" title="前端基础面试题">前端基础面试题</div><time class="aside-post_meta post-meta__date">2020-03-25</time></div></a></div><div class="aside-recent-post"><a href="/2020/03/25/20200324-macOS%E6%94%B9%E5%8F%98%E6%96%87%E4%BB%B6%E7%9A%84%E5%88%9B%E5%BB%BA%E6%97%B6%E9%97%B4/"><div class="aside-post-cover"><img class="aside-post-bg lazyload" data-src="/assets/images/bg/25.jpeg" onerror="this.onerror=null;this.src='/img/404.jpg'" title="macOS改变文件的创建时间" alt="macOS改变文件的创建时间"/></div><div class="aside-post-title"><div class="aside-post_title" href="/2020/03/25/20200324-macOS%E6%94%B9%E5%8F%98%E6%96%87%E4%BB%B6%E7%9A%84%E5%88%9B%E5%BB%BA%E6%97%B6%E9%97%B4/" title="macOS改变文件的创建时间">macOS改变文件的创建时间</div><time class="aside-post_meta post-meta__date">2020-03-25</time></div></a></div></div></div></div><div class="card-widget card-categories"><div class="card-content"><div class="item-headline"><i class="fa fa-folder-open" aria-hidden="true"></i><span>分类</span></div><ul class="aside-category-item">       <li class="aside-category-list"><a class="aside-category-list_link" href="/categories/H5/"><span class="aside-category-list_name">H5</span><span class="aside-category-list_length">1</span></a></li><li class="aside-category-list"><a class="aside-category-list_link" href="/categories/angularjs/"><span class="aside-category-list_name">angularjs</span><span class="aside-category-list_length">2</span></a></li><li class="aside-category-list"><a class="aside-category-list_link" href="/categories/es6/"><span class="aside-category-list_name">es6</span><span class="aside-category-list_length">1</span></a></li><li class="aside-category-list"><a class="aside-category-list_link" href="/categories/git/"><span class="aside-category-list_name">git</span><span class="aside-category-list_length">5</span></a></li><li class="aside-category-list"><a class="aside-category-list_link" href="/categories/gulp/"><span class="aside-category-list_name">gulp</span><span class="aside-category-list_length">1</span></a></li><li class="aside-category-list"><a class="aside-category-list_link" href="/categories/h5/"><span class="aside-category-list_name">h5</span><span class="aside-category-list_length">1</span></a></li><li class="aside-category-list"><a class="aside-category-list_link" href="/categories/hexo/"><span class="aside-category-list_name">hexo</span><span class="aside-category-list_length">1</span></a></li><li class="aside-category-list"><a class="aside-category-list_link" href="/categories/http/"><span class="aside-category-list_name">http</span><span class="aside-category-list_length">1</span></a></li><li class="aside-category-list"><a class="aside-category-list_link" href="/categories/interview/"><span class="aside-category-list_name">interview</span><span class="aside-category-list_length">3</span></a></li><li class="aside-category-list"><a class="aside-category-list_link" href="/categories/javascript/"><span class="aside-category-list_name">javascript</span><span class="aside-category-list_length">16</span></a></li><li class="aside-category-list"><a class="aside-category-list_link" href="/categories/markdown/"><span class="aside-category-list_name">markdown</span><span class="aside-category-list_length">1</span></a></li><li class="aside-category-list"><a class="aside-category-list_link" href="/categories/netlify/"><span class="aside-category-list_name">netlify</span><span class="aside-category-list_length">1</span></a></li><li class="aside-category-list"><a class="aside-category-list_link" href="/categories/nginx/"><span class="aside-category-list_name">nginx</span><span class="aside-category-list_length">1</span></a></li><li class="aside-category-list"><a class="aside-category-list_link" href="/categories/node/"><span class="aside-category-list_name">node</span><span class="aside-category-list_length">4</span></a></li><li class="aside-category-list"><a class="aside-category-list_link" href="/categories/react/"><span class="aside-category-list_name">react</span><span class="aside-category-list_length">5</span></a></li><li class="aside-category-list"><a class="aside-category-list_link" href="/categories/vue/"><span class="aside-category-list_name">vue</span><span class="aside-category-list_length">12</span></a></li><li class="aside-category-list"><a class="aside-category-list_link" href="/categories/webpack/"><span class="aside-category-list_name">webpack</span><span class="aside-category-list_length">4</span></a></li><li class="aside-category-list"><a class="aside-category-list_link" href="/categories/%E5%89%8D%E7%AB%AF%E5%B7%A5%E7%A8%8B%E5%8C%96/"><span class="aside-category-list_name">前端工程化</span><span class="aside-category-list_length">1</span></a></li><li class="aside-category-list"><a class="aside-category-list_link" href="/categories/%E5%89%8D%E7%AB%AF%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/"><span class="aside-category-list_name">前端性能优化</span><span class="aside-category-list_length">1</span></a></li></ul></div></div><div class="card-widget card-tags"><div class="card-content"><div class="item-headline"><i class="fa fa-tags" aria-hidden="true"></i><span>标签</span></div><div class="card-tag-cloud"><a href="/tags/CORS/" style="font-size: 16px; color: #999">CORS</a> <a href="/tags/H5/" style="font-size: 16px; color: #999">H5</a> <a href="/tags/angularjs/" style="font-size: 17.33px; color: #999c9f">angularjs</a> <a href="/tags/blog/" style="font-size: 17.33px; color: #999c9f">blog</a> <a href="/tags/es6/" style="font-size: 18.67px; color: #999ea6">es6</a> <a href="/tags/git/" style="font-size: 21.33px; color: #99a4b2">git</a> <a href="/tags/gulp/" style="font-size: 16px; color: #999">gulp</a> <a href="/tags/h5/" style="font-size: 16px; color: #999">h5</a> <a href="/tags/hexo/" style="font-size: 16px; color: #999">hexo</a> <a href="/tags/http/" style="font-size: 16px; color: #999">http</a> <a href="/tags/interview/" style="font-size: 18.67px; color: #999ea6">interview</a> <a href="/tags/javascript/" style="font-size: 24px; color: #99a9bf">javascript</a> <a href="/tags/markdown/" style="font-size: 16px; color: #999">markdown</a> <a href="/tags/netlify/" style="font-size: 16px; color: #999">netlify</a> <a href="/tags/nginx/" style="font-size: 16px; color: #999">nginx</a> <a href="/tags/node/" style="font-size: 20px; color: #99a1ac">node</a> <a href="/tags/react/" style="font-size: 21.33px; color: #99a4b2">react</a> <a href="/tags/redux/" style="font-size: 17.33px; color: #999c9f">redux</a> <a href="/tags/vue/" style="font-size: 22.67px; color: #99a6b9">vue</a> <a href="/tags/webpack/" style="font-size: 21.33px; color: #99a4b2">webpack</a> <a href="/tags/%E4%BB%A3%E7%A0%81%E8%A7%84%E8%8C%83/" style="font-size: 17.33px; color: #999c9f">代码规范</a> <a href="/tags/%E5%89%8D%E7%AB%AF%E5%B7%A5%E7%A8%8B%E5%8C%96/" style="font-size: 20px; color: #99a1ac">前端工程化</a> <a href="/tags/%E5%89%8D%E7%AB%AF%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/" style="font-size: 17.33px; color: #999c9f">前端性能优化</a></div></div></div><div class="card-widget card-archives"><div class="card-content"><div class="item-headline"><i class="fa fa-archive" aria-hidden="true"></i><span>归档</span></div><ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/12/"><span class="archive-list-date">2020年12月</span><span class="archive-list-count">1</span></a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/04/"><span class="archive-list-date">2020年04月</span><span class="archive-list-count">1</span></a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/03/"><span class="archive-list-date">2020年03月</span><span class="archive-list-count">60</span></a></li></ul></div></div><div class="card-widget card-webinfo"><div class="card-content"><div class="item-headline"><i class="fa fa-line-chart" aria-hidden="true"></i><span>网站资讯</span></div><div class="webinfo"><div class="webinfo-item"><div class="webinfo-article-name">文章数目 :</div><div class="webinfo-article-count">62</div></div><div class="webinfo-item"><div class="webinfo-runtime-name">已运行时间 :</div><div class="webinfo-runtime-count" id="webinfo-runtime-count" start_date="6/23/2015 00:00:00">     </div></div><div class="webinfo-item">      <div class="webinfo-site-uv-name">本站访客数 :</div><div class="webinfo-site-uv-count" id="busuanzi_value_site_uv"></div></div><div class="webinfo-item"><div class="webinfo-site-name">本站总访问量 :</div><div class="webinfo-site-pv-count" id="busuanzi_value_site_pv"></div></div></div></div></div></div></main><footer id="footer" style="background-image: url(/assets/images/bg/26.jpeg)" data-type="photo"><div id="footer-wrap"><div class="copyright">&copy;2015 - 2020 By Kwin</div><div class="framework-info"><span>驱动 </span><a href="https://hexo.io" target="_blank" rel="noopener"><span>Hexo</span></a><span class="footer-separator">|</span><span>主题 </span><a href="https://github.com/jerryc127/hexo-theme-butterfly" target="_blank" rel="noopener"><span>Butterfly</span></a></div><div class="icp"><a href="http://www.beian.miit.gov.cn" target="_blank" rel="noopener"><img class="icp-icon" src="/img/icp.png"/><span>粤ICP备19151619号-1</span></a></div></div></footer></div><section class="rightside" id="rightside"><div id="rightside-config-hide"><a class="translate_chn_to_cht" id="translateLink" href="javascript:translatePage();" title="简繁转换" target="_self">繁</a><i class="darkmode fa fa-moon-o" id="darkmode" title="夜间模式"></i></div><div id="rightside-config-show"><div id="rightside_config" title="设置"><i class="fa fa-cog" aria-hidden="true"></i></div><i class="fa fa-arrow-up" id="go-up" title="回到顶部" aria-hidden="true"></i></div></section><script src="https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js"></script><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/tw_cn.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js"></script><script id="ribbon_piao" mobile="true" src="/js/third-party/piao.js"></script><script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><script src="https://cdn.jsdelivr.net/npm/instant.page@latest/instantpage.min.js" type="module"></script><script src="https://cdn.jsdelivr.net/npm/lazysizes@latest/lazysizes.min.js" async=""></script><script src="/js/third-party/click_heart.js"></script><script src="https://cdn.jsdelivr.net/npm/pangu/dist/browser/pangu.min.js"></script><script>document.addEventListener('DOMContentLoaded', function() {
+      pangu.spacingElementById('content-inner')
+})</script></body></html>
